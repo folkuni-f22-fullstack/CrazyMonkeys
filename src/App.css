@@ -1,3 +1,9 @@
+:root {
+    --foretagets-font: 'Gloria Hallelujah', cursive;
+    --bg-color: #4c5452;
+  }
+  
+
 * {
     box-sizing: border-box;
     margin: 0px;

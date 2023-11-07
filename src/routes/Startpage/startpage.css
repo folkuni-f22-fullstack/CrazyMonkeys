@@ -1,0 +1,64 @@
+/* NAVBAR TEXT - font-family: 'Playfair Display', serif; 
+Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
+*/
+
+main {
+    background-color: var(--bg-color); 
+  }
+.pic-container {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  gap: 0.3em;
+  padding-bottom: 0.1em;
+  filter: drop-shadow(rgb(0, 0, 0) 0rem 0.1rem 5px);
+}
+.pic-container2 {
+  display: none;
+}
+ .top-pic {
+    width: auto;
+    height: auto;
+    width: 6.46em;
+    max-height: 18.40em;
+   
+  }
+.sushi {
+  display: none;
+}
+.company-title{
+    font-family: var(--foretagets-font);
+    color: white; 
+}
+.body-text{
+    color:white
+}
+
+
+/* Desktop */
+
+@media screen and (min-width: 1080px) {
+  .top-pic {
+    width: auto;
+    /* height: auto; */
+    min-width:10em;
+    max-height: 15.4em;
+  }
+  .sushi {
+    display: block;
+    z-index: 2;
+    transform: scale(1.1);
+    margin-top: 0.77em;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .pic-container {
+    display: none;
+  }
+  .pic-container2 {
+    display: flex;
+    gap: 0.4em;
+    filter: drop-shadow(rgb(0, 0, 0) 0rem 0.1rem 5px);
+    flex-wrap: wrap;
+    margin-top:-0.5em;
+  }
+}

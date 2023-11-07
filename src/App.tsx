@@ -1,12 +1,12 @@
 
 import './App.css'
-import Header from './Components/Header/Header'
+import StartPage from './routes/Startpage/Startpage'
 
 function App() {
 
   return (
     <>
-     <Header/>
+    <StartPage/>
     </>
   )
 }

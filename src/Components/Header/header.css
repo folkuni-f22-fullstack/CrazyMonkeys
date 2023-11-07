@@ -31,9 +31,9 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
 .overlay {
   position: fixed;
   left: 50%;
-  transform: translate(-50%, 90%);
+  transform: translate(-50%, 76%);
   background-color: white;
-  padding: 20em;
+  padding: 30em;
   text-align: center;
   z-index: 1000;
   color: white;
