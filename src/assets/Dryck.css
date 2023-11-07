@@ -1,0 +1,42 @@
+.dryck-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .name-column {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .details-column {
+    flex: 2;
+    padding: 10px;
+  }
+  
+  .quantity-controls {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantity-button {
+    background-color: #224422;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 0 5px;
+  }
+  
+  .quantity-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .quantity {
+    font-weight: bold;
+    margin: 0 5px;
+  }
+  
+  /* Lägg till ytterligare CSS-stilar efter behov */
+  
