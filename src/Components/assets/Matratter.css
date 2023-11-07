@@ -1,8 +1,9 @@
 .matratt-container {
     display: flex;
     flex-direction: column;
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
     padding: 20px;
+    width: 800px;
   }
   
   .matratt {
@@ -10,7 +11,8 @@
     align-items: center;
     margin: 10px;
     padding: 10px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
+    width: 100%;
   }
   
   .matratt-image {
@@ -18,13 +20,28 @@
   }
   
   .matratt-image img {
-    max-width: 100%;
-    height: auto;
+    width: 170px;
+    height: 170px;
+    border-radius: 7px;
   }
   
   .matratt-details {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
     flex: 2;
     padding: 10px;
+  }
+
+  .matratt-p{
+    width: 350px;
+    text-align: start;
+  }
+
+  .bottom-details{
+    display: flex;
+    gap: 2em;
+    align-items: center;
   }
   
   .order-button {
@@ -33,9 +50,7 @@
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    padding: 5px 10px;
-    margin-top: 10px;
-    text-align: right;
+    padding: 5px 20px; 
   }
   
   .order-button:hover {
