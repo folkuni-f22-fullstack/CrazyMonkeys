@@ -1,12 +1,11 @@
 
 import './App.css'
-import Menu from './components/menu'
+import Menu from './Components/Menu/menu'
 function App() {
 
   return (
     <>
-     {/* <h1>CrazyMonekys </h1> */}
-     <Menu />
+      <Menu />
     </>
   )
 }

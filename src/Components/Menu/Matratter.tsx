@@ -1,6 +1,5 @@
 
 import '../assets/Matratter.css'; 
-
 const Matratter = () => {
   const matratterData = [
     {
@@ -8,11 +7,11 @@ const Matratter = () => {
         name: 'Thai tacos ',
         description: 'Ta klassiska thailändska smaker som pad thai, gröna curry och satay och servera dem som fyllning i tacoskal.',
         price: '129:-',
-        imageUrl: 'ThaiTaco.jpg',
+        imageUrl: ''
       },
   ];
 
-  const handleOrderClick = (name) => {
+  const handleOrderClick = (name: string) => {
     
     alert(`Du lagt till: ${name} i korgen`);
   };
