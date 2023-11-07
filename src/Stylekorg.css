@@ -1,0 +1,87 @@
+
+
+body{
+    background-color: #4C5452;
+    margin: 0;
+}
+div > .background-korg {
+    display: flex;
+    flex-direction: column;
+}
+.background-korg{
+    align-items: center;
+    height: 40rem;
+    width: 50%;
+    position: relative;
+    left: 25%;
+    top: 6rem;
+    border-radius: 2em;
+    border: 0.4em solid #183A37;
+    background-color:#ffff;
+}
+.foodname{
+    position: relative;
+    left: -4.5rem;
+}
+.foodname::after{
+    border: 1px dotted #000;
+}
+.title-pris-antal{
+    align-self: flex-end;
+    margin: 5rem 2rem 1rem 0;
+    position: relative;
+    right: 6rem;
+}
+.pris-kundkorg{
+    margin-right: 4rem;
+}
+.dot{
+    margin: 0;
+    width: 1rem;
+    z-index: -1;
+}
+
+@media(min-width: 375px) and (max-width:1000px){
+    .foodname{
+        position: relative;
+        left: -3.5rem;
+        margin-bottom: 1rem;
+        
+    }
+    .background-korg{
+        position: relative;
+        left: 0;
+        width: auto;
+        height: 30rem;
+
+    }
+    .title-pris-antal{
+        position: relative;
+        left: 1rem;
+        
+    }
+    .foodprice-kundkorg{
+        margin-right:3rem ;
+    }
+    .foodprice{
+        position: relative;
+        left: 1rem;
+    }
+    .amount-food {
+        position: relative;
+        left: 3.5rem;
+    }
+    .minus{
+        position: relative;
+        left: 3rem;
+        bottom: -2px;
+
+    }
+    .plus{
+        position: relative;
+        left: 4rem;
+        bottom: -2px;
+    }
+
+
+}
