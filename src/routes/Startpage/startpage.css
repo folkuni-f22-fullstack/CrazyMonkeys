@@ -2,9 +2,6 @@
 Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
 */
 
-main {
-    background-color: var(--bg-color); 
-  }
 .pic-container {
   display: flex;
   flex-direction: row;
@@ -15,35 +12,71 @@ main {
 }
 .pic-container2 {
   display: none;
+  background-color: rgba(27, 26, 26, 0.763);
 }
- .top-pic {
-    width: auto;
-    height: auto;
-    width: 6.46em;
-    max-height: 18.40em;
-   
-  }
+.top-pic {
+  width: 6.1em;
+  max-height: 18.4em;
+}
 .sushi {
   display: none;
 }
-.company-title{
-    font-family: var(--foretagets-font);
-    color: white; 
+.company-title {
+  font-family: var(--title-font);
+  color: white;
+  font-size: 24px;
 }
-.body-text{
-    color:white
+.companytitletext-p {
+  font-family: var(--title-font);
+  color: white;
+  font-size: 14px;
+  margin: 2em 2em;
 }
 
+main {
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+}
+.text-container {
+  text-align: center;
 
-/* Desktop */
+}
+.body-text {
+  color: white;
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: var(--content-font);
+  padding: 2em;
 
-@media screen and (min-width: 1080px) {
-  .top-pic {
-    width: auto;
-    /* height: auto; */
-    min-width:10em;
-    max-height: 15.4em;
+}
+
+.text-container:nth-child(2),
+.text-container:nth-child(4) {
+  background-color: var(--header-color);
+
+}
+
+.startmainpicture {
+  width: 18em;
+  border-radius: 3%;
+}
+
+/* Desktop 1920 */
+
+@media screen and (min-width: 320px) {
+  .sushi {
+    display: none;
   }
+
+  .top-pic {
+    flex-grow: 1; /* Låt båda bilderna växa efter 330px */
+  }
+}
+
+@media screen and (min-width: 1000px) {
   .sushi {
     display: block;
     z-index: 2;
@@ -51,14 +84,16 @@ main {
     margin-top: 0.77em;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   }
+
   .pic-container {
     display: none;
   }
+
   .pic-container2 {
     display: flex;
     gap: 0.4em;
     filter: drop-shadow(rgb(0, 0, 0) 0rem 0.1rem 5px);
     flex-wrap: wrap;
-    margin-top:-0.5em;
+    margin-top: -0.5em;
   }
 }
