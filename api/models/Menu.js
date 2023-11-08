@@ -5,6 +5,10 @@
         type: String,
         required: true
     },
+    itemType: {
+        type: String,
+        required: true
+    },
     name: {
         type: String,
         required: true
