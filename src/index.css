@@ -33,25 +33,30 @@ html, body {
 .input {
     box-shadow: var(--shadow-elevation-medium);
     border: none;
-    border-radius: 7.5px;
+    border-radius: 6.5px;
+    padding: .65em;
 }
 
-.button {
-    display: inline-block;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-size: 20px;
+.btn-grad {
+    background-image: linear-gradient(to right, #235852 0%, 
+  #001510  51%, #00bf8f  100%); 
+    margin: 2em 0.4em;
+    padding: 15px 45px;
     text-align: center;
-    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
     color: white;
-    background-color: #4CAF50;
-    border: none;
-    transition: background-color 0.3s;
-}
+    box-shadow: 0 0 7px #eee;
+    border-radius: 10px;
+    display: block;
+  }
 
-.button:hover {
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,45,1) 35%, rgba(0,212,255,1) 100%);
-}
+.btn-grad:hover {
+    background-position: right center; 
+    color: #fff;
+    text-decoration: none;
+  }
 
 .container {
     min-width: 320px;
@@ -104,6 +109,7 @@ html, body {
 .header {
     display: grid;
     grid-template-areas: 'button text ...';
+    padding: 1.25em 0em;
 }
 
 .header > h1 {
