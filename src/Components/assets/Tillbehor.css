@@ -1,56 +1,43 @@
-/* Standardstilar för bredare skärmar */
-.tillbehor-container {
-    background-color: #f2f2f2;
-    padding: 20px;
-  }
-  
-  .tillbehor-item {
+
+.tillbehor-container{
+    padding: 1em;
     display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .tillbehor-details {
-    flex: 3;
-  }
-  
-  .quantity-controls {
-    flex: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    height: 70vh;
+    overflow-y: scroll;
+}
+
+.tillbehor-item{
+    padding: .5em;
+    margin-bottom: .5em;
+    width: 400px;
+}
+
+.tillbehor-details{
     display: flex;
+    flex-direction: column;
+}
+
+.tillbehor-img img{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.name-price-tillbehor{
+    display: flex;
+    justify-content: center;
+    gap: 1em;
     align-items: center;
-  }
-  
-  .quantity-button {
-    background-color: #224422;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 5px 10px;
-    margin: 0 5px;
-  }
-  
-  .quantity-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  .quantity {
-    font-weight: bold;
-    margin: 0 5px;
-  }
-  
-  /* Responsiv design för skärmbredder mindre än eller lika med 767px (mobil) */
-  @media (max-width: 767px) {
-    .tillbehor-details {
-      flex: 1; /* Ändra flex till 1 för att ta upp mer utrymme på mobilen */
-    }
-  
-    .quantity-controls {
-      flex: 1; /* Ändra flex till 1 för att ta upp mer utrymme på mobilen */
-    }
-  
-    .quantity-button {
-      padding: 5px 8px; /* Minska knappstorleken för bättre passform på mobilen */
-    }
-  }
-  
+}
+
+.tillbehor-desc{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 250px;
+    text-align: center;
+    font-size: 20px;
+}

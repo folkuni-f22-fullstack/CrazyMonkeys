@@ -3,19 +3,6 @@ import '../assets/Tillbehor.css'
 const Tillbehor = () => {
   const [tillbehorData, setTillbehorData] = useState([]);
 
-  // const handleOrder = (tillbehorId: number, action: string) => {
-  //   setTillbehorData((prevTillbehorData) =>
-  //     prevTillbehorData.map((tillbehor) =>
-  //       tillbehor.id === tillbehorId
-  //         ? {
-  //             ...tillbehor,
-  //             quantity: action === 'add' ? tillbehor.quantity + 1 : tillbehor.quantity - 1,
-  //           }
-  //         : tillbehor
-  //     )
-  //   );
-  // };
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,30 +29,30 @@ const Tillbehor = () => {
   };
 
   return (
+    <>
+    <h2>Tillbehör</h2>
     <div className="tillbehor-container">
-      <h2>Tillbehör</h2>
+      
       {tillbehorData.map((tillbehor) => (
-        <div className="tillbehor-item" key={tillbehor.itemId}>
+        <div className="tillbehor-item" key={tillbehor._Id}>
+
           <div className="tillbehor-details">
+            <div className='name-price-tillbehor'>
             <h3>{tillbehor.name}</h3>
-            <p>{tillbehor.desc}</p>
-            <p>Pris: {tillbehor.price} kr</p>
+            <h2>{tillbehor.price} kr</h2>
+
+            </div>
+            <div className='tillbehor-img'><img src={tillbehor.img} alt="" /></div>
+
+            <div className='tillbehor-desc'>
+            <p >{tillbehor.desc}</p>
+
+            </div>
           </div>
-          <div className="quantity-controls">
-            <button
-              className="quantity-button"
-              onClick={() => handleOrder(tillbehor.id, 'remove')}
-              disabled={tillbehor.quantity === 0}
-            >
-              -
-            </button>
-            <span className="quantity">{tillbehor.quantity}</span>
-            <button
-              className="quantity-button"
-              onClick={() => handleOrder(tillbehor.id, 'add')}
-            >
-              +
-            </button>
+          
+
+
+          <div className="addto-btn">
             <button
               className="add-to-cart-button"
               onClick={() => handleAddToCart(tillbehor.id)}
@@ -76,6 +63,7 @@ const Tillbehor = () => {
         </div>
       ))}
     </div>
+    </>
   );
 };
 

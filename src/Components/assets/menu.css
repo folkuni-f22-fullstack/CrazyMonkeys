@@ -11,14 +11,16 @@
 }
 
 .inner-container {
-  align-items: center;
+    display: flex;
+  justify-content: center;
+  flex-direction: column;
   background-color: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   text-align: center;
-  max-width: 800px;
-  width: 100%;
+  width: 1000px;
+  height: 100vh;
   margin: 0 auto;
 }
 
@@ -50,11 +52,9 @@ h1 {
 }
 
 @media (max-width: 1920px) {
-  /* Dina befintliga regler för 1920px bredd */
 }
 
 @media (max-width: 320px) {
-  /* Anpassa för skärmstorlekar mindre än 320px om det behövs */
   h1 {
     font-size: 18px;
   }
