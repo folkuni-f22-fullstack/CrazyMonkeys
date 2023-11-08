@@ -28,6 +28,7 @@ html, body {
     box-sizing: border-box;
 }
 
+/* Leveransuppgifter */
 .input {
     box-shadow: var(--shadow-elevation-medium);
     border: none;
@@ -84,3 +85,18 @@ html, body {
     min-width: 275px;
     min-height: 100px;
 }
+
+/* Steps */
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 75px);
+    text-align: center;
+}
+
+.step-round-button {
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    border: .5px solid #000;
+}
+

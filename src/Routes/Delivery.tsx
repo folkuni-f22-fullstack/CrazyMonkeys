@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { StepsHeader } from "../Components/StepsHeader"
 
 // Styles
 
@@ -9,7 +10,7 @@ export function Delivery() {
     return (
         <section className="container">
             <header>Tillbaka <h1>Leveransuppgifter</h1></header>
-                <section><button>1</button><hr /><button>2</button><hr /><button>3</button><hr /><button>4</button></section>
+            <StepsHeader />
             <form className="form">
 
                 <div className="multi-inputs">
