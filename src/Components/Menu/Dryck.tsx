@@ -1,76 +1,96 @@
-import  { useState } from 'react';
-import '../assets/Dryck.css'
+import { useEffect, useState, useContext } from "react";
+import "../assets/Dryck.css";
+import { FunkyContext } from "../../ContextRoot";
+
 const Dryck = () => {
-  const [dryckData, setDryckData] = useState([
-    {
-      id: 1,
-      name: 'Cola',
-      description: 'Kolsyrad läskdryck.',
-      price: 15,
-      quantity: 0,
-    },
-    {
-      id: 2,
-      name: 'Apelsinjuice',
-      description: 'Färskpressad apelsinjuice.',
-      price: 25,
-      quantity: 0,
-    },
-    // Lägg till fler dryckesalternativ här
-  ]);
+  const [dryckData, setDryckData] = useState([]);
+  const [orderId, setOrderId] = useState("");
+  const [itemCounter, setItemCounter] = useState(1)
+  const {orderToSend, order, setOrder} = useContext(FunkyContext)
 
-  const handleOrder = (dryckId: number, action: string) => {
-    setDryckData((prevDryckData) =>
-      prevDryckData.map((dryck) =>
-        dryck.id === dryckId
-          ? {
-              ...dryck,
-              quantity: action === 'add' ? dryck.quantity + 1 : dryck.quantity - 1,
-            }
-          : dryck
-      )
-    );
+  const addOrder = () => {
+    const newOrder = {
+      itemId: orderId,
+      quantity: itemCounter
+    };
+
+    setOrder(prevOrder => [...prevOrder, newOrder]);
   };
 
-  const handleAddToCart = (dryckId: number) => {
-    // Implementera här: Lägg till logik för att lägga till dryck i varukorgen
-    console.log(`Lägg till dryck ${dryckId} i varukorgen.`);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/menu"); // Använd /api/menu för att utnyttja proxyen
+        if (!response.ok) {
+          throw new Error("Något gick fel");
+        }
+        const data = await response.json();
+        const sortedData = data.filter((item) => item.itemType === "Kolsyrade");
+        setDryckData(sortedData);
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  
+
+  const handleAddToCart = (dryckId: string) => {
+    const existingOrder = order.find((orderItem) => orderItem.itemId === dryckId);
+
+    if (existingOrder) {
+      // Om drycken finns, öka antalet
+      setOrder((prevOrder) =>
+        prevOrder.map((orderItem) =>
+          orderItem.itemId === dryckId
+            ? { ...orderItem, quantity: orderItem.quantity + 1 }
+            : orderItem
+        )
+      );
+    } else {
+      // Om drycken inte finns, lägg till en ny order
+      const newOrder = {
+        itemId: dryckId,
+        quantity: 1
+      };
+      setOrder((prevOrder) => [...prevOrder, newOrder]);
+    }
+    setItemCounter(itemCounter + 1);
+    
+    
   };
+
+  const test = () =>{
+    console.log(orderToSend);
+    
+  }
 
   return (
     <div className="dryck-container">
       <h2>Dryck</h2>
       {dryckData.map((dryck) => (
-        <div className="dryck-item" key={dryck.id}>
+        <div className="dryck-item" key={dryck._id}>
+
           <div className="dryck-details">
-            <h3>{dryck.name}</h3>
-            <p>{dryck.description}</p>
-            <p>Pris: {dryck.price} kr</p>
+            <h3>{dryck.name} ..................... </h3>
+            <p> {dryck.price} kr</p>
           </div>
-          <div className="quantity-controls">
-            <button
-              className="quantity-button"
-              onClick={() => handleOrder(dryck.id, 'remove')}
-              disabled={dryck.quantity === 0}
-            >
-              -
-            </button>
-            <span className="quantity">{dryck.quantity}</span>
-            <button
-              className="quantity-button"
-              onClick={() => handleOrder(dryck.id, 'add')}
-            >
-              +
-            </button>
-            <button
-              className="add-to-cart-button"
-              onClick={() => handleAddToCart(dryck.id)}
-            >
-              Lägg till
-            </button>
-          </div>
+          
+            <div className="quantity-controls">
+              <button
+                className="quantity-button"
+                onClick={() => handleAddToCart(dryck._id)}
+              >
+                +
+              </button>
+            </div>  
         </div>
       ))}
+      <button onClick={() => test()}>Testa mig</button>
     </div>
   );
 };

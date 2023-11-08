@@ -1,24 +1,36 @@
 /* Standardstilar för bredare skärmar */
 .dryck-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
   background-color: #f2f2f2;
   padding: 20px;
+  width: 800px;
 }
 
 .dryck-item {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Placera element till höger */
   margin-bottom: 20px;
 }
 
 .dryck-details {
-  flex: 3;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 200px;
+  align-items: center;
+  gap: .5em; 
+}
+
+.dryck-details :nth-child(2){
+  margin-top: 1.3em;
+
 }
 
 .quantity-controls {
-  flex: 1;
   display: flex;
-  align-items: center;
 }
 
 .quantity-button {

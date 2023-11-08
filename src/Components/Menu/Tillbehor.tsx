@@ -1,36 +1,40 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../assets/Tillbehor.css'
 const Tillbehor = () => {
-  const [tillbehorData, setTillbehorData] = useState([
-    {
-      id: 1,
-      name: 'wasabi',
-      description: 'Ta klassiska thailändska smaker som pad thai, gröna curry och satay och servera dem som fyllning i tacoskal.',
-      price: 29,
-      quantity: 0,
-    },
-    {
-      id: 2,
-      name: 'Pommes Frites',
-      description: 'Krispiga pommes frites.',
-      price: 29,
-      quantity: 0,
-    },
-    // Lägg till fler tillbehörsalternativ här
-  ]);
+  const [tillbehorData, setTillbehorData] = useState([]);
 
-  const handleOrder = (tillbehorId: number, action: string) => {
-    setTillbehorData((prevTillbehorData) =>
-      prevTillbehorData.map((tillbehor) =>
-        tillbehor.id === tillbehorId
-          ? {
-              ...tillbehor,
-              quantity: action === 'add' ? tillbehor.quantity + 1 : tillbehor.quantity - 1,
+  // const handleOrder = (tillbehorId: number, action: string) => {
+  //   setTillbehorData((prevTillbehorData) =>
+  //     prevTillbehorData.map((tillbehor) =>
+  //       tillbehor.id === tillbehorId
+  //         ? {
+  //             ...tillbehor,
+  //             quantity: action === 'add' ? tillbehor.quantity + 1 : tillbehor.quantity - 1,
+  //           }
+  //         : tillbehor
+  //     )
+  //   );
+  // };
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+        try {
+            const response = await fetch("/api/menu"); // Använd /api/menu för att utnyttja proxyen
+            if (!response.ok) {
+                throw new Error("Något gick fel");
             }
-          : tillbehor
-      )
-    );
-  };
+            const data = await response.json();
+            const sortedData = data.filter((item) => item.itemType === "tillbehör");
+            setTillbehorData(sortedData);
+            console.log(data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    fetchData();
+}, []);
 
   const handleAddToCart = (tillbehorId: number) => {
     // Implementera här: Lägg till logik för att lägga till tillbehör i varukorgen
@@ -41,10 +45,10 @@ const Tillbehor = () => {
     <div className="tillbehor-container">
       <h2>Tillbehör</h2>
       {tillbehorData.map((tillbehor) => (
-        <div className="tillbehor-item" key={tillbehor.id}>
+        <div className="tillbehor-item" key={tillbehor.itemId}>
           <div className="tillbehor-details">
             <h3>{tillbehor.name}</h3>
-            <p>{tillbehor.description}</p>
+            <p>{tillbehor.desc}</p>
             <p>Pris: {tillbehor.price} kr</p>
           </div>
           <div className="quantity-controls">
