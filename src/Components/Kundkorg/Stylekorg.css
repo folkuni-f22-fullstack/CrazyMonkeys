@@ -1,0 +1,164 @@
+
+
+body{
+    background-color: #4C5452;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.back-btn{
+    position: relative;
+    left: 1rem;
+    top: 1rem;
+    z-index: 1;
+}
+div > .background-korg {
+    display: flex;
+    flex-direction: column;
+}
+.varukorg-title{
+    text-align: center;
+    position: relative;
+    bottom: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+.background-korg{
+    display: flex;
+    flex-wrap: wrap;
+    height: 40rem;
+    width: 50%;
+    position: relative;
+    left: 25%;
+    top: 6rem;
+    border-radius: 2em;
+    border: 0.4em solid #183A37;
+    background-color:#ffff;
+}
+.foodname{
+    position: relative;
+    left: -4.5rem;
+    
+}
+.foodname::after{
+    content: "  ........";
+}
+
+.title-pris-antal{
+    align-self: flex-end;
+    margin: 5rem 2rem 1rem 0;
+    position: relative;
+    right: 6rem;
+
+}
+.price-title{
+    margin-right: 4rem;
+    position: sticky;
+}
+.food-details{
+    display: flex;
+    justify-content: space-around;
+}
+.line{
+    width: 70%;
+    margin-top: 2rem;
+}
+.total-summa{
+    text-align: center;
+}
+
+@media(width: 320px){
+    .foodname{
+        position: relative;
+        left: 1rem;
+        margin-bottom: 1rem;
+        
+    }
+    .background-korg{
+        position: relative;
+       flex-wrap: wrap;
+      left: 0;
+        width: 18.2rem;
+        height: 1080px;
+
+    }
+    .title-pris-antal{
+        display: inline-flex;
+        position: relative;
+        left: 1rem;
+        
+    }
+    .price-title{
+        position: relative;
+        margin-right:3rem ;
+    }
+    .foodprice{
+        position: relative;
+        left: 1rem;
+        z-index: 1;
+    }
+    .minus{
+        display: inline-flex;
+        position: relative;
+        left: 2.1rem;
+        bottom: -2px;
+
+    }
+    .plus{
+        position: relative;
+        left: 0.6rem;
+        bottom: -2px;
+    }
+
+
+}
+@media (min-width: 321px)and (max-width: 768px) {
+    .background-korg{
+        position: relative;
+       flex-wrap: wrap;
+      
+        width: 24rem;
+        height: 1080px;
+
+    }
+    .foodname{
+        position: relative;
+        left: 1rem;
+        margin-bottom: 1rem;
+    } 
+    .title-pris-antal{
+        display: inline-flex;
+        position: relative;
+        left: 1rem;
+        
+    } 
+    .minus{
+        display: inline-flex;
+        position: relative;
+        left: 2.3rem;
+        bottom: -2px;
+
+    }  
+        
+}
+@media (min-width: 769px) and (max-width:1920px) {
+    .background-korg{
+        position: relative;
+       flex-wrap: wrap;
+        width: 44rem;
+        height: 1080px;
+
+    }
+    .foodname{
+        position: relative;
+        left: -1rem;
+        margin-bottom: 1rem;
+    } 
+    .minus{
+        display: inline-flex;
+        position: relative;
+        left: 7.3rem;
+        bottom: -2px;
+
+    }  
+}
