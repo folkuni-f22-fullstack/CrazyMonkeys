@@ -1,5 +1,5 @@
 import Kundkorg from './Components/Kundkorg/Kundkorg.tsx';
-import './App.css';
+import Kvitto from "../src/Components/Kvitto/Kvitto.tsx";
 
 
 

@@ -15,7 +15,7 @@ const Kundkorg = () => {
         <h1 className="varukorg-title">Varukorg</h1>
 
         <div className="title-pris-antal">
-          <span className="price-title">Pris</span> <span>Antal</span>
+          <span className="price-title">Pris</span> <span className="antal">Antal</span>
         </div>
         <div className="food-details">
           <span className="foodname">Sushi burritos</span>
