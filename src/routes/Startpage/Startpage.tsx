@@ -31,22 +31,29 @@ function StartPage() {
       <main>
         <div className="text-container">
           <h1 className="company-title">FuNKY FUSION</h1>
-          <p className="body-text">
+          <p className="companytitletext-p">
             Fusionmat är den kreativa konsten att kombinera olika matkulturer
             och smaker för att skapa helt nya, spännande rätter.
           </p>
+        <button className="start btn-grad">Beställ här</button>
         </div>
+
 
         <div className="text-container">
           <img className="startmainpicture" src={koriander} alt="Bild på mat" />
 
           <p className="body-text">
+            <h3 className="startfood-title">Korianderpesto-pasta</h3>
             Korianderpesto-past - är en smakexplosion med sin friska och kryddiga
             koriander, nötiga jordnötter och fräscha lime, vilket ger en
             oemotståndlig smakupplevelse i varje tugga. Den kombinerar det bästa
             av öst och väst i en pasta som är både djärv och harmonisk på samma
             gång.
           </p>
+         <div>
+          
+         </div>
+
         </div>
 
         <div className="text-container">
@@ -60,11 +67,14 @@ function StartPage() {
           <img className="startmainpicture" src={teriyaki} alt="Bild på mat" />
 
           <p className="body-text">
+            <h3 className="startfood-title">Teriyaki Tofu Sushi Burrito </h3>
             Teriyaki Tofu Sushi Burrito - Den kombinerar den saftiga sötman från teriyaki med den fräscha
             krispigheten av grönsaker och nori, vilket ger en spännande
             smakupplevelse i varje tugga.
           </p>
         </div>
+       <button className="mobilbtn btn-grad ">Beställ här</button>
+
       </main>
     </>
   );

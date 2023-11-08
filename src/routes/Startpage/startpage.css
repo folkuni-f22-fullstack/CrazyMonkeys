@@ -35,33 +35,62 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
 
 main {
   background-color: var(--bg-color);
+ 
+}
+.text-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2em;
-}
-.text-container {
   text-align: center;
-
+  padding: 1em;
 }
 .body-text {
   color: white;
   font-size: 16px;
   line-height: 1.5;
   font-family: var(--content-font);
-  padding: 2em;
-
+  padding: 1em;
 }
 
 .text-container:nth-child(2),
 .text-container:nth-child(4) {
   background-color: var(--header-color);
-
 }
 
 .startmainpicture {
-  width: 18em;
+  width: 16em;
   border-radius: 3%;
+  margin-top: 1em;
+}
+.mobilbtn {
+  display: block;
+}
+.start.btn-grad {
+  display: none;
+}
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #235852 0%,
+    #001510 51%,
+    #00bf8f 100%
+  );
+  margin: 2em 0.4em;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 7px #eee;
+  border-radius: 10px;
+  display: block;
+  width:90%;
+}
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
 }
 
 /* Desktop 1920 */
@@ -70,10 +99,10 @@ main {
   .sushi {
     display: none;
   }
-
   .top-pic {
     flex-grow: 1; /* Låt båda bilderna växa efter 330px */
   }
+  
 }
 
 @media screen and (min-width: 1000px) {
@@ -84,11 +113,9 @@ main {
     margin-top: 0.77em;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   }
-
   .pic-container {
     display: none;
   }
-
   .pic-container2 {
     display: flex;
     gap: 0.4em;
@@ -96,4 +123,54 @@ main {
     flex-wrap: wrap;
     margin-top: -0.5em;
   }
+  .mobilbtn {
+    display: none;
+  }
+  .start.btn-grad {
+    display: block;
+    justify-content: center;
+    display: flex;
+    width: 50%;
+  }
+  .companytitletext-p {
+    font-family: var(--title-font);
+    color: white;
+    font-size: 20px;
+    margin: 4em 2em;
+  }
+  .company-title {
+    font-family: var(--title-font);
+    color: white;
+    font-size: 30px;
+    padding-top: 2em;
+  }
+
+  .text-container:nth-child(2){
+  background-color: var(--header-color);
+  display: flex;
+  flex-direction: row;
+}
+.text-container:nth-child(4) {
+  background-color: var(--header-color);
+  display: flex;
+  flex-direction: row-reverse;
+}
+.startmainpicture {
+  width: 30em;
+  flex-grow:1;
+  border-radius: 3%;
+  margin-top: 1em;
+}
+.body-text {
+  color: white;
+  font-size: 20px;
+  line-height: 2;
+  font-family: var(--content-font);
+  padding: 3em;
+}
+.startfood-title{
+  margin-bottom: 2em;
+  text-align: left;
+}
+
 }
