@@ -6,7 +6,7 @@ export const StepsHeader = () => {
 
     const chosenStep = (step) => {
         return {
-            height: selectStep === step ? "75px" : null, width: selectStep === step ? "75px" : null
+            height: selectStep === step ? "45px" : null, width: selectStep === step ? "45px" : null
         }
     }
 

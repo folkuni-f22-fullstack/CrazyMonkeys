@@ -22,6 +22,7 @@
 
 html, body {
     margin: 0px;
+    overflow-x: hidden;
 }
 
 * {
@@ -60,6 +61,7 @@ html, body {
 .form {
     display: grid;
     place-content: center;
+    row-gap: 7.5px;
 }
 
 .label-above-input {
@@ -71,6 +73,7 @@ html, body {
 .multi-inputs {
     display: flex;
     flex-flow: row wrap;
+    column-gap: 5px;
 }
 
 .tinier-inputs {
@@ -78,12 +81,77 @@ html, body {
 }
 
 .name-input {
-    min-width: 130px;
+    max-width: 135px;
+}
+
+.address-input,.email-input, .phone-input  {
+    min-width: 275px; 
 }
 
 .text-area {
     min-width: 275px;
     min-height: 100px;
+}
+
+.post-number-input {
+    max-width: 100px;
+}
+
+.county-input {
+    width: 170px;
+}
+
+.header {
+    display: grid;
+    grid-template-areas: 'button text ...';
+}
+
+.header > h1 {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    grid-area: text
+}
+
+.header > button {
+    grid-area: button;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.spacer {
+    padding: 1.55em 0;
+}
+
+input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: 0px;
+    left: -1px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: 0px;
+    left: -1px;
+    position: relative;
+    background-color: #4CAF50;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+}
+
+.radio-spacing {
+    padding: .35em 0em;
 }
 
 /* Steps */

@@ -1,15 +1,12 @@
 import { useState } from "react"
 import { StepsHeader } from "../Components/StepsHeader"
 
-// Styles
-
-
 export function Delivery() {
     const [chosenDeliveryOption, setChosenDeliveryOption] = useState(false)
 
     return (
         <section className="container">
-            <header>Tillbaka <h1>Leveransuppgifter</h1></header>
+            <header className="header"><button><span className="material-symbols-outlined">keyboard_return</span></button> <h1>Leveransuppgifter</h1></header>
             <StepsHeader />
             <form className="form">
 
@@ -28,26 +25,26 @@ export function Delivery() {
 
                 <div className="label-above-input">
                     <label htmlFor="email-input">Epost</label>
-                    <input className="input" id="email-input" type="email" placeholder="johannaDoe@example.com" required />
+                    <input className="email-input input" id="email-input" type="email" placeholder="johannaDoe@example.com" required />
                 </div>
 
                 <div className="label-above-input">
                     <label htmlFor="phone-input">Telefonnummer</label>
-                    <input className="input" id="phone-input" type="number" placeholder="070 123 4561" required />
+                    <input className="phone-input input" id="phone-input" type="number" placeholder="070 123 4561" required />
                 </div>
 
-                <div className="label-above-input">
+                <div className="spacer label-above-input">
                     <label htmlFor="own-comments-input">Egna kommentarer</label>
                     <textarea className="input text-area" id="own-comments-input" placeholder="Jag vill inte ha gurka i thai sushin" />
                 </div>
 
 
-                <div>
-                    <div>
+                <div className="spacer">
+                    <div className="radio-spacing">
                         <input id="takeaway-delivery-radio" type="radio" name="deliveryOption" onClick={() => setChosenDeliveryOption(false)} required />
                         <label htmlFor="takeaway-delivery-radio">Takeaway</label>
                     </div>
-                    <div>
+                    <div className="radio-spacing">
                         <input id="home-delivery-radio" type="radio" name="deliveryOption" onClick={() => setChosenDeliveryOption(true)} required />
                         <label htmlFor="home-delivery-radio">Hemleverans</label>
                     </div>
@@ -58,17 +55,17 @@ export function Delivery() {
                         <>
                             <div className="label-above-input">
                                 <label htmlFor="address-input">Adress</label>
-                                <input className="input" id="address-input" type="text" placeholder="Drottninggatan 17" required />
+                                <input className="address-input input" id="address-input" type="text" placeholder="Drottninggatan 17" required />
                             </div>
 
                             <div className="multi-inputs">
                                 <div className="label-above-input">
                                     <label htmlFor="post-input">Postnummer</label>
-                                    <input className="input" id="post-input" type="number" placeholder="12345"  required/>
+                                    <input className="post-number-input input" id="post-input" type="number" placeholder="12345"  required/>
                                 </div>
                                 <div className="label-above-input">
                                     <label htmlFor="county-input">Ort</label>
-                                    <input className="input" id="county-input" type="text" placeholder="Karlstad"  required/>
+                                    <input className="county-input input" id="county-input" type="text" placeholder="Karlstad"  required/>
                                 </div>
                             </div>
 
