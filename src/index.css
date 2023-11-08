@@ -50,3 +50,37 @@ html, body {
 .button:hover {
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,45,1) 35%, rgba(0,212,255,1) 100%);
 }
+
+.container {
+    min-width: 320px;
+    background-color: #f2f2f2;
+}
+
+.form {
+    display: grid;
+    place-content: center;
+}
+
+.label-above-input {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+}
+
+.multi-inputs {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.tinier-inputs {
+    max-width: 55px;
+}
+
+.name-input {
+    min-width: 130px;
+}
+
+.text-area {
+    min-width: 275px;
+    min-height: 100px;
+}

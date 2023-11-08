@@ -6,66 +6,38 @@ import { useState } from "react"
 export function Delivery() {
     const [chosenDeliveryOption, setChosenDeliveryOption] = useState(false)
 
-    const container = {
-        minWidth: "320px",
-        backgroundColor: "#F2F2F2",
-    }
-
-    const labelAboveInput = {
-        display: 'flex',
-        flexFlow: 'column wrap',
-        alignItems: 'flex-start'
-    };
-
-    const nameInputs = {
-        maxWidth: "155px",
-    }
-
-    const tinyInputs = {
-        maxWidth: "55px"
-    }
-
-    const MultiInputs = {
-        display: 'flex',
-    }
-
-    const textArea = {
-        minWidth: "275px",
-        minHeight: "100px"
-    }
-
     return (
-        <section className="container" style={container}>
+        <section className="container">
             <header>Tillbaka <h1>Leveransuppgifter</h1></header>
                 <section><button>1</button><hr /><button>2</button><hr /><button>3</button><hr /><button>4</button></section>
-            <form>
+            <form className="form">
 
-                <div style={MultiInputs}>
-                    <div style={labelAboveInput}>
+                <div className="multi-inputs">
+                    <div className="label-above-input">
                         <label htmlFor="firstname-input">Förnamn</label>
-                        <input className="input" style={nameInputs} id="firstname-input" type="text" placeholder="Johanna" required />
+                        <input className="input name-input" id="firstname-input" type="text" placeholder="Johanna" required />
                     </div>
 
-                    <div style={labelAboveInput}>
+                    <div className="label-above-input">
                         <label htmlFor="lastname-input">Efternamn</label>
-                        <input className="input" style={nameInputs} id="lastname-input" type="text" placeholder="Doe" required/>
+                        <input className="input name-input" id="lastname-input" type="text" placeholder="Doe" required/>
                     </div>
                 </div>
               
 
-                <div style={labelAboveInput}>
+                <div className="label-above-input">
                     <label htmlFor="email-input">Epost</label>
                     <input className="input" id="email-input" type="email" placeholder="johannaDoe@example.com" required />
                 </div>
 
-                <div style={labelAboveInput}>
+                <div className="label-above-input">
                     <label htmlFor="phone-input">Telefonnummer</label>
                     <input className="input" id="phone-input" type="number" placeholder="070 123 4561" required />
                 </div>
 
-                <div style={labelAboveInput}>
+                <div className="label-above-input">
                     <label htmlFor="own-comments-input">Egna kommentarer</label>
-                    <textarea style={textArea} className="input" id="own-comments-input" placeholder="Jag vill inte ha gurka i thai sushin" />
+                    <textarea className="input text-area" id="own-comments-input" placeholder="Jag vill inte ha gurka i thai sushin" />
                 </div>
 
 
@@ -83,34 +55,34 @@ export function Delivery() {
                 {
                     chosenDeliveryOption && (
                         <>
-                            <div style={labelAboveInput}>
+                            <div className="label-above-input">
                                 <label htmlFor="address-input">Adress</label>
                                 <input className="input" id="address-input" type="text" placeholder="Drottninggatan 17" required />
                             </div>
 
-                            <div style={MultiInputs}>
-                                <div style={labelAboveInput}>
+                            <div className="multi-inputs">
+                                <div className="label-above-input">
                                     <label htmlFor="post-input">Postnummer</label>
                                     <input className="input" id="post-input" type="number" placeholder="12345"  required/>
                                 </div>
-                                <div style={labelAboveInput}>
+                                <div className="label-above-input">
                                     <label htmlFor="county-input">Ort</label>
                                     <input className="input" id="county-input" type="text" placeholder="Karlstad"  required/>
                                 </div>
                             </div>
 
-                        <div style={MultiInputs}>
-                            <div style={labelAboveInput}>
+                        <div className="multi-inputs">
+                            <div className="label-above-input">
                                 <label htmlFor="apartment-input">Lgn. nr</label>
-                                <input className="input" style={tinyInputs} id="apartment-input" type="number" placeholder="430" />
+                                <input className="input tinier-inputs" id="apartment-input" type="number" placeholder="430" />
                             </div>
-                        <div style={labelAboveInput}>
+                        <div className="label-above-input">
                             <label htmlFor="port-code-input">Portkod</label>
-                            <input className="input" style={tinyInputs} id="port-code-input" type="number" placeholder="1234" />
+                            <input className="input tinier-inputs" id="port-code-input" type="number" placeholder="1234" />
                         </div>
-                        <div style={labelAboveInput}>
+                        <div className="label-above-input">
                             <label htmlFor="floor-input">Våning</label>
-                            <input className="input" style={tinyInputs} id="floor-input" type="number" placeholder="1" />
+                            <input className="input tinier-inputs" id="floor-input" type="number" placeholder="1" />
                         </div>
                     </div>
                 </>
