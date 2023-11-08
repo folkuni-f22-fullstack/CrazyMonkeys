@@ -1,11 +1,11 @@
 
 import './App.css'
-
+import Betallning from '../src/Components/Betallning/Betallning'
 function App() {
 
   return (
     <>
-     <h1>CrazyMonekys </h1>
+     <Betallning />
     </>
   )
 }
