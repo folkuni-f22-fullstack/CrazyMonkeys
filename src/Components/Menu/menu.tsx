@@ -21,7 +21,8 @@ function Menu() {
         <button className='btn' onClick={() => handleCategoryChange('drycker')}>Drycker</button>
         <button className='btn' onClick={() => handleCategoryChange('tillbehor')}>Tillbehör</button>
       </div>    
-        <div className='funky-hr-title'><hr className='funky-hr'></hr>Funky Fusion<hr className='funky-hr'></hr></div>
+        <div className='funky-hr-title'><hr className='funky-hr'></hr>
+        <p>Funky Fusion</p><hr className='funky-hr'></hr></div>
 
       {activeCategory === 'matratter' && <Matratter />}
       {activeCategory === 'drycker' && <Drycker />}

@@ -36,16 +36,23 @@ h1 {
   cursor: pointer;
 }
 
+.funky-hr-title p{
+  width: 250px;
+  align-self: center;
+  
+}
 .funky-hr-title {
+  
   display: flex;
+  align-items: center;
   flex-direction: row;
   font-family: 'Edu TAS Beginner', cursive;
 }
 
 .funky-hr {
-  border: 0.8px solid black;
+height: 5px;  /* border: 0.8px solid black; */
   background: #000;
-  width: 300px;
+  width: 500px;
 }
 
 @media screen and(max-width: 1920px) {
