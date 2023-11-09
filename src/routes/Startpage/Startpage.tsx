@@ -7,10 +7,35 @@ import sushirulle from "../../assets/startpagepic/sushirulle.png";
 import teriyaki from "../../assets/startpagepic/teriyaki.png";
 import koriander from "../../assets/startpagepic/Korianderpesto.png";
 import Footer from "../../Components/Footer/Footer";
+import { useEffect, useRef } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
 
 import "./startpage.css";
 
 function StartPage() {
+  const ref1 = useRef(null);
+  const isInView1 = useInView(ref1, { once: true });
+
+  const ref2 = useRef(null);
+  const isInView2 = useInView(ref2, { once: true });
+
+  const controls1 = useAnimation();
+  const controls2 = useAnimation();
+
+  useEffect(() => {
+    console.log("isInView1:", isInView1);
+    if (isInView1) {
+      controls1.start("visible");
+    }
+  }, [isInView1]);
+
+  useEffect(() => {
+    console.log("isInView2:", isInView2);
+    if (isInView2) {
+      controls2.start("visible");
+    }
+  }, [isInView2]);
+
   return (
     <>
       <section className="pic-container">
@@ -36,26 +61,31 @@ function StartPage() {
             Fusionmat är den kreativa konsten att kombinera olika matkulturer
             och smaker för att skapa helt nya, spännande rätter.
           </p>
-        <button className="start btn-grad">Beställ här</button>
+          <button className="start btn-grad">Beställ här</button>
         </div>
 
-
-        <div className="text-container">
+        <motion.div
+          className="text-container"
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          ref={ref1}
+          initial="hidden"
+          animate={controls1}
+          transition={{ duration: 2 }}
+        >
           <img className="startmainpicture" src={koriander} alt="Bild på mat" />
 
-          <p className="body-text">
+          <div className="body-text">
             <h3 className="startfood-title">Korianderpesto-pasta</h3>
-            Korianderpesto-past - är en smakexplosion med sin friska och kryddiga
-            koriander, nötiga jordnötter och fräscha lime, vilket ger en
-            oemotståndlig smakupplevelse i varje tugga. Den kombinerar det bästa
-            av öst och väst i en pasta som är både djärv och harmonisk på samma
-            gång.
-          </p>
-         <div>
-          
-         </div>
-
-        </div>
+            Korianderpesto-past - är en smakexplosion med sin friska och
+            kryddiga koriander, nötiga jordnötter och fräscha lime, vilket ger
+            en oemotståndlig smakupplevelse i varje tugga. Den kombinerar det
+            bästa av öst och väst i en pasta som är både djärv och harmonisk på
+            samma gång.
+          </div>
+        </motion.div>
 
         <div className="text-container">
           <p className="companytitletext-p">
@@ -64,20 +94,29 @@ function StartPage() {
           </p>
         </div>
 
-        <div className="text-container">
+        <motion.div
+          className="text-container"
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          ref={ref2}
+          initial="hidden"
+          animate={controls2}
+          transition={{ duration: 2 }}
+        >
           <img className="startmainpicture" src={teriyaki} alt="Bild på mat" />
 
-          <p className="body-text">
+          <div className="body-text">
             <h3 className="startfood-title">Teriyaki Tofu Sushi Burrito </h3>
-            Teriyaki Tofu Sushi Burrito - Den kombinerar den saftiga sötman från teriyaki med den fräscha
-            krispigheten av grönsaker och nori, vilket ger en spännande
-            smakupplevelse i varje tugga.
-          </p>
-        </div>
-       <button className="mobilbtn btn-grad ">Beställ här</button>
-
+            Teriyaki Tofu Sushi Burrito - Den kombinerar den saftiga sötman från
+            teriyaki med den fräscha krispigheten av grönsaker och nori, vilket
+            ger en spännande smakupplevelse i varje tugga.
+          </div>
+        </motion.div>
+        <button className="mobilbtn btn-grad ">Beställ här</button>
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 }

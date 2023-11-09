@@ -28,13 +28,13 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
 }
 .companytitletext-p {
   font-family: var(--content-font);
-    line-height: 2em;
+  line-height: 2em;
   color: white;
   font-size: 14px;
   margin: 2em 2em;
 }
 
-.startfood-title{
+.startfood-title {
   margin-bottom: 1em;
   font-weight: 10;
 }
@@ -43,8 +43,6 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
   background-color: var(--bg-color);
   min-height: 100vh;
   padding: 2em;
-
-
 }
 .text-container {
   display: flex;
@@ -64,11 +62,10 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
 .text-container:nth-child(2),
 .text-container:nth-child(4) {
   background-color: var(--header-color);
-
 }
 
 .startmainpicture {
-  width: 16em;
+  width: 14em;
   border-radius: 3%;
   margin-top: 1em;
 }
@@ -95,14 +92,13 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
   box-shadow: 0 0 7px #eee;
   border-radius: 10px;
   display: block;
-  width:90%;
-
+  width: 90%;
 }
 .btn-grad:hover {
   background-position: right center;
   color: #fff;
   text-decoration: none;
-  transform: scale(.9);
+  transform: scale(0.9);
 }
 
 /* Desktop 1920 */
@@ -114,7 +110,6 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
   .top-pic {
     flex-grow: 1; /* Låt båda bilderna växa efter 330px */
   }
-  
 }
 
 @media screen and (min-width: 1000px) {
@@ -146,7 +141,6 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
     margin-bottom: 8em;
   }
   .companytitletext-p {
-   
     color: white;
     font-size: 20px;
     margin: 4em 2em;
@@ -160,35 +154,34 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
     padding-top: 2em;
   }
 
-  .text-container:nth-child(2){
-  background-color: var(--header-color);
-  display: flex;
-  flex-direction: row;
-  margin: 0 2em;
-}
-.text-container:nth-child(4) {
-  background-color: var(--header-color);
-  display: flex;
-  flex-direction: row-reverse;
-  margin: 0 2em;
-}
-.startmainpicture {
-  width: 30em;
-  flex-grow:1;
-  border-radius: 3%;
-  margin-top: 1em;
-}
-.body-text {
-  color: white;
-  font-size: 18px;
-  line-height: 2;
-  font-family: var(--content-font);
-  padding: 3em;
-  text-align:left;
-}
-.startfood-title{
-  margin-bottom: 2em;
-  text-align: left;
-}
-
+  .text-container:nth-child(2) {
+    background-color: var(--header-color);
+    display: flex;
+    flex-direction: row;
+    padding: 2em;
+  }
+  .text-container:nth-child(4) {
+    background-color: var(--header-color);
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 2em;
+  }
+  .startmainpicture {
+    width: 30em;
+    flex-grow: 1;
+    border-radius: 3%;
+    margin-top: 1em;
+  }
+  .body-text {
+    color: white;
+    font-size: 18px;
+    line-height: 2;
+    font-family: var(--content-font);
+    padding: 3em;
+    text-align: left;
+  }
+  .startfood-title {
+    margin-bottom: 2em;
+    text-align: left;
+  }
 }
