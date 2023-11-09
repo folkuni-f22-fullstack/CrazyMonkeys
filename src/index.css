@@ -30,12 +30,6 @@ html, body {
 }
 
 /* Leveransuppgifter */
-.input {
-    box-shadow: var(--shadow-elevation-medium);
-    border: none;
-    border-radius: 6.5px;
-    padding: .65em;
-}
 
 .btn-grad {
     background-image: linear-gradient(to right, #235852 0%, 
@@ -73,6 +67,28 @@ html, body {
     display: flex;
     flex-flow: column wrap;
     align-items: flex-start;
+}
+
+.span-validation {
+    box-shadow: var(--shadow-elevation-medium);
+    border: none;
+    border-radius: 6.5px;
+    padding-right: .65em;
+    padding-left: 0px;
+    background-color: #fff;
+}
+
+.validation-under-input {
+    display: flex;
+    flex-flow: column wrap;
+} 
+
+
+.input {
+    border: none;
+    border-radius: 6.5px;
+    padding: .65em;
+    
 }
 
 .multi-inputs {

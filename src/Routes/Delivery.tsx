@@ -30,7 +30,9 @@ export function Delivery() {
 
     const [wrongLastName, setWrongLastName] = useState(false)
 
+    const [wrongPhoneNumber, setWrongPhoneNumber] = useState(false)
 
+    const [wrongEmail, setWrongEmail] = useState(false)
 
     function isValidName(name) {
         const validCharLetter = "abcdefghijklmnopqrstuvwxyzåäö- "
@@ -42,11 +44,43 @@ export function Delivery() {
             }
         }
         if (name.length < 2) {
-            return [false, "Namnet behöver minst vara 2 tecken långt"]
+            return [false, "För- eller efternamn behöver minst vara 2 tecken långt"]
         }
         return [true, ""]
     }
 
+    function isValidPhoneNumber(number) {
+
+        const validPhoneFormat = "+461234567890"
+        const whiteSpace = /\s/
+        if (whiteSpace.test(number)) {
+            return [false, "Vänligen använd utan mellanrum"]
+        }
+
+        for (let validNumberCounter = 0; validNumberCounter < number.length; validNumberCounter++) {
+            let validPhoneNumber = number.charAt(validNumberCounter)
+
+            if (!validPhoneFormat.includes(validPhoneNumber)) {
+                return [false, "Vänligen använd endast siffror"]
+            }
+        }
+        if (number.length < 10) {
+            return [false, "Vänligen skriv in minst 10 tecken"]
+        } else if (number.length > 13) {
+            return [false, "Vänligen använd inte mer än 13 tecken"]
+        }
+        return [true, ""]
+    }
+
+
+    function isValidEmailAddress(mail) {
+        const validEmailCharacter = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/
+
+        if (!validEmailCharacter.test(mail)) {
+            return [false, "Ej godkänt format"]
+        }
+        return [true, ""]
+    }
 
 
     // Inputs
@@ -65,11 +99,14 @@ export function Delivery() {
     const firstNameChange = (e) => {
         setFirstName(e.target.value)
 
+        console.log(e.target.value);
+        
         if(e.target.value === "") {
             setIsEmptyFirstName(true)
         } else {
             setIsEmptyFirstName(false)
         }
+        console.log(isEmptyFirstName);
     }
 
     const lastNameChange = (e) => {
@@ -183,7 +220,10 @@ export function Delivery() {
 
     
     const [isValidFirstName, notValidFirstName] = isValidName(firstName);
+
     const [isValidLastName, notValidLastName] = isValidName(lastName);
+    const [isValidNumber, notValidNumber] = isValidPhoneNumber(phoneNumber)
+    const [isValidEmail, notValidEmail] = isValidEmailAddress(email)
 
     return (
         <section className="container">
@@ -193,33 +233,55 @@ export function Delivery() {
 
                 <div className="multi-inputs">
                     <div className="label-above-input">
-                        <label htmlFor="firstname-input">Förnamn {
-                            isEmptyFirstName ? '' : wrongFirstName ? (isValidFirstName ? "✔️" : "❌") : ""
-                        }<span>{
-                            isEmptyFirstName ? '' : wrongFirstName ? notValidFirstName : ""
-                        }</span></label>
-                        <input className="input name-input" id="firstname-input" onChange={firstNameChange} onBlur={() => setWrongFirstName} value={firstName} type="text" placeholder="Johanna" required />
+                        <label htmlFor="firstname-input">Förnamn</label>
+                            <span className="span-validation">
+                                <input className="input name-input" id="firstname-input" onChange={firstNameChange} onBlur={() => setWrongFirstName(true)} value={firstName} type="text" placeholder="Johanna" required />
+                                {
+                                    isEmptyFirstName ? '' : wrongFirstName ? (isValidFirstName ? "✔️" : "❌") : ""
+                                }
+                            </span>
                     </div>
 
                     <div className="label-above-input">
-                        <label htmlFor="lastname-input">Efternamn  {
-                            isEmptyLastName ? '' : wrongLastName ? (isValidLastName ? "✔️" : "❌") : ""
-                        }<span>{
-                            isEmptyLastName ? '' : wrongLastName ? notValidLastName : ""
-                        }</span></label>
-                        <input className="input name-input" id="lastname-input" onChange={lastNameChange} onBlur={() => setWrongLastName} value={lastName} type="text" placeholder="Doe" required/>
+                        <label htmlFor="lastname-input">Efternamn<span></span></label>
+                            <span className="span-validation">
+                                <input className="input name-input" id="lastname-input" onChange={lastNameChange} onBlur={() => setWrongLastName(true)} value={lastName} type="text" placeholder="Doe" required/>
+                                {
+                                    isEmptyLastName ? '' : wrongLastName ? (isValidLastName ? "✔️" : "❌") : ""
+                                }
+                                </span>
                     </div>
                 </div>
-              
+                {
+                    isEmptyFirstName ? '' : wrongFirstName ? notValidFirstName : ""
+                }
+                {
+                    isEmptyLastName ? '' : wrongLastName ? notValidLastName : ""
+                }              
                 <div className="label-above-input">
                     <label htmlFor="email-input">Epost</label>
-                    <input className="email-input input" id="email-input" onChange={emailChange} value={email} type="email" placeholder="johannaDoe@example.com" required />
+                    <span className="span-validation">
+                        <input className="email-input input" id="email-input" onChange={emailChange} onBlur={() => setWrongEmail(true)} value={email} type="email" placeholder="johannaDoe@example.com" required />
+                        {
+                            isEmptyEmail ? '' : wrongEmail ? (isValidEmail ? "✔️" : "❌") : ''
+                        }
+                    </span>
                 </div>
-
+                {
+                    isEmptyEmail ? '' : wrongEmail ? notValidEmail : ''
+                }
                 <div className="label-above-input">
                     <label htmlFor="phone-input">Telefonnummer</label>
-                    <input className="phone-input input" id="phone-input" onChange={phoneNumberChange} value={phoneNumber} type="number" placeholder="070 123 4561" required />
+                    <span className="span-validation">
+                        <input className="phone-input input" id="phone-input" onChange={phoneNumberChange} onBlur={() => setWrongPhoneNumber(true)} value={phoneNumber} type="number" placeholder="070 123 4561" required />
+                        {
+                            isEmptyPhoneNumber ? '' : wrongPhoneNumber ? (isValidNumber ? "✔️" : "❌") : ""
+                        }
+                    </span>
                 </div>
+                {
+                    isEmptyPhoneNumber ? '' : wrongPhoneNumber ? notValidNumber : ''
+                }
 
                 <div className="spacer label-above-input">
                     <label htmlFor="own-comments-input">Egna kommentarer</label>
