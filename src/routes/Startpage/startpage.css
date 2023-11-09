@@ -27,10 +27,16 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
   font-size: 24px;
 }
 .companytitletext-p {
-  font-family: var(--title-font);
+  font-family: var(--content-font);
+    line-height: 2em;
   color: white;
   font-size: 14px;
   margin: 2em 2em;
+}
+
+.startfood-title{
+  margin-bottom: 1em;
+  font-weight: 10;
 }
 
 main {
@@ -91,6 +97,7 @@ main {
   background-position: right center;
   color: #fff;
   text-decoration: none;
+  transform: scale(.9);
 }
 
 /* Desktop 1920 */
@@ -131,15 +138,18 @@ main {
     justify-content: center;
     display: flex;
     width: 50%;
+    margin-bottom: 8em;
   }
   .companytitletext-p {
-    font-family: var(--title-font);
+   
     color: white;
     font-size: 20px;
     margin: 4em 2em;
   }
   .company-title {
     font-family: var(--title-font);
+    /* font-family: 'Ubuntu', sans-serif; */
+
     color: white;
     font-size: 30px;
     padding-top: 2em;
@@ -149,11 +159,13 @@ main {
   background-color: var(--header-color);
   display: flex;
   flex-direction: row;
+  margin: 0 2em;
 }
 .text-container:nth-child(4) {
   background-color: var(--header-color);
   display: flex;
   flex-direction: row-reverse;
+  margin: 0 2em;
 }
 .startmainpicture {
   width: 30em;
@@ -163,10 +175,11 @@ main {
 }
 .body-text {
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 2;
   font-family: var(--content-font);
   padding: 3em;
+  text-align:left;
 }
 .startfood-title{
   margin-bottom: 2em;
