@@ -34,6 +34,8 @@ export function Delivery() {
 
     const [wrongEmail, setWrongEmail] = useState(false)
 
+    const [wrongAddress, setWrongAddress] = useState(false)
+
     function isValidName(name) {
         const validCharLetter = "abcdefghijklmnopqrstuvwxyzåäö- "
 
@@ -305,7 +307,9 @@ export function Delivery() {
                         <>
                             <div className="label-above-input">
                                 <label htmlFor="address-input">Adress</label>
-                                <input className="address-input input" id="address-input" onChange={addressChange} value={address} type="text" placeholder="Drottninggatan 17" required />
+                                <span className="span-validation">
+                                    <input className="address-input input" id="address-input" onChange={addressChange} onBlur={() => setWrongAddress(true)} value={address} type="text" placeholder="Drottninggatan 17" required />
+                                </span>
                             </div>
 
                             <div className="multi-inputs">
