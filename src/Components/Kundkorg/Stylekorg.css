@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .back-btn {
@@ -40,7 +41,7 @@ div > .background-korg {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    border: 1px solid #000;
+   
     width: 18rem;
     margin-left: 1rem;
    align-self: center;
@@ -51,7 +52,7 @@ div > .background-korg {
     justify-content:space-between ;
     margin-bottom: 1rem;
     width: 18rem;
-    border: 1px solid #000;
+   
     align-self: center;
    
 }
@@ -86,19 +87,16 @@ div > .background-korg {
     text-align: center;
 }
 
-@media (min-width:320px){
-   .food-details{
+@media (min-width:320px) and (max-width:600px){
+    .background-korg{
+       min-width: 10px !important;
 
-   }
+    }
+    
    .title-pris-antal{
     display: flex;
     justify-content: end;
    }
-   
-
-    
-   
-    
     .foodprice {
         position: relative;
         left: .5rem;
@@ -111,8 +109,36 @@ div > .background-korg {
         position: relative;
         left: .6rem;
     }
+    .antal{
+        position: relative;
+        left: -.6rem;
+    }
 }
-@media (min-width:1000px){
+
+@media (min-width:601px) and (max-width:1100px){
+    .food-details{
+        width:32rem ;
+    }
+    .title-pris-antal{
+        display: flex;
+        justify-content: space-evenly;
+        position: relative;
+        left: 6rem; 
+    }
+    .foodprice{
+        position: relative;
+        left: 2rem;
+    }
+    .minus{
+        position: relative;
+        left: 4.5rem;
+    }
+    .plus{
+        position: relative;
+        right: 1rem;
+    }
+}
+@media (min-width:1101px){
     .food-details{
         min-width: 50rem;
 
@@ -132,12 +158,15 @@ div > .background-korg {
        }
        .price-title{
         position: relative;
-        left: 19.7rem;
+        left: 12.4rem;
+       }
+       .antal{
+        position: relative;
+        left: 5.7rem;
        }
        .title-pris-antal{
         display: flex;
-        justify-content: space-between;
-        width: 40rem;
-        
+        justify-content: space-around;
+        width: 40rem; 
        }
 }
