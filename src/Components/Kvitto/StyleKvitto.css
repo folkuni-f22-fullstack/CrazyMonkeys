@@ -1,38 +1,53 @@
 
 body{
+
     margin: 0;
     padding: 0;
     background-color: #4C5452;
     overflow: hidden;
     box-sizing: border-box;
+
 }
 .parent-container{
     display: flex;
+    justify-content: center;
+    
 
 }
 .container{
     display: flex;
-    flex-direction: column;
-    height: 40rem !important;
-    width: 40rem;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 40rem !important;
+    width: 70%;
     background-color: #fff;
-    margin-top: 3rem;
+    gap: 2em;
+    margin: 2rem;
+    padding: 2em;
     border: 0.4em solid #183A37;
     border-radius: 2rem !important;
 }
 
+.title-line > * {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap:2;
+    top: -2rem;
+}
 .kvitto-title{
-    text-align: center;
-    width: auto;
-    
+   text-align: center;
 }
 .message{
     text-align: center;
-    margin: 2rem 0rem 2rem !important;
+    
 }
 
 .deliver-icons{
     display: flex;
+    flex-wrap:wrap ;
     flex-direction: column;
     justify-content: center;
     
@@ -71,11 +86,11 @@ body{
 }
 .delivery-pic{
     display: flex;
-    align-self: center;
     margin-top: 2rem;
-    min-width: 320px;
+
 }
-@media (min-width: 320px){
+
+/*@media (min-width: 320px){
     .container{
         min-width: 10px;
     }

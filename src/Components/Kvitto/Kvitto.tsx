@@ -8,10 +8,14 @@ const Kvitto = () => {
 
     return (
 
-        <div className='parent-container'>
+        <main className='parent-container'>
             <div className='container'>
-                <h1 className='kvitto-title'>Orderbekräftelse</h1>
-                <div className='message'> Tack för att du handlar på Funky Fusion</div>
+                <div className='title-line'>
+
+
+                    <h2 className='kvitto-title'>Orderbekräftelse</h2>
+                    <div className='message'> Tack för att du handlar på Funky Fusion</div>
+                </div>
 
                 <div className='deliver-icons'>
                     <div>
@@ -33,9 +37,10 @@ const Kvitto = () => {
                     </div>
 
                 </div>
+                <button type='button'> kick my Ass</button>
             </div>
 
-        </div>
+        </main>
     )
 }
 
