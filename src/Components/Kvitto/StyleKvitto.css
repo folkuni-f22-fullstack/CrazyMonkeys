@@ -1,0 +1,84 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #4C5452;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.parent-container{
+    display: flex;
+
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 40rem !important;
+    width: 40rem;
+    background-color: #fff;
+    margin-top: 3rem;
+    border: 0.4em solid #183A37;
+    border-radius: 2rem !important;
+}
+
+.kvitto-title{
+    text-align: center;
+    width: auto;
+    
+}
+.message{
+    text-align: center;
+    margin: 2rem 0rem 2rem !important;
+}
+
+.deliver-icons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    
+}
+.deliver-icons > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ .truck , .person{
+    display: inline-flex;
+    position: relative;
+    left: -4rem;
+}
+.time{
+    display: inline-flex;
+    position: relative;
+    left: -5.2rem;
+}
+
+.time > span {
+    position: relative;
+    top: .6rem;
+    margin-left: .1rem;
+}
+.truck > span {
+    position: relative;
+    top: .6rem;
+    margin-left: .1rem;
+}
+.person > span {
+    position: relative;
+    top: .6rem;
+    margin-left: .1rem;
+}
+.delivery-pic{
+    display: flex;
+    align-self: center;
+    margin-top: 2rem;
+    min-width: 320px;
+}
+@media (min-width: 320px){
+    .container{
+        min-width: 10px;
+    }
+    .delivery-pic{
+      margin: 0 0.5rem;}
+}
