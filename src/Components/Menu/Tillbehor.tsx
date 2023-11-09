@@ -38,8 +38,8 @@ const Tillbehor = () => {
 
           <div className="tillbehor-details">
             <div className='name-price-tillbehor'>
-            <h3>{tillbehor.name}</h3>
-            <h2>{tillbehor.price} kr</h2>
+            <h4>{tillbehor.name}</h4>
+            <h3>{tillbehor.price} kr</h3>
 
             </div>
             <div className='tillbehor-img'><img src={tillbehor.img} alt="" /></div>

@@ -64,8 +64,10 @@ const Dryck = () => {
     };
 
     return (
+        
         <div className="dryck-container">
             <h2>Dryck</h2>
+            
             {dryckData.map((dryck) => (
                 <div className="dryck-item" key={dryck._id}>
                     <div className="dryck-details">
@@ -74,9 +76,8 @@ const Dryck = () => {
                         </div>
                         <p> {dryck.price} kr</p>
                     </div>
-
-                    <div className="quantity-controls">
-                        <button
+            
+                    <div className="quantity-controls">                      <button
                             className="quantity-button"
                             onClick={() => handleAddToCart(dryck._id)}
                         >
@@ -87,6 +88,7 @@ const Dryck = () => {
             ))}
             <button onClick={() => test()}>Testa mig</button>
         </div>
+       
     );
 };
 
