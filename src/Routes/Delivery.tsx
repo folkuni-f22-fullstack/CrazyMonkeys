@@ -13,18 +13,6 @@ export function Delivery() {
 
     const [isEmptyEmail, setIsEmptyEmail] = useState(false)
 
-    const [isEmptyAddress, setIsEmptyAddress] = useState(false)
-
-    const [isEmptyPostNumber, setIsEmptyPostNumber] = useState(false)
-
-    const [isEmptyCounty, setIsEmptyCounty] = useState(false)
-
-    const [isEmptyApartmentNumber, setIsEmptyApartmentNumber] = useState(false)
-
-    const [isEmptyFloor, setIsEmptyFloor] = useState(false)
-
-    const [isEmptyPortCode, setIsEmptyPortCode] = useState(false)
-
     // Validation
     const [wrongFirstName, setWrongFirstName] = useState(false)
 
@@ -33,8 +21,6 @@ export function Delivery() {
     const [wrongPhoneNumber, setWrongPhoneNumber] = useState(false)
 
     const [wrongEmail, setWrongEmail] = useState(false)
-
-    const [wrongAddress, setWrongAddress] = useState(false)
 
     function isValidName(name) {
         const validCharLetter = "abcdefghijklmnopqrstuvwxyzåäö- "
@@ -59,7 +45,12 @@ export function Delivery() {
             return [false, "Vänligen använd utan mellanrum"]
         }
 
-        for (let validNumberCounter = 0; validNumberCounter < number.length; validNumberCounter++) {
+        for (
+            let validNumberCounter = 0;
+            validNumberCounter < number.length;
+            validNumberCounter++
+            ) {
+
             let validPhoneNumber = number.charAt(validNumberCounter)
 
             if (!validPhoneFormat.includes(validPhoneNumber)) {
@@ -143,12 +134,6 @@ export function Delivery() {
 
     const addressChange = (e) => {
         setAddress(e.target.value)
-
-        if(e.target.value === "") {
-            setIsEmptyAddress(true)
-        } else {
-            setIsEmptyAddress(false)
-        }
     }
 
     const ownCommentsChange = (e) => {
@@ -157,52 +142,22 @@ export function Delivery() {
 
     const countyChange = (e) => {
         setCounty(e.target.value)
-
-        if(e.target.value === "") {
-            setIsEmptyCounty(true)
-        } else {
-            setIsEmptyCounty(false)
-        }
     }
 
     const apartmentNumberChange = (e) => {
         setApartmentNumber(e.target.value)
-
-        if(e.target.value === "") {
-            setIsEmptyApartmentNumber(true)
-        } else {
-            setIsEmptyApartmentNumber(false)
-        }
     }
 
     const postNumberChange = (e) => {
         setPostNumber(e.target.value)
-
-        if(e.target.value === "") {
-            setIsEmptyPostNumber(true)
-        } else {
-            setIsEmptyPostNumber(false)
-        }
     }
 
     const floorChange = (e) => {
         setFloor(e.target.value)
-
-        if(e.target.value === "") {
-            setIsEmptyFloor(true)
-        } else {
-            setIsEmptyFloor(false)
-        }
     }
 
     const portCodeChange = (e) => {
         setPortCode(e.target.value)
-
-        if(e.target.value === "") {
-            setIsEmptyPortCode(true)
-        } else {
-            setIsEmptyPortCode(false)
-        }
     }
 
 
@@ -233,7 +188,6 @@ export function Delivery() {
             <StepsHeader />
             <form className="form" onSubmit={handleSubmit}>
 
-                <div className="multi-inputs">
                     <div className="label-above-input">
                         <label htmlFor="firstname-input">Förnamn</label>
                             <span className="span-validation">
@@ -242,6 +196,19 @@ export function Delivery() {
                                     isEmptyFirstName ? "⠀⠀ " : wrongFirstName ? (isValidFirstName ? "✔️" : "❌") : "⠀ ⠀"
                                 }
                             </span>
+                            {
+                                !isEmptyFirstName && (
+                                    <div className="validation-error">
+                                        <p>
+                                            {
+                                                isEmptyFirstName ? '' : wrongFirstName ? notValidFirstName : ""
+                                            }
+                                        </p>
+                                        
+                                    </div>
+                                    
+                                )
+                            }
                     </div>
 
                     <div className="label-above-input">
@@ -252,14 +219,20 @@ export function Delivery() {
                                     isEmptyLastName ? "⠀ ⠀" : wrongLastName ? (isValidLastName ? "✔️" : "❌") : "⠀ ⠀"
                                 }
                                 </span>
-                    </div>
-                </div>
-                {
-                    isEmptyFirstName ? '' : wrongFirstName ? notValidFirstName : ""
-                }
-                {
-                    isEmptyLastName ? '' : wrongLastName ? notValidLastName : ""
-                }              
+                                {
+                                !isEmptyLastName && (
+                                    <div className="validation-error">
+                                        <p>
+                                            {
+                                                isEmptyLastName ? '' : wrongLastName ? notValidLastName : ""
+                                            }
+                                        </p>
+                                        
+                                    </div>
+                                    
+                                )
+                            }
+                    </div>            
                 <div className="label-above-input">
                     <label htmlFor="email-input">Epost</label>
                     <span className="span-validation">
@@ -268,10 +241,21 @@ export function Delivery() {
                             isEmptyEmail ? "⠀ ⠀" : wrongEmail ? (isValidEmail ? "✔️" : "❌") : "⠀ ⠀"
                         }
                     </span>
+                    {
+                                !isEmptyEmail && (
+                                    <div className="validation-error">
+                                        <p>
+                                            {
+                                                isEmptyEmail ? '' : wrongEmail ? notValidEmail : ""
+                                            }
+                                        </p>
+                                        
+                                    </div>
+                                    
+                                )
+                            }
                 </div>
-                {
-                    isEmptyEmail ? '' : wrongEmail ? notValidEmail : ''
-                }
+
                 <div className="label-above-input">
                     <label htmlFor="phone-input">Telefonnummer</label>
                     <span className="span-validation">
@@ -280,14 +264,24 @@ export function Delivery() {
                             isEmptyPhoneNumber ? "⠀ ⠀" : wrongPhoneNumber ? (isValidNumber ? "✔️" : "❌") : "⠀⠀ "
                         }
                     </span>
+                    {
+                                !isEmptyPhoneNumber && (
+                                    <div className="validation-error">
+                                        <p>
+                                            {
+                                                isEmptyPhoneNumber ? '' : wrongPhoneNumber ? notValidNumber : ""
+                                            }
+                                        </p>
+                                        
+                                    </div>
+                                    
+                                )
+                            }
                 </div>
-                {
-                    isEmptyPhoneNumber ? '' : wrongPhoneNumber ? notValidNumber : ''
-                }
 
                 <div className="spacer label-above-input">
                     <label htmlFor="own-comments-input">Egna kommentarer</label>
-                    <textarea className="input text-area" id="own-comments-input" onChange={ownCommentsChange} value={ownComments} placeholder="Jag vill inte ha gurka i thai sushin" />
+                    <textarea className="input text-area no-span-input" id="own-comments-input" onChange={ownCommentsChange} value={ownComments} placeholder="Jag vill inte ha gurka i thai sushin" />
                 </div>
 
 
@@ -307,34 +301,32 @@ export function Delivery() {
                         <>
                             <div className="label-above-input">
                                 <label htmlFor="address-input">Adress</label>
-                                <span className="span-validation">
-                                    <input className="address-input input" id="address-input" onChange={addressChange} onBlur={() => setWrongAddress(true)} value={address} type="text" placeholder="Drottninggatan 17" required />
-                                </span>
+                                    <input className="address-input input no-span-input" id="address-input" onChange={addressChange} onBlur={() => setWrongAddress(true)} value={address} type="text" placeholder="Drottninggatan 17" required />
                             </div>
 
                             <div className="multi-inputs">
                                 <div className="label-above-input">
                                     <label htmlFor="post-input">Postnummer</label>
-                                    <input className="post-number-input input" id="post-input" onChange={postNumberChange} value={postNumber} type="number" placeholder="12345"  required/>
+                                    <input className="post-number-input input no-span-input" id="post-input" onChange={postNumberChange} value={postNumber} type="number" placeholder="12345"  required/>
                                 </div>
                                 <div className="label-above-input">
                                     <label htmlFor="county-input">Ort</label>
-                                    <input className="county-input input" id="county-input" onChange={countyChange} value={county}type="text" placeholder="Karlstad"  required/>
+                                    <input className="county-input input no-span-input" id="county-input" onChange={countyChange} value={county}type="text" placeholder="Karlstad"  required/>
                                 </div>
                             </div>
 
                         <div className="multi-inputs">
                             <div className="label-above-input">
                                 <label htmlFor="apartment-input">Lgn. nr</label>
-                                <input className="input tinier-inputs" id="apartment-input" onChange={apartmentNumberChange} value={apartmentNumber} type="number" placeholder="430" />
+                                <input className="input tinier-inputs no-span-input" id="apartment-input" onChange={apartmentNumberChange} value={apartmentNumber} type="number" placeholder="430" />
                             </div>
                         <div className="label-above-input">
                             <label htmlFor="port-code-input">Portkod</label>
-                            <input className="input tinier-inputs" id="port-code-input" onChange={portCodeChange} value={portCode} type="number" placeholder="1234" />
+                            <input className="input tinier-inputs no-span-input" id="port-code-input" onChange={portCodeChange} value={portCode} type="number" placeholder="1234" />
                         </div>
                         <div className="label-above-input">
                             <label htmlFor="floor-input">Våning</label>
-                            <input className="input tinier-inputs" id="floor-input" onChange={floorChange} value={floor} type="number" placeholder="1" />
+                            <input className="input tinier-inputs no-span-input" id="floor-input" onChange={floorChange} value={floor} type="number" placeholder="1" />
                         </div>
                     </div>
                 </>

@@ -69,6 +69,14 @@ html, body {
     align-items: flex-start;
 }
 
+.label-above-input:has(.span-validation) {
+    max-width: 135.75px;
+}
+
+.label-above-input > label {
+    padding: .25em 0em;
+}
+
 .span-validation {
     box-shadow: var(--shadow-elevation-medium);
     border: none;
@@ -76,6 +84,12 @@ html, body {
     padding-right: .65em;
     padding-left: 0px;
     background-color: #fff;
+    min-width: 100px;
+    max-width: 275px;
+}
+
+.span-validation:has(.email-input, .phone-input) {
+    width: 275px;
 }
 
 .validation-under-input {
@@ -83,12 +97,26 @@ html, body {
     flex-flow: column wrap;
 } 
 
+.validation-error:has(p:not(:empty)) {
+    background-color: #ECC8C8;
+    border: 2.5px solid #FF0000;
+    width: 275px;
+    margin-top: 3px;
+}
 
 .input {
     border: none;
     border-radius: 6.5px;
     padding: .65em;
-    
+}
+
+.no-span-input {
+    box-shadow: var(--shadow-elevation-medium);
+    border: none;
+    border-radius: 6.5px;
+    padding-right: .65em;
+    padding-left: 0px;
+    background-color: #fff;
 }
 
 .multi-inputs {
@@ -102,7 +130,7 @@ html, body {
 }
 
 .name-input {
-    max-width: 103px;
+    max-width: 100px;
 }
 
 .address-input {
@@ -110,7 +138,7 @@ html, body {
 }
 
 .email-input, .phone-input  {
-    min-width: 245px; 
+    width: 242px; 
 }
 
 .text-area {
