@@ -102,11 +102,15 @@ html, body {
 }
 
 .name-input {
-    max-width: 135px;
+    max-width: 103px;
 }
 
-.address-input,.email-input, .phone-input  {
+.address-input {
     min-width: 275px; 
+}
+
+.email-input, .phone-input  {
+    min-width: 245px; 
 }
 
 .text-area {

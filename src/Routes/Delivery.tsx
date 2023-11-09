@@ -239,7 +239,7 @@ export function Delivery() {
                             <span className="span-validation">
                                 <input className="input name-input" id="firstname-input" onChange={firstNameChange} onBlur={() => setWrongFirstName(true)} value={firstName} type="text" placeholder="Johanna" required />
                                 {
-                                    isEmptyFirstName ? '' : wrongFirstName ? (isValidFirstName ? "✔️" : "❌") : ""
+                                    isEmptyFirstName ? "⠀⠀ " : wrongFirstName ? (isValidFirstName ? "✔️" : "❌") : "⠀ ⠀"
                                 }
                             </span>
                     </div>
@@ -249,7 +249,7 @@ export function Delivery() {
                             <span className="span-validation">
                                 <input className="input name-input" id="lastname-input" onChange={lastNameChange} onBlur={() => setWrongLastName(true)} value={lastName} type="text" placeholder="Doe" required/>
                                 {
-                                    isEmptyLastName ? '' : wrongLastName ? (isValidLastName ? "✔️" : "❌") : ""
+                                    isEmptyLastName ? "⠀ ⠀" : wrongLastName ? (isValidLastName ? "✔️" : "❌") : "⠀ ⠀"
                                 }
                                 </span>
                     </div>
@@ -265,7 +265,7 @@ export function Delivery() {
                     <span className="span-validation">
                         <input className="email-input input" id="email-input" onChange={emailChange} onBlur={() => setWrongEmail(true)} value={email} type="email" placeholder="johannaDoe@example.com" required />
                         {
-                            isEmptyEmail ? '' : wrongEmail ? (isValidEmail ? "✔️" : "❌") : ''
+                            isEmptyEmail ? "⠀ ⠀" : wrongEmail ? (isValidEmail ? "✔️" : "❌") : "⠀ ⠀"
                         }
                     </span>
                 </div>
@@ -277,7 +277,7 @@ export function Delivery() {
                     <span className="span-validation">
                         <input className="phone-input input" id="phone-input" onChange={phoneNumberChange} onBlur={() => setWrongPhoneNumber(true)} value={phoneNumber} type="number" placeholder="070 123 4561" required />
                         {
-                            isEmptyPhoneNumber ? '' : wrongPhoneNumber ? (isValidNumber ? "✔️" : "❌") : ""
+                            isEmptyPhoneNumber ? "⠀ ⠀" : wrongPhoneNumber ? (isValidNumber ? "✔️" : "❌") : "⠀⠀ "
                         }
                     </span>
                 </div>
