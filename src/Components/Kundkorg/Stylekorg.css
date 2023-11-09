@@ -1,9 +1,86 @@
 body {
-    background-color: #4C5452;
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
+}
+
+.chart-title{
+    text-align: center;
+}
+
+
+.chart-wrapper{
+    display: flex;
+    justify-content: center;
+    background-color: #4C5452;
+}
+
+.background-chart{
+    display: flex;
+    padding: 2em;
+    margin: 2em;
+    flex-direction:column;
+    gap: 4em;
+    width: 70%;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.order-line{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    gap: 2em;
+    /* width: 1000px; */
+}
+.food-name-div{
+    display: flex;
+    flex-direction: column;
+    width: 100px; 
+}
+
+.foodname{
+    display: inline;
+}
+
+.price-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.foodprice{
+    position: absolute;
+    top: 3em;
+}
+
+.price-div h4 {
+    align-self: center;
+}
+
+.amount-order{
+    display: flex;
+    /* gap: 2em; */
+    flex-direction: column;
+    position: relative;
+}
+
+.amount-order span{
+    /* align-items: center; */
+    align-self: center;
+}
+
+.minus-plus{  
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    position: relative;
+    top: 1em;
 }
 
 .back-btn {
@@ -13,68 +90,7 @@ body {
    
 }
 
-div > .background-korg {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
 
-.varukorg-title {
-    text-align: center;
-    position: relative;
-    bottom: 1.5rem;
-    margin-bottom: 4rem;
-    padding: 0;
-}
-.background-korg {
-    display: flex;
-    flex-wrap: wrap;
-    min-height: 40rem;
-    min-width: 20rem;
-    position: relative;
-    top: 6rem;
-    border-radius: 2em;
-    border: 0.4em solid #183A37;
-    background-color: #ffff;
-}
-.food-details {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-   
-    width: 18rem;
-    margin-left: 1rem;
-   align-self: center;
-}
-.title-pris-antal {
-    display: flex;
-    flex-wrap:row wrap;
-    justify-content:space-between ;
-    margin-bottom: 1rem;
-    width: 18rem;
-   
-    align-self: center;
-   
-}
-
-
-
-.foodname {
-  
-  font-size: 1.2rem;
-}
-
-/*.foodname::after {
-    content: "  ........";
-}*/
-
-
-
-
-
-.price-title {
-    margin-right: 4rem;
-}
 
 
 
@@ -87,86 +103,4 @@ div > .background-korg {
     text-align: center;
 }
 
-@media (min-width:320px) and (max-width:600px){
-    .background-korg{
-       min-width: 10px !important;
-
-    }
-    
-   .title-pris-antal{
-    display: flex;
-    justify-content: end;
-   }
-    .foodprice {
-        position: relative;
-        left: .5rem;
-    }
-    .minus{
-        position: relative;
-        left: 1.5rem;
-    }
-    .plus{
-        position: relative;
-        left: .6rem;
-    }
-    .antal{
-        position: relative;
-        left: -.6rem;
-    }
-}
-
-@media (min-width:601px) and (max-width:1100px){
-    .food-details{
-        width:32rem ;
-    }
-    .title-pris-antal{
-        display: flex;
-        justify-content: space-evenly;
-        position: relative;
-        left: 6rem; 
-    }
-    .foodprice{
-        position: relative;
-        left: 2rem;
-    }
-    .minus{
-        position: relative;
-        left: 4.5rem;
-    }
-    .plus{
-        position: relative;
-        right: 1rem;
-    }
-}
-@media (min-width:1101px){
-    .food-details{
-        min-width: 50rem;
-
-       }
-       .background-korg{
-        display: flex;
-        align-self: center;
-        min-width: 40rem;
-       }
-       .foodprice{
-        position: relative;
-        left: 5rem;
-       }
-       .minus{
-        position: relative;
-        left: 10rem;
-       }
-       .price-title{
-        position: relative;
-        left: 12.4rem;
-       }
-       .antal{
-        position: relative;
-        left: 5.7rem;
-       }
-       .title-pris-antal{
-        display: flex;
-        justify-content: space-around;
-        width: 40rem; 
-       }
-}
+/*  */

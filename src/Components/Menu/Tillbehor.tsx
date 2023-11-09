@@ -1,7 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import '../assets/Tillbehor.css'
+import { FunkyContext } from "../../ContextRoot";
 const Tillbehor = () => {
   const [tillbehorData, setTillbehorData] = useState([]);
+  const {orderToSend, order, setOrder} = useContext(FunkyContext)
+  const [itemCounter, setItemCounter] = useState(1)
+
+  const addOrder = () => {
+      const newOrder = {
+        itemId: orderId,
+        quantity: itemCounter
+      };
+  
+      setOrder(prevOrder => [...prevOrder, newOrder]);
+    };
+  
+
 
 
   useEffect(() => {
@@ -23,9 +37,40 @@ const Tillbehor = () => {
     fetchData();
 }, []);
 
-  const handleAddToCart = (tillbehorId: number) => {
-    // Implementera här: Lägg till logik för att lägga till tillbehör i varukorgen
-    console.log(`Lägg till tillbehör ${tillbehorId} i varukorgen.`);
+
+
+
+
+
+
+const handleAddToCart = (foodId: string) => {
+    const existingOrder = order.find((orderItem) => orderItem.itemId === foodId);
+
+    if (existingOrder) {
+      // Om drycken finns, öka antalet
+      setOrder((prevOrder) =>
+        prevOrder.map((orderItem) =>
+          orderItem.itemId === foodId
+            ? { ...orderItem, quantity: orderItem.quantity + 1 }
+            : orderItem
+        )
+      );
+    } else {
+      // Om drycken inte finns, lägg till en ny order
+      const newOrder = {
+        itemId: foodId,
+        quantity: 1
+      };
+      setOrder((prevOrder) => [...prevOrder, newOrder]);
+      console.log(orderToSend);
+      
+    }
+    setItemCounter(itemCounter + 1);
+
+    console.log(orderToSend);
+    
+    
+    
   };
 
   return (
@@ -34,7 +79,7 @@ const Tillbehor = () => {
     <div className="tillbehor-container">
       
       {tillbehorData.map((tillbehor) => (
-        <div className="tillbehor-item" key={tillbehor._Id}>
+        <div className="tillbehor-item" key={tillbehor._id}>
 
           <div className="tillbehor-details">
             <div className='name-price-tillbehor'>
@@ -55,7 +100,7 @@ const Tillbehor = () => {
           <div className="addto-btn">
             <button
               className="add-to-cart-button"
-              onClick={() => handleAddToCart(tillbehor.id)}
+              onClick={() => handleAddToCart(tillbehor._id)}
             >
               Lägg till
             </button>
