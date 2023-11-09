@@ -6,6 +6,7 @@ import sushi from "../../assets/startpagepic/sushi.png";
 import sushirulle from "../../assets/startpagepic/sushirulle.png";
 import teriyaki from "../../assets/startpagepic/teriyaki.png";
 import koriander from "../../assets/startpagepic/Korianderpesto.png";
+import Footer from "../../Components/Footer/Footer";
 
 import "./startpage.css";
 
@@ -28,7 +29,7 @@ function StartPage() {
         <img className="top-pic" src={pizza} alt="Bild på pizza" />
       </section>
 
-      <main>
+      <main className="mainstartpage">
         <div className="text-container">
           <h1 className="company-title">FuNKY FUSION</h1>
           <p className="companytitletext-p">
@@ -76,6 +77,7 @@ function StartPage() {
        <button className="mobilbtn btn-grad ">Beställ här</button>
 
       </main>
+      <Footer/>
     </>
   );
 }
