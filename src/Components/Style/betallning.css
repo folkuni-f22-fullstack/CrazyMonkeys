@@ -1,0 +1,65 @@
+/* Generella stilar för sidan */
+body {
+    background: #333;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Stilar för checkout-container */
+  .checkout-container {
+    background-color: white;
+    padding: 20px;
+    width: 50%;
+    margin: auto;
+    margin: 15% 20%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  /* Stilar för payment-method-container */
+  .payment-method {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  /* Stilar för payment-details-container */
+  .payment-details {
+    margin-top: 20px;
+  }
+  
+  /* Stilar för formulärfält (anpassa efter dina egna behov) */
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  /* Stilar för submit-knapp */
+  button {
+
+    background-image: linear-gradient(to right, #235852 0%, 
+#001510  51%, #00bf8f  100%); 
+  margin: 2em 0.4em;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 7px #eee;
+  border-radius: 10px;
+  display: block;
+  /* margin-left: 20%; */
+  }
+  
+  button:hover {
+    background-position: right center; 
+    color: #fff;
+    text-decoration: none;
+  }
+  

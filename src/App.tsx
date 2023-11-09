@@ -1,6 +1,6 @@
 
 import './App.css'
-import Betallning from '../src/Components/Betallning/Betallning'
+import Betallning from './Components/betallning/Betallning'
 function App() {
 
   return (
