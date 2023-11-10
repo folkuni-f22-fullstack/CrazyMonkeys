@@ -277,11 +277,11 @@ export function Delivery() {
                 <div className="spacer">
                     <div className="radio-spacing">
                         <input id="takeaway-delivery-radio" type="radio" name="deliveryOption" onClick={() => setChosenDeliveryOption(false)} required />
-                        <label htmlFor="takeaway-delivery-radio">Takeaway</label>
+                        <label htmlFor="takeaway-delivery-radio" className="radio-label">Takeaway</label>
                     </div>
                     <div className="radio-spacing">
                         <input id="home-delivery-radio" type="radio" name="deliveryOption" onClick={() => setChosenDeliveryOption(true)} required />
-                        <label htmlFor="home-delivery-radio">Hemleverans</label>
+                        <label htmlFor="home-delivery-radio" className="radio-label">Hemleverans</label>
                     </div>
                 </div>
 

@@ -135,6 +135,10 @@ html, body {
     min-height: 100px;
 }
 
+.radio-label {
+    font-size: 18px;
+}
+
 .post-number-input {
     max-width: 100px;
 }
