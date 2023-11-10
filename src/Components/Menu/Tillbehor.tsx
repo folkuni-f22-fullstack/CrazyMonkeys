@@ -23,25 +23,23 @@ const Tillbehor = () => {
   }, []);
 
   const handleAddToCart = (tillbehorId: number) => {
-   
     console.log(`Lägg till tillbehör ${tillbehorId} i varukorgen.`);
   };
 
   return (
     <>
-      <h2>Tillbehör</h2>
+      <p>Tillbehör</p>
       <div className="tillbehor-container">
         {tillbehorData.map((tillbehor) => (
           <div className="tillbehor-item" key={tillbehor._Id}>
             <div className="tillbehor-details">
-              <div className="name-price-tillbehor">
-                <h4>{tillbehor.name}</h4>
-                <h3>{tillbehor.price} kr</h3>
-              </div>
               <div className="tillbehor-img">
                 <img src={tillbehor.img} alt="" />
               </div>
-
+              <div className="name-price-tillbehor">
+                <h4>{tillbehor.name}</h4>
+                <h4>{tillbehor.price} kr</h4>
+              </div>
               <div className="tillbehor-desc">
                 <p>{tillbehor.desc}</p>
               </div>
