@@ -32,7 +32,7 @@ export function Delivery() {
             }
         }
         if (name.length < 2) {
-            return [false, "För- eller efternamn behöver minst vara 2 tecken långt"]
+            return [false, "Minst 2 tecken långt"]
         }
         return [true, ""]
     }
@@ -58,9 +58,9 @@ export function Delivery() {
             }
         }
         if (number.length < 10) {
-            return [false, "Vänligen skriv in minst 10 tecken"]
+            return [false, "Minst 10 tecken"]
         } else if (number.length > 13) {
-            return [false, "Vänligen använd inte mer än 13 tecken"]
+            return [false, "Inte mer än 13 tecken"]
         }
         return [true, ""]
     }
@@ -92,14 +92,11 @@ export function Delivery() {
     const firstNameChange = (e) => {
         setFirstName(e.target.value)
 
-        console.log(e.target.value);
-        
         if(e.target.value === "") {
             setIsEmptyFirstName(true)
         } else {
             setIsEmptyFirstName(false)
         }
-        console.log(isEmptyFirstName);
     }
 
     const lastNameChange = (e) => {
@@ -182,20 +179,26 @@ export function Delivery() {
     const [isValidNumber, notValidNumber] = isValidPhoneNumber(phoneNumber)
     const [isValidEmail, notValidEmail] = isValidEmailAddress(email)
 
+    // style
+    const validationErrorBorder = (empty, wrong, isValid) => {
+        return {
+            border: empty ? null : (wrong ? (isValid ? "2px solid #48E761" : "2px solid #FF0000") : null)
+        }
+
+    }
+
     return (
-        <section className="container">
-            <header className="header"><button><span className="material-symbols-outlined">keyboard_return</span></button> <h1>Leveransuppgifter</h1></header>
+        <section className="delivery-container">
+
             <StepsHeader />
+            <header className="header"><button><span className="material-symbols-outlined">undo</span></button> <h1>Uppgifter</h1></header>
             <form className="form" onSubmit={handleSubmit}>
+        <div className="multi-inputs" >
+
 
                     <div className="label-above-input">
                         <label htmlFor="firstname-input">Förnamn</label>
-                            <span className="span-validation">
-                                <input className="input name-input" id="firstname-input" onChange={firstNameChange} onBlur={() => setWrongFirstName(true)} value={firstName} type="text" placeholder="Johanna" required />
-                                {
-                                    isEmptyFirstName ? "⠀⠀ " : wrongFirstName ? (isValidFirstName ? "✔️" : "❌") : "⠀ ⠀"
-                                }
-                            </span>
+                                <input className="input name-input" id="firstname-input" onChange={firstNameChange} onBlur={() => setWrongFirstName(true)} style={validationErrorBorder(isEmptyFirstName, wrongFirstName, isValidFirstName)} value={firstName} type="text" placeholder="Johanna" required />
                             {
                                 !isEmptyFirstName && (
                                     <div className="validation-error">
@@ -213,12 +216,7 @@ export function Delivery() {
 
                     <div className="label-above-input">
                         <label htmlFor="lastname-input">Efternamn<span></span></label>
-                            <span className="span-validation">
-                                <input className="input name-input" id="lastname-input" onChange={lastNameChange} onBlur={() => setWrongLastName(true)} value={lastName} type="text" placeholder="Doe" required/>
-                                {
-                                    isEmptyLastName ? "⠀ ⠀" : wrongLastName ? (isValidLastName ? "✔️" : "❌") : "⠀ ⠀"
-                                }
-                                </span>
+                                <input className="input name-input" id="lastname-input" onChange={lastNameChange} onBlur={() => setWrongLastName(true)} style={validationErrorBorder(isEmptyLastName, wrongLastName, isValidLastName)} value={lastName} type="text" placeholder="Doe" required/>
                                 {
                                 !isEmptyLastName && (
                                     <div className="validation-error">
@@ -233,14 +231,10 @@ export function Delivery() {
                                 )
                             }
                     </div>            
+        </div>
                 <div className="label-above-input">
                     <label htmlFor="email-input">Epost</label>
-                    <span className="span-validation">
-                        <input className="email-input input" id="email-input" onChange={emailChange} onBlur={() => setWrongEmail(true)} value={email} type="email" placeholder="johannaDoe@example.com" required />
-                        {
-                            isEmptyEmail ? "⠀ ⠀" : wrongEmail ? (isValidEmail ? "✔️" : "❌") : "⠀ ⠀"
-                        }
-                    </span>
+                        <input className="email-input input" id="email-input" onChange={emailChange} onBlur={() => setWrongEmail(true)} style={validationErrorBorder(isEmptyEmail, wrongEmail, isValidEmail)} value={email} type="email" placeholder="johannaDoe@example.com" required />
                     {
                                 !isEmptyEmail && (
                                     <div className="validation-error">
@@ -258,12 +252,7 @@ export function Delivery() {
 
                 <div className="label-above-input">
                     <label htmlFor="phone-input">Telefonnummer</label>
-                    <span className="span-validation">
-                        <input className="phone-input input" id="phone-input" onChange={phoneNumberChange} onBlur={() => setWrongPhoneNumber(true)} value={phoneNumber} type="number" placeholder="070 123 4561" required />
-                        {
-                            isEmptyPhoneNumber ? "⠀ ⠀" : wrongPhoneNumber ? (isValidNumber ? "✔️" : "❌") : "⠀⠀ "
-                        }
-                    </span>
+                        <input className="phone-input input" id="phone-input" onChange={phoneNumberChange} onBlur={() => setWrongPhoneNumber(true)} style={validationErrorBorder(isEmptyPhoneNumber, wrongPhoneNumber, isValidNumber)}  value={phoneNumber} type="number" placeholder="070 123 4561" required />
                     {
                                 !isEmptyPhoneNumber && (
                                     <div className="validation-error">
