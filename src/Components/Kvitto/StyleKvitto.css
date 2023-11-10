@@ -14,59 +14,54 @@ body{
     
 
 }
-.container{
+.container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    min-height: 40rem !important;
-    width: 70%;
+    height: 38rem !important;
+    width: 50%;
     background-color: #fff;
-    gap: 2em;
-    margin: 2rem;
-    padding: 2em;
+    margin: 3rem;
+    padding: 1rem;
     border: 0.4em solid #183A37;
     border-radius: 2rem !important;
 }
 
 .title-line > * {
-    display: flex;
-    flex-direction: column;
     position: relative;
-    gap:2;
-    top: -2rem;
-}
-.kvitto-title{
+    top: -5rem;
+    text-align: center;
+} 
+/* .kvitto-title{
    text-align: center;
 }
 .message{
     text-align: center;
     
-}
+} */
+  
 
-.deliver-icons{
-    display: flex;
-    flex-wrap:wrap ;
-    flex-direction: column;
-    justify-content: center;
-    
-    
-}
 .deliver-icons > div{
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 40px;
+   
+   
 }
- .truck , .person{
+  .truck , .person{
     display: inline-flex;
     position: relative;
-    left: -4rem;
+    left: -8rem;
+    
 }
 .time{
     display: inline-flex;
     position: relative;
-    left: -5.2rem;
+    left: -9.3rem;
+    margin: .2rem;
 }
 
 .time > span {
@@ -85,15 +80,60 @@ body{
     margin-left: .1rem;
 }
 .delivery-pic{
-    display: flex;
-    margin-top: 2rem;
-
+   padding-top: 2rem;
+}
+.last-message{
+    text-align: center;
 }
 
-/*@media (min-width: 320px){
-    .container{
-        min-width: 10px;
-    }
-    .delivery-pic{
-      margin: 0 0.5rem;}
+@media (min-width: 320px) and (max-width:680px){
+  .container{
+    padding: 5rem;
+    width: 50%;
+    height: 20vh;
+    position: relative;
+    top: -rem;
+    
+  }
+  .kvitto-title{
+    font-size: 20px;
+    position: relative;
+    top: -5rem;
+  }
+    
+   
+   .deliver-icons{
+    position: relative;
+    left: 4rem;
+    
+   }
+   .deliver-icons > * {
+    height: 50px;
+   }
+   .timer{
+    size: 80px;
+   
+   }
+   
+   .truck{
+    size: 20px;
+    width: 110px;
+   }
+   .person{
+    display: inline-flex;
+    flex-wrap: nowrap;
+    width: 100px;
+    position: relative;
+    left: -8.4rem;
+   }
+  
+   
+   .last-message{
+    position: relative;
+    left: -1rem;
+   }
+   .confirm-btn{
+    position: relative;
+    left: -1rem;
+   }
 }

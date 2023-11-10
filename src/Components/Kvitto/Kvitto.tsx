@@ -5,6 +5,7 @@ import { MdOutlinePeopleAlt } from 'react-icons/md'
 import image from './image/images.png'
 const Kvitto = () => {
 
+    const resizeImage = {width:'80%' , height:'80%' , objectfit:'contain'}
 
     return (
 
@@ -19,7 +20,7 @@ const Kvitto = () => {
 
                 <div className='deliver-icons'>
                     <div>
-                        <span className='time'> <AiOutlineFieldTime size={35} /> <span>15</span> <span>min</span> </span>
+                        <span className='time'> <AiOutlineFieldTime size={35} className="timer" /> <span>15</span> <span>min</span> </span>
                     </div>
                     <div>
                         <span className='truck'><TbTruckDelivery size={35} /> <span>Leverans: </span><span>15</span></span>
@@ -27,17 +28,19 @@ const Kvitto = () => {
                     <div>
                         <span className='person'><MdOutlinePeopleAlt size={35} /><span>Order nr: </span> <span>699</span></span>
                     </div>
-                    <div className='delivery-pic'>
-                        <img src={image} alt="delivery pic" />
+                   
+                   
+
+                </div>
+                <div className='delivery-pic'>
+                        <img style={resizeImage} src={image} alt="delivery pic" />
                     </div>
-                    <div>
+                <div>
                         <p className='last-message'>
                             Kvitto har skickats till din mejl!
                         </p>
                     </div>
-
-                </div>
-                <button type='button'> kick my Ass</button>
+                <button type='button' className='confirm-btn'> kick my Ass</button>
             </div>
 
         </main>
