@@ -1,11 +1,12 @@
 
 import './App.css'
+import { EmployeeView } from './routes/employee-view'
 
 function App() {
 
   return (
     <>
-     <h1>CrazyMonekys </h1>
+     <EmployeeView />
     </>
   )
 }
