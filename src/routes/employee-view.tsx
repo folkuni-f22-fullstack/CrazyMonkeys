@@ -11,7 +11,7 @@ export const EmployeeView = () => {
     }
 
     return (
-        <div>
+        <section className="employee-view-container">
             <span>Du är inloggad</span>
             <h1>Beställningar</h1>
             <hr />
@@ -51,6 +51,6 @@ export const EmployeeView = () => {
                     </section>
                 )
             }
-        </div>
+        </section>
     )
 }
