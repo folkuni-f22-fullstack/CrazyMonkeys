@@ -27,10 +27,6 @@ function Menu() {
       {activeCategory === 'matratter' && <Matratter />}
       {activeCategory === 'drycker' && <Drycker />}
       {activeCategory === 'tillbehor' && <Tillbehor />}
-      {/* <hr></hr>
-      <Drycker />
-      <hr></hr>
-      <Tillbehor /> */}
       </div>
       
     </div>

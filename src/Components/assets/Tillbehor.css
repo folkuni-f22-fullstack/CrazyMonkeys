@@ -1,43 +1,49 @@
-
-.tillbehor-container{
-    padding: 1em;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1em;
-    height: 70vh;
-    overflow-y: scroll;
+.tillbehor-container {
+  padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  height: 70vh;
+  overflow-y: scroll;
 }
 
-.tillbehor-item{
-    padding: .5em;
-    margin-bottom: .5em;
-    width: 400px;
+.tillbehor-item {
+  padding: 0 6px;
+  float: right;
+  width: 300px;
 }
 
-.tillbehor-details{
-    display: flex;
-    flex-direction: column;
+.tillbehor-details {
+  display: flex;
+  flex-direction: column;
 }
 
-.tillbehor-img img{
-    width: 300px;
-    height: 300px;
-    border-radius: 10px;
+.tillbehor-img img {
+  width: 300px;
+  height: 300px;
+  margin-left: 20px;
 }
 
-.name-price-tillbehor{
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    align-items: center;
+.name-price-tillbehor {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  align-items: center;
 }
 
-.tillbehor-desc{
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    width: 250px;
-    text-align: center;
-    font-size: 20px;
+.tillbehor-desc {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 250px;
+  text-align: center;
+  font-size: 15px;
+}
+
+@media screen and (max-width: 320px) {
+  .tillbehor-img img {
+    width: 150px;
+    height: 150px;
+  }
 }

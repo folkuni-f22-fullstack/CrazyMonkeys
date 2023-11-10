@@ -16,7 +16,7 @@
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   text-align: center;
-  width: 680px;
+  width: 880px;
   height: 100vh;
   margin: 0 auto;
 }
@@ -50,16 +50,12 @@ h1 {
 }
 
 .funky-hr {
-height: 5px;  /* border: 0.8px solid black; */
+height: 5px;  
   background: #000;
   width: 500px;
 }
 
-@media screen and(max-width: 1920px) {
-  /* .inner-container{
-    width: 1000px;
-  } */
-}
+
 
 @media  (max-width: 320px) {
   h1 {
