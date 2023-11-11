@@ -108,7 +108,7 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
     display: none;
   }
   .top-pic {
-    flex-grow: 1; /* Låt båda bilderna växa efter 330px */
+    flex-grow: 1;
   }
 }
 
