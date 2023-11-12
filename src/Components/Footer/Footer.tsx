@@ -43,7 +43,7 @@ function Footer() {
           <div className="footer-column">
             <h3 className="openhour">Öppettider</h3>
             <table>
-              <tr>
+              <tr className="table">
                 <td className="weekday">Måndag - Fredag:</td>
                 <td className="time">16:00 - 22:00</td>
               </tr>
@@ -78,11 +78,12 @@ function Footer() {
               <IoIosMail className="dark-icons" /> Fonky_Fusion@CrazyMonkeys.com
             </p>
             <div className="media-icons-desktop">
-              <p>Följ oss</p>
+              <p className="follow-us">Följ oss</p>
               <FaInstagram className="instagram-icon" />
               <FaXTwitter className="twitter-icon" />
               <FaFacebook className="facebook-icon" />
             </div>
+          <LuLogIn className="login-icon-desktop" />
           </div>
         </div>
       </footer>

@@ -4,7 +4,9 @@
     
     --header-color:#183a37;
     --bg-color: #4c5452;
-    --bg-footer: #312e2e;
+    --bg-footer: #312E2E;
+
+    --black-icons: black;
   }
   /* Skrivs såhär:  background-color: var(--bg-color); */
   
