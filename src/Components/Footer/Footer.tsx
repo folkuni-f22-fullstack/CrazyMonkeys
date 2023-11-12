@@ -7,10 +7,17 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { BiSolidCopyright } from "react-icons/bi";
 import { SiGooglemaps } from "react-icons/si";
 import { IoIosMail } from "react-icons/io";
-
+import { useState } from "react";
+import Login from '../../Components/Login/Login'
 import ff from "../../assets/footerpagepic/FFlogga.png";
+import '../Login/login.css'
 
 function Footer() {
+  const [isLoginOverlayOpen, setIsLoginOverlayOpen] = useState(false);
+
+  const handleLoginClick = () => {
+    setIsLoginOverlayOpen(!isLoginOverlayOpen);
+  };
   return (
     <>
       <section className="footer-container">
@@ -83,7 +90,11 @@ function Footer() {
               <FaXTwitter className="twitter-icon" />
               <FaFacebook className="facebook-icon" />
             </div>
-          <LuLogIn className="login-icon-desktop" />
+            <LuLogIn className="login-icon" onClick={handleLoginClick} />
+            <Login
+        isLoginOverlayOpen={isLoginOverlayOpen}
+        setIsLoginOverlayOpen={setIsLoginOverlayOpen}
+      />
           </div>
         </div>
       </footer>
