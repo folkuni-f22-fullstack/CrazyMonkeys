@@ -13,7 +13,31 @@ const OrderItemSchema = new mongoose.Schema({
   });
 
   const OrdersSchema = new mongoose.Schema({
+    orderId:{
+        type: Number,
+        required: true
+    },
     customerName: {
+      type: String, 
+      required: true
+    },
+    adress: {
+      type: String, 
+      required: true
+    },
+    floor: {
+      type: Number, 
+      required: true
+    },
+    portCode: {
+      type: Number, 
+      required: true
+    },
+    mail: {
+      type: String, 
+      required: true
+    },
+    mobile: {
       type: String, 
       required: true
     },
