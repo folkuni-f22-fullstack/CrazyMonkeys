@@ -35,6 +35,7 @@
   .matratt-p{
     width: 350px;
     text-align: start;
+    font-size: 14px;
   }
 
   .bottom-details{
@@ -78,7 +79,8 @@
     .matratt-image img {
       width: 150;
       height: 150px;
-      
-
+    }
+    .matratt-p{
+      font-size: 12px;
     }
   }

@@ -55,7 +55,26 @@ height: 5px;
   width: 500px;
 }
 
+.proceed-button {
+  background-image: linear-gradient(to right, #235852 0%, 
+  #001510  51%, #00bf8f  100%); 
+    margin: 2em 0.4em;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 7px #eee;
+    border-radius: 10px;
+    display: block;
+}
 
+.proceed-button:hover {
+  background-position: right center; 
+  color: #fff;
+  text-decoration: none;
+}
 
 @media  (max-width: 320px) {
   h1 {

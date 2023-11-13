@@ -79,7 +79,7 @@ const Matratter = () => {
                     </div>
 
                     <div className="matratt-details">
-                        <h3>{matratt.name}</h3>
+                        <h4>{matratt.name}</h4>
                         <p className="matratt-p">{matratt.desc}</p>
                         <div className="bottom-details">
                             <p>Pris: {matratt.price} kr</p>

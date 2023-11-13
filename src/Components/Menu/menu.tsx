@@ -27,6 +27,7 @@ function Menu() {
       {activeCategory === 'matratter' && <Matratter />}
       {activeCategory === 'drycker' && <Drycker />}
       {activeCategory === 'tillbehor' && <Tillbehor />}
+      <button className='proceed-button'>Gå till varukorgen</button>
       </div>
       
     </div>
