@@ -9,3 +9,43 @@ html, body {
     min-width: 320px;
     max-width: 800px;
 }
+
+.order-box {
+    background-color: #fff;
+    border-radius: 10px;
+    width: 430px;
+    height: 42px;
+    display: grid;
+    align-items: center;
+    grid-template-areas: 'icon order-name order-name order-name confirm decline edit more';
+    gap: 10px;
+    padding: 0em 1.25em;
+}
+
+.material-symbols-outlined {
+    grid-area: icon;
+}
+
+.order-name {
+    grid-area: order-name;
+    margin: 0px;
+}
+
+.button-more {
+    grid-area: more;
+}
+
+.button-confirm {
+    grid-area: confirm;
+}
+
+.button-decline {
+    grid-area: decline;
+}
+
+.button-edit {
+    grid-area: edit;
+}
+
+
+
