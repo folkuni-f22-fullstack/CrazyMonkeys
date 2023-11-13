@@ -26,11 +26,11 @@ const OrderItemSchema = new mongoose.Schema({
       required: true
     },
     floor: {
-      type: Number, 
+      type: String,  
       required: true
     },
     portCode: {
-      type: Number, 
+      type: String, 
       required: true
     },
     mail: {

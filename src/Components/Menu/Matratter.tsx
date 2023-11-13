@@ -36,7 +36,6 @@ const Matratter = () => {
                 const data = await response.json();
                 const sortedData = data.filter((item) => item.itemType === "food");
                 setFood(sortedData);
-                console.log(data);
             } catch (error) {
                 console.error(error);
             }

@@ -31,34 +31,43 @@ router.delete("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
     const orderData = req.body;
 
-  try {
-    // Hämta detaljer om valda maträtter från "Menu"-samlingen
-    const orderItemsWithDetails = await Promise.all(orderData.items.map(async (item) => {
-      const menuItemId = item.menuItem;
-      const menuDetails = await Menu.findById(menuItemId);
-      console.log("menuItemId:" + menuItemId);
-      if (menuDetails) {
-        return {
-          menuItem: menuDetails,
-          quantity: item.quantity
-        };
-      }
-      return null; // Returnera null om ingen matchande maträtt hittades
-    }));
+    try {
+        const orderItemsWithDetails = await Promise.all(orderData.items.map(async (item) => {
+            const menuItemId = item.menuItem;
+            const menuDetails = await Menu.findById(menuItemId);
+            if (menuDetails) {
+                return {
+                    menuItem: menuDetails,
+                    quantity: item.quantity
+                };
+            }
+            // Om ingen matchande maträtt hittades, skapa en kommentar om detta
+            return {
+                menuItem: { name: "Unknown", price: 0 }, // Anpassa detta efter din modell av Menu
+                quantity: item.quantity,
+                note: "This item was not found in the menu"
+            };
+        }));
 
-    // Skapa beställningen med detaljer om maträtterna
-    const newOrder = new Orders({
-      customerName: orderData.customerName,
-      items: orderItemsWithDetails, // Använd orderItemsWithDetails här
-      comments: orderData.comments
-    });
+        const newOrder = new Orders({
+            orderId: orderData.orderId,
+            customerName: orderData.customerName,
+            adress: orderData.adress,
+            floor: orderData.floor,
+            portCode: orderData.portCode,
+            mail: orderData.mail,
+            mobile: orderData.mobile,
+            items: orderItemsWithDetails,
+            comments: orderData.comments
+        });
 
-    const savedOrder = await newOrder.save();
-    res.status(200).json(savedOrder);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json(err);
-  }
-})
+        const savedOrder = await newOrder.save();
+        res.status(200).json(savedOrder);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+    }
+});
+
 
 export default router

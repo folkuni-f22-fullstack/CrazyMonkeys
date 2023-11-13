@@ -3,6 +3,8 @@ import { useEffect, useState, useContext } from "react";
 import { FunkyContext } from "../../ContextRoot";
 import { RiArrowGoBackFill } from "react-icons/ri";
 import "./anställdaordrar.css";
+// import {postCustomerOrder} from "../../dataApi/postOrder.jsx"
+import OrderComponent from "../../dataApi/OrderComponent.jsx"
 
 const Kundkorg = () => {
     const { orderToSend, customerInfo } = useContext(FunkyContext);
@@ -23,20 +25,26 @@ const Kundkorg = () => {
                 const sortedOrder = data.filter((item) => orderIds.includes(item._id));
 
                 setChartData(sortedOrder);
-                console.log(chartData);
-                console.log("OrderIds:" + orderIds);
+                // console.log(chartData);
+                // console.log("OrderIds:" + orderIds);
             } catch (error) {
                 console.error(error);
             }
         };
 
+        
         fetchData();
     }, [orderToSend.items]);
 
-    const klick = () => {
-        console.log(chartData);
-        console.log();
-    };
+    // const klick = async () => {
+    //     try{
+    //         const data = await postCustomerOrder()
+
+    //     }catch(error){
+    //         console.error(error);
+            
+    //     }
+    // };
 
     return (
         <div className="chart-wrapper">
@@ -50,18 +58,20 @@ const Kundkorg = () => {
                         <p>Obehandlade</p>
                     </div>
                 </div>
-                            <div className="order-group" key={customerInfo.orderId}>
+                {chartData.map((order) => (
+                    <>
+                            {/* <div className="order-group" key={customerInfo.orderId}>
                                 <p>Ordernummer:{customerInfo.orderId}</p>
                                 <button>Bekräfta</button>
                                 <button>Neka</button>
                                 <button onClick={() => handleModifyOrder(customerInfo.orderId)}>Ändra</button>
-                            </div>
-                {chartData.map((order) => (
-                    <>
+                            </div> */}
                         <div className="order-line">
 
                             <div className="food-name-div">
                                 <p className="foodname">{order.name}</p>
+                                <p className="foodname">{customerInfo.name}</p>
+                                <p className="foodname">{customerInfo.adress}</p>
                             </div>
 
 
@@ -87,7 +97,8 @@ const Kundkorg = () => {
                 ))}
                 <hr className="line" />
                 <p className="total-summa">Totalsumma:</p>
-                <button onClick={klick}>klicka mig</button>
+                {/* <button onClick={klick}>klicka mig</button> */}
+                <OrderComponent/>
             </div>
         </div>
     );
