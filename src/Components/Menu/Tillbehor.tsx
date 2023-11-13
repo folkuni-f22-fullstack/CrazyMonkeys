@@ -32,28 +32,32 @@ const Tillbehor = () => {
       <div className="tillbehor-container">
         {tillbehorData.map((tillbehor) => (
           <div className="tillbehor-item" key={tillbehor._Id}>
+            <div className="name-price-tillbehor">
+              <h4>{tillbehor.name}</h4>
+              <h4>{tillbehor.price} kr</h4>
+            </div>
             <div className="tillbehor-details">
               <div className="tillbehor-img">
                 <img src={tillbehor.img} alt="" />
               </div>
-              <div className="name-price-tillbehor">
-                <h4>{tillbehor.name}</h4>
-                <h4>{tillbehor.price} kr</h4>
-              </div>
+
               <div className="tillbehor-desc">
                 <p>{tillbehor.desc}</p>
+
+                <div className="addto-btn">
+                  <button
+                    className="add-to-cart-button"
+                    onClick={() => handleAddToCart(tillbehor.id)}
+                  >
+                    Lägg till
+                  </button>
+                </div>
               </div>
             </div>
-
-            <div className="addto-btn">
-              <button
-                className="add-to-cart-button"
-                onClick={() => handleAddToCart(tillbehor.id)}
-              >
-                Lägg till
-              </button>
-            </div>
           </div>
+
+
+
         ))}
       </div>
     </>

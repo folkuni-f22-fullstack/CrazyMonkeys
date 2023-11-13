@@ -7,13 +7,45 @@
   height: 70vh;
   overflow-y: scroll;
 }
-/* p{
- font-size: 30px; 
-} */
 .tillbehor-item {
-  padding: 0 6px;
-  float: right;
-  width: 300px;
+  width: 38%;
+  margin: 1%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+@media (min-width: 768px) {
+  .tillbehor-item {
+    display: inline-block;
+  }
+
+  .tillbehor-item:hover {
+    transform: scale(1.05); 
+  }
+}
+
+@media (max-width: 767px) {
+  .tillbehor-item {
+    width: 100%;
+    display: block;
+  }
+
+  .tillbehor-item:hover {
+    transform: none; 
+  }
+}
+
+.name-price-tillbehor {
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+
+.name-price-tillbehor h4 {
+  margin: 0;
 }
 
 .tillbehor-details {
@@ -22,50 +54,29 @@
 }
 
 .tillbehor-img img {
-  width: 300px;
-  height: 300px;
-  margin-left: 20px;
-}
-
-.name-price-tillbehor {
-  display: flex;
-  justify-content: center;
-  margin: 0px;
-  gap: 1em;
-  align-items: center;
-  font-size: 20px;
+ width: 300px;
+ height: 300px;
 }
 
 .tillbehor-desc {
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  width: 250px;
-  text-align: center;
-  font-size: 19px;
+  padding: 10px;
 }
 
-@media screen and (max-width: 320px) {
-  .tillbehor-img img {
-    width: 190px;
-    height: 190px;
-  }
+.addto-btn {
+  text-align: center;
+  margin-top: 10px;
+}
 
-  .name-price-tillbehor {
-    display: flex;
-    justify-content: center;
-    margin: 0px;
-    gap: 1em;
-    align-items: center;
-    font-size: 14px;
-  }
-  
-  .tillbehor-desc {
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    width: 250px;
-    text-align: center;
-    font-size: 14px;
-  }
+.add-to-cart-button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-to-cart-button:hover {
+  background-color: #45a049;
 }

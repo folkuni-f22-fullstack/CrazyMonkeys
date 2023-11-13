@@ -8,6 +8,7 @@
 }
 
 .inner-container {
+  border: 5px solid #183A37;
   display: flex;
   justify-content: center;
   flex-direction: column;
