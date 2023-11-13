@@ -61,7 +61,7 @@ const Kundkorg = () => {
                         <div className="order-line">
 
                             <div className="food-name-div">
-                                <h className="foodname">{order.name}</h>
+                                <p className="foodname">{order.name}</p>
                             </div>
 
 

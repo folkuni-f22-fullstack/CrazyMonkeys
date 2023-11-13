@@ -16,10 +16,10 @@ const Matratter = () => {
     };
 
     const handleInputChange = (e) => {
-        const fieldName = e.target.name; // antar att "name" attributen används i dina input-fält
+        const fieldName = e.target.name; 
         const value = e.target.value;
 
-        // Uppdatera endast det specifika fältet genom att skapa en kopia av state-objektet
+        
         setCustomerInfo((prevState) => ({
             ...prevState,
             [fieldName]: value,
@@ -71,9 +71,6 @@ const Matratter = () => {
         console.log(orderToSend);
     };
 
-    // const handleOrderClick = (name: string) => {
-    //     alert(`Du lagt till: ${name} i korgen`);
-    // };
 
     return (
         <>
