@@ -20,9 +20,8 @@ function Header() {
     <>
       <section className="header-container">
         {/* <p className="navbar">Hem</p> */}
-        <NavLink className="navbar" onClick= {() => {navigate("/menu")}}
-        >Meny</NavLink>
-        <a className="navbar"  onClick= {() => {navigate("/kundkorg")}}>Din Beställning</a>
+        <NavLink className="navbar" onClick={() => { navigate("/menu"); } } to={"/menu"}        >Meny</NavLink>
+        <NavLink className="navbar" onClick={() => { navigate("/kundkorg"); } } to={"/kundkorg"}>Din Beställning</NavLink>
 
         <div
           className={`menu-icon ${isMenuIconCross ? "cross" : ""}`}
