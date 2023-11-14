@@ -33,10 +33,10 @@
     padding: 10px;
   }
 
-  .matratt-p{
-    width: 350px;
+  .matratt-details .matratt-p{
+    width: 200px;
     text-align: center;
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .bottom-details{
