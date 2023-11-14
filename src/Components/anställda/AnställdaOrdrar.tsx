@@ -7,25 +7,23 @@ import "./anställdaordrar.css";
 import OrderComponent from "../../dataApi/OrderComponent.jsx"
 
 const Kundkorg = () => {
-    const { orderToSend, customerInfo } = useContext(FunkyContext);
+    const [ menuInApi, setMenuInApi] = useState([]);
     const [chartData, setChartData] = useState([]);
-    const handleModifyOrder = (orderId) => {
-
-    };
+   
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch("/api/menu");
+                const response = await fetch("/api/orders");
                 if (!response.ok) {
                     throw new Error("Något gick fel");
                 }
                 const data = await response.json();
-                const orderIds = orderToSend.items.map((item) => item.menuItem);
-                const sortedOrder = data.filter((item) => orderIds.includes(item._id));
+                // const orderIds = orderToSend.items.map((item) => item.menuItem);
+                // const sortedOrder = data.filter((item) => orderIds.includes(item._id));
 
-                setChartData(sortedOrder);
-                // console.log(chartData);
+                setChartData(data);
+                console.log(chartData);
                 // console.log("OrderIds:" + orderIds);
             } catch (error) {
                 console.error(error);
@@ -34,17 +32,33 @@ const Kundkorg = () => {
 
         
         fetchData();
-    }, [orderToSend.items]);
+    }, []);
 
-    // const klick = async () => {
-    //     try{
-    //         const data = await postCustomerOrder()
+    useEffect(() => {
+        const fetchMenuData = async () => {
+            try {
+                const response = await fetch("/api/menu");
+                if (!response.ok) {
+                    throw new Error("Något gick fel");
+                }else{
+                    const data = await response.json();
+                    const orderIds = chartData.map((item) => item.menuItem);
+                    const sortedData = data.filter((item) => item.itemType === "food", "dricka", "tillbehör");
+                    const sortedOrder = sortedData.filter((item) => orderIds.includes(item._id));
+        
+                    setMenuInApi(sortedOrder);
 
-    //     }catch(error){
-    //         console.error(error);
-            
-    //     }
-    // };
+                }
+                console.log("menu", menuInApi);
+                // console.log("OrderIds:" + orderIds);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+    
+        fetchMenuData();
+    }, []);
+
 
     return (
         <div className="chart-wrapper">
@@ -69,9 +83,10 @@ const Kundkorg = () => {
                         <div className="order-line">
 
                             <div className="food-name-div">
-                                <p className="foodname">{order.name}</p>
-                                <p className="foodname">{customerInfo.name}</p>
-                                <p className="foodname">{customerInfo.adress}</p>
+                                <p className="foodname">{order.customerName}</p>
+                                {/* <p className="foodname">{}</p> */}
+                                <p className="foodname">{order.adress}</p>
+                                {/* <p className="foodname">{order}</p> */}
                             </div>
 
 
@@ -85,9 +100,9 @@ const Kundkorg = () => {
                                 <div className="minus-plus">
                                     <BiMinus className="minus" />
                                     <span className="amount-food">
-                                        {orderToSend.items.find(
-                                            (item) => item.menuItem === order._id
-                                        )?.quantity || 0}{" "}
+                                        {order.items.find(
+                                            (item) => item.menuItem === menuInApi._id
+                                        )?.quantity || 0}
                                     </span>
                                     <BiPlus className="plus" />
                                 </div>

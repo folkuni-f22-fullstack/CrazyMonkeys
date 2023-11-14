@@ -110,7 +110,7 @@ const Matratter = () => {
                     type="text"
                     name="adress"
                     placeholder="adress"
-                    value={customerInfo.adress}
+                    value={customerInfo.address}
                     onChange={handleInputChange}
                     />
 
@@ -131,8 +131,8 @@ const Matratter = () => {
                     />
                 <input
                     type="text"
-                    name="email"
-                    placeholder="Email"
+                    name="mail"
+                    placeholder="mail"
                     value={customerInfo.email}
                     onChange={handleInputChange}
                     />

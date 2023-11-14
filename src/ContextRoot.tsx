@@ -5,28 +5,29 @@ const ContextRoot = ({children}) => {
     const [order, setOrder] = useState([]);
     const [customerInfo, setCustomerInfo] = useState({
         name: "",
-        address: "",
+        adress: "",
         floor: "",
         portCode: "",
-        email: "",
+        mail: "",
         mobile: "",
-        orderId: Math.floor(Math.random() * 100) + 1
     });
     
     
-
+    
     const orderToSend = {
+        orderId: Math.floor(Math.random() * 100) + 1,
         customer: customerInfo.name ,
-        adress: customerInfo.address ,
+        adress: customerInfo.adress ,
         floor: customerInfo.floor ,
         portCode: customerInfo.portCode ,
-        mail: customerInfo.email,
+        mail: customerInfo.mail,
         mobile: customerInfo.mobile,
         items: order.map(orderItem => ({
           menuItem: orderItem.itemId,
           quantity: orderItem.quantity
         }))
       };
+
 
     return (
         <FunkyContext.Provider value={{orderToSend, order, setOrder, customerInfo, setCustomerInfo}}>{children}</FunkyContext.Provider> 

@@ -1,8 +1,9 @@
 import mongoose from "mongoose"
+const {Schema} = mongoose
 
 const OrderItemSchema = new mongoose.Schema({
     menuItem: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
         ref: 'Menu', // Referens till ditt MenuSchema
       required: true
     },
