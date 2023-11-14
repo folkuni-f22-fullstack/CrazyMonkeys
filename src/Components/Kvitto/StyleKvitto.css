@@ -18,9 +18,8 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
     align-items: center;
-    height: 38rem !important;
+    height: auto !important;
     width: 50%;
     background-color: #fff;
     margin: 3rem;
@@ -30,17 +29,23 @@ body{
 }
 
 .title-line > * {
-    position: relative;
-    top: -5rem;
-    text-align: center;
+text-align: center;
+   position: relative;
+   top:-2rem ;
 } 
 /* .kvitto-title{
-   text-align: center;
-}
-.message{
+   
+       display: flex;
+    justify-content: center;
+    flex-wrap: row wrap;
+    position: relative;
+    top: -2rem;
     text-align: center;
-    
 } */
+.message{
+    margin-top: 1.5rem;
+    
+} 
   
 
 .deliver-icons > div{
@@ -85,14 +90,32 @@ body{
 .last-message{
     text-align: center;
 }
+.btn-grad {
+    background-image: linear-gradient(to right, #235852 0%, 
+  #001510  51%, #00bf8f  100%); 
+    margin: 2em 0.4em;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 7px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+  .btn-grad:hover {
+    background-position: right center; 
+    color: #fff;
+    text-decoration: none;
+  }
 
-@media (min-width: 320px) and (max-width:680px){
+@media (min-width: 320px) and (max-width:683px){
   .container{
-    padding: 5rem;
+    padding: 4.5rem;
     width: 50%;
     height: 20vh;
     position: relative;
-    top: -rem;
     
   }
   .kvitto-title{
@@ -136,4 +159,9 @@ body{
     position: relative;
     left: -1rem;
    }
+   .btn-grad{
+    margin-top: .6rem;
+    padding: 10px;
+   }
+   
 }
