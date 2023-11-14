@@ -12,10 +12,16 @@ export const EmployeeView = () => {
 
     const [selectOrder, setSelectOrder] = useState({})
 
+    const [msgToCook, setMsgToCook] = useState("")
+
+    const onChangeTextArea = (event) => {
+        setMsgToCook(event.target.value)
+    }
+
     const onSubmit = (event) => {
         event.preventDefault();
 
-        // if selectOrder is selected and has an object of an order, do this: if "skicka till kocken" button is clicked, send the order with "info till kocken" textarea text to "kockens vy"
+        // if selectOrder is selected and has an object of an order, do this: if "skicka till kocken" button is clicked, send the order with "info till kocken" textarea text to "kockens vy" (if there is any message)
     } 
 
     return (
@@ -58,7 +64,7 @@ export const EmployeeView = () => {
                                     <p>Kundkommentar: </p>
 
                                     <details><summary className="summary-box">Meddela kocken</summary>
-                                        <textarea className="msg-to-cook-textarea" placeholder="Meddelande till kocken" />
+                                        <textarea onChange={onChangeTextArea} className="msg-to-cook-textarea" placeholder="Meddelande till kocken" />
                                     </details>
                                     <details><summary className="summary-box">Info om kund</summary>
                                     <p>Namn: </p>

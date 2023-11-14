@@ -129,7 +129,7 @@ html, body {
     left: 185px;
     background-color: #fff;
     width: calc(430px - 2.5em);
-    min-height: 500px;
+    min-height: 330px;
     margin-top: .3em;
     border-radius: 0px 0px 10px 10px;
     box-shadow: 0.3px 0.5px 0.7px hsl(0deg 0% 53% / 0.36),
