@@ -11,6 +11,7 @@ function App() {
       <AnställdaOrdrar/>
       <Menu/>
      <EmployeeView />
+     <Kundkorg/>
     </>
   )
 }
