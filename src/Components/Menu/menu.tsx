@@ -3,6 +3,8 @@ import Matratter from "../Menu/Matratter.tsx";
 import Drycker from "../Menu/Dryck.tsx";
 import Tillbehor from "../Menu/Tillbehor.tsx";
 import "../assets/menu.css";
+import Header from "../Header/Header.tsx";
+import Footer from "../Footer/Footer.tsx";
 
 interface ButtonProps {
   category: string;
@@ -30,6 +32,8 @@ function Menu() {
   };
 
   return (
+    <>
+    <Header />
     <div className="outer-container">
       <div className="inner-container">
         <h1>Meny</h1>
@@ -62,6 +66,8 @@ function Menu() {
         <button className="proceed-button">Gå till varukorgen</button>
       </div>
     </div>
+    < Footer />
+    </>
   );
 }
 

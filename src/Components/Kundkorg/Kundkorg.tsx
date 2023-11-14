@@ -3,6 +3,8 @@ import { useEffect, useState, useContext } from "react";
 import { FunkyContext } from "../../ContextRoot";
 import { RiArrowGoBackFill } from "react-icons/ri";
 import "./Stylekorg.css";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 const Kundkorg = () => {
     const { orderToSend } = useContext(FunkyContext);
@@ -36,6 +38,8 @@ const Kundkorg = () => {
     };
 
     return (
+        <>
+        <Header />
         <div className="chart-wrapper">
             <div className="background-chart">
                 
@@ -75,6 +79,8 @@ const Kundkorg = () => {
                 <button onClick={klick}>klicka mig</button>
             </div>
         </div>
+        <Footer />
+        </>
     );
 };
 

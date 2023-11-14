@@ -9,10 +9,13 @@ import koriander from "../../assets/startpagepic/Korianderpesto.png";
 import Footer from "../../Components/Footer/Footer";
 import { useEffect, useRef } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 import "./startpage.css";
 
-function StartPage() {
+function StartPage() {  
+  const navigate = useNavigate();
+
   const ref1 = useRef(null);
   const isInView1 = useInView(ref1, { once: true });
 
@@ -61,7 +64,7 @@ function StartPage() {
             Fusionmat är den kreativa konsten att kombinera olika matkulturer
             och smaker för att skapa helt nya, spännande rätter.
           </p>
-          <button className="start btn-grad">Beställ här</button>
+          <button className="start btn-grad" onClick= {() => {navigate("/menu")}}>Beställ här</button>
         </div>
 
         <motion.div
