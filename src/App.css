@@ -1,2 +1,23 @@
+<<<<<<< HEAD
 
 
+=======
+:root {
+    --title-font: 'Gloria Hallelujah', cursive;
+    --content-font: 'Ubuntu', sans-serif;
+    
+    --header-color:#183a37;
+    --bg-color: #4c5452;
+    --bg-footer: #312E2E;
+
+    --black-icons: black;
+  }
+  /* Skrivs såhär:  background-color: var(--bg-color); */
+  
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+>>>>>>> footer
