@@ -7,6 +7,7 @@ function App() {
 
   return (
     <>
+
       <StartPage/>
       <Menu />
       <Kundkorg/>
