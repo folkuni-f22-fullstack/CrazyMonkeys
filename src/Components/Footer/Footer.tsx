@@ -1,3 +1,5 @@
+import { useContext, useState } from "react";
+
 import "./footer.css";
 import { LuLogIn } from "react-icons/Lu";
 import { FaInstagram } from "react-icons/fa";
@@ -7,17 +9,15 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { BiSolidCopyright } from "react-icons/bi";
 import { SiGooglemaps } from "react-icons/si";
 import { IoIosMail } from "react-icons/io";
-import { useState } from "react";
-import Login from '../../Components/Login/Login'
+import {Login} from "../../Components/Login/Login";
 import ff from "../../assets/footerpagepic/FFlogga.png";
-import '../Login/login.css'
+import "../Login/login.css";
+
+import { FunkyContext } from "../../ContextRoot";
 
 function Footer() {
-  const [isLoginOverlayOpen, setIsLoginOverlayOpen] = useState(false);
+  const { stateLoginDialog } = useContext(FunkyContext);
 
-  const handleLoginClick = () => {
-    setIsLoginOverlayOpen(!isLoginOverlayOpen);
-  };
   return (
     <>
       <section className="footer-container">
@@ -41,7 +41,10 @@ function Footer() {
           </div>
         </div>
         <div className="created-by-container">
-          <LuLogIn className="login-icon" />
+        <LuLogIn
+              className="login-icon"
+              onClick={() => stateLoginDialog(true)}
+            />
         </div>
       </section>
 
@@ -90,14 +93,15 @@ function Footer() {
               <FaXTwitter className="twitter-icon" />
               <FaFacebook className="facebook-icon" />
             </div>
-            <LuLogIn className="login-icon" onClick={handleLoginClick} />
-            <Login
-        isLoginOverlayOpen={isLoginOverlayOpen}
-        setIsLoginOverlayOpen={setIsLoginOverlayOpen}
-      />
+            <LuLogIn
+              className="login-icon"
+              onClick={() => stateLoginDialog(true)}
+            />
+            
           </div>
         </div>
       </footer>
+      <Login/>
     </>
   );
 }
