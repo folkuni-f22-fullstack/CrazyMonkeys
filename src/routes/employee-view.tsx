@@ -7,50 +7,57 @@ export const EmployeeView = () => {
     const [isLocked, setIsLocked] = useState(false)
 
     const chosenTab = (tab) => {
-        return {
-            backgroundColor: selectTab === tab ? "#fff" : null
-        }
+        return selectTab === tab ? "selected-tab" : "unselected-tab";
     }
 
     return (
         <section className="employee-view-container">
-            <span>Du är inloggad</span>
-            <h1>Beställningar</h1>
-            <hr />
-            <section>
-                <button onClick={() => setSelectTab("untreated")} style={chosenTab("untreated")}>Obehandlade</button>
-                <button onClick={() => setSelectTab("during-treatment")} style={chosenTab("during-treatment")}>Underbehandling</button>
-                <button onClick={() => setSelectTab("done")} style={chosenTab("done")}>Färdig</button>
+            <header className="title-header">
+                <span>Du är inloggad</span>
+                <h1>Beställningar</h1>
+                <div className="title-line" />
+                <section className="tabs-section">
+                <button className={chosenTab("untreated")} onClick={() => setSelectTab("untreated")} >Obehandlade</button>
+                <button className={chosenTab("during-treatment")} onClick={() => setSelectTab("during-treatment")}>Underbehandling</button>
+                <button className={chosenTab("done")} onClick={() => setSelectTab("done")}>Färdig</button>
             </section>
+            </header>
+
+
             {
                 selectTab === "untreated" && (
                     <section>
                         <div className="order-box">
                         <span className="material-symbols-outlined">schedule</span>
                             <p className="order-name">Ordernummer 699</p>
-                           <button className="button button-confirm" onClick={() => setIsLocked(true)}>Bekräfta {
+{
+    isLocked ? null : <>
+        <button className=" button-decline">Neka</button>
+        <button className=" button-edit">Ändra</button>
+    </> 
+}
+                          
+                           <details>
+                            <summary>
+                            </summary>
+                            <div className="details-about-order">
+                                <hr />
+                                <p>Maträtter: </p>
+                                <p>Tillbehör: </p>
+                                <p>Dryck(er): </p>
+                                <p>Summa: </p>
+                                <hr />
+                                <p>Kundkommentar: </p>
+
+                                
+<details><summary className="summary-box">Meddela kocken</summary></details>
+<details><summary className="summary-box">Info om kund</summary></details>
+                                <button className=" button-confirm" onClick={() => setIsLocked(true)}>Skicka till kocken {
                             isLocked && <span className="material-symbols-outlined">lock</span>
 }</button>
-                           <button className="button button-decline">Neka</button>
-                           <button className="button button-edit">Ändra</button>
-                           <button className="button button-more"><span className="material-symbols-outlined">
-expand_more
-</span></button>
-                        </div>
-                        <hr />
-                    </section>
-                )
-            }
-            {
-                selectTab === "during-treatment" && (
-                    <section>
-                        <div>
-                            Order nmr: 699 <select>
-                                <option>Pågående</option>
-                                <option>Underbehandling</option>
-                                <option>Väntandes</option>
-                            </select>
-                            X redo
+
+                            </div>
+                        </details>
                         </div>
                         <hr />
                     </section>
