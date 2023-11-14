@@ -73,9 +73,11 @@
     flex-direction: column;
     width: 250px;
   }
-
+ .dryck-details h3{
+    font-size: 14px;
+  }
   .dryck-details{
     width: 200px;
-    font-size: 15px;
+    font-size: 12px;
   }
 }
