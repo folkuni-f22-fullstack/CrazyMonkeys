@@ -7,10 +7,9 @@ import "./anställdaordrar.css";
 import OrderComponent from "../../dataApi/OrderComponent.jsx"
 
 const Kundkorg = () => {
-    const [ menuInApi, setMenuInApi] = useState([]);
+    const [menuInApi, setMenuInApi] = useState([]);
     const [chartData, setChartData] = useState([]);
-   
-
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -19,38 +18,35 @@ const Kundkorg = () => {
                     throw new Error("Något gick fel");
                 }
                 const data = await response.json();
-                // const orderIds = orderToSend.items.map((item) => item.menuItem);
-                // const sortedOrder = data.filter((item) => orderIds.includes(item._id));
-
                 setChartData(data);
-                console.log(chartData);
-                // console.log("OrderIds:" + orderIds);
             } catch (error) {
                 console.error(error);
             }
         };
-
-        
+    
         fetchData();
     }, []);
-
+    
     useEffect(() => {
         const fetchMenuData = async () => {
             try {
                 const response = await fetch("/api/menu");
                 if (!response.ok) {
                     throw new Error("Något gick fel");
-                }else{
+                } else {
                     const data = await response.json();
                     const orderIds = chartData.map((item) => item.menuItem);
-                    const sortedData = data.filter((item) => item.itemType === "food", "dricka", "tillbehör");
+                    const sortedData = data.filter((item) => ["food", "dricka", "tillbehör"].includes(item.itemType));
                     const sortedOrder = sortedData.filter((item) => orderIds.includes(item._id));
-        
-                    setMenuInApi(sortedOrder);
-
+    
+                    // Skapa en ny array där varje objekt i chartData matchas med motsvarande maträttsnamn från menuInApi
+                    const updatedChartData = chartData.map((orderItem) => {
+                        const matchingMenu = sortedOrder.find((menu) => menu._id === orderItem.menuItem);
+                        return { ...orderItem, menuItemName: matchingMenu ? matchingMenu.name : "Unknown" };
+                    });
+    
+                    setChartData(updatedChartData);
                 }
-                console.log("menu", menuInApi);
-                // console.log("OrderIds:" + orderIds);
             } catch (error) {
                 console.error(error);
             }
@@ -58,6 +54,11 @@ const Kundkorg = () => {
     
         fetchMenuData();
     }, []);
+    
+    
+    // Nu innehåller menuInApi de matchade maträtterna baserat på ordern från chartData
+    console.log("menuInApi", chartData);
+    
 
 
     return (
@@ -85,7 +86,7 @@ const Kundkorg = () => {
                             <div className="food-name-div">
                                 <p className="foodname">{order.customerName}</p>
                                 {/* <p className="foodname">{}</p> */}
-                                <p className="foodname">{order.adress}</p>
+                                <p className="foodname">{order.name}</p>
                                 {/* <p className="foodname">{order}</p> */}
                             </div>
 
