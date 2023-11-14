@@ -8,7 +8,7 @@
   overflow-y: scroll;
 }
 .tillbehor-item {
-  width: 38%;
+  width: 46%;
   margin: 1%;
   box-sizing: border-box;
   border: 1px solid #ccc;
@@ -33,19 +33,25 @@
     width: 100%;
     display: block;
   }
+  h4{
+    font-size: 13px;
+  }
 
   .tillbehor-item:hover {
     transform: none; 
   }
+  .tillbehor-desc{
+    font-size: 14px;
+  }
 }
 
 .name-price-tillbehor {
-  padding: 10px;
-  background-color: #f2f2f2;
+  display: flex;
+  justify-content: space-between;
 }
 
 .name-price-tillbehor h4 {
-  margin: 0;
+  margin: 1em;
 }
 
 .tillbehor-details {
@@ -63,20 +69,20 @@
 }
 
 .addto-btn {
-  text-align: center;
+  text-align: right;
   margin-top: 10px;
 }
 
 .add-to-cart-button {
-  background-color: #4caf50;
+  background-color: #183A37;
   color: #fff;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .add-to-cart-button:hover {
-  background-color: #45a049;
+  background-color: #1fae27;
 }

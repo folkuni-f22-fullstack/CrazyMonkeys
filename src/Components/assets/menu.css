@@ -29,12 +29,23 @@ h3 {
 }
 
 .btn {
-  margin: 10px;
   padding: 10px 20px;
-  background-color: #fff;
-  color: #000;
-  border: 1.5px solid #000;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  background-color: #eee;
+  transition: background-color 0.3s ease-in-out; 
+}
+
+.btn.active, .btn:hover {
+  background-color: #7a907b; 
+  color: #fff;
+}
+
+.btn:active {
+  background-color: #555;
+  color: #fff;
 }
 
 .funky-hr-title p{
