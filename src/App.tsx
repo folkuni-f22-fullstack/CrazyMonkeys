@@ -7,9 +7,10 @@ function App() {
 
   return (
     <>
+      <StartPage/>
       <Menu />
       <Kundkorg/>
-    <StartPage/>
+    
     </>
   )
 }
