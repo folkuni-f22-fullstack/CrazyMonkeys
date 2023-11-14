@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
-import '../Style/betallning.css'; // Ange rätt sökväg till din CSS-fil
+import '../Style/betallning.css'; 
 
-interface CheckoutProps {
-  // Eventuella props du behöver
-}
+interface CheckoutProps {}
 
-const CheckoutPage: React.FC<CheckoutProps> = (props) => {
+const CheckoutPage: React.FC<CheckoutProps> = () => {
   const [paymentMethod, setPaymentMethod] = useState<string>('');
   const [isButtonDisabled, setButtonDisabled] = useState<boolean>(true);
 
   const handlePaymentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPaymentMethod(event.target.value);
-    setButtonDisabled(false); // Aktivera knappen när en betalningsmetod väljs
+    setButtonDisabled(false); 
   };
 
   const handleProceed = () => {
-    // Implementera logik för att gå vidare med betalningen
+   
     console.log('Gå vidare med betalningen för', paymentMethod);
   };
 
@@ -56,7 +54,7 @@ const CheckoutPage: React.FC<CheckoutProps> = (props) => {
               checked={paymentMethod === 'cash'}
               onChange={handlePaymentChange}
             />
-            Kontant vid upphämtning
+            Vid upphämtning
           </label>
         </div>
 
