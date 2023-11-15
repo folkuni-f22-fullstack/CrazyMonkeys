@@ -9,8 +9,8 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { BiSolidCopyright } from "react-icons/bi";
 import { SiGooglemaps } from "react-icons/si";
 import { IoIosMail } from "react-icons/io";
-import {Login} from "../../Components/Login/Login";
-import ff from "../../assets/footerpagepic/FFlogga.png";
+import { Login } from "../../Components/Login/Login";
+import ff from "../../assets/footerpagepic/FF-red.png";
 import "../Login/login.css";
 
 import { FunkyContext } from "../../ContextRoot";
@@ -41,10 +41,10 @@ function Footer() {
           </div>
         </div>
         <div className="created-by-container">
-        <LuLogIn
-              className="login-icon"
-              onClick={() => stateLoginDialog(true)}
-            />
+          <LuLogIn
+            className="login-icon"
+            onClick={() => stateLoginDialog(true)}
+          />
         </div>
       </section>
 
@@ -53,18 +53,20 @@ function Footer() {
           <div className="footer-column">
             <h3 className="openhour">Öppettider</h3>
             <table>
-              <tr className="table">
-                <td className="weekday">Måndag - Fredag:</td>
-                <td className="time">16:00 - 22:00</td>
-              </tr>
-              <tr>
-                <td className="weekday">Lördag:</td>
-                <td className="time">18:00 - 24:00</td>
-              </tr>
-              <tr>
-                <td className="weekday">Söndag:</td>
-                <td className="time">16:00 - 22:00</td>
-              </tr>
+              <tbody>
+                <tr className="table">
+                  <td className="weekday">Måndag - Fredag:</td>
+                  <td className="time">16:00 - 22:00</td>
+                </tr>
+                <tr>
+                  <td className="weekday">Lördag:</td>
+                  <td className="time">18:00 - 24:00</td>
+                </tr>
+                <tr>
+                  <td className="weekday">Söndag:</td>
+                  <td className="time">16:00 - 22:00</td>
+                </tr>
+              </tbody>
             </table>
           </div>
           <div className="footer-column">
@@ -97,11 +99,10 @@ function Footer() {
               className="login-icon"
               onClick={() => stateLoginDialog(true)}
             />
-            
           </div>
         </div>
       </footer>
-      <Login/>
+      <Login />
     </>
   );
 }
