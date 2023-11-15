@@ -11,6 +11,8 @@ import { useEffect, useRef } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
+
+
 import "./startpage.css";
 
 function StartPage() {  
@@ -30,14 +32,14 @@ function StartPage() {
     if (isInView1) {
       controls1.start("visible");
     }
-  }, [isInView1]);
+  }, [controls1, isInView1]);
 
   useEffect(() => {
     console.log("isInView2:", isInView2);
     if (isInView2) {
       controls2.start("visible");
     }
-  }, [isInView2]);
+  }, [controls2, isInView2]);
 
   return (
     <>
@@ -117,9 +119,9 @@ function StartPage() {
             ger en spännande smakupplevelse i varje tugga.
           </div>
         </motion.div>
-        <button type="button" className="mobilbtn btn-grad ">Beställ här</button>
+        <button className="mobilbtn btn-grad" onClick={() => { navigate("/menu"); } } to={"/menu"}>Beställ här</button>
       </main>
-      <Footer/>
+       <Footer />
     </>
   );
 }

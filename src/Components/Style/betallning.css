@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 80%;
   width: 100%;
 }
 
@@ -17,12 +17,15 @@
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   text-align: center;
-  width: 80%;
+  width: 500px;
+  height: 350px;
+  justify-content: center;
   max-width: 550px;
   margin: 10vh auto;
 }
 
 h2 {
+  margin-bottom: 5%;
   color: #333;
 }
 
@@ -34,12 +37,17 @@ h2 {
   margin-top: 20px;
 }
 
-input[type="text"],
-input[type="number"] {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
+input[type="radio"] {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: 0px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
 }
 
 .proceed-button {
@@ -70,5 +78,8 @@ input[type="number"] {
 @media (max-width: 600px) {
   .proceed-button {
     justify-content: center;
+  }
+  .checkout-container{
+    height: 435px;
   }
 }

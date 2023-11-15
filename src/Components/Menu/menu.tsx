@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import Matratter from "../Menu/Matratter.tsx";
-import Drycker from "../Menu/Dryck.tsx";
-import Tillbehor from "../Menu/Tillbehor.tsx";
+import Matratter from "./Matratter.tsx";
+import Drycker from "./Dryck.tsx";
+import Tillbehor from "./Tillbehor.tsx";
 import "../assets/menu.css";
 import Header from "../Header/Header.tsx";
 import Footer from "../Footer/Footer.tsx";
+import { useNavigate } from "react-router-dom";
+
 
 interface ButtonProps {
   category: string;
@@ -12,10 +14,14 @@ interface ButtonProps {
   active: boolean;
 }
 
+
 const Button: React.FC<ButtonProps> = ({ category, onClick, active }) => {
   const handleClick = () => {
     onClick(category);
+   
   };
+  
+ 
 
   return (
     <button className={`btn ${active ? "active" : ""}`} onClick={handleClick}>
@@ -26,7 +32,7 @@ const Button: React.FC<ButtonProps> = ({ category, onClick, active }) => {
 
 function Menu() {
   const [activeCategory, setActiveCategory] = useState("matratter");
-
+ const navigate = useNavigate();
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
   };
@@ -63,7 +69,7 @@ function Menu() {
         {activeCategory === "matratter" && <Matratter />}
         {activeCategory === "drycker" && <Drycker />}
         {activeCategory === "tillbehor" && <Tillbehor />}
-        <button className="proceed-button">Gå till varukorgen</button>
+        <button className="proceed-button" onClick= {() => {navigate("/kundkorg")}}>Gå till varukorgen</button>
       </div>
     </div>
     < Footer />

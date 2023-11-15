@@ -1,10 +1,8 @@
 import "./header.css";
-import { useNavigate, NavLink} from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import Loggo from "../../assets/Loggo.png";
 import { useState } from "react";
 import desktop from "../../assets/Desktoplogga.png";
-
-
 
 function Header() {
   const [showOverlay, setShowOverlay] = useState(false);
@@ -15,6 +13,7 @@ function Header() {
     setIsMenuIconCross(!isMenuIconCross);
   };
 
+<<<<<<< HEAD
 
 
     const scrollToBottom = () => {
@@ -27,14 +26,31 @@ function Header() {
     
   ;
  
+=======
+>>>>>>> e71818ee7492198d648662c8390f1d85b2d9bae4
   
 
   return (
     <>
       <section className="header-container">
-        
-        <NavLink className="navbar" onClick={() => { navigate("/menu"); } } to={"/menu"}        >Meny</NavLink>
-        <NavLink className="navbar" onClick={() => { navigate("/kundkorg"); } } to={"/kundkorg"}>Din Beställning</NavLink>
+        <NavLink
+          className="navbar"
+          onClick={() => {
+            navigate("/menu");
+          }}
+          to={"/menu"}
+        >
+          Meny
+        </NavLink>
+        <NavLink
+          className="navbar"
+          onClick={() => {
+            navigate("/kundkorg");
+          }}
+          to={"/kundkorg"}
+        >
+          Din Beställning
+        </NavLink>
 
         <div
           className={`menu-icon ${isMenuIconCross ? "cross" : ""}`}

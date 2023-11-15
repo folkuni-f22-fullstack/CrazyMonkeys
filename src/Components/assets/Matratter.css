@@ -26,11 +26,11 @@
   }
   
   .matratt-details {
-    background-color: rgb(196, 196, 196);
     display: flex;
     flex-direction: column;
     align-items: start;
-    flex: 2;
+    justify-content: space-between;
+    flex: 1;
     padding: 10px;
   }
 
@@ -38,12 +38,14 @@
     width: 200px;
     text-align: center;
     font-size: 15px;
+   
   }
 
   .bottom-details{
     display: flex;
     gap: 2em;
     align-items: center;
+    margin-right: 32px;
   }
   
   .order-button {
