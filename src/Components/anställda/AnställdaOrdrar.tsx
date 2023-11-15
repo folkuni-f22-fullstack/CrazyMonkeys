@@ -50,7 +50,7 @@ const Kundkorg = () => {
         fetchData();
     }, []);
 
-    // console.log("menuInApi", chartData);
+   
 
     return (
         <div className="chart-wrapper">
@@ -76,7 +76,6 @@ const Kundkorg = () => {
                         <div className="customer-info">
                             <p className="customer-name">Kund: {order.customerName}</p>
                             <p className="customer-address">Adress: {order.adress}</p>
-                            {/* Lägg till andra kundrelaterade uppgifter här */}
                         </div>
 
                         {/* Maträttinformation */}

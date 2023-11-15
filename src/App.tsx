@@ -8,10 +8,10 @@ function App() {
 
   return (
     <>
-      <AnställdaOrdrar/>
-      <Menu/>
+      {/* <AnställdaOrdrar/> */}
+      {/* <Menu/> */}
      <EmployeeView />
-     <Kundkorg/>
+     {/* <Kundkorg/> */}
     </>
   )
 }
