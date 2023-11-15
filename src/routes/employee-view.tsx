@@ -47,23 +47,21 @@ export const EmployeeView = () => {
                     const menuItemData = menuData.find(
                         (apiItem) => apiItem._id === orderItem.menuItem
                     );
-                    const name = menuItemData ? menuItemData : "Namn ej tillgängligt"; // Anpassa detta efter din datamodell
-                   
-                    console.log("name", name);
-                    
+
+                    console.log("orderItem.menuItem:", orderItem.menuItem);
+                    console.log("menuItemData:", menuItemData);
+
                     return {
-                        name: orderItem.name,
+                        name: menuItemData ? menuItemData.name : "Namn ej tillgängligt",
                         quantity: orderItem.quantity,
                     };
-                    
                 });
 
                 setChartData(ordersData);
                 setMenuNames(menuItemsWithData);
-                
 
-                console.log("Order", ordersData);
-                console.log("Menu Items with Data", menuNames);
+                // console.log("Order", ordersData);
+                // console.log("Menu Items with Data", menuItemsWithData);
             } catch (error) {
                 console.error(error);
             }
@@ -102,19 +100,22 @@ export const EmployeeView = () => {
                     <form onSubmit={onSubmit}>
                         {chartData.map((order) => {
                             return (
-                                <div className="order-box">
+                                <div key={order._id} className="order-box">
                                     <span className="material-symbols-outlined">schedule</span>
-                                    <p className="order-name">Ordernummer 699</p>
+                                    <p className="order-name">Ordernummer {order.orderId}</p>
+
                                     {isLocked ? (
                                         <span>Skickar till kocken...</span>
                                     ) : (
                                         <>
-                                            <button className=" button-decline">Neka</button>
-                                            <button className=" button-edit">Ändra</button>
+                                            <button className="button-decline">Neka</button>
+                                            <button className="button-edit">Ändra</button>
                                         </>
                                     )}
-                                    <details onClick={() => setSelectOrder({order})}>
+
+                                    <details onClick={() => setSelectOrder({ order })}>
                                         <summary></summary>
+
                                         <div className="details-about-order">
                                             <hr />
 
@@ -122,17 +123,25 @@ export const EmployeeView = () => {
                                                 const menuItemData = menuNames.find(
                                                     (menu) => menu._id === item.menuItem
                                                 );
+
+                                                // console.log("item.menuItem:", item.menuItem);
+                                                // console.log("menuNames:", menuNames);
+                                                // console.log("item.menuItem:", item.menuItem);
+                                                // console.log("menuItemData:", menuItemData);
+
                                                 return (
-                                                    <>
-                                                        <p>Maträtter: {item.quantity} x {item.name} </p>
-                                                        <p>Tillbehör: </p>
-                                                        <p>Dryck(er): </p>
-                                                        <p>Summa: </p>
-                                                        <hr />
-                                                        <p>Kundkommentar: </p>
-                                                    </>
+                                                    <div key={item._id}>
+                                                        <p>
+                                                            Maträtt: {item.quantity} x{" "}
+                                                            {menuItemData
+                                                                ? menuItemData.name
+                                                                : "Namn ej tillgängligt"}
+                                                        </p>
+                                                    </div>
                                                 );
                                             })}
+
+                                            {/* Lägg till logik för Tillbehör, Drycker, Summa och Kundkommentar här */}
 
                                             <details>
                                                 <summary className="summary-box">
@@ -144,6 +153,7 @@ export const EmployeeView = () => {
                                                     placeholder="Meddelande till kocken"
                                                 />
                                             </details>
+
                                             <details>
                                                 <summary className="summary-box">
                                                     Info om kund
@@ -155,8 +165,9 @@ export const EmployeeView = () => {
                                                 <p>Mejl: {order.mail} </p>
                                                 <p>Telefonnummer: {order.mobile} </p>
                                             </details>
+
                                             <button
-                                                className=" button-confirm"
+                                                className="button-confirm"
                                                 type="submit"
                                                 onClick={() => setIsLocked(true)}
                                             >
