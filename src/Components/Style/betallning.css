@@ -60,6 +60,7 @@ input[type="number"] {
   box-shadow: 0 0 7px #eee;
   border-radius: 10px;
   display: block;
+  
 }
 
 .proceed-button:hover {

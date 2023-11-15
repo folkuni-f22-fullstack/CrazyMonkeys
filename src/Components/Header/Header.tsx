@@ -1,10 +1,8 @@
 import "./header.css";
-import { useNavigate, NavLink} from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import Loggo from "../../assets/Loggo.png";
 import { useState } from "react";
 import desktop from "../../assets/Desktoplogga.png";
-
-
 
 function Header() {
   const [showOverlay, setShowOverlay] = useState(false);
@@ -15,12 +13,29 @@ function Header() {
     setIsMenuIconCross(!isMenuIconCross);
   };
 
+  
+
   return (
     <>
       <section className="header-container">
-        
-        <NavLink className="navbar" onClick={() => { navigate("/menu"); } } to={"/menu"}        >Meny</NavLink>
-        <NavLink className="navbar" onClick={() => { navigate("/kundkorg"); } } to={"/kundkorg"}>Din Beställning</NavLink>
+        <NavLink
+          className="navbar"
+          onClick={() => {
+            navigate("/menu");
+          }}
+          to={"/menu"}
+        >
+          Meny
+        </NavLink>
+        <NavLink
+          className="navbar"
+          onClick={() => {
+            navigate("/kundkorg");
+          }}
+          to={"/kundkorg"}
+        >
+          Din Beställning
+        </NavLink>
 
         <div
           className={`menu-icon ${isMenuIconCross ? "cross" : ""}`}
@@ -35,7 +50,7 @@ function Header() {
           <p className="company-name">FuNKy FUSION</p>
           <img className="desktop" src={desktop} alt="Företagets logga" />
         </div>
-        <a className="navbar" onClick= {() => {navigate("/kvitto")}}>Om Oss</a>
+        <a className="navbar" onClick={() => {navigate("/kvitto"); }}> Om Oss </a>
         <a className="navbar">Kontakta Oss</a>
         {/* <img
           className="shopping-cart"

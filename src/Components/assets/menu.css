@@ -19,9 +19,11 @@
   text-align: center;
   width: 780px;
   height: 100vh;
-  margin: 0 auto;
+  margin:  auto;
 }
-
+h1{
+  margin-bottom: 35px;
+}
 h3 {
   color: #000;
   font-size: 20px;
@@ -31,6 +33,7 @@ h3 {
 .btn {
   padding: 10px 20px;
   margin: 5px;
+  margin-bottom: 29px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
