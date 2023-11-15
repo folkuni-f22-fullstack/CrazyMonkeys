@@ -7,6 +7,7 @@ import Kundkorg from './Components/Kundkorg/Kundkorg'
 import StartPage from './routes/Startpage/Startpage'
 import Kvitto from './Components/Kvitto/Kvitto'
 
+import Betallning from './Components/betallning/Betallning'
 function App() {
 
   return (
@@ -18,6 +19,8 @@ function App() {
      <Route path='/menu' element= {<Menu/>}/> 
      <Route path='/kundkorg' element= {<Kundkorg/>}/> 
      <Route path='/kvitto' element= {<Kvitto/>}/> 
+     <Route path='/betallning' element= {<Betallning />}/> 
+
       </Routes>
       </BrowserRouter>
     </>

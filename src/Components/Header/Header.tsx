@@ -1,7 +1,6 @@
 import "./header.css";
 import { useNavigate, NavLink} from "react-router-dom";
 import Loggo from "../../assets/Loggo.png";
-// import Cart from "../../assets/carImage.png";
 import { useState } from "react";
 import desktop from "../../assets/Desktoplogga.png";
 
@@ -19,7 +18,7 @@ function Header() {
   return (
     <>
       <section className="header-container">
-        {/* <p className="navbar">Hem</p> */}
+        
         <NavLink className="navbar" onClick={() => { navigate("/menu"); } } to={"/menu"}        >Meny</NavLink>
         <NavLink className="navbar" onClick={() => { navigate("/kundkorg"); } } to={"/kundkorg"}>Din Beställning</NavLink>
 
