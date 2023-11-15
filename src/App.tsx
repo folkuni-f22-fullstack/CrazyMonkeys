@@ -7,11 +7,13 @@ import Kvitto from "./Components/Kvitto/Kvitto";
 import { Delivery } from "./routes/Delivery";
 import Footer from "./Components/Footer/Footer";
 import Betallning from "./Components/betallning/Betallning";
+import Header from "./Components/Header/Header";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+      
         <Routes>
           <Route index element={<StartPage />} />
           <Route path="/startpage" element={<StartPage />} />
@@ -22,6 +24,7 @@ function App() {
           <Route path="/betallning" element={<Betallning />} />
           <Route path="/footer" element={<Footer />} />
         </Routes>
+        
       </BrowserRouter>
     </>
   );

@@ -21,7 +21,6 @@ const CheckoutPage: React.FC<CheckoutProps> = () => {
 
   return (
     <>
-      <Header />
       <div className="outer-container">
         <div className="checkout-container">
           <StepsHeader/>
@@ -72,7 +71,6 @@ const CheckoutPage: React.FC<CheckoutProps> = () => {
           </button>
         </div>
       </div>
-      <Footer />
     </>
   );
 };
