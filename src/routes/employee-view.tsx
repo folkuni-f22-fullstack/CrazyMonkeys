@@ -3,6 +3,7 @@ import "./employeeStyle.css";
 export const EmployeeView = () => {
     const [chartData, setChartData] = useState([]);
     const [menuNames, setMenuNames] = useState([]);
+    const [dishNames, setDishNames] = useState([]);
 
     const [selectTab, setSelectTab] = useState("untreated");
     const [isLocked, setIsLocked] = useState(false);
@@ -38,18 +39,23 @@ export const EmployeeView = () => {
 
                 const ordersData = await ordersResponse.json();
                 const menuData = await menuResponse.json();
+                const sortedData = menuData.filter(
+                    (item) => item.itemType === "food",
+                    "dricka",
+                    "tillbehör"
+                );
 
                 // Hämta alla menuItems från alla order
                 const allMenuItems = ordersData.flatMap((order) => order.items);
 
                 // Skapa en ny array med namn och quantity från menuData
                 const menuItemsWithData = allMenuItems.map((orderItem) => {
-                    const menuItemData = menuData.find(
+                    const menuItemData = sortedData.find(
                         (apiItem) => apiItem._id === orderItem.menuItem
                     );
 
-                    console.log("orderItem.menuItem:", orderItem.menuItem);
-                    console.log("menuItemData:", menuItemData);
+                    // console.log("orderItem.menuItem:", orderItem.menuItem);
+                    console.log("menuItemData:", menuItemData._id);
 
                     return {
                         name: menuItemData ? menuItemData.name : "Namn ej tillgängligt",
@@ -59,6 +65,12 @@ export const EmployeeView = () => {
 
                 setChartData(ordersData);
                 setMenuNames(menuItemsWithData);
+
+                console.log("Menu", menuNames);
+
+                const dish = chartData.map((item) => {
+                    console.log("dish:", item.items[0].menuItem);
+                });
 
                 // console.log("Order", ordersData);
                 // console.log("Menu Items with Data", menuItemsWithData);
@@ -102,7 +114,9 @@ export const EmployeeView = () => {
                             return (
                                 <div key={order._id} className="order-box">
                                     <span className="material-symbols-outlined">schedule</span>
-                                    <p className="order-name">Ordernummer {order.orderId}</p>
+                                    <p className="order-name">
+                                        Ordernummer {order.items[0].menuItem}
+                                    </p>
 
                                     {isLocked ? (
                                         <span>Skickar till kocken...</span>
@@ -121,7 +135,7 @@ export const EmployeeView = () => {
 
                                             {order.items.map((item) => {
                                                 const menuItemData = menuNames.find(
-                                                    (menu) => menu._id === item.menuItem
+                                                    (menu) => menu._id === order.items[0].menuItem
                                                 );
 
                                                 // console.log("item.menuItem:", item.menuItem);
@@ -131,12 +145,7 @@ export const EmployeeView = () => {
 
                                                 return (
                                                     <div key={item._id}>
-                                                        <p>
-                                                            Maträtt: {item.quantity} x{" "}
-                                                            {menuItemData
-                                                                ? menuItemData.name
-                                                                : "Namn ej tillgängligt"}
-                                                        </p>
+                                                        <p>Maträtt: {order.items[0].menuItem}</p>
                                                     </div>
                                                 );
                                             })}
