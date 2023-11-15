@@ -1,68 +1,53 @@
 import { BiPlus, BiMinus } from "react-icons/bi";
-import { useEffect, useState, useContext } from "react";
-import { FunkyContext } from "../../ContextRoot";
-import { RiArrowGoBackFill } from "react-icons/ri";
+import { useEffect, useState } from "react";
 import "./anställdaordrar.css";
 // import {postCustomerOrder} from "../../dataApi/postOrder.jsx"
 import OrderComponent from "../../dataApi/OrderComponent.jsx";
 
 const Kundkorg = () => {
-    const [menuInApi, setMenuInApi] = useState([]);
     const [chartData, setChartData] = useState([]);
-    const {menuNames, setMenuNames} = useState([]);
+    const [menuNames, setMenuNames] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch("/api/orders");
-                if (!response.ok) {
+                // Hämta orderdata
+                const ordersResponse = await fetch("/api/orders");
+                const menuResponse = await fetch("/api/menu");
+
+                if (!ordersResponse.ok || !menuResponse.ok) {
                     throw new Error("Något gick fel");
                 }
-                const data = await response.json();
-                const sortedOrder = data.map((order) => order._id)
-                setChartData(data);
-                console.log("Chart data id", sortedOrder);
-                
-            } catch (error) {
-                console.error(error);
-            }
-        };
-        fetchData();
-    }, []);
 
+                const ordersData = await ordersResponse.json();
+                const menuData = await menuResponse.json();
 
-    useEffect(() => {
-        const fetchMenuData = async () => {
-            try {
-                const response = await fetch("/api/menu");
-                if (!response.ok) {
-                    throw new Error("Något gick fel");
-                } else {
-                    const data = await response.json();
-                    const orderIds = chartData.map((item) => item.menuItem);
-                    const sortedData = data.filter((item) =>
-                        ["food", "dricka", "tillbehör"].includes(item.itemType)
+                // Hämta alla menuItems från alla order
+                const allMenuItems = ordersData.flatMap((order) => order.items);
+
+                // Skapa en ny array med namn och quantity från menuData
+                const menuItemsWithData = allMenuItems.map((orderItem) => {
+                    const menuItemData = menuData.find(
+                        (apiItem) => apiItem._id === orderItem.menuItem
                     );
-                    const sortedOrder = sortedData.filter((item) => orderIds.includes(item._id));
+                    const name = menuItemData ? menuItemData.name : "Namn ej tillgängligt"; // Anpassa detta efter din datamodell
+                    return {
+                        name,
+                        quantity: orderItem.quantity,
+                    };
+                });
 
-                    setMenuInApi(sortedOrder);
-                    const testarData = sortedData.find((item) => item._id === "654b8875836b3e504cf1eb21")?.name || "";
-                    //Här hittar jag namnet på item från _id
+                setChartData(ordersData);
+                setMenuNames(menuItemsWithData);
 
-                    
-                    
-                    console.log("Testar data", testarData);
-                    
-                    console.log("SortedData:", sortedData);
-                    
-
-                }
+                console.log("Order", ordersData);
+                console.log("Menu Items with Data", menuItemsWithData);
             } catch (error) {
                 console.error(error);
             }
         };
 
-        fetchMenuData();
+        fetchData();
     }, []);
 
     // console.log("menuInApi", chartData);
@@ -86,34 +71,45 @@ const Kundkorg = () => {
                     <button onClick={() => handleModifyOrder(customerInfo.orderId)}>Ändra</button>
                 </div> */}
                 {chartData.map((order) => (
-                    <>
-                        <div className="order-line">
-                            <div className="food-name-div">
-                                <p className="foodname">{order.customerName}</p>
-                                {/* <p className="foodname">{}</p> */}
-                                <p className="foodname">{order.name}</p>
-                                {/* <p className="foodname">{order}</p> */}
-                            </div>
-
-                            <div className="price-div">
-                                <h4 className="price-title">Pris</h4>{" "}
-                                <span className="foodprice">{order.price}</span>
-                            </div>
-
-                            <div className="amount-order">
-                                <span className="amount">Antal</span>
-                                <div className="minus-plus">
-                                    <BiMinus className="minus" />
-                                    <span className="amount-food">
-                                        {order.items.find((item) => item.menuItem === menuInApi._id)
-                                            ?.quantity || 0}
-                                    </span>
-                                    <BiPlus className="plus" />
-                                </div>
-                            </div>
+                    <div className="order-line" key={order._id}>
+                        {/* Kundinformation */}
+                        <div className="customer-info">
+                            <p className="customer-name">Kund: {order.customerName}</p>
+                            <p className="customer-address">Adress: {order.adress}</p>
+                            {/* Lägg till andra kundrelaterade uppgifter här */}
                         </div>
-                    </>
+
+                        {/* Maträttinformation */}
+                        {order.items.map((item) => {
+                            const menuItemData = menuNames.find(
+                                (menu) => menu._id === item.menuItem
+                            );
+
+                            return (
+                                <div key={item._id} className="food-info">
+                                    <div className="food-name-div">
+                                        <p className="foodname">
+                                        Maträtt: {menuItemData ? menuItemData[0].name : "Namn ej tillgängligt"}
+                                        </p>
+                                    </div>
+
+                                    <div className="price-div">
+                                        <h4 className="price-title">Pris</h4>
+                                        <span className="foodprice">
+                                            {/* Lägg till prisinformation här om tillgängligt */}
+                                        </span>
+                                    </div>
+
+                                    <div className="amount-order">
+                                        <span className="amount">Antal: {item.quantity}</span>
+                                        {/* Lägg till logik för att justera kvantitet här */}
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
                 ))}
+
                 <hr className="line" />
                 <p className="total-summa">Totalsumma:</p>
                 {/* <button onClick={klick}>klicka mig</button> */}

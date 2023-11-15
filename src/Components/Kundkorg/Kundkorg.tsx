@@ -21,7 +21,7 @@ const Kundkorg = () => {
 
                 setChartData(sortedOrder);
                 console.log(chartData);
-                console.log("OrderIds:" + orderIds);
+                // console.log("OrderIds:" + orderIds);
             } catch (error) {
                 console.error(error);
             }
