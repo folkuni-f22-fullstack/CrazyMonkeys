@@ -5,21 +5,10 @@ import { AiOutlineClose } from "react-icons/ai";
 export function Login() {
   const { loginDialogRef, stateLoginDialog, setIsLoggedIn } = useContext(FunkyContext);
 
-  const [userName, setUserName] = useState("")
-  const [userPassword, setUserPassword] = useState("")
-
-  const onChangeUserName = (e) => {
-    setUserName(e.target.value)
-  }
-
-  const onChangeUserPassword = (e) => {
-    setUserPassword(e.target.value)
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if(userName !== "" && userPassword !== "") {
+    if(username !== "" && password !== "") {
       setIsLoggedIn(true)
     }
   }
@@ -48,50 +37,52 @@ export function Login() {
   };
 
   return (
-    <dialog className="login-overlay" ref={loginDialogRef}>
-      <span className="close-overlay" onClick={() => stateLoginDialog(false)}>
-        <AiOutlineClose className="close-icon" />
-      </span>
-      <h1 className="login-title"> Inloggning för anställda</h1>
-      <div className={`username-container ${!username && usernameError ? "error" : (username ? "success" : "")}`}>
-  
+    <form onSubmit={handleSubmit}>
+      <dialog className="login-overlay" ref={loginDialogRef}>
+        <span className="close-overlay" onClick={() => stateLoginDialog(false)}>
+          <AiOutlineClose className="close-icon" />
+        </span>
+        <h1 className="login-title"> Inloggning för anställda</h1>
+        <div className={`username-container ${!username && usernameError ? "error" : (username ? "success" : "")}`}>
+    
 
-        <label className="username" htmlFor="username">
-          Användarnamn
-        </label>
-        <input
-          className={`label ${!username && usernameError ? "error" : ""}`}
-          type="text"
-          id="username"
-          placeholder="Användarnamn"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        {!username && usernameError && (
-          <p className="error-text"> {usernameError}</p>
-        )}
-      </div>
-      <div className={`password-container ${!password && passwordError ? "error" : (password ? "success" : "")}`}>
- 
-      
-        <label className="password" htmlFor="password">
-          Lösenord
-        </label>
-        <input
-          className={`label ${!password && passwordError ? "error" : ""}`}
-          type="password"
-          id="password"
-          placeholder="Lösenord"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        {!password && passwordError && (
-          <p className="error-text">{passwordError}</p>
-        )}
-      </div>
-      <button className="btn-grad" onClick={handleLogin}>
-        Login
-      </button>
-    </dialog>
+          <label className="username" htmlFor="username">
+            Användarnamn
+          </label>
+          <input
+            className={`label ${!username && usernameError ? "error" : ""}`}
+            type="text"
+            id="username"
+            placeholder="Användarnamn"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          {!username && usernameError && (
+            <p className="error-text"> {usernameError}</p>
+          )}
+        </div>
+        <div className={`password-container ${!password && passwordError ? "error" : (password ? "success" : "")}`}>
+  
+        
+          <label className="password" htmlFor="password">
+            Lösenord
+          </label>
+          <input
+            className={`label ${!password && passwordError ? "error" : ""}`}
+            type="password"
+            id="password"
+            placeholder="Lösenord"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          {!password && passwordError && (
+            <p className="error-text">{passwordError}</p>
+          )}
+        </div>
+        <button className="btn-grad" onClick={handleLogin}>
+          Login
+        </button>
+      </dialog>
+    </form>
   );
 }
