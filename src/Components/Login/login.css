@@ -1,0 +1,64 @@
+.login-overlay {
+  position: fixed;
+  border-radius: 10%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(222, 227, 226, 0.902);
+  padding: 2em;
+}
+
+.closebtn {
+  transition: transform 1s ease;
+}
+
+.closebtn:hover {
+  transform: scale(1.2) rotate(180deg);
+}
+.login-title {
+  font-family: var(--content-font);
+  font-size: 20px;
+  margin-top: 1em;
+  display: flex;
+  text-align: center;
+}
+.username-container {
+  margin: 2em 0 1em 0;
+}
+.label {
+  width: 15em;
+  height: 31px;
+}
+
+.label::placeholder {
+  padding-left: 0.2em;
+}
+.username {
+  font-size: 14px;
+}
+
+.login-btn {
+  margin-top: 4em;
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 0.4em 3.5em;
+  font-weight: bold;
+  width: 100%;
+}
+.registre-user {
+  color: var(--font-color);
+  font-size: 16px;
+}
+
+@media screen and (max-width: 550px) {
+
+  .username-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .label {
+    width: 15em;
+    height: 3em;
+  }
+  
+}

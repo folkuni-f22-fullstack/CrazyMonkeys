@@ -1,0 +1,19 @@
+:root {
+  --title-font: "Gloria Hallelujah", cursive;
+  --content-font: "Ubuntu", sans-serif;
+  --Helvetica-font: 'Helvetica', sans-serif;
+  --mont-font: 'Montserrat', sans-serif
+
+  --header-color: #183a37;
+  --bg-color: #4c5452;
+  --bg-footer: #312e2e;
+
+  --black-icons: black;
+}
+/* Skrivs såhär:  background-color: var(--bg-color); */
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
