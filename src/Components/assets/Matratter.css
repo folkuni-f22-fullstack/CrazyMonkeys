@@ -45,6 +45,7 @@
     gap: 2em;
     align-items: center;
     margin-right: 32px;
+    font-size: 20px;
   }
   
   .order-button {
@@ -53,7 +54,7 @@
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    padding: 10px 30px; 
+    padding: 10px 15px; 
   }
   
   .order-button:hover {
@@ -77,13 +78,9 @@
       text-align: center; 
     }.matratt-p{
       font-size: 13px;
+    }.bottom-details{
+      font-size: 13px;
     }
   }
   
-  @media(max-width:320){
-    .matratt-image img {
-      width: 100px;
-      height: 120px;
-    }
-    
-  }
+  

@@ -21,8 +21,9 @@ body{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   text-align: center;
   width: 780px;
-  height: 500px;
-  margin-bottom: 25px ;
+  height: 780px;
+  margin-top: 10%;
+  margin-bottom: 10% ;
 }
 h1{
   margin-bottom: 35px;
@@ -95,6 +96,10 @@ height: 5px;
 }
 
 @media  (max-width: 320px) {
+  .inner-container{
+    margin-top: 50%;
+    margin-bottom: 50%;
+  }
   h1 {
     font-size: 18px;
   }

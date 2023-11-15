@@ -13,7 +13,6 @@ function Header() {
     setIsMenuIconCross(!isMenuIconCross);
   };
 
-<<<<<<< HEAD
 
 
     const scrollToBottom = () => {
@@ -26,8 +25,6 @@ function Header() {
     
   ;
  
-=======
->>>>>>> e71818ee7492198d648662c8390f1d85b2d9bae4
   
 
   return (
