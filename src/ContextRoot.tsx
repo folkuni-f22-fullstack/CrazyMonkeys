@@ -1,19 +1,38 @@
-import { useState, createContext } from "react";
-export const FunkyContext = createContext () 
-const ContextRoot = ({children}) => {
-    const [order, setOrder] = useState([]);
+import { useState, createContext, useRef } from "react";
+export const FunkyContext = createContext();
+const ContextRoot = ({ children }) => {
+  // Orders
+  const [order, setOrder] = useState([]);
 
-    const orderToSend = {
-        customerName: "Abbe",
-        items: order.map(orderItem => ({
-          menuItem: orderItem.itemId,
-          quantity: orderItem.quantity
-        }))
-      };
+  const orderToSend = {
+    customerName: "Abbe",
+    items: order.map((orderItem) => ({
+      menuItem: orderItem.itemId,
+      quantity: orderItem.quantity,
+    })),
+  };
 
-    return (
-        <FunkyContext.Provider value={{orderToSend, order, setOrder}}>{children}</FunkyContext.Provider> 
-    )
-} 
+  // Login
+  const loginDialogRef = useRef();
 
-export default ContextRoot
+  const stateLoginDialog = (state: boolean) => {
+    if (state) {
+        // show() eller showModal()
+      loginDialogRef.current.showModal();
+    } else {
+      loginDialogRef.current.close();
+    }
+  };
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  return (
+    <FunkyContext.Provider
+      value={{ loginDialogRef, stateLoginDialog, orderToSend, order, setOrder, isLoggedIn, setIsLoggedIn}}
+    >
+      {children}
+    </FunkyContext.Provider>
+  );
+};
+
+export default ContextRoot;
