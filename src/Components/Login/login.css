@@ -9,7 +9,7 @@
 }
 
 .login-title {
-  font-family: var(--content-font);
+  font-family: var(--mont-font);
   font-size: 20px;
   margin-top: 1em;
   display: flex;

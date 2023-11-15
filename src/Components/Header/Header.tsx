@@ -1,6 +1,5 @@
 import "./header.css";
 import Loggo from "../../assets/Loggo.png";
-// import Cart from "../../assets/carImage.png";
 import { useState } from "react";
 import desktop from "../../assets/Desktoplogga.png";
 
@@ -35,11 +34,7 @@ function Header() {
         </div>
         <p className="navbar">Om Oss</p>
         <p className="navbar">Kontakta Oss</p>
-        {/* <img
-          className="shopping-cart"
-          src={Cart}
-          alt="en bild på en kundvagn"
-        /> */}
+     
         <span className="material-symbols-outlined">shopping_cart</span>
 
         {showOverlay && (

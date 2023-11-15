@@ -56,6 +56,12 @@
   color: black;
 }
 
+.contact-us,
+.openhour{
+  font-family: var(--mont-font);
+  font-size: 16px;
+}
+
 .copyright-icon {
   color: black;
   margin-bottom: 10px;
@@ -156,6 +162,7 @@
 }
 .contact-us{
   margin-bottom:1em;
+
 } 
 .follow-us{
   font-size: 13px;
