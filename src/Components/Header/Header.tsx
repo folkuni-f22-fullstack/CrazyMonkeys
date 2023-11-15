@@ -13,6 +13,21 @@ function Header() {
     setIsMenuIconCross(!isMenuIconCross);
   };
 
+<<<<<<< HEAD
+
+
+    const scrollToBottom = () => {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth',
+      });
+    };
+  
+    
+  ;
+ 
+=======
+>>>>>>> e71818ee7492198d648662c8390f1d85b2d9bae4
   
 
   return (
@@ -50,13 +65,9 @@ function Header() {
           <p className="company-name">FuNKy FUSION</p>
           <img className="desktop" src={desktop} alt="Företagets logga" />
         </div>
-        <a className="navbar" onClick={() => {navigate("/kvitto"); }}> Om Oss </a>
-        <a className="navbar">Kontakta Oss</a>
-        {/* <img
-          className="shopping-cart"
-          src={Cart}
-          alt="en bild på en kundvagn"
-        /> */}
+        <a className="navbar" onClick= {() => {navigate("/kvitto")}}>Om Oss</a>
+        <a className="navbar" onClick={scrollToBottom}> kontakta oss</a>
+       
         <span className="material-symbols-outlined">shopping_cart</span>
 
         {showOverlay && (

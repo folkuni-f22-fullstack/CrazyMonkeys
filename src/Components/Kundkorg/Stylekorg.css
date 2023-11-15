@@ -4,6 +4,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
+   
 }
 
 .chart-title{
@@ -15,6 +16,7 @@ body {
     display: flex;
     justify-content: center;
     background-color: #4C5452;
+    
 }
 
 .background-chart{
@@ -26,6 +28,7 @@ body {
     width: 70%;
     border-radius: 20px;
     background-color: white;
+    border: .4rem solid #183a37;
 }
 
 .order-line{
@@ -94,7 +97,9 @@ body {
 
 
 
-.line {
+.line1 {
+    display: flex;
+    align-self: center;
     width: 70%;
     margin-top: 2rem;
 }
@@ -102,5 +107,25 @@ body {
 .total-summa {
     text-align: center;
 }
+
+.btn-grad-kund {    
+    background-image: linear-gradient(to right, #235852 0%, 
+  #001510  51%, #00bf8f  100%); 
+    margin: 2em 0.4em;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 7px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+  .btn-grad:hover {
+    background-position: right center; 
+    color: #fff;
+    text-decoration: none;
+  }
 
 /*  */

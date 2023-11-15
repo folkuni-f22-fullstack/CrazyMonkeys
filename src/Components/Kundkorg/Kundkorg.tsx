@@ -74,12 +74,12 @@ const Kundkorg = () => {
                         </div>
                     </>
                 ))}
-                <hr className="line" />
+                <hr className="line1" />
                 <p className="total-summa">Totalsumma:</p>
-                <button onClick={klick}>klicka mig</button>
+                <button type="button" className="btn-grad-kund" onClick={klick}>klicka mig</button>
             </div>
         </div>
-        <Footer />
+     <Footer/>
         </>
     );
 };

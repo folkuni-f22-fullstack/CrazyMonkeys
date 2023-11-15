@@ -16,6 +16,7 @@
 }
 
 .line {
+    display: flex;
     width: 30px;
     height: 2px;
     background-color: #000;
