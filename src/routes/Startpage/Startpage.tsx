@@ -117,9 +117,9 @@ function StartPage() {
             ger en spännande smakupplevelse i varje tugga.
           </div>
         </motion.div>
-        <button className="mobilbtn btn-grad ">Beställ här</button>
+        <button type="button" className="mobilbtn btn-grad ">Beställ här</button>
       </main>
-      <Footer />
+      <Footer/>
     </>
   );
 }

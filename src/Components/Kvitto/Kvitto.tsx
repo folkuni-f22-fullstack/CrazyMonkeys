@@ -1,17 +1,22 @@
 import './StyleKvitto.css'
-
+import Footer from '../Footer/Footer'
 import { TbTruckDelivery } from 'react-icons/tb'
 import { AiOutlineFieldTime } from 'react-icons/ai'
 import { MdOutlinePeopleAlt } from 'react-icons/md'
 import image from './image/image1/images.png'
 import { StepsHeader } from '../StepsHeader/StepsHeader'
+import Header from '../Header/Header'
+
+
 const Kvitto = () => {
 
     const resizeImage = { width: '80%', height: '80%', objectfit: 'contain' }
 
     return (
+        <>
 
-        <main className='parent-container'>
+        <Header/>
+        <div className='parent-container'>
              <div className='container'>
             <div className='title-line'>
 
@@ -43,10 +48,12 @@ const Kvitto = () => {
                         Kvitto har skickats till din mejl!
                     </p>
                 </div>
-                <button type='button' className='btn-grad'> Startsidan</button>
+                <button type='button' className='btn-grad1'> Startsidan</button>
             </div>
-
-        </main>
+            
+        </div>
+        <Footer/>
+        </>
     )
 }
 

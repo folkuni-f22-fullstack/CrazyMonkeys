@@ -15,6 +15,20 @@ function Header() {
     setIsMenuIconCross(!isMenuIconCross);
   };
 
+
+
+    const scrollToBottom = () => {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth',
+      });
+    };
+  
+    
+  ;
+ 
+  
+
   return (
     <>
       <section className="header-container">
@@ -36,12 +50,8 @@ function Header() {
           <img className="desktop" src={desktop} alt="Företagets logga" />
         </div>
         <a className="navbar" onClick= {() => {navigate("/kvitto")}}>Om Oss</a>
-        <a className="navbar">Kontakta Oss</a>
-        {/* <img
-          className="shopping-cart"
-          src={Cart}
-          alt="en bild på en kundvagn"
-        /> */}
+        <a className="navbar" onClick={scrollToBottom}> kontakta oss</a>
+       
         <span className="material-symbols-outlined">shopping_cart</span>
 
         {showOverlay && (

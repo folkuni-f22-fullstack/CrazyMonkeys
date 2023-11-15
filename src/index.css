@@ -1,4 +1,4 @@
-/*:root {
+:root {
     --shadow-color: 0deg 0% 59%;
     --shadow-elevation-low:
       0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
@@ -26,13 +26,13 @@ html, body {
     background-color: #4C5452;
 }
 
-* {
+*{
     box-sizing: border-box;
 }
 
 /* Leveransuppgifter */
 
-/*.btn-grad {
+/* .btn-grad {
     background-image: linear-gradient(to right, #235852 0%, 
   #001510  51%, #00bf8f  100%); 
     margin: 2em 0.4em;
@@ -51,7 +51,7 @@ html, body {
     background-position: right center; 
     color: #fff;
     text-decoration: none;
-  }
+  } */
 
 .delivery-container {
     min-width: 320px;
@@ -200,7 +200,7 @@ input[type='radio']:checked:after {
 
 .radio-spacing {
     padding: .45em 0em;
-}*/
+}
 
 /* Steps */
 /*.steps-container {
@@ -211,7 +211,7 @@ input[type='radio']:checked:after {
     justify-items: center;
     justify-content: center;
    
-}*/
+}
 .steps-container{
     display: flex;
     align-items: center;
@@ -231,5 +231,5 @@ input[type='radio']:checked:after {
     width: 30px;
     height: 2px;
     background-color: #000;
-}
+}*/
 
