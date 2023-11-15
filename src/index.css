@@ -1,4 +1,4 @@
-:root {
+/*:root {
     --shadow-color: 0deg 0% 59%;
     --shadow-elevation-low:
       0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
@@ -32,7 +32,7 @@ html, body {
 
 /* Leveransuppgifter */
 
-.btn-grad {
+/*.btn-grad {
     background-image: linear-gradient(to right, #235852 0%, 
   #001510  51%, #00bf8f  100%); 
     margin: 2em 0.4em;
@@ -200,17 +200,25 @@ input[type='radio']:checked:after {
 
 .radio-spacing {
     padding: .45em 0em;
-}
+}*/
 
 /* Steps */
-.steps-container {
+/*.steps-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, 40px);
     text-align: center;
     align-items: center;
     justify-items: center;
     justify-content: center;
-    padding-top: 2.5em;
+   
+}*/
+.steps-container{
+    /* margin-top: -25%; */
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    
 }
 
 .step-round-button {

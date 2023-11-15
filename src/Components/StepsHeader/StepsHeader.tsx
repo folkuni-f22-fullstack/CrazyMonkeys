@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import './StepsHeader.css'
 
 export const StepsHeader = () => {
 
