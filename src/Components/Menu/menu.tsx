@@ -3,6 +3,7 @@ import Matratter from "../Menu/Matratter.tsx";
 import Drycker from "../Menu/Dryck.tsx";
 import Tillbehor from "../Menu/Tillbehor.tsx";
 import "../assets/menu.css";
+import { Link } from "react-router-dom";
 
 interface ButtonProps {
   category: string;
@@ -59,7 +60,9 @@ function Menu() {
         {activeCategory === "matratter" && <Matratter />}
         {activeCategory === "drycker" && <Drycker />}
         {activeCategory === "tillbehor" && <Tillbehor />}
-        <button className="proceed-button">Gå till varukorgen</button>
+        <Link className="btn-grad" to="/kundkorg">
+          Varukorg
+        </Link>
       </div>
     </div>
   );

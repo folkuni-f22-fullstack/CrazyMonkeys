@@ -1,12 +1,13 @@
 import { useState, useContext } from "react";
 import { FunkyContext } from "../ContextRoot";
-import Header from "../Components/Header/Header";
-import Footer from "../Components/Footer/Footer";
+
+import { useNavigate } from "react-router-dom";
 
 import "./employeeStyle.css";
 
 export const EmployeeView = () => {
-  const { setIsLoggedIn } = useContext(FunkyContext);
+  const navigate = useNavigate();
+  const { setIsLoggedIn, isLoggedIn } = useContext(FunkyContext);
 
   const [selectTab, setSelectTab] = useState("untreated");
 
@@ -31,60 +32,61 @@ export const EmployeeView = () => {
   };
 
   const onClickLogOut = () => {
-    setIsLocked(false);
+    setIsLoggedIn(false);
+    navigate("/");
   };
 
   return (
     <>
-      <Header />
-      <section className="center">
-        <section className="employee-view-container">
+      {isLoggedIn ? (
+        <section className="center">
+          <section className="employee-view-container">
             <header className="title-header">
-            <span>Du är inloggad</span>
-            <button onClick={onClickLogOut} className="btn-grad">
+              <span>Du är inloggad</span>
+              <button onClick={onClickLogOut} className="btn-grad">
                 logga ut
-            </button>
-            <h1 className="login-title">Beställningar</h1>
-            <div className="title-line" />
-            <section className="tabs-section">
+              </button>
+              <h1 className="login-title">Beställningar</h1>
+              <div className="title-line" />
+              <section className="tabs-section">
                 <button
-                className={chosenTab("untreated")}
-                onClick={() => setSelectTab("untreated")}
+                  className={chosenTab("untreated")}
+                  onClick={() => setSelectTab("untreated")}
                 >
-                Obehandlade
+                  Obehandlade
                 </button>
                 <button
-                className={chosenTab("during-treatment")}
-                onClick={() => setSelectTab("during-treatment")}
+                  className={chosenTab("during-treatment")}
+                  onClick={() => setSelectTab("during-treatment")}
                 >
-                Underbehandling
+                  Underbehandling
                 </button>
                 <button
-                className={chosenTab("done")}
-                onClick={() => setSelectTab("done")}
+                  className={chosenTab("done")}
+                  onClick={() => setSelectTab("done")}
                 >
-                Färdig
+                  Färdig
                 </button>
-            </section>
+              </section>
             </header>
 
             {selectTab === "untreated" && (
-            <section>
+              <section>
                 <form onSubmit={onSubmit}>
-                <div className="order-box">
+                  <div className="order-box">
                     <span className="material-symbols-outlined">schedule</span>
                     <p className="order-name">Ordernummer 699</p>
                     {isLocked ? (
-                    <span>Skickar till kocken...</span>
+                      <span>Skickar till kocken...</span>
                     ) : (
-                    <>
+                      <>
                         <button className=" button-decline">Neka</button>
                         <button className=" button-edit">Ändra</button>
-                    </>
+                      </>
                     )}
                     <details onClick={() => setSelectOrder("eeeee")}>
-                    <summary></summary>
-                    <div className="details-about-order">
+                      <summary></summary>
+                      <div className="details-about-order">
                         <hr />
                         <p>Maträtter: </p>
                         <p>Tillbehör: </p>
@@ -94,43 +96,48 @@ export const EmployeeView = () => {
                         <p>Kundkommentar: </p>
 
                         <details>
-                        <summary className="summary-box">Meddela kocken</summary>
-                        <textarea
+                          <summary className="summary-box">
+                            Meddela kocken
+                          </summary>
+                          <textarea
                             onChange={onChangeTextArea}
                             className="msg-to-cook-textarea"
                             placeholder="Meddelande till kocken"
-                        />
+                          />
                         </details>
                         <details>
-                        <summary className="summary-box">Info om kund</summary>
-                        <p>Namn: </p>
-                        <p>Adress: </p>
-                        <p>Våning: </p>
-                        <p>Portkod: </p>
-                        <p>Mejl: </p>
-                        <p>Telefonnummer: </p>
+                          <summary className="summary-box">
+                            Info om kund
+                          </summary>
+                          <p>Namn: </p>
+                          <p>Adress: </p>
+                          <p>Våning: </p>
+                          <p>Portkod: </p>
+                          <p>Mejl: </p>
+                          <p>Telefonnummer: </p>
                         </details>
                         <button
-                        className=" button-confirm"
-                        type="submit"
-                        onClick={() => setIsLocked(true)}
+                          className=" button-confirm"
+                          type="submit"
+                          onClick={() => setIsLocked(true)}
                         >
-                        Skicka till kocken{" "}
-                        {isLocked && (
-                            <span className="material-symbols-outlined">lock</span>
-                        )}
+                          Skicka till kocken{" "}
+                          {isLocked && (
+                            <span className="material-symbols-outlined">
+                              lock
+                            </span>
+                          )}
                         </button>
-                    </div>
+                      </div>
                     </details>
-                </div>
+                  </div>
                 </form>
                 <hr />
-            </section>
+              </section>
             )}
+          </section>
         </section>
-      </section>
-
-      <Footer />
+      ) : null}
     </>
   );
 };

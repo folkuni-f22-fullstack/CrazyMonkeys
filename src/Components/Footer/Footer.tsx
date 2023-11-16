@@ -56,15 +56,15 @@ function Footer() {
               <tbody>
                 <tr className="table">
                   <td className="weekday">Måndag - Fredag:</td>
-                  <td className="time">16:00 - 22:00</td>
+                  <td className="footer-time">16:00 - 22:00</td>
                 </tr>
                 <tr>
                   <td className="weekday">Lördag:</td>
-                  <td className="time">18:00 - 24:00</td>
+                  <td className="footer-time">18:00 - 24:00</td>
                 </tr>
                 <tr>
                   <td className="weekday">Söndag:</td>
-                  <td className="time">16:00 - 22:00</td>
+                  <td className="footer-time">16:00 - 22:00</td>
                 </tr>
               </tbody>
             </table>

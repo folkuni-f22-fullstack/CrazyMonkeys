@@ -1,5 +1,5 @@
 import './StyleKvitto.css'
-
+import { Link } from 'react-router-dom'
 import { TbTruckDelivery } from 'react-icons/tb'
 import { AiOutlineFieldTime } from 'react-icons/ai'
 import { MdOutlinePeopleAlt } from 'react-icons/md'
@@ -43,7 +43,7 @@ const Kvitto = () => {
                         Kvitto har skickats till din mejl!
                     </p>
                 </div>
-                <button type='button' className='btn-grad'> Startsidan</button>
+                <Link to="/" className="btn-grad">tillbaka till start</Link>
             </div>
 
         </main>

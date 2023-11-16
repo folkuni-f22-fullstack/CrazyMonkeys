@@ -1,8 +1,11 @@
 import { useContext, useState } from "react";
 import { FunkyContext } from "../../ContextRoot";
 import { AiOutlineClose } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 export function Login() {
+  const navigate = useNavigate();
+
   const { loginDialogRef, stateLoginDialog, setIsLoggedIn } = useContext(FunkyContext);
 
   const handleSubmit = (e) => {
@@ -10,6 +13,7 @@ export function Login() {
 
     if(username !== "" && password !== "") {
       setIsLoggedIn(true)
+      navigate("/login")
     }
   }
 
