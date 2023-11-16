@@ -39,7 +39,6 @@ function Menu() {
 
   return (
     <>
-    <Header/>
     <div className="outer-container">
       <div className="inner-container">
         <h1>Meny</h1>
@@ -72,7 +71,7 @@ function Menu() {
         <button className="proceed-button" onClick= {() => {navigate("/kundkorg")}}>Gå till varukorgen</button>
       </div>
     </div>
-    <Footer/>
+    
     </>
   );
 }

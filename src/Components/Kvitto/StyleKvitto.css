@@ -62,14 +62,14 @@ text-align: center;
   left: -8rem;
   
 }
-.time{
+.time1{
   display: inline-flex;
   position: relative;
   left: -9.3rem;
   margin: .2rem;
 }
 
-.time > span {
+.time1 > span {
   position: relative;
   top: .6rem;
   margin-left: .1rem;

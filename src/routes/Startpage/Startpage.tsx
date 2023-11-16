@@ -1,4 +1,3 @@
-import Header from "../../Components/Header/Header";
 import taco from "../../assets/startpagepic/taco.png";
 import musslor from "../../assets/startpagepic/musslor.png";
 import pizza from "../../assets/startpagepic/pizza.png";
@@ -6,7 +5,6 @@ import sushi from "../../assets/startpagepic/sushi.png";
 import sushirulle from "../../assets/startpagepic/sushirulle.png";
 import teriyaki from "../../assets/startpagepic/teriyaki.png";
 import koriander from "../../assets/startpagepic/Korianderpesto.png";
-import Footer from "../../Components/Footer/Footer";
 import { useEffect, useRef } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 import { useNavigate } from "react-router-dom";
@@ -50,7 +48,6 @@ function StartPage() {
         <img className="top-pic sushi" src={sushirulle} alt="Bild på taco" />
         <img className="top-pic" src={pizza} alt="Bild på pizza" />
       </section>
-      <Header />
       <section className="pic-container2">
         <img className="top-pic" src={taco} alt="Bild på taco" />
         <img className="top-pic sushi" src={sushi} alt="Bild på taco" />
@@ -121,7 +118,6 @@ function StartPage() {
         </motion.div>
         <button className="mobilbtn btn-grad" onClick={() => { navigate("/menu"); } } to={"/menu"}>Beställ här</button>
       </main>
-       <Footer />
     </>
   );
 }

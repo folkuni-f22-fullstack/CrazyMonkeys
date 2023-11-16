@@ -13,8 +13,9 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      
+      <Header/>
         <Routes>
+          
           <Route index element={<StartPage />} />
           <Route path="/startpage" element={<StartPage />} />
           <Route path="/menu" element={<Menu />} />
@@ -24,7 +25,7 @@ function App() {
           <Route path="/betallning" element={<Betallning />} />
           <Route path="/footer" element={<Footer />} />
         </Routes>
-        
+        <Footer/>
       </BrowserRouter>
     </>
   );

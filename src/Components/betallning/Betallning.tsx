@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "../Style/betallning.css";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import { StepsHeader } from "../StepsHeader/StepsHeader";
 
 interface CheckoutProps {}
@@ -21,7 +19,7 @@ const CheckoutPage: React.FC<CheckoutProps> = () => {
 
   return (
     <>
-    <Header/>
+   
       <div className="outer-container">
         <div className="checkout-container">
           <StepsHeader/>
@@ -72,7 +70,6 @@ const CheckoutPage: React.FC<CheckoutProps> = () => {
           </button>
         </div>
       </div>
-      <Footer/>
     </>
   );
 };
