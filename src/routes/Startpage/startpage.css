@@ -76,32 +76,6 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
 .start.btn-grad {
   display: none;
 }
-.btn-grad {
-  background-image: linear-gradient(
-    to right,
-    #235852 0%,
-    #001510 51%,
-    #00bf8f 100%
-  );
-  margin: 2em 0.4em;
-  padding: 15px 45px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  color: white;
-  box-shadow: 0 0 7px #eee;
-  border-radius: 10px;
-  display: block;
-  width: 90%;
-}
-.btn-grad:hover {
-  background-position: right center;
-  color: #fff;
-  text-decoration: none;
-  transform: scale(0.9);
-}
-
 /* Desktop 1920 */
 
 @media screen and (min-width: 320px) {

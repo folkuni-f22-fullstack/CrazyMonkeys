@@ -30,7 +30,7 @@
   text-align: start;
   justify-content: flex-end;
   width: 10em;
-  /* width: 100%; */
+
 }
 .created-by-p {
   display: flex;
@@ -54,6 +54,12 @@
 }
 .phone-icon {
   color: black;
+}
+
+.contact-us,
+.openhour{
+  font-family: var(--mont-font);
+  font-size: 16px;
 }
 
 .copyright-icon {
@@ -131,7 +137,7 @@
     font-style: italic;
   }
   .ff-pic {
-    width: 4em;
+    width: 6em;
     margin-bottom:3em;
   }
   .footer-column:nth-child(2) {
@@ -164,6 +170,7 @@
 .contact-us{
   color: #f2f0f0;
   margin-bottom:1em;
+
 } 
 .follow-us{
   font-size: 13px;

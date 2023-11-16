@@ -62,9 +62,15 @@ function Header() {
           <p className="company-name">FuNKy FUSION</p>
           <img className="desktop" src={desktop} alt="Företagets logga" />
         </div>
+<<<<<<< HEAD
         <a className="navbar" onClick= {() => {navigate("/kvitto")}}>Om Oss</a>
         <a className="navbar" onClick={scrollToBottom}> kontakta oss</a>
        
+=======
+        <p className="navbar">Om Oss</p>
+        <p className="navbar">Kontakta Oss</p>
+     
+>>>>>>> dev
         <span className="material-symbols-outlined">shopping_cart</span>
 
         {showOverlay && (
