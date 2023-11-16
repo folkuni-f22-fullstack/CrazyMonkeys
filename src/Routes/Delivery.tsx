@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { StepsHeader } from "../Components/StepsHeader"
 
+import "./DeliveryStyle.css"
+
 export function Delivery() {
     // States
     const [chosenDeliveryOption, setChosenDeliveryOption] = useState(false)
@@ -188,141 +190,143 @@ export function Delivery() {
     }
 
     return (
-        <section className="delivery-container">
+        <section className="center">
+            <section className="delivery-container">
 
-            <StepsHeader />
-            <header className="header"><button><span className="material-symbols-outlined">undo</span></button> <h1>Uppgifter</h1></header>
-            <form className="form" onSubmit={handleSubmit}>
-        <div className="multi-inputs" >
+                <StepsHeader />
+                <header className="header"><button><span className="material-symbols-outlined">undo</span></button> <h1>Uppgifter</h1></header>
+                <form className="form" onSubmit={handleSubmit}>
+            <div className="multi-inputs" >
 
 
-                    <div className="label-above-input">
-                        <label htmlFor="firstname-input">Förnamn</label>
-                                <input className="input name-input" id="firstname-input" onChange={firstNameChange} onBlur={() => setWrongFirstName(true)} style={validationErrorBorder(isEmptyFirstName, wrongFirstName, isValidFirstName)} value={firstName} type="text" placeholder="Johanna" required />
-                            {
-                                !isEmptyFirstName && (
-                                    <div className="validation-error">
-                                        <p>
-                                            {
-                                                isEmptyFirstName ? '' : wrongFirstName ? notValidFirstName : ""
-                                            }
-                                        </p>
-                                        
-                                    </div>
-                                    
-                                )
-                            }
-                    </div>
-
-                    <div className="label-above-input">
-                        <label htmlFor="lastname-input">Efternamn<span></span></label>
-                                <input className="input name-input" id="lastname-input" onChange={lastNameChange} onBlur={() => setWrongLastName(true)} style={validationErrorBorder(isEmptyLastName, wrongLastName, isValidLastName)} value={lastName} type="text" placeholder="Doe" required/>
+                        <div className="label-above-input">
+                            <label htmlFor="firstname-input">Förnamn</label>
+                                    <input className="input name-input" id="firstname-input" onChange={firstNameChange} onBlur={() => setWrongFirstName(true)} style={validationErrorBorder(isEmptyFirstName, wrongFirstName, isValidFirstName)} value={firstName} type="text" placeholder="Johanna" required />
                                 {
-                                !isEmptyLastName && (
-                                    <div className="validation-error">
-                                        <p>
-                                            {
-                                                isEmptyLastName ? '' : wrongLastName ? notValidLastName : ""
-                                            }
-                                        </p>
+                                    !isEmptyFirstName && (
+                                        <div className="validation-error">
+                                            <p>
+                                                {
+                                                    isEmptyFirstName ? '' : wrongFirstName ? notValidFirstName : ""
+                                                }
+                                            </p>
+                                            
+                                        </div>
                                         
-                                    </div>
-                                    
-                                )
-                            }
-                    </div>            
-        </div>
-                <div className="label-above-input">
-                    <label htmlFor="email-input">Epost</label>
-                        <input className="email-input input" id="email-input" onChange={emailChange} onBlur={() => setWrongEmail(true)} style={validationErrorBorder(isEmptyEmail, wrongEmail, isValidEmail)} value={email} type="email" placeholder="johannaDoe@example.com" required />
-                    {
-                                !isEmptyEmail && (
-                                    <div className="validation-error">
-                                        <p>
-                                            {
-                                                isEmptyEmail ? '' : wrongEmail ? notValidEmail : ""
-                                            }
-                                        </p>
+                                    )
+                                }
+                        </div>
+
+                        <div className="label-above-input">
+                            <label htmlFor="lastname-input">Efternamn<span></span></label>
+                                    <input className="input name-input" id="lastname-input" onChange={lastNameChange} onBlur={() => setWrongLastName(true)} style={validationErrorBorder(isEmptyLastName, wrongLastName, isValidLastName)} value={lastName} type="text" placeholder="Doe" required/>
+                                    {
+                                    !isEmptyLastName && (
+                                        <div className="validation-error">
+                                            <p>
+                                                {
+                                                    isEmptyLastName ? '' : wrongLastName ? notValidLastName : ""
+                                                }
+                                            </p>
+                                            
+                                        </div>
                                         
-                                    </div>
-                                    
-                                )
-                            }
-                </div>
-
-                <div className="label-above-input">
-                    <label htmlFor="phone-input">Telefonnummer</label>
-                        <input className="phone-input input" id="phone-input" onChange={phoneNumberChange} onBlur={() => setWrongPhoneNumber(true)} style={validationErrorBorder(isEmptyPhoneNumber, wrongPhoneNumber, isValidNumber)}  value={phoneNumber} type="number" placeholder="070 123 4561" required />
-                    {
-                                !isEmptyPhoneNumber && (
-                                    <div className="validation-error">
-                                        <p>
-                                            {
-                                                isEmptyPhoneNumber ? '' : wrongPhoneNumber ? notValidNumber : ""
-                                            }
-                                        </p>
+                                    )
+                                }
+                        </div>            
+            </div>
+                    <div className="label-above-input">
+                        <label htmlFor="email-input">Epost</label>
+                            <input className="email-input input" id="email-input" onChange={emailChange} onBlur={() => setWrongEmail(true)} style={validationErrorBorder(isEmptyEmail, wrongEmail, isValidEmail)} value={email} type="email" placeholder="johannaDoe@example.com" required />
+                        {
+                                    !isEmptyEmail && (
+                                        <div className="validation-error">
+                                            <p>
+                                                {
+                                                    isEmptyEmail ? '' : wrongEmail ? notValidEmail : ""
+                                                }
+                                            </p>
+                                            
+                                        </div>
                                         
-                                    </div>
-                                    
-                                )
-                            }
-                </div>
-
-                <div className="spacer label-above-input">
-                    <label htmlFor="own-comments-input">Egna kommentarer</label>
-                    <textarea className="input text-area no-span-input" id="own-comments-input" onChange={ownCommentsChange} value={ownComments} placeholder="Jag vill inte ha gurka i thai sushin" />
-                </div>
-
-
-                <div className="spacer">
-                    <div className="radio-spacing">
-                        <input id="takeaway-delivery-radio" type="radio" name="deliveryOption" onClick={() => setChosenDeliveryOption(false)} required />
-                        <label htmlFor="takeaway-delivery-radio" className="radio-label">Takeaway</label>
+                                    )
+                                }
                     </div>
-                    <div className="radio-spacing">
-                        <input id="home-delivery-radio" type="radio" name="deliveryOption" onClick={() => setChosenDeliveryOption(true)} required />
-                        <label htmlFor="home-delivery-radio" className="radio-label">Hemleverans</label>
-                    </div>
-                </div>
 
-                {
-                    chosenDeliveryOption && (
-                        <>
-                            <div className="label-above-input">
-                                <label htmlFor="address-input">Adress</label>
-                                    <input className="address-input input no-span-input" id="address-input" onChange={addressChange} onBlur={() => setWrongAddress(true)} value={address} type="text" placeholder="Drottninggatan 17" required />
-                            </div>
+                    <div className="label-above-input">
+                        <label htmlFor="phone-input">Telefonnummer</label>
+                            <input className="phone-input input" id="phone-input" onChange={phoneNumberChange} onBlur={() => setWrongPhoneNumber(true)} style={validationErrorBorder(isEmptyPhoneNumber, wrongPhoneNumber, isValidNumber)}  value={phoneNumber} type="number" placeholder="070 123 4561" required />
+                        {
+                                    !isEmptyPhoneNumber && (
+                                        <div className="validation-error">
+                                            <p>
+                                                {
+                                                    isEmptyPhoneNumber ? '' : wrongPhoneNumber ? notValidNumber : ""
+                                                }
+                                            </p>
+                                            
+                                        </div>
+                                        
+                                    )
+                                }
+                    </div>
+
+                    <div className="spacer label-above-input">
+                        <label htmlFor="own-comments-input">Egna kommentarer</label>
+                        <textarea className="input text-area no-span-input" id="own-comments-input" onChange={ownCommentsChange} value={ownComments} placeholder="Jag vill inte ha gurka i thai sushin" />
+                    </div>
+
+
+                    <div className="spacer">
+                        <div className="radio-spacing">
+                            <input id="takeaway-delivery-radio" type="radio" name="deliveryOption" onClick={() => setChosenDeliveryOption(false)} required />
+                            <label htmlFor="takeaway-delivery-radio" className="radio-label">Takeaway</label>
+                        </div>
+                        <div className="radio-spacing">
+                            <input id="home-delivery-radio" type="radio" name="deliveryOption" onClick={() => setChosenDeliveryOption(true)} required />
+                            <label htmlFor="home-delivery-radio" className="radio-label">Hemleverans</label>
+                        </div>
+                    </div>
+
+                    {
+                        chosenDeliveryOption && (
+                            <>
+                                <div className="label-above-input">
+                                    <label htmlFor="address-input">Adress</label>
+                                        <input className="address-input input no-span-input" id="address-input" onChange={addressChange} onBlur={() => setWrongAddress(true)} value={address} type="text" placeholder="Drottninggatan 17" required />
+                                </div>
+
+                                <div className="multi-inputs">
+                                    <div className="label-above-input">
+                                        <label htmlFor="post-input">Postnummer</label>
+                                        <input className="post-number-input input no-span-input" id="post-input" onChange={postNumberChange} value={postNumber} type="number" placeholder="12345"  required/>
+                                    </div>
+                                    <div className="label-above-input">
+                                        <label htmlFor="county-input">Ort</label>
+                                        <input className="county-input input no-span-input" id="county-input" onChange={countyChange} value={county}type="text" placeholder="Karlstad"  required/>
+                                    </div>
+                                </div>
 
                             <div className="multi-inputs">
                                 <div className="label-above-input">
-                                    <label htmlFor="post-input">Postnummer</label>
-                                    <input className="post-number-input input no-span-input" id="post-input" onChange={postNumberChange} value={postNumber} type="number" placeholder="12345"  required/>
+                                    <label htmlFor="apartment-input">Lgn. nr</label>
+                                    <input className="input tinier-inputs no-span-input" id="apartment-input" onChange={apartmentNumberChange} value={apartmentNumber} type="number" placeholder="430" />
                                 </div>
-                                <div className="label-above-input">
-                                    <label htmlFor="county-input">Ort</label>
-                                    <input className="county-input input no-span-input" id="county-input" onChange={countyChange} value={county}type="text" placeholder="Karlstad"  required/>
-                                </div>
-                            </div>
-
-                        <div className="multi-inputs">
                             <div className="label-above-input">
-                                <label htmlFor="apartment-input">Lgn. nr</label>
-                                <input className="input tinier-inputs no-span-input" id="apartment-input" onChange={apartmentNumberChange} value={apartmentNumber} type="number" placeholder="430" />
+                                <label htmlFor="port-code-input">Portkod</label>
+                                <input className="input tinier-inputs no-span-input" id="port-code-input" onChange={portCodeChange} value={portCode} type="number" placeholder="1234" />
                             </div>
-                        <div className="label-above-input">
-                            <label htmlFor="port-code-input">Portkod</label>
-                            <input className="input tinier-inputs no-span-input" id="port-code-input" onChange={portCodeChange} value={portCode} type="number" placeholder="1234" />
+                            <div className="label-above-input">
+                                <label htmlFor="floor-input">Våning</label>
+                                <input className="input tinier-inputs no-span-input" id="floor-input" onChange={floorChange} value={floor} type="number" placeholder="1" />
+                            </div>
                         </div>
-                        <div className="label-above-input">
-                            <label htmlFor="floor-input">Våning</label>
-                            <input className="input tinier-inputs no-span-input" id="floor-input" onChange={floorChange} value={floor} type="number" placeholder="1" />
-                        </div>
-                    </div>
-                </>
-                    )
-                }
-                <button className="btn-grad" type="submit">Nästa</button>
-            </form>
+                    </>
+                        )
+                    }
+                    <button className="btn-grad" type="submit">Nästa</button>
+                </form>
+            </section>
         </section>
     )
 }
