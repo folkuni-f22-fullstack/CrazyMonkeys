@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import "./employeeStyle.css";
+import OrderKort from "../Components/anställda/OrderKort";
 export const EmployeeView = () => {
     const [chartData, setChartData] = useState([]);
     const [menuNames, setMenuNames] = useState([]);
-    const [dishNames, setDishNames] = useState([]);
+    const [orders, setOrders] = useState([]);
 
     const [selectTab, setSelectTab] = useState("untreated");
     const [isLocked, setIsLocked] = useState(false);
@@ -39,21 +40,25 @@ export const EmployeeView = () => {
 
                 const ordersData = await ordersResponse.json();
                 const menuData = await menuResponse.json();
-                console.log(ordersData);
-                console.log(menuData);
 
-                let newOrderList = [];
+                let ordersList = [];
                 ordersData.forEach((order) => {
                     // hitta vilket menu item som tillhör id:t
+                    let newOrder = {};
+                    newOrder.id = order._id;
+                    newOrder.items = [];
                     order.items.forEach((orderItem) => {
-                        order = menuData.find((md) => md._id === orderItem.menuItem);
-                        console.log(order);
-                        order.quantity = orderItem.quantity;
-                        newOrderList.push(order);
+                        let newOrderItem = menuData.find((md) => md._id === orderItem.menuItem);
+                        newOrderItem.quantity = orderItem.quantity;
+                        console.log("orderItem:", newOrderItem);
+                        newOrder.items.push(newOrderItem);
                     });
+                    // console.log(newOrder);
+                    ordersList.push(newOrder);
                 });
-                console.log(newOrderList);
-
+                // console.log(ordersList);
+                setOrders(ordersList);
+                // console.log("orders", orders);
                 const sortedData = menuData.filter(
                     (item) => item.itemType === "food",
                     "dricka",
@@ -62,7 +67,7 @@ export const EmployeeView = () => {
 
                 // Hämta alla menuItems från alla order
                 const allMenuItems = ordersData.flatMap((order) => order.items);
-                console.log(allMenuItems);
+                // console.log(allMenuItems);
                 // Skapa en ny array med namn och quantity från menuData
                 const menuItemsWithData = allMenuItems.map((orderItem) => {
                     const menuItemData = sortedData.find(
@@ -94,6 +99,7 @@ export const EmployeeView = () => {
     }, []);
 
     return (
+        <div className="employee-view-wrapper">
         <section className="employee-view-container">
             <header className="title-header">
                 <span>Du är inloggad</span>
@@ -118,94 +124,62 @@ export const EmployeeView = () => {
                 </section>
             </header>
 
-            {selectTab === "untreated" && (
-                <section>
-                    <form onSubmit={onSubmit}>
-                        {chartData.map((order) => {
-                            return (
-                                <div key={order._id} className="order-box">
-                                    <span className="material-symbols-outlined">schedule</span>
-                                    <p className="order-name">Ordernummer {order.orderId}</p>
+            {chartData.map((order) => (
+                <div key={order._id} className="order-box">
+                    <span className="material-symbols-outlined">schedule</span>
+                    <p className="order-name">Ordernummer {order.orderId}</p>
 
-                                    {isLocked ? (
-                                        <span>Skickar till kocken...</span>
-                                    ) : (
-                                        <>
-                                            <button className="button-decline">Neka</button>
-                                            <button className="button-edit">Ändra</button>
-                                        </>
-                                    )}
+                    {isLocked ? (
+                        <span>Skickar till kocken...</span>
+                    ) : (
+                        <>
+                            <button className="button-decline">Neka</button>
+                            <button className="button-edit">Ändra</button>
+                        </>
+                    )}
 
-                                    <details onClick={() => setSelectOrder({ order })}>
-                                        <summary></summary>
+                    <details onClick={() => setSelectOrder({ order })}>
+                        <summary></summary>
 
-                                        <div className="details-about-order">
-                                            <hr />
+                        <div className="details-about-order">
+                            <hr />
+                            {/* Render OrderKort outside the loop */}
+                            <OrderKort key={order.id} order={order} orders={orders} />
 
-                                            {order.items.map((item) => {
-                                                const menuItemData = menuNames.find(
-                                                    (menu) => menu._id === order.items[0].menuItem
-                                                );
+                            <details>
+                                <summary className="summary-box">Meddela kocken</summary>
+                                <textarea
+                                    onChange={onChangeTextArea}
+                                    className="msg-to-cook-textarea"
+                                    placeholder="Meddelande till kocken"
+                                />
+                            </details>
 
-                                                // console.log("item.menuItem:", item.menuItem);
-                                                // console.log("menuNames:", menuNames);
-                                                // console.log("item.menuItem:", item.menuItem);
-                                                // console.log("menuItemData:", menuItemData);
+                            <details>
+                                <summary className="summary-box">Info om kund</summary>
+                                <p>Namn: {order.customerName} </p>
+                                <p>Adress: {order.adress} </p>
+                                <p>Våning: {order.floor} </p>
+                                <p>Portkod: {order.portCode} </p>
+                                <p>Mejl: {order.mail} </p>
+                                <p>Telefonnummer: {order.mobile} </p>
+                            </details>
 
-                                                return (
-                                                    <div key={item._id}>
-                                                        <p>Maträtt: {order.items[0].menuItem}</p>
-                                                        <p>Maträtt: {order.items[0].price}</p>
-                                                    </div>
-                                                );
-                                            })}
-
-                                            {/* Lägg till logik för Tillbehör, Drycker, Summa och Kundkommentar här */}
-
-                                            <details>
-                                                <summary className="summary-box">
-                                                    Meddela kocken
-                                                </summary>
-                                                <textarea
-                                                    onChange={onChangeTextArea}
-                                                    className="msg-to-cook-textarea"
-                                                    placeholder="Meddelande till kocken"
-                                                />
-                                            </details>
-
-                                            <details>
-                                                <summary className="summary-box">
-                                                    Info om kund
-                                                </summary>
-                                                <p>Namn: {order.customerName} </p>
-                                                <p>Adress: {order.adress} </p>
-                                                <p>Våning: {order.floor} </p>
-                                                <p>Portkod: {order.portCode} </p>
-                                                <p>Mejl: {order.mail} </p>
-                                                <p>Telefonnummer: {order.mobile} </p>
-                                            </details>
-
-                                            <button
-                                                className="button-confirm"
-                                                type="submit"
-                                                onClick={() => setIsLocked(true)}
-                                            >
-                                                Skicka till kocken{" "}
-                                                {isLocked && (
-                                                    <span className="material-symbols-outlined">
-                                                        lock
-                                                    </span>
-                                                )}
-                                            </button>
-                                        </div>
-                                    </details>
-                                </div>
-                            );
-                        })}
-                    </form>
-                    <hr />
-                </section>
-            )}
+                            <button
+                                className="button-confirm"
+                                type="submit"
+                                onClick={() => setIsLocked(true)}
+                            >
+                                Skicka till kocken{" "}
+                                {isLocked && (
+                                    <span className="material-symbols-outlined">lock</span>
+                                )}
+                            </button>
+                        </div>
+                    </details>
+                </div>
+            ))}
         </section>
+        </div>
     );
 };
