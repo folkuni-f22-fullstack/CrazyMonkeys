@@ -14,6 +14,7 @@ export function Login() {
     if(username !== "" && password !== "") {
       setIsLoggedIn(true)
       navigate("/login")
+      stateLoginDialog(false)
     }
   }
 

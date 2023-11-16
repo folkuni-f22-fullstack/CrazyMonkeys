@@ -137,7 +137,9 @@ export const EmployeeView = () => {
             )}
           </section>
         </section>
-      ) : null}
+      ) : (
+        "Du är inte inloggad"
+      )}
     </>
   );
 };
