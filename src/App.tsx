@@ -4,7 +4,7 @@ import Kundkorg from './Components/Kundkorg/Kundkorg'
 import { useContext } from "react"
 import Kvitto from "./Components/Kvitto/Kvitto.tsx";
 
-
+import Betallning from "./Components/betallning/Betallning.tsx"
 import { EmployeeView } from './routes/employee-view'
 import StartPage from './routes/Startpage/Startpage'
 import { Delivery } from './Routes/Delivery'
@@ -24,6 +24,7 @@ function App() {
       <Menu />
       <Kundkorg/>
       <Delivery />
+      <Betallning/>
       <Kvitto/>
     </>
   )
