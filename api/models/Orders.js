@@ -24,19 +24,19 @@ const OrderItemSchema = new mongoose.Schema({
     },
     adress: {
       type: String, 
-      required: true
+      required: false
     },
     floor: {
       type: String,  
-      required: true
+      required: false
     },
     portCode: {
       type: String, 
-      required: true
+      required: false
     },
     mail: {
       type: String, 
-      required: true
+      required: false
     },
     mobile: {
       type: String, 

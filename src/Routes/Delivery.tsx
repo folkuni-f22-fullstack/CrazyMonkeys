@@ -1,11 +1,25 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { StepsHeader } from "../Components/StepsHeader/StepsHeader";
 
 import { NavLink } from "react-router-dom";
+import { FunkyContext } from "../ContextRoot";
 
 import "./DeliveryStyle.css";
 
 export function Delivery() {
+    const { orderToSend, order, setOrder, setCustomerInfo, customerInfo } = useContext(FunkyContext);
+
+    const handleInputChange = (e) => {
+        const fieldName = e.target.name; 
+        const value = e.target.value;
+
+        
+        setCustomerInfo((prevState) => ({
+            ...prevState,
+            [fieldName]: value,
+        }));
+    };
+
   // States
   const [chosenDeliveryOption, setChosenDeliveryOption] = useState(false);
 
@@ -223,14 +237,15 @@ export function Delivery() {
               <input
                 className="input name-input"
                 id="firstname-input"
-                onChange={firstNameChange}
+                name="name"
+                onChange={handleInputChange}
                 onBlur={() => setWrongFirstName(true)}
                 style={validationErrorBorder(
                   isEmptyFirstName,
                   wrongFirstName,
                   isValidFirstName
                 )}
-                value={firstName}
+                value={customerInfo.name}
                 type="text"
                 placeholder="Johanna"
                 required
@@ -285,14 +300,15 @@ export function Delivery() {
             <input
               className="email-input input"
               id="email-input"
-              onChange={emailChange}
+              name="mail"
+              onChange={handleInputChange}
               onBlur={() => setWrongEmail(true)}
               style={validationErrorBorder(
                 isEmptyEmail,
                 wrongEmail,
                 isValidEmail
               )}
-              value={email}
+              value={customerInfo.mail}
               type="email"
               placeholder="johannaDoe@example.com"
               required
@@ -309,14 +325,15 @@ export function Delivery() {
             <input
               className="phone-input input"
               id="phone-input"
-              onChange={phoneNumberChange}
+              name="mobile"
+              onChange={handleInputChange}
               onBlur={() => setWrongPhoneNumber(true)}
               style={validationErrorBorder(
                 isEmptyPhoneNumber,
                 wrongPhoneNumber,
                 isValidNumber
               )}
-              value={phoneNumber}
+              value={customerInfo.mobile}
               type="number"
               placeholder="070 123 4561"
               required
@@ -339,8 +356,9 @@ export function Delivery() {
             <textarea
               className="input text-area no-span-input"
               id="own-comments-input"
-              onChange={ownCommentsChange}
-              value={ownComments}
+              name="comments"
+              onChange={handleInputChange}
+              value={customerInfo.comments}
               placeholder="Jag vill inte ha gurka i thai sushin"
             />
           </div>
@@ -379,9 +397,10 @@ export function Delivery() {
                 <input
                   className="address-input input no-span-input"
                   id="address-input"
-                  onChange={addressChange}
+                  name="adress"
+                  onChange={handleInputChange}
                   onBlur={() => setWrongAddress(true)}
-                  value={address}
+                  value={customerInfo.adress}
                   type="text"
                   placeholder="Drottninggatan 17"
                   required
@@ -432,8 +451,9 @@ export function Delivery() {
                   <input
                     className="input tinier-inputs no-span-input"
                     id="port-code-input"
-                    onChange={portCodeChange}
-                    value={portCode}
+                    name="portCode"
+                    onChange={handleInputChange}
+                    value={customerInfo.portCode}
                     type="number"
                     placeholder="1234"
                   />
@@ -443,8 +463,9 @@ export function Delivery() {
                   <input
                     className="input tinier-inputs no-span-input"
                     id="floor-input"
-                    onChange={floorChange}
-                    value={floor}
+                    name="floor"
+                    onChange={handleInputChange}
+                    value={customerInfo.floor}
                     type="number"
                     placeholder="1"
                   />

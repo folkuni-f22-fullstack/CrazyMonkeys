@@ -11,6 +11,7 @@ const ContextRoot = ({ children }) => {
         portCode: "",
         mail: "",
         mobile: "",
+        comments:""
     });
 
     const orderToSend = {
@@ -21,6 +22,7 @@ const ContextRoot = ({ children }) => {
         portCode: customerInfo.portCode,
         mail: customerInfo.mail,
         mobile: customerInfo.mobile,
+        comments: customerInfo.comments,
         items: order.map((orderItem) => ({
             menuItem: orderItem.itemId,
             quantity: orderItem.quantity,

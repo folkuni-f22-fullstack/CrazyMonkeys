@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./betallning.css";
 import { Link } from "react-router-dom";
+import OrderComponent from "../../dataApi/OrderComponent"
 interface CheckoutProps {}
 
 const CheckoutPage: React.FC<CheckoutProps> = () => {
@@ -59,10 +60,10 @@ const CheckoutPage: React.FC<CheckoutProps> = () => {
 
         <div >
           <Link to="/kvitto">
-            <button className="btn-grad" onClick={handleProceed} disabled={isButtonDisabled}>
-              Gå vidare
+            <button className="btn-grad" disabled={isButtonDisabled}>
             </button>
           </Link>
+              <OrderComponent/>
         </div>
       </div>
     </div>

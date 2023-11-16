@@ -8,7 +8,7 @@ import Kundkorg from "./Components/Kundkorg/Kundkorg";
 import { Delivery } from "./Routes/Delivery";
 import CheckoutPage from "./Components/Betallning/Betallning.tsx";
 import Kvitto from "./Components/Kvitto/Kvitto.tsx";
-import { EmployeeView } from "./Routes/employee-view.tsx";
+import { EmployeeView } from "./Routes/employee-view.jsx";
 
 const router = createBrowserRouter([
   {
