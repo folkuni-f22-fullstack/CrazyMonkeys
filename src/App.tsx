@@ -9,6 +9,14 @@ import Footer from "./Components/Footer/Footer";
 import Betallning from "./Components/betallning/Betallning";
 import Header from "./Components/Header/Header";
 
+
+import { useContext } from "react"
+import './App.css'
+import { EmployeeView } from './routes/employee-view'
+
+import { FunkyContext } from "./ContextRoot"
+
+
 function App() {
   return (
     <>
@@ -24,11 +32,26 @@ function App() {
           <Route path="/leverans" element={<Delivery />} />
           <Route path="/betallning" element={<Betallning />} />
           <Route path="/footer" element={<Footer />} />
+          
         </Routes>
         <Footer/>
       </BrowserRouter>
+    
     </>
-  );
+  )
+   
+
+  
 }
 
-export default App;
+ export default App;
+// return (
+//     <>
+
+         
+    
+//       <Menu />
+//       <Kundkorg/>
+ 
+//     </>
+//   );
