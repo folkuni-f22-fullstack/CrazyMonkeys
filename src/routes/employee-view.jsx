@@ -39,6 +39,21 @@ export const EmployeeView = () => {
 
                 const ordersData = await ordersResponse.json();
                 const menuData = await menuResponse.json();
+                console.log(ordersData);
+                console.log(menuData);
+
+                let newOrderList = [];
+                ordersData.forEach((order) => {
+                    // hitta vilket menu item som tillhör id:t
+                    order.items.forEach((orderItem) => {
+                        order = menuData.find((md) => md._id === orderItem.menuItem);
+                        console.log(order);
+                        order.quantity = orderItem.quantity;
+                        newOrderList.push(order);
+                    });
+                });
+                console.log(newOrderList);
+
                 const sortedData = menuData.filter(
                     (item) => item.itemType === "food",
                     "dricka",
@@ -47,7 +62,7 @@ export const EmployeeView = () => {
 
                 // Hämta alla menuItems från alla order
                 const allMenuItems = ordersData.flatMap((order) => order.items);
-
+                console.log(allMenuItems);
                 // Skapa en ny array med namn och quantity från menuData
                 const menuItemsWithData = allMenuItems.map((orderItem) => {
                     const menuItemData = sortedData.find(
@@ -55,7 +70,7 @@ export const EmployeeView = () => {
                     );
 
                     // console.log("orderItem.menuItem:", orderItem.menuItem);
-                    console.log("menuItemData:", menuItemData._id);
+                    // console.log("menuItemData:", menuItemData._id);
 
                     return {
                         name: menuItemData ? menuItemData.name : "Namn ej tillgängligt",
@@ -66,11 +81,7 @@ export const EmployeeView = () => {
                 setChartData(ordersData);
                 setMenuNames(menuItemsWithData);
 
-                console.log("Menu", menuNames);
-
-                const dish = chartData.map((item) => {
-                    console.log("dish:", item.items[0].menuItem);
-                });
+                // console.log("Menu", menuNames);
 
                 // console.log("Order", ordersData);
                 // console.log("Menu Items with Data", menuItemsWithData);
@@ -114,9 +125,7 @@ export const EmployeeView = () => {
                             return (
                                 <div key={order._id} className="order-box">
                                     <span className="material-symbols-outlined">schedule</span>
-                                    <p className="order-name">
-                                        Ordernummer {order.items[0].menuItem}
-                                    </p>
+                                    <p className="order-name">Ordernummer {order.orderId}</p>
 
                                     {isLocked ? (
                                         <span>Skickar till kocken...</span>
@@ -146,6 +155,7 @@ export const EmployeeView = () => {
                                                 return (
                                                     <div key={item._id}>
                                                         <p>Maträtt: {order.items[0].menuItem}</p>
+                                                        <p>Maträtt: {order.items[0].price}</p>
                                                     </div>
                                                 );
                                             })}
