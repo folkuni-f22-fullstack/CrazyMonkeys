@@ -1,0 +1,74 @@
+.outer-container {
+  background-color: #4c5452;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.checkout-container {
+  border: 5px solid #235852;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 80%;
+  max-width: 550px;
+  margin: 10vh auto;
+}
+
+h2 {
+  color: #333;
+}
+
+.payment-method {
+  margin-bottom: 10px;
+}
+
+.payment-details {
+  margin-top: 20px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.proceed-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.proceed-button {
+  background-image: linear-gradient(to right, #235852 0%, #001510 51%, #00bf8f 100%);
+  margin: 0.4em;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 7px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.proceed-button:hover {
+  background-position: right center; 
+  color: #fff;
+  text-decoration: none;}
+
+@media (max-width: 600px) {
+  .proceed-button {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,163 @@
+/* NAVBAR TEXT - font-family: 'Playfair Display', serif; 
+Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
+*/
+
+.pic-container {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  gap: 0.3em;
+  padding-bottom: 0.1em;
+  filter: drop-shadow(rgb(0, 0, 0) 0rem 0.1rem 5px);
+}
+.pic-container2 {
+  display: none;
+  background-color: rgba(27, 26, 26, 0.763);
+}
+.top-pic {
+  width: 6.1em;
+  max-height: 18.4em;
+}
+.sushi {
+  display: none;
+}
+.company-title {
+  font-family: var(--title-font);
+  color: white;
+  font-size: 24px;
+}
+.companytitletext-p {
+  font-family: var(--content-font);
+  line-height: 2em;
+  color: white;
+  font-size: 14px;
+  margin: 2em 2em;
+}
+
+.startfood-title {
+  margin-bottom: 1em;
+  font-weight: 10;
+}
+
+.mainstartpage {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  padding: 2em;
+}
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* padding: 1em; */
+}
+.body-text {
+  color: white;
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: var(--content-font);
+  padding: 1em;
+}
+
+.text-container:nth-child(2),
+.text-container:nth-child(4) {
+  background-color: var(--header-color);
+  box-shadow: 0 0 17px #000000;
+}
+
+.startmainpicture {
+  width: 14em;
+  border-radius: 3%;
+  margin-top: 1em;
+}
+.mobilbtn {
+  display: block;
+}
+.start.btn-grad {
+  display: none;
+}
+/* Desktop 1920 */
+
+@media screen and (min-width: 320px) {
+  .sushi {
+    display: none;
+  }
+  .top-pic {
+    flex-grow: 1;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .sushi {
+    display: block;
+    z-index: 2;
+    transform: scale(1.1);
+    margin-top: 0.77em;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .pic-container {
+    display: none;
+  }
+  .pic-container2 {
+    display: flex;
+    gap: 0.4em;
+    filter: drop-shadow(rgb(0, 0, 0) 0rem 0.1rem 5px);
+    flex-wrap: wrap;
+    margin-top: -0.5em;
+  }
+  .mobilbtn {
+    display: none;
+  }
+  .start.btn-grad {
+    display: block;
+    justify-content: center;
+    display: flex;
+    width: 50%;
+    margin-bottom: 8em;
+  }
+  .companytitletext-p {
+    color: white;
+    font-size: 20px;
+    margin: 4em 2em;
+  }
+  .company-title {
+    font-family: var(--title-font);
+    /* font-family: 'Ubuntu', sans-serif; */
+
+    color: white;
+    font-size: 30px;
+    padding-top: 2em;
+  }
+
+  .text-container:nth-child(2) {
+    background-color: var(--header-color);
+    display: flex;
+    flex-direction: row;
+    padding: 2em;
+  }
+  .text-container:nth-child(4) {
+    background-color: var(--header-color);
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 2em;
+    margin-bottom: 6em;
+  }
+  .startmainpicture {
+    width: 30em;
+    flex-grow: 1;
+    border-radius: 3%;
+    margin-top: 1em;
+  }
+  .body-text {
+    color: white;
+    font-size: 18px;
+    line-height: 2;
+    font-family: var(--content-font);
+    padding: 3em;
+    text-align: left;
+  }
+  .startfood-title {
+    margin-bottom: 2em;
+    text-align: left;
+  }
+}

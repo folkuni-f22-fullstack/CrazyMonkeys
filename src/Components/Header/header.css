@@ -1,0 +1,155 @@
+/* NAVBAR TEXT - font-family: 'Playfair Display', serif; 
+Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
+*/
+
+.header-container {
+  background-color: #183a37;
+  padding: 0.2em 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  border-bottom: 0.1px solid #c0b8b896;
+}
+.loggo {
+  width: 3em;
+  margin-bottom: -28px;
+}
+.desktop {
+  display: none;
+}
+.shopping-cart {
+  width: 2em;
+  height: 1.8em;
+  margin-left: 10px;
+  margin: 0.5em 1em;
+  display: block;
+}
+.material-symbols-outlined{
+  color: white; 
+  margin-bottom:0.2em;
+}
+.overlay {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 76%);
+  background-color: white;
+  padding: 30em;
+  text-align: center;
+  z-index: 1000;
+  color: white;
+  background-color: #171010;
+}
+.overlay p {
+  margin: 40px 0px;
+  width: 9em;
+  font-size: 18px;
+  font-family: var(--mont-font);
+  text-transform: uppercase;
+}
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5em;
+}
+.menu-icon span {
+  width: 30px;
+  height: 3px;
+  background-color: aliceblue;
+  margin: 3px 0;
+  transition: transform 0.3s;
+}
+.menu-icon.cross {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+}
+.menu-icon.cross span {
+  width: 30px;
+  height: 3px;
+  background-color: #fffafa;
+  margin: 3px 0;
+  transition: transform 0.3s;
+}
+.menu-icon.cross span:nth-child(1) {
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+.menu-icon.cross span:nth-child(2) {
+  transform: scaleX(0);
+}
+.menu-icon.cross span:nth-child(3) {
+  transform: rotate(45deg) translate(-6px, -6px);
+}
+.darkgrey {
+  background-color: #4c5452;
+  padding: 1.5em;
+}
+.navbar {
+  display: none;
+}
+.company-name {
+  display: none;
+}
+.desktop-container {
+  display: none;
+}
+
+
+/* Desktop */
+
+@media screen and (min-width: 1080px) {
+  .header-container {
+    background-color: #183a37;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    border-bottom: 0.1px solid #c0b8b896;
+  }
+  .desktop {
+    width: 3.8em;
+    margin-bottom: -32px;
+    display: block;
+    margin-top: 0.5em;
+  }
+  .loggo {
+    display: none;
+  }
+  .shopping-cart {
+    display: none;
+  }
+  .menu-icon {
+    display: none;
+  }
+  .navbar {
+    display: block;
+    color: white;
+    font-family: "Playfair Display", serif;
+    padding:1em;
+  }
+  .desktop-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-top:0.5em;
+  }
+  .company-name {
+    display: block;
+    color:#fffafa;
+    /* font-family: 'Permanent Marker', cursive; */
+    /* font-family: 'Zeyada', cursive; */
+    font-family: 'Gloria Hallelujah', cursive;
+    letter-spacing: 0.1em;
+  }
+  .material-symbols-outlined{
+display: none;
+
+  }
+ 
+}

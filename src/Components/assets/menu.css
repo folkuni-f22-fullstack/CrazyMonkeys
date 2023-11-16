@@ -8,6 +8,7 @@
 }
 
 .inner-container {
+  border: 5px solid #183A37;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -16,24 +17,35 @@
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   text-align: center;
-  width: 680px;
+  width: 780px;
   height: 100vh;
   margin: 0 auto;
 }
 
-h1 {
+.meny-h3 {
   color: #000;
-  font-size: 30px;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 
 .btn {
-  margin: 10px;
   padding: 10px 20px;
-  background-color: #fff;
-  color: #000;
-  border: 1.5px solid #000;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  background-color: #eee;
+  transition: background-color 0.3s ease-in-out; 
+}
+
+.btn.active, .btn:hover {
+  background-color: #7a907b; 
+  color: #fff;
+}
+
+.btn:active {
+  background-color: #555;
+  color: #fff;
 }
 
 .funky-hr-title p{
@@ -50,15 +62,30 @@ h1 {
 }
 
 .funky-hr {
-height: 5px;  /* border: 0.8px solid black; */
+height: 5px;  
   background: #000;
   width: 500px;
 }
 
-@media screen and(max-width: 1920px) {
-  /* .inner-container{
-    width: 1000px;
-  } */
+.proceed-button {
+  background-image: linear-gradient(to right, #235852 0%, 
+  #001510  51%, #00bf8f  100%); 
+    margin: 2em 0.4em;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 7px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.proceed-button:hover {
+  background-position: right center; 
+  color: #fff;
+  text-decoration: none;
 }
 
 @media  (max-width: 320px) {

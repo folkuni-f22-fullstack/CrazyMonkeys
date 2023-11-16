@@ -1,0 +1,36 @@
+.steps-container{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    
+    
+}
+
+.step-round-button {
+    border-radius: 100%;
+    width: 25.5px;
+    height: 25.5px;
+    border: 1.75px solid #000;
+}
+
+.line {
+    width: 30px;
+    height: 2px;
+    background-color: #000;
+}
+
+@media (min-width: 320px) and (max-width:620px){
+   
+    .step-round-button{
+        width: 22px;
+        height: 22px;
+        margin: 0.5rem;
+    }
+    .line{
+        width: 10px;
+        height: 2px;
+    }
+    .steps-container > div > legend {
+        font-size: 14px;
+    }
+}

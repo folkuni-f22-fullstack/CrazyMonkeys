@@ -1,0 +1,27 @@
+/* Steps */
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 40px);
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    padding-top: 2.5em;
+}
+
+.step-round-button {
+    border-radius: 100%;
+    width: 25.5px;
+    height: 25.5px;
+    border: 1.75px solid #000;
+}
+
+.line {
+    width: 30px;
+    height: 2px;
+    background-color: #000;
+}
+
+.steps-container > div.line {
+    margin: 0px;
+}
