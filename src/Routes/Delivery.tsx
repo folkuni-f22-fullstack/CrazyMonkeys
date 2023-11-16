@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { StepsHeader } from "../Components/StepsHeader"
+import { StepsHeader } from "../Components/StepsHeader/StepsHeader"
 
 import "./DeliveryStyle.css"
 

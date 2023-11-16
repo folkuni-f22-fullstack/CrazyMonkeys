@@ -2,6 +2,7 @@ import { useState } from "react"
 
 import "./StepsHeaderStyle.css"
 
+import './StepsHeader.css'
 export const StepsHeader = () => {
 
     const [selectStep, setSelectStep] = useState(1)
