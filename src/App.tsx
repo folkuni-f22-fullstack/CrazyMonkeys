@@ -9,21 +9,18 @@ import Footer from "./Components/Footer/Footer";
 import Betallning from "./Components/betallning/Betallning";
 import Header from "./Components/Header/Header";
 
+// import { useContext } from "react";
+// import "./App.css";
+// import { EmployeeView } from "./routes/employee-view";
 
-import { useContext } from "react"
-import './App.css'
-import { EmployeeView } from './routes/employee-view'
-
-import { FunkyContext } from "./ContextRoot"
-
+// import { FunkyContext } from "./ContextRoot";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-      <Header/>
+        <Header />
         <Routes>
-          
           <Route index element={<StartPage />} />
           <Route path="/startpage" element={<StartPage />} />
           <Route path="/menu" element={<Menu />} />
@@ -32,26 +29,11 @@ function App() {
           <Route path="/leverans" element={<Delivery />} />
           <Route path="/betallning" element={<Betallning />} />
           <Route path="/footer" element={<Footer />} />
-          
         </Routes>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
-    
     </>
-  )
-   
-
-  
+  );
 }
 
- export default App;
-// return (
-//     <>
-
-         
-    
-//       <Menu />
-//       <Kundkorg/>
- 
-//     </>
-//   );
+export default App;

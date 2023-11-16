@@ -3,12 +3,14 @@ import { useEffect, useState, useContext } from "react";
 import { FunkyContext } from "../../ContextRoot";
 import { RiArrowGoBackFill } from "react-icons/ri";
 import "./Stylekorg.css";
+import { StepsHeader } from "../StepsHeader/StepsHeader";
+import { useNavigate } from "react-router-dom";
 
 
 const Kundkorg = () => {
   const { orderToSend } = useContext(FunkyContext);
   const [chartData, setChartData] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -43,6 +45,7 @@ const Kundkorg = () => {
           <span className="back-btn">
             <RiArrowGoBackFill size={30} />
           </span>
+          <StepsHeader/>
           <h1 className="chart-title">Varukorg</h1>
           {chartData.map((order) => (
             <>
@@ -73,7 +76,7 @@ const Kundkorg = () => {
           ))}
           <hr className="line1" />
           <p className="total-summa">Totalsumma:</p>
-          <button type="button" className="btn-grad-kund" onClick={klick}>
+          <button type="button" className="btn-grad" onClick={() => { navigate("/leverans"); } } to={"/leverans"}>
             klicka mig
           </button>
         </div>

@@ -4,10 +4,13 @@ import { AiOutlineFieldTime } from 'react-icons/ai'
 import { MdOutlinePeopleAlt } from 'react-icons/md'
 import image from './image/image1/images.png'
 import { StepsHeader } from '../StepsHeader/StepsHeader'
+import { useNavigate } from "react-router-dom";
+
+
 
 
 const Kvitto = () => {
-
+const navigate = useNavigate();
     const resizeImage = { width: '80%', height: '80%', objectfit: 'contain' }
 
     return (
@@ -46,7 +49,7 @@ const Kvitto = () => {
                         Kvitto har skickats till din mejl!
                     </p>
                 </div>
-                <button type='button' className='btn-grad1'> Startsidan</button>
+                <button type='button' className='btn-grad1' onClick={() => { navigate("/startpage"); } }> Startsidan</button>
             </div>
             
         </div>
