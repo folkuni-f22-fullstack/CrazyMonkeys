@@ -5,6 +5,7 @@ import { useContext } from "react"
 import './App.css'
 import { EmployeeView } from './routes/employee-view'
 import StartPage from './routes/Startpage/Startpage'
+import { Delivery } from './Routes/Delivery'
 
 import { FunkyContext } from "./ContextRoot"
 function App() {
@@ -20,7 +21,7 @@ function App() {
     }
       <Menu />
       <Kundkorg/>
- 
+      <Delivery />
     </>
   )
 }
