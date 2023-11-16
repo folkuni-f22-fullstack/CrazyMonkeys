@@ -7,25 +7,19 @@ import desktop from "../../assets/Desktoplogga.png";
 function Header() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [isMenuIconCross, setIsMenuIconCross] = useState(false);
-  const navigate = useNavigate();
+
   const toggleMenuOverlay = () => {
     setShowOverlay(!showOverlay);
     setIsMenuIconCross(!isMenuIconCross);
   };
+  const navigate = useNavigate();
 
-
-
-    const scrollToBottom = () => {
-      window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: 'smooth',
-      });
-    };
-  
-    
-  ;
- 
-  
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <>
@@ -59,12 +53,30 @@ function Header() {
         </div>
         <img className="loggo" src={Loggo} alt="Företagets logga" />
         <div className="desktop-container">
-          <p className="company-name">FuNKy FUSION</p>
-          <img className="desktop" src={desktop} alt="Företagets logga" />
+          <p className="company-name">FUNKY FUSION</p>
+          <img
+            className="desktop"
+            src={desktop}
+            alt="Företagets logga"
+            onClick={() => {
+              navigate("/startpage");
+            }}
+            to={"/startpage"}
+          />
         </div>
-        <a className="navbar" onClick= {() => {navigate("/kvitto")}}>Om Oss</a>
-        <a className="navbar" onClick={scrollToBottom}> kontakta oss</a>
-       
+        <a
+          className="navbar"
+          onClick={() => {
+            navigate("/kvitto");
+          }}
+        >
+          Om Oss
+        </a>
+        <a className="navbar" onClick={scrollToBottom}>
+          {" "}
+          kontakta oss
+        </a>
+
         <span className="material-symbols-outlined">shopping_cart</span>
 
         {showOverlay && (
