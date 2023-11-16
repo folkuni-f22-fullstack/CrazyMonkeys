@@ -21,3 +21,7 @@
     height: 2px;
     background-color: #000;
 }
+
+.steps-container > div.line {
+    margin: 0px;
+}
