@@ -17,14 +17,14 @@
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   text-align: center;
-  width: 780px;
-  height: 780px;
+  width: 100%;
+  height: 100%;
   justify-content: center;
   max-width: 550px;
   margin: 10vh auto;
 }
 
-h2 {
+.checkout {
   margin-bottom: 5%;
   color: #333;
 }

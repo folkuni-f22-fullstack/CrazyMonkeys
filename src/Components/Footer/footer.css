@@ -115,10 +115,7 @@
     padding: 1px;
     
   }
- .footer-column:nth-child(1){
-  /* border-collapse: collapse; */
-  width: 33%;
- }
+ 
   .openhour {
     color: #f2f0f0;
     margin-bottom: 1em;

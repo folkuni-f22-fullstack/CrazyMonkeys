@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import "../Style/betallning.css";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+import "./betallning.css";
 import { StepsHeader } from "../StepsHeader/StepsHeader";
+import { useNavigate } from "react-router-dom";
 
 interface CheckoutProps {}
 
@@ -15,17 +14,19 @@ const CheckoutPage: React.FC<CheckoutProps> = () => {
     setButtonDisabled(false);
   };
 
+  const navigate = useNavigate();
+
   const handleProceed = () => {
     console.log("Gå vidare med betalningen för", paymentMethod);
   };
 
   return (
     <>
-    <Header/>
+   
       <div className="outer-container">
         <div className="checkout-container">
           <StepsHeader/>
-          <h2>Checkout</h2>
+          <h2 className="checkout">Checkout</h2>
 
           <div className="payment-method">
             <label>
@@ -65,14 +66,12 @@ const CheckoutPage: React.FC<CheckoutProps> = () => {
 
           <button
             className="proceed-button"
-            onClick={handleProceed}
-            disabled={isButtonDisabled}
-          >
+            
+            onClick={() => { navigate("/kvitto"); } } to={"/kvitto"}>
             Gå vidare
           </button>
         </div>
       </div>
-      <Footer/>
     </>
   );
 };
