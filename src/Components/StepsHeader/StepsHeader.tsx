@@ -2,7 +2,6 @@ import { useState, useContext } from "react"
 
 import "./StepsHeaderStyle.css"
 
-import './StepsHeader.css'
 import { FunkyContext } from "../../ContextRoot"
 export const StepsHeader = () => {
 
