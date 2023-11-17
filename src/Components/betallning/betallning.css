@@ -34,14 +34,6 @@ h2 {
   margin-top: 20px;
 }
 
-input[type="text"],
-input[type="number"] {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-}
-
 .proceed-button {
   display: flex;
   justify-content: flex-end;

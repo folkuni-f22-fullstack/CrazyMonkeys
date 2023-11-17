@@ -1,4 +1,5 @@
 import { useState,useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { StepsHeader } from "../Components/StepsHeader/StepsHeader";
 
 import { NavLink } from "react-router-dom";
@@ -6,19 +7,13 @@ import { FunkyContext } from "../ContextRoot";
 
 import "./DeliveryStyle.css";
 
+
+
 export function Delivery() {
+  const navigate = useNavigate();
+
     const { orderToSend, order, setOrder, setCustomerInfo, customerInfo } = useContext(FunkyContext);
 
-    const handleInputChange = (e) => {
-        const fieldName = e.target.name; 
-        const value = e.target.value;
-
-        
-        setCustomerInfo((prevState) => ({
-            ...prevState,
-            [fieldName]: value,
-        }));
-    };
 
   // States
   const [chosenDeliveryOption, setChosenDeliveryOption] = useState(false);
@@ -187,7 +182,29 @@ export function Delivery() {
         floor !== "" &&
         portCode !== ""
       ) {
-        // Home delivery
+
+        if (ownComments !== "") {
+          setCustomerInfo({
+            name: `${firstName} ${lastName}`,
+            mail: email,
+            mobile: phoneNumber,
+            adress: address,
+            floor,
+            portCode,
+            comments: ownComments,
+        })
+        } else {
+          setCustomerInfo({
+            name: `${firstName} ${lastName}`,
+            mail: email,
+            mobile: phoneNumber,
+            adress: address,
+            floor,
+            portCode,
+            comments: "",
+        })
+        }
+        navigate("/betalning")
       }
     } else {
       if (
@@ -196,7 +213,28 @@ export function Delivery() {
         email !== "" &&
         phoneNumber !== ""
       ) {
-        // Takeaway
+        if (ownComments !== "") {
+          setCustomerInfo({
+            name: `${firstName} ${lastName}`,
+            mail: email,
+            mobile: phoneNumber,
+            adress: "",
+            floor: "",
+            portCode: "",
+            comments: ownComments,
+        })
+        } else {
+          setCustomerInfo({
+            name: `${firstName} ${lastName}`,
+            mail: email,
+            mobile: phoneNumber,
+            adress: "",
+            floor: "",
+            portCode: "",
+            comments: "",
+        })
+        }
+        navigate("/betalning")
       }
     }
   };
@@ -238,14 +276,14 @@ export function Delivery() {
                 className="input name-input"
                 id="firstname-input"
                 name="name"
-                onChange={handleInputChange}
+                onChange={firstNameChange}
                 onBlur={() => setWrongFirstName(true)}
                 style={validationErrorBorder(
                   isEmptyFirstName,
                   wrongFirstName,
                   isValidFirstName
                 )}
-                value={customerInfo.name}
+                value={firstName}
                 type="text"
                 placeholder="Johanna"
                 required
@@ -301,14 +339,14 @@ export function Delivery() {
               className="email-input input"
               id="email-input"
               name="mail"
-              onChange={handleInputChange}
+              onChange={emailChange}
               onBlur={() => setWrongEmail(true)}
               style={validationErrorBorder(
                 isEmptyEmail,
                 wrongEmail,
                 isValidEmail
               )}
-              value={customerInfo.mail}
+              value={email}
               type="email"
               placeholder="johannaDoe@example.com"
               required
@@ -326,14 +364,14 @@ export function Delivery() {
               className="phone-input input"
               id="phone-input"
               name="mobile"
-              onChange={handleInputChange}
+              onChange={phoneNumberChange}
               onBlur={() => setWrongPhoneNumber(true)}
               style={validationErrorBorder(
                 isEmptyPhoneNumber,
                 wrongPhoneNumber,
                 isValidNumber
               )}
-              value={customerInfo.mobile}
+              value={phoneNumber}
               type="number"
               placeholder="070 123 4561"
               required
@@ -357,8 +395,8 @@ export function Delivery() {
               className="input text-area no-span-input"
               id="own-comments-input"
               name="comments"
-              onChange={handleInputChange}
-              value={customerInfo.comments}
+              onChange={ownCommentsChange}
+              value={ownComments}
               placeholder="Jag vill inte ha gurka i thai sushin"
             />
           </div>
@@ -398,9 +436,8 @@ export function Delivery() {
                   className="address-input input no-span-input"
                   id="address-input"
                   name="adress"
-                  onChange={handleInputChange}
-                  onBlur={() => setWrongAddress(true)}
-                  value={customerInfo.adress}
+                  onChange={addressChange}
+                  value={address}
                   type="text"
                   placeholder="Drottninggatan 17"
                   required
@@ -452,8 +489,8 @@ export function Delivery() {
                     className="input tinier-inputs no-span-input"
                     id="port-code-input"
                     name="portCode"
-                    onChange={handleInputChange}
-                    value={customerInfo.portCode}
+                    onChange={portCodeChange}
+                    value={portCode}
                     type="number"
                     placeholder="1234"
                   />
@@ -464,8 +501,8 @@ export function Delivery() {
                     className="input tinier-inputs no-span-input"
                     id="floor-input"
                     name="floor"
-                    onChange={handleInputChange}
-                    value={customerInfo.floor}
+                    onChange={floorChange}
+                    value={floor}
                     type="number"
                     placeholder="1"
                   />
@@ -473,11 +510,9 @@ export function Delivery() {
               </div>
             </>
           )}
-          <NavLink to="/betalning">
             <button className="btn-grad" type="submit">
               Gå till Betalning
             </button>
-          </NavLink>
         </form>
       </section>
     </section>
