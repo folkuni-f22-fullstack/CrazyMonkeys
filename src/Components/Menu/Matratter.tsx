@@ -68,16 +68,23 @@ const Matratter = () => {
   return (
     <div className="matratt-container">
       {food.map((matratt) => (
+      
         <div className="matratt" key={matratt._id}>
+
+          <div className="matratt-top">
+            <p>{matratt.name}</p>
+             <p>Pris: {matratt.price} kr</p>
+          </div>
+          
           <div className="matratt-image">
             <img src={matratt.img} alt={matratt.name} />
           </div>
 
           <div className="matratt-details">
-            <h4>{matratt.name}</h4>
+            
             <p className="matratt-p">{matratt.desc}</p>
             <div className="bottom-details">
-              <p>Pris: {matratt.price} kr</p>
+              
 
               <button
                 className="order-button"

@@ -1,5 +1,6 @@
 /* I din Matratter.css-fil eller motsvarande stilfil */
 .matratt-container {
+  background: #D9D9D9;
   padding: 1em;
   display: flex;
   flex-wrap: wrap;
@@ -23,10 +24,16 @@
   }
 
   @media (max-width: 600px) {
-    width: 100%; /* Full bredd för mobil */
+    width: 100%; 
   }
 }
+.matratt-top{
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 
+}
 .matratt-image img {
   width: 300px;
   height: 300px;
