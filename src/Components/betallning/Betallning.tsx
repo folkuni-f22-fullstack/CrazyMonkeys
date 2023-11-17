@@ -1,10 +1,73 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { FunkyContext } from "../../ContextRoot.tsx";
+import { useNavigate } from "react-router-dom";
+
 import "./betallning.css";
 import { Link } from "react-router-dom";
 import OrderComponent from "../../dataApi/OrderComponent"
+
 interface CheckoutProps {}
 
 const CheckoutPage: React.FC<CheckoutProps> = () => {
+  const navigate = useNavigate()
+
+  const { orderToSend, customerInfo, order } = useContext(FunkyContext);
+
+  const postCustomerOrder = async () => {
+    const item = order.map(orderItem => {
+        console.log('orderItem.ItemId:', orderItem.itemId);
+        return {
+            menuItem: orderItem.itemId,
+            quantity: orderItem.quantity
+        };
+    });
+
+    console.log("order", order);
+
+    const orderTo = {
+        orderId: orderToSend.orderId,
+        customerName: customerInfo.name,
+        adress: customerInfo.adress,
+        floor: customerInfo.floor,
+        portCode: customerInfo.portCode,
+        mail: customerInfo.mail,
+        mobile: customerInfo.mobile,
+        items: item,
+    };
+
+    try {
+        const response = await fetch("api/orders", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(orderTo),
+        });
+
+        const data = await response.json();
+        console.log("server response" + data);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+};
+
+const handleOrderPost = async (event) => {
+  event.preventDefault();
+
+  if (paymentMethod !== undefined) {
+    console.log(orderToSend);
+    // console.log("orderData", );
+    try {
+        await postCustomerOrder();
+        navigate("/kvitto")
+    } catch (error) {
+        console.error("Error:", error);
+        // Hantera eventuella fel vid postning
+    }
+  }
+  
+};
+
   const [paymentMethod, setPaymentMethod] = useState<string>("");
   const [isButtonDisabled, setButtonDisabled] = useState<boolean>(true);
 
@@ -13,14 +76,12 @@ const CheckoutPage: React.FC<CheckoutProps> = () => {
     setButtonDisabled(false);
   };
 
-  const handleProceed = () => {
-    console.log("Gå vidare med betalningen för", paymentMethod);
-  };
-
   return (
     <div className="outer-container">
+
       <div className="checkout-container">
-        <h2>Checkout</h2>
+      <form onSubmit={handleOrderPost}>
+        <h2>Välj betalningsmetod</h2>
 
         <div className="payment-method">
           <label>
@@ -59,12 +120,11 @@ const CheckoutPage: React.FC<CheckoutProps> = () => {
         </div>
 
         <div >
-          <Link to="/kvitto">
-            <button className="btn-grad" disabled={isButtonDisabled}>
+            <button type="submit" className="btn-grad" disabled={isButtonDisabled}>
+              Slutför beställning
             </button>
-          </Link>
-              <OrderComponent/>
         </div>
+        </form>
       </div>
     </div>
   );
