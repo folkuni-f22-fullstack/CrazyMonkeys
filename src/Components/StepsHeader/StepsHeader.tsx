@@ -1,11 +1,12 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 
 import "./StepsHeaderStyle.css"
 
 import './StepsHeader.css'
+import { FunkyContext } from "../../ContextRoot"
 export const StepsHeader = () => {
 
-    const [selectStep, setSelectStep] = useState(1)
+   const {selectStep, setSelectStep} = useContext(FunkyContext)
 
     const chosenStep = (step) => {
         return {

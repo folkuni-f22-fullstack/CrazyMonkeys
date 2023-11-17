@@ -5,13 +5,14 @@ import { useNavigate } from "react-router-dom";
 import "./betallning.css";
 import { Link } from "react-router-dom";
 import OrderComponent from "../../dataApi/OrderComponent"
+import { StepsHeader } from "../StepsHeader/StepsHeader.tsx";
 
 interface CheckoutProps {}
 
 const CheckoutPage: React.FC<CheckoutProps> = () => {
   const navigate = useNavigate()
 
-  const { orderToSend, customerInfo, order } = useContext(FunkyContext);
+  const { orderToSend, customerInfo, order, selectStep, setSelectStep } = useContext(FunkyContext);
 
   const postCustomerOrder = async () => {
     const item = order.map(orderItem => {
@@ -60,6 +61,7 @@ const handleOrderPost = async (event) => {
     try {
         await postCustomerOrder();
         navigate("/kvitto")
+        setSelectStep(4)
     } catch (error) {
         console.error("Error:", error);
         // Hantera eventuella fel vid postning
@@ -80,6 +82,7 @@ const handleOrderPost = async (event) => {
     <div className="outer-container">
 
       <div className="checkout-container">
+        <StepsHeader />
       <form onSubmit={handleOrderPost}>
         <h2>Välj betalningsmetod</h2>
 

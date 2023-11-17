@@ -29,7 +29,10 @@ const ContextRoot = ({ children }) => {
         })),
     };
 
-      // Login
+    // Steps
+    const [selectStep, setSelectStep] = useState(1)
+
+    // Login
     const loginDialogRef = useRef();
     
     const stateLoginDialog = (state: boolean) => {
@@ -49,7 +52,7 @@ const ContextRoot = ({ children }) => {
                 order,
                 setOrder,
                 customerInfo,
-                setCustomerInfo, isLoggedIn, setIsLoggedIn
+                setCustomerInfo, isLoggedIn, setIsLoggedIn, selectStep, setSelectStep
             }}
         >
             {children}

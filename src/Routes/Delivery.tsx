@@ -12,7 +12,7 @@ import "./DeliveryStyle.css";
 export function Delivery() {
   const navigate = useNavigate();
 
-    const { orderToSend, order, setOrder, setCustomerInfo, customerInfo } = useContext(FunkyContext);
+    const { orderToSend, order, setOrder, setCustomerInfo, customerInfo, selectStep, setSelectStep } = useContext(FunkyContext);
 
 
   // States
@@ -205,6 +205,7 @@ export function Delivery() {
         })
         }
         navigate("/betalning")
+        setSelectStep(3)
       }
     } else {
       if (
