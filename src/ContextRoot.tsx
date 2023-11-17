@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, useRef, createContext } from "react";
 export const FunkyContext = createContext();
 
 const ContextRoot = ({ children }) => {
@@ -28,6 +28,9 @@ const ContextRoot = ({ children }) => {
             quantity: orderItem.quantity,
         })),
     };
+
+      // Login
+    const loginDialogRef = useRef();
     
     const stateLoginDialog = (state: boolean) => {
         if (state) {
@@ -41,12 +44,12 @@ const ContextRoot = ({ children }) => {
     return (
         <FunkyContext.Provider
             value={{
-                stateLoginDialog,
+                stateLoginDialog, loginDialogRef,
                 orderToSend,
                 order,
                 setOrder,
                 customerInfo,
-                setCustomerInfo,
+                setCustomerInfo, isLoggedIn, setIsLoggedIn
             }}
         >
             {children}
