@@ -47,9 +47,10 @@ html, body {
     display: block;
   }
 
-.center {
+.center:has(.delivery-container) {
     display: flex;
     place-content: center;
+    margin-bottom: 3em;
 }
 
 .btn-grad:hover {
