@@ -113,10 +113,9 @@ export const EmployeeView = () => {
       };
 
     return (
-        <>
+        <div className="employee-view-wrapper">
             {
                 isLoggedIn ? (
-            <div className="employee-view-wrapper">
             <section className="employee-view-container">
                 <header className="title-header">
                     <span>Du är inloggad</span>
@@ -200,9 +199,14 @@ export const EmployeeView = () => {
                     </div>
                 ))}
             </section>
-            </div>
-                ) : "Du är inte inloggad"
+                ) : (
+                   <section className="employee-view-not-logged-in">
+                    <header className="title-header">
+                        <span>Du är inte inloggad</span>
+                    </header>
+                   </section>
+                )
             }
-        </>
+        </div>
     );
 };
