@@ -41,7 +41,7 @@ export function Delivery() {
     for (let i = 0; i < name.length; i++) {
       let char = name.charAt(i).toLowerCase();
       if (!validCharLetter.includes(char)) {
-        return [false, "Vänligen använd endast bokstäver"];
+        return [false, "Endast bokstäver"];
       }
     }
     if (name.length < 2) {
