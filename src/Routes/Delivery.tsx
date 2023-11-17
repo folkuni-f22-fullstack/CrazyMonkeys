@@ -1,8 +1,6 @@
 import { useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { StepsHeader } from "../Components/StepsHeader/StepsHeader";
-
-import { NavLink } from "react-router-dom";
 import { FunkyContext } from "../ContextRoot";
 
 import "./DeliveryStyle.css";
@@ -259,14 +257,18 @@ export function Delivery() {
     };
   };
 
+  const onGoBackBtn = () => {
+    navigate("/kundkorg")
+  }
+
   return (
     <section className="center">
       <section className="delivery-container">
         <StepsHeader />
         <header className="header">
-          <button>
+          <button onClick={onGoBackBtn}>
             <span className="material-symbols-outlined">undo</span>
-          </button>{" "}
+          </button>
           <h1>Uppgifter</h1>
         </header>
         <form className="form" onSubmit={handleSubmit}>

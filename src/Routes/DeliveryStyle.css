@@ -171,11 +171,13 @@ html, body {
     padding: 0px;
     margin: 0px;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .header > button > span.material-symbols-outlined {
     grid-area: icon;
     color: #000;
+    display: block;
 }
 
 .spacer {
