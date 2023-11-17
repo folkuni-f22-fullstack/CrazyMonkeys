@@ -1,86 +1,73 @@
+/* I din Matratter.css-fil eller motsvarande stilfil */
 .matratt-container {
-    display: flex;
-    flex-direction: column;
-    height: 70vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
+  padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+.matratt {
+  width: calc(50% - 20px); /* 50% minus gap för desktop */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
   }
-  
-  .matratt {
-    display: flex;
-    align-items: center;
-    margin: 10px;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
+
+  @media (max-width: 600px) {
+    width: 100%; /* Full bredd för mobil */
   }
-  
-  .matratt-image {
-    flex: 1;
+}
+
+.matratt-image img {
+  width: 300px;
+  height: 300px;
+  border-bottom: 1px solid #ddd;
+}
+ h4 {
+    margin-top: 0;
+    font-size: 17px;
   }
-  
-  .matratt-image img {
-    width: 230px;
-    height: 230px;
-    border-radius: 7px;
+
+  .matratt-p {
+    color: #776969;
   }
-  
-  .matratt-details {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
+ p {
+      margin: 0;
+      font-weight: bold;
+    }
+.matratt-details {
+  padding: 15px;
+}
+ 
+  .bottom-details {
+    display: block;
     justify-content: space-between;
-    flex: 1;
-    padding: 10px;
-  }
-
-  .matratt-details .matratt-p{
-    width: 200px;
-    text-align: center;
-    font-size: 15px;
-  }
-
-  .bottom-details{
-    display: flex;
-    gap: 2em;
     align-items: center;
-    margin-right: 32px;
-    font-size: 20px;
-  }
-  
-  .order-button {
-    background-color: #316863;
-    color: white;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    padding: 10px 15px; 
-  }
-  
-  .order-button:hover {
-    background-color: #183118;
-  }
-  
-  @media (max-width: 767px) {
-    .matratt {
-      flex-direction: column; 
+    margin-top: 15px;
+
+   }
+
+
+ .order-button {
+      padding: 10px 15px;
+      background-color: #83a889;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+
+      
     }
-  
-    .matratt-details {
-      flex: 1; 
-      text-align: center; 
-      font-size: 15px;
-      align-items: center;
-      justify-content: center;
-    }
-  
-    .order-button {
-      text-align: center; 
-    }.matratt-p{
-      font-size: 13px;
-    }.bottom-details{
-      font-size: 13px;
-    }
-  }
-  
-  
+    .order-button:hover {
+        background-color: #122713;
+      }

@@ -89,7 +89,7 @@ const Dryck = () => {
           </div>
         </div>
       ))}
-      <button onClick={() => test()}>Testa mig</button>
+      {/* <button onClick={() => test()}>Testa mig</button> */}
     </div>
   );
 };
