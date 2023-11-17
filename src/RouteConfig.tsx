@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: <Kvitto />,
       },
       {
-        path: "/login",
+        path: "/employee",
         element: <EmployeeView />,
       },
     ],

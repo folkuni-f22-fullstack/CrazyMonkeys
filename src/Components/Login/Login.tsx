@@ -13,7 +13,7 @@ export function Login() {
 
     if(username !== "" && password !== "") {
       setIsLoggedIn(true)
-      navigate("/login")
+      navigate("/employee")
       stateLoginDialog(false)
     }
   }
