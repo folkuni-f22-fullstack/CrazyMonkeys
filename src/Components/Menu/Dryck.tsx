@@ -61,9 +61,6 @@ const Dryck = () => {
     setItemCounter(itemCounter + 1);
   };
 
-  const test = () => {
-    console.log(orderToSend);
-  };
 
   return (
     <div className="dryck-container">
@@ -89,7 +86,6 @@ const Dryck = () => {
           </div>
         </div>
       ))}
-      <button onClick={() => test()}>Testa mig</button>
     </div>
   );
 };

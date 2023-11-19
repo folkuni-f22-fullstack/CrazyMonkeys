@@ -79,11 +79,16 @@ const Kundkorg = () => {
             </div>
           </>
         ))}
+        <div className="line-div">
         <hr className="line" />
+        </div>
         <p className="total-summa">Totalsumma:</p>
+        <div className="chart-btn-grad">
         <button className="btn-grad" onClick={() => onSubmitButton()} >
+            
                       Gå vidare
         </button>
+        </div>
       </div>
     </div>
   );

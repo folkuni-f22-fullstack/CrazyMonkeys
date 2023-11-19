@@ -5,6 +5,7 @@
   justify-content: center;
   height: 1080px;
   width: 100%;
+  margin-bottom: 1em;
 }
 
 .inner-container {
@@ -26,6 +27,11 @@
   color: #000;
   font-size: 20px;
   margin-bottom: 20px;
+}
+
+.order-btn-grad-div{
+    display: flex;
+    justify-content: center;
 }
 
 .btn {

@@ -108,7 +108,12 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
   .mobilbtn {
     display: none;
   }
-  .start.btn-grad {
+
+  .btn-grad-div{
+    display: flex;
+    justify-content: center;
+  }
+  .btn-grad {
     display: block;
     justify-content: center;
     display: flex;

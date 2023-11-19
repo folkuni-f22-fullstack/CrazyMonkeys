@@ -47,8 +47,15 @@ html, body {
     display: block;
   }
 
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+/*Denna gör inget*/
 .center:has(.delivery-container) {
     display: flex;
+    justify-content: center;
     place-content: center;
     margin-bottom: 3em;
 }
@@ -58,6 +65,16 @@ html, body {
     color: #fff;
     text-decoration: none;
   }
+
+.delivery-btn-grad{
+    display: flex;
+    justify-content: center;
+  }
+
+.delivery-btn{
+    width: 100% !important;
+  }
+
 
 .delivery-container {
     min-width: 320px;
