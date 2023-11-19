@@ -182,6 +182,7 @@ export const EmployeeView = () => {
                                     <p>Portkod: {order.portCode} </p>
                                     <p>Mejl: {order.mail} </p>
                                     <p>Telefonnummer: {order.mobile} </p>
+                                    <p>Kommentarer från kund: {order.comments}</p>
                                 </details>
 
                                 <button
