@@ -1,20 +1,149 @@
-*{
+body{
     padding: 0;
     margin: 0;
-    overflow: hidden;
-}
-
-.parent-text-container {
-    display: flex;
-    align-items: center;
-    align-self: center;
-}
-.text-container {
-    display: flex;
-    justify-items: center;
+    box-sizing: border-box;
+    background-color:#4C5452 ;
+    overflow-x: hidden;
     
-    height: 30rem;
-    width: 100%;
-    align-self: center;
+}
+
+/* .parent-about-container {
+    display: flex;
+    flex-direction: column;
+
+    
+} */
+/* .about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+.title-pic{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.text-title-us{
+    position: fixed;
+    z-index: 10;
+    top: 20rem;
+    left: 32rem;
+}
+.mobile-text{
+    display: none;
+}
+.middle-page {
+    display: flex;
+    background-color: #15302D;
+    height: 16rem;
+    margin-top: 8rem;
+    position: relative;
+    top: 8rem;
+    left: 4rem;
+    color: #fff;
+}
+.middle-contain{
+    display: flex;
+    flex-wrap: wrap;
+    height: 11rem;
+    width: 70%;
+    position: relative;
+    left: 4rem;
+    
+   
+}
+.funky-about-text{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    left: -11rem; 
+}
+.middle-text{
+    position: relative;
+    
+}
+.wok-img{
+    position: relative;
+    top: -6rem;
+    left: 3rem;
+    width: 21rem;
+    height: 18rem;
+}
+.pasta-img{
+    position: relative;
+    z-index: 10;
+    top: 7rem;
+    left: -18rem;
+    width: 16rem;
+    height:11rem ;
 
 }
+@media screen and (max-width:1000px){
+    .wok-img{
+        width: 11rem;
+        height: 6rem;
+    }
+}
+/* 
+@media (min-width:320px){
+    
+    .first-img{
+        margin-top: 3rem;
+        width:100%;
+    }
+    .middle-page{
+        height: 40rem;
+        background-color: #15302D;
+    }
+    .mobile-text{
+        display: block;
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+    }
+    .middle-contain{
+        display: flex;
+        flex-direction: column;
+    }
+    .wok-img{
+        display: fixed;
+        width: 15rem;
+        height: 15rem;
+        position: relative;
+        top: -3.6rem;
+    }
+    .pasta-img{
+       
+        position: relative;
+        width: 10rem;
+        height: 8rem;
+        z-index: 10;
+        top: 10rem;
+        left: -12.4rem;
+        
+    }
+    .funky-about-text{
+        position: relative;
+        top: -5rem;
+        color: #fff;
+        text-align: start;
+
+       
+        
+        
+    }
+    .middle-text{
+    transform: translateX(-15%);
+    font-size: 1.1rem;
+    }
+    
+}
+
+@media screen and (min-width: 1000px){
+    .middle-page{
+        display: flex;
+        
+    }
+}
+ */
