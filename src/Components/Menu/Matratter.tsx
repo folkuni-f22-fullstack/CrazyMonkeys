@@ -75,7 +75,6 @@ const Matratter = () => {
             <p>{matratt.name}</p>
              <p>Pris: {matratt.price} kr</p>
           </div>
-          
           <div className="matratt-image">
             <img src={matratt.img} alt={matratt.name} />
           </div>
@@ -86,12 +85,14 @@ const Matratter = () => {
             <div className="bottom-details">
               
 
+              <div className="addto-btn">
               <button
                 className="order-button"
                 onClick={() => handleAddToCart(matratt._id)}
               >
                 Lägg till
               </button>
+              </div>
             </div>
           </div>
         </div>
