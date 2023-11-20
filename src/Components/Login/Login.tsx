@@ -5,36 +5,37 @@ import { useNavigate } from "react-router-dom";
 
 export function Login() {
     const navigate = useNavigate();
-    const { loginDialogRef, stateLoginDialog, setIsLoggedIn } = useContext(FunkyContext);
+    const { loginDialogRef, stateLoginDialog, setUserToken, setCurrentUser } = useContext(FunkyContext);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        if (username !== "" && password !== "") {
-            try {
-                // Skicka en förfrågan till backend-routen med Fetch
-                const response = await fetch("api/auth/login", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ username, password }),
-                });
-
-                if (response.ok) {
-                    // Om inloggningen är framgångsrik
-                    setIsLoggedIn(true);
-                    navigate("/employee");
-                    stateLoginDialog(false);
-                } else {
-                    // Om inloggningen misslyckades
-                    console.error("Inloggning misslyckades:", response.statusText);
-                }
-            } catch (error) {
-                // Hantera eventuella nätverksfel eller andra problem här
-                console.error("Något gick fel:", error);
-            }
+    const handleLogin = async (username, password) => {
+      try {
+        const response = await fetch("/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password }),
+        });
+  
+        if (response.ok) {
+          const data = await response.json();
+          const { token, user } = data;
+  
+          // Spara token och användarinformation i state
+          setUserToken(token);
+          setCurrentUser(user);
+  
+          // Stäng inloggning dialog
+          stateLoginDialog(false);
+  
+          // Om du vill göra något efter inloggning, t.ex. navigera till en annan sida
+          navigate("/dashboard");
+        } else {
+          console.error("Inloggning misslyckades:", response.statusText);
         }
+      } catch (error) {
+        console.error("Något gick fel:", error);
+      }
     };
 
     const [username, setUsername] = useState("");
