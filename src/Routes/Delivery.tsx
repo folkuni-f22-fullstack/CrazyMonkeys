@@ -225,7 +225,7 @@ export function Delivery() {
                         adress: "",
                         floor: "",
                         portCode: "",
-                        comments: "",
+                        comments: ownComments,
                     });
                 }
                 navigate("/betalning");

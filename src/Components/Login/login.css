@@ -22,6 +22,10 @@
   width: 15em;
   height: 31px;
 }
+.login-btn-div{
+    display: flex;
+    justify-content: center;
+}
 
 .label::placeholder {
   padding-left: 0.2em;

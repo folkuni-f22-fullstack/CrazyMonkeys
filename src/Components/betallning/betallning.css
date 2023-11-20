@@ -8,8 +8,8 @@
 }
 
 .checkout-container {
-  border: 5px solid #235852;
-  display: flex;
+    border: 5px solid #235852;
+    display: flex;
   flex-direction: column;
   align-items: center;
   background-color: white;
@@ -57,7 +57,17 @@ h2 {
 .proceed-button:hover {
   background-position: right center; 
   color: #fff;
-  text-decoration: none;}
+  text-decoration: none;
+}
+
+.pay-btn-div{
+    display: flex;
+    justify-content: center;
+}
+
+.pay-btn-div button{
+    width: 100% !important;
+}
 
 @media (max-width: 600px) {
   .proceed-button {

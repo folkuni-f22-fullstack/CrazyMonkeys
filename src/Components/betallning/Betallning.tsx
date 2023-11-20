@@ -122,7 +122,7 @@ const handleOrderPost = async (event) => {
           </label>
         </div>
 
-        <div >
+        <div className="pay-btn-div">
             <button type="submit" className="btn-grad" disabled={isButtonDisabled}>
               Slutför beställning
             </button>
