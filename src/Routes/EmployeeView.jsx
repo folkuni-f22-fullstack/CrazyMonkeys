@@ -158,7 +158,7 @@ export const EmployeeView = () => {
 
 
                                     {isLocked ? (
-                                        <span>Skickar till kocken...</span>
+                                        <p className="send-to-cook-text">Skickar till kocken...</p>
                                     ) : (
                                         <>
                                             <button className="button-decline">Neka</button>
