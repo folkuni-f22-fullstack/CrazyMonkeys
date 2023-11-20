@@ -87,11 +87,11 @@ html, body {
     position: relative;
     background-color: #fff;
     border-radius: 10px;
-    width: calc(430px - 2.5em);
+    width: calc(445px - 2.5em);
     height: 42px;
     display: grid;
     align-items: center;
-    grid-template-areas: 'icon order-name order-name order-name decline edit more';
+    grid-template-areas: 'icon order-name order-name order-name mark decline edit more';
     gap: 10px;
     padding: 0em 1.25em;
     box-shadow: 0.3px 0.5px 0.7px hsl(0deg 0% 53% / 0.36),
@@ -115,7 +115,20 @@ html, body {
     background-color: #fff;
 }
 
-.button-confirm, .button-msg-send {
+.button-mark, .button-unmark {
+    grid-area: mark;
+}
+.button-mark {
+    background-color: #CBE9C1;
+    color: #000000;
+}
+
+.button-unmark {
+    background-color: #F08282;
+    color: #000000;
+}
+
+.button-confirm {
     grid-area: confirm;
     background-color: #CBE9C1;
     color: #000000;
@@ -139,7 +152,7 @@ html, body {
     color: #000000;
 }
 
-.button-decline, .button-confirm, .button-edit, .button-more {
+.button-decline, .button-confirm, .button-edit, .button-more, .button-unmark, .button-mark {
     cursor: pointer;
     border-radius: 3.25px;
     border: none;
@@ -152,7 +165,7 @@ html, body {
     top: 2em;
     left: 0px;
     background-color: #fff;
-    width: calc(430px - 2.5em);
+    width: calc(445px - 2.5em);
     min-height: 330px;
     margin-top: .3em;
     border-radius: 0px 0px 10px 10px;
