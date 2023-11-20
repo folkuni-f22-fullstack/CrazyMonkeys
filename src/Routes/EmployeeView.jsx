@@ -192,17 +192,6 @@ export const EmployeeView = () => {
                                                         <p>Telefonnummer: {order.mobile} </p> <button>Ändra</button>
                                                         <p>Kommentarer från kund: {order.comments}</p> <button>Ändra</button>
                                                     </details>
-                    
-                                                    <button
-                                                        className="button-confirm"
-                                                        type="submit"
-                                                        onClick={() => setIsLocked(true)}
-                                                    >
-                                                        Skicka till kocken{" "}
-                                                        {isLocked && (
-                                                            <span className="material-symbols-outlined">lock</span>
-                                                        )}
-                                                    </button>
                                                 </div>
                                             </details>
                                             </>
