@@ -20,7 +20,7 @@ const Dryck = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/menu"); // Använd /api/menu för att utnyttja proxyen
+        const response = await fetch("/api/menu");
         if (!response.ok) {
           throw new Error("Något gick fel");
         }
@@ -42,7 +42,6 @@ const Dryck = () => {
     );
 
     if (existingOrder) {
-      // Om drycken finns, öka antalet
       setOrder((prevOrder) =>
         prevOrder.map((orderItem) =>
           orderItem.itemId === dryckId
@@ -51,7 +50,6 @@ const Dryck = () => {
         )
       );
     } else {
-      // Om drycken inte finns, lägg till en ny order
       const newOrder = {
         itemId: dryckId,
         quantity: 1,
@@ -61,35 +59,60 @@ const Dryck = () => {
     setItemCounter(itemCounter + 1);
   };
 
-  const test = () => {
-    console.log(orderToSend);
-  };
-
   return (
     <div className="dryck-container">
-      <h2>Dryck</h2>
+      <h2 className="dryck">Välj din drink</h2>
+      <div className="dryck-column">
+        {/* <h2>Kolsyrade</h2> */}
+        {dryckData.map(
+          (dryck, index) =>
+            index % 2 === 0 && (
+              <div className="dryck-item" key={dryck._id}>
+                <div className="dryck-details">
+                  <div className="drink-name">
+                    <h3 className="meny-h3">{dryck.name} .............. </h3>
+                  </div>
+                  <p> {dryck.price} kr</p>
+                </div>
 
-      {dryckData.map((dryck) => (
-        <div className="dryck-item" key={dryck._id}>
-          <div className="dryck-details">
-            <div className="drink-name">
-              <h3 className="meny-h3" >{dryck.name} .............. </h3>
-            </div>
-            <p> {dryck.price} kr</p>
-          </div>
+                <div className="quantity-controls">
+                  <button
+                    className="quantity-button"
+                    onClick={() => handleAddToCart(dryck._id)}
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            )
+        )}
+      </div>
 
-          <div className="quantity-controls">
-            {" "}
-            <button
-              className="quantity-button"
-              onClick={() => handleAddToCart(dryck._id)}
-            >
-              +
-            </button>
-          </div>
-        </div>
-      ))}
-      {/* <button onClick={() => test()}>Testa mig</button> */}
+      <div className="dryck-column">
+        {/* <h2>Öl</h2> */}
+        {dryckData.map(
+          (dryck, index) =>
+            index % 2 !== 0 && (
+              <div className="dryck-item" key={dryck._id}>
+                <div className="dryck-details">
+                  <div className="drink-name">
+                    <h3 className="meny-h3">{dryck.name} .............. </h3>
+                  </div>
+                  <p> {dryck.price} kr</p>
+                </div>
+
+                <div className="quantity-controls">
+                  <button
+                    className="quantity-button"
+                    onClick={() => handleAddToCart(dryck._id)}
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            )
+        )}
+      </div>
     </div>
   );
 };

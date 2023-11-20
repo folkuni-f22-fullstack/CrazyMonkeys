@@ -8,43 +8,28 @@
   overflow-y: scroll;
 }
 .tillbehor-item {
-  width: 46%;
+  width:30%;
   margin: 1%;
   box-sizing: border-box;
-  border: 1px solid #ccc;
+  background-color: #fff;
+  border: 1px solid #183A37;
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
+
 }
 
-
-@media (min-width: 768px) {
-  .tillbehor-item {
-    display: inline-block;
-  }
-
-  .tillbehor-item:hover {
-    transform: scale(1.05); 
-  }
+.tillbehor-item:hover {
+  transform: scale(1.05); 
+  box-shadow: 5px 10px #888888 ;
 }
 
-@media (max-width: 767px) {
-  .tillbehor-item {
-    width: 100%;
-    display: block;
-  }
-  h4{
-    font-size: 13px;
-  }
+.tillbehor-img img {
+  width: 250px;
+  height: 250px;
+ }
 
-  .tillbehor-item:hover {
-    transform: none; 
-  }
-  .tillbehor-desc{
-    font-size: 14px;
-  }
-}
-
+ 
 .name-price-tillbehor {
   display: flex;
   justify-content: space-between;
@@ -60,10 +45,7 @@
   flex-direction: column;
 }
 
-.tillbehor-img img {
- width: 300px;
- height: 300px;
-}
+
 
 .tillbehor-desc {
   padding: 10px;
@@ -85,5 +67,39 @@
 }
 
 .add-to-cart-button:hover {
-  background-color: #1fae27;
+  background-color: #3a643c;
+}
+
+
+@media (min-width: 768px) {
+  .tillbehor-item {
+    display: inline-block;
+  }
+
+  .tillbehor-item:hover {
+    transform: scale(1.05); 
+  }
+  
+}
+
+@media (max-width: 500px) {
+  .tillbehor-item {
+    width: 100%;
+    display: block;
+  }
+  h4{
+    font-size: 13px;
+  }
+
+  .tillbehor-item:hover {
+    transform: none; 
+  }
+  .tillbehor-desc{
+    font-size: 14px;
+  }
+  .tillbehor-img img {
+    width: 150px;
+    height: 150px;
+   }
+  
 }
