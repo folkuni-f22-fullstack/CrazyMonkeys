@@ -34,6 +34,10 @@ export const EmployeeView = () => {
         setEditOrder(order)
     }
 
+    const saveEditedOrder = () => {
+        setEditOrder({})
+    }
+
     const [msgToCook, setMsgToCook] = useState("");
 
     const onChangeTextArea = (event) => {
@@ -169,7 +173,7 @@ export const EmployeeView = () => {
                                             ) : (
                                                 <>
                                                     <button className="button-decline">Neka</button>
-                                                    <button className="button-edit">Slutför ändring</button>
+                                                    <button className="button-edit" onClick={() => saveEditedOrder()}>Slutför ändring</button>
                                                 </>
                                             )}
                                             <button onClick={() => onSelectOrder({})} className="button-unmark">Avmarkera</button>
