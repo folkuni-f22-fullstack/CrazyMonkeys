@@ -2,7 +2,12 @@ import express from "express";
 import User from "../models/Users.js"
 import bcrypt from "bcrypt"
 import jwt from  "jsonwebtoken"
+import dotenv from "dotenv";
+
 const router = express()
+
+dotenv.config();
+const secret = process.env.SECRET;
 
 
 //Register 
@@ -27,25 +32,29 @@ router.post ('/register', async (req, res) => {
 
 router.post("/login", async (req, res) => {
     try {
+        // Hitta användaren i databasen baserat på det angivna användarnamnet
         const user = await User.findOne({ username: req.body.username });
-        if (!user) {
-            return res.status(404).send("User not found");
-        }
+        
+        
+        !user && res.status(404).send("Användaren hittades inte");
 
         const validPassword = await bcrypt.compare(req.body.password, user.password);
-        if (!validPassword) {
-            return res.status(400).send("Wrong password");
-        }
 
-        // Skapa ett JWT-token
-        const token = jwt.sign({ userId: user._id }, 'your_secret_key', { expiresIn: '2h' });
+       
+        !validPassword && res.status(400).send("Fel lösenord");
 
-        // Skicka tillbaka token till frontend
-        res.status(200).json({ token, user: { username: user.username, /* andra användarattribut */ } });
+        const day = 3600 * 24;
+        const payLoad = {userId: user._id}
+
+        let token = jwt.sign(payLoad, secret, {expiresIn: day})
+        console.log("signed token: " + token);
+        res.send({id: user._id, token: token})
     } catch (error) {
+        // Om ett fel inträffar, skicka en 500-status och felinformation som JSON
         res.status(500).json(error);
     }
 });
+
 
 
 
