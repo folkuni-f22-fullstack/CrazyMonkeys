@@ -28,6 +28,12 @@ export const EmployeeView = () => {
         setSelectOrder(order)
     }
 
+    const [editOrder, setEditOrder] = useState({})
+
+    const onEditOrder = (order) => {
+        setEditOrder(order)
+    }
+
     const [msgToCook, setMsgToCook] = useState("");
 
     const onChangeTextArea = (event) => {
@@ -155,58 +161,108 @@ export const EmployeeView = () => {
                         {
                             selectOrder._id === order._id ? (
                                 <>  
+                                    {
+                                        editOrder._id === order._id ? (
+                                            <>
+                                            {isLocked ? (
+                                                <p className="send-to-cook-text">Skickar till kocken...</p>
+                                            ) : (
+                                                <>
+                                                    <button className="button-decline">Neka</button>
+                                                    <button className="button-edit">Slutför ändring</button>
+                                                </>
+                                            )}
+                                            <button onClick={() => onSelectOrder({})} className="button-unmark">Avmarkera</button>
+                    
+                                            <details>
+                                                <summary></summary>
+                    
+                                                <div className="details-about-order">
+                                                    <hr />
+                                                    {/* Render OrderKort outside the loop */}
+                                                    <OrderKort key={order.id} order={order} orders={orders} /> <button>Ändra</button>
+
+                                                    <details>
+                                                        <summary className="summary-box">Info om kund</summary>
+                                                        <p>Namn: {order.customerName} </p> <button>Ändra</button>
+                                                        <p>Adress: {order.adress} </p> <button>Ändra</button>
+                                                        <p>Våning: {order.floor} </p> <button>Ändra</button>
+                                                        <p>Portkod: {order.portCode} </p> <button>Ändra</button>
+                                                        <p>Mejl: {order.mail} </p> <button>Ändra</button>
+                                                        <p>Telefonnummer: {order.mobile} </p> <button>Ändra</button>
+                                                        <p>Kommentarer från kund: {order.comments}</p> <button>Ändra</button>
+                                                    </details>
+                    
+                                                    <button
+                                                        className="button-confirm"
+                                                        type="submit"
+                                                        onClick={() => setIsLocked(true)}
+                                                    >
+                                                        Skicka till kocken{" "}
+                                                        {isLocked && (
+                                                            <span className="material-symbols-outlined">lock</span>
+                                                        )}
+                                                    </button>
+                                                </div>
+                                            </details>
+                                            </>
+                                        ) : (
+                                            <>
+                                            {isLocked ? (
+                                                <p className="send-to-cook-text">Skickar till kocken...</p>
+                                            ) : (
+                                                <>
+                                                    <button className="button-decline">Neka</button>
+                                                    <button className="button-edit" onClick={() => onEditOrder(order)}>Ändra</button>
+                                                </>
+                                            )}
+                                            <button onClick={() => onSelectOrder({})} className="button-unmark">Avmarkera</button>
+                    
+                                            <details>
+                                                <summary></summary>
+                    
+                                                <div className="details-about-order">
+                                                    <hr />
+                                                    {/* Render OrderKort outside the loop */}
+                                                    <OrderKort key={order.id} order={order} orders={orders} />
+                    
+                                                    <details>
+                                                        <summary className="summary-box">Meddela kocken</summary>
+                                                        <textarea
+                                                            onChange={onChangeTextArea}
+                                                            className="msg-to-cook-textarea"
+                                                            placeholder="Meddelande till kocken"
+                                                        />
+                                                    </details>
+                    
+                                                    <details>
+                                                        <summary className="summary-box">Info om kund</summary>
+                                                        <p>Namn: {order.customerName} </p>
+                                                        <p>Adress: {order.adress} </p>
+                                                        <p>Våning: {order.floor} </p>
+                                                        <p>Portkod: {order.portCode} </p>
+                                                        <p>Mejl: {order.mail} </p>
+                                                        <p>Telefonnummer: {order.mobile} </p>
+                                                        <p>Kommentarer från kund: {order.comments}</p>
+                                                    </details>
+                    
+                                                    <button
+                                                        className="button-confirm"
+                                                        type="submit"
+                                                        onClick={() => setIsLocked(true)}
+                                                    >
+                                                        Skicka till kocken{" "}
+                                                        {isLocked && (
+                                                            <span className="material-symbols-outlined">lock</span>
+                                                        )}
+                                                    </button>
+                                                </div>
+                                            </details>
+                                            </>
+                                        )
+                                    }
 
 
-                                    {isLocked ? (
-                                        <p className="send-to-cook-text">Skickar till kocken...</p>
-                                    ) : (
-                                        <>
-                                            <button className="button-decline">Neka</button>
-                                            <button className="button-edit">Ändra</button>
-                                        </>
-                                    )}
-                                    <button onClick={() => onSelectOrder({})} className="button-unmark">Avmarkera</button>
-            
-                                    <details>
-                                        <summary></summary>
-            
-                                        <div className="details-about-order">
-                                            <hr />
-                                            {/* Render OrderKort outside the loop */}
-                                            <OrderKort key={order.id} order={order} orders={orders} />
-            
-                                            <details>
-                                                <summary className="summary-box">Meddela kocken</summary>
-                                                <textarea
-                                                    onChange={onChangeTextArea}
-                                                    className="msg-to-cook-textarea"
-                                                    placeholder="Meddelande till kocken"
-                                                />
-                                            </details>
-            
-                                            <details>
-                                                <summary className="summary-box">Info om kund</summary>
-                                                <p>Namn: {order.customerName} </p>
-                                                <p>Adress: {order.adress} </p>
-                                                <p>Våning: {order.floor} </p>
-                                                <p>Portkod: {order.portCode} </p>
-                                                <p>Mejl: {order.mail} </p>
-                                                <p>Telefonnummer: {order.mobile} </p>
-                                                <p>Kommentarer från kund: {order.comments}</p>
-                                            </details>
-            
-                                            <button
-                                                className="button-confirm"
-                                                type="submit"
-                                                onClick={() => setIsLocked(true)}
-                                            >
-                                                Skicka till kocken{" "}
-                                                {isLocked && (
-                                                    <span className="material-symbols-outlined">lock</span>
-                                                )}
-                                            </button>
-                                        </div>
-                                    </details>
                                 </>
                             ) : (
                                 <button onClick={() => onSelectOrder(order)}className="button-mark">Markera</button>
