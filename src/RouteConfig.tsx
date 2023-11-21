@@ -8,7 +8,7 @@ import Kundkorg from "./Components/Kundkorg/Kundkorg";
 import { Delivery } from "./Routes/Delivery";
 import CheckoutPage from "./Components/Betallning/Betallning.tsx";
 import Kvitto from "./Components/Kvitto/Kvitto.tsx";
-import { EmployeeView } from "./Routes/employee-view.jsx";
+import { EmployeeView } from "./Routes/EmployeeView.jsx";
 import Chefsview from "./Routes/Chefsview/Chefsview.tsx";
 const router = createBrowserRouter([
   {
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: <Kvitto />,
       },
       {
-        path: "/login",
+        path: "/employee",
         element: <EmployeeView />,
       },
       {

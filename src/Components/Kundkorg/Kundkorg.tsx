@@ -3,10 +3,13 @@ import { useEffect, useState, useContext } from "react";
 import { FunkyContext } from "../../ContextRoot";
 import { RiArrowGoBackFill } from "react-icons/ri";
 import "./Stylekorg.css";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { StepsHeader } from "../StepsHeader/StepsHeader";
 
 const Kundkorg = () => {
-  const { orderToSend } = useContext(FunkyContext);
+  const navigate = useNavigate()
+
+  const { orderToSend, setSelectStep } = useContext(FunkyContext);
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
@@ -32,15 +35,15 @@ const Kundkorg = () => {
     }, [orderToSend.items]);
 
 
-
-//   const klick = () => {
-//     console.log(chartData);
-//     console.log();
-//   };
+    const onSubmitButton = () => {
+      navigate("/leverans")
+      setSelectStep(2)
+    }
 
   return (
     <div className="chart-wrapper">
       <div className="background-chart">
+      <StepsHeader />
 
       <Link to="/menu">
         <span className="back-btn">
@@ -76,12 +79,16 @@ const Kundkorg = () => {
             </div>
           </>
         ))}
+        <div className="line-div">
         <hr className="line" />
+        </div>
         <p className="total-summa">Totalsumma:</p>
-        <Link to="/leverans" className="btn-grad">
-          Gå till betalning
-        </Link>
-        {/* <button onClick={klick}>klicka mig</button> */}
+        <div className="chart-btn-grad">
+        <button className="btn-grad" onClick={() => onSubmitButton()} >
+            
+                      Gå vidare
+        </button>
+        </div>
       </div>
     </div>
   );

@@ -85,13 +85,21 @@ body {
 
 .back-btn {
     position: relative;
-    left: 1rem;
-    top: 1rem;
+    left: 0rem;
+    top: -10rem;
    
 }
 
+.chart-btn-grad{
+    display: flex;
+    justify-content: center;
+}
 
 
+.line-div{
+    display: flex;
+    justify-content: center;
+}
 
 
 .line {
