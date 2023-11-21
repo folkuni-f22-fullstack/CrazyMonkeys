@@ -3,6 +3,8 @@ import Loggo from "../../assets/Loggo.png";
 import { useState } from "react";
 import desktop from "../../assets/Desktoplogga.png";
 import { NavLink } from "react-router-dom";
+import { IoCartOutline } from "react-icons/io5";
+
 
 function Header() {
   const [showOverlay, setShowOverlay] = useState(false);
@@ -20,7 +22,7 @@ function Header() {
         <NavLink className="navbar" to="/menu">
           Meny
         </NavLink>
-        <NavLink className="navbar" to="/kundkorg">
+        <NavLink className="navbar " to="/kundkorg">
           Varukorg
         </NavLink>
 
@@ -46,7 +48,10 @@ function Header() {
         <NavLink className="navbar" to="#">Om Oss</NavLink>
         <NavLink className="navbar" to="#">Kontakta Oss</NavLink>
 
-        <span className="material-symbols-outlined">shopping_cart</span>
+        {/* <span className="material-symbols-outlined cart">shopping_cart</span>
+         */}
+
+         <div className="cart-icon"> <IoCartOutline /> </div>
 
         {showOverlay && (
           <div className="overlay" onClick={toggleMenuOverlay}>

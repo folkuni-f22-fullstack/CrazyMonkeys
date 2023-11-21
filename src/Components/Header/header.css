@@ -1,6 +1,3 @@
-/* NAVBAR TEXT - font-family: 'Playfair Display', serif; 
-Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
-*/
 
 .header-container {
   background-color: #183a37;
@@ -24,9 +21,10 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
   margin: 0.5em 1em;
   display: block;
 }
-.material-symbols-outlined{
+.cart-icon {
   color: white; 
   margin-bottom:0.2em;
+  font-size: 24px;
 }
 .overlay {
   position: fixed;
@@ -93,6 +91,7 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
 }
 .navbar {
   display: none;
+  color: white; 
 }
 .company-name {
   display: none;
@@ -147,9 +146,8 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
     font-family: 'Gloria Hallelujah', cursive;
     letter-spacing: 0.1em;
   }
-  .material-symbols-outlined{
+  .cart-icon{
 display: none;
-
   }
  
 }
