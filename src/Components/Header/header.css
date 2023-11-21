@@ -9,10 +9,17 @@
 }
 .loggo {
   width: 3em;
-  margin-bottom: -28px;
+  margin-bottom: -31px;
 }
-.desktop {
+.desktop-img {
   display: none;
+}
+.header-container .navbar{
+  text-decoration: none;
+}
+.navbar {
+  display: none;
+  color: white; 
 }
 .shopping-cart {
   width: 2em;
@@ -89,10 +96,7 @@
   background-color: #4c5452;
   padding: 1.5em;
 }
-.navbar {
-  display: none;
-  color: white; 
-}
+
 .company-name {
   display: none;
 }
@@ -111,7 +115,7 @@
     align-items: end;
     border-bottom: 0.1px solid #c0b8b896;
   }
-  .desktop {
+  .desktop-img {
     width: 3.8em;
     margin-bottom: -32px;
     display: block;
@@ -141,9 +145,7 @@
   .company-name {
     display: block;
     color:#fffafa;
-    /* font-family: 'Permanent Marker', cursive; */
-    /* font-family: 'Zeyada', cursive; */
-    font-family: 'Gloria Hallelujah', cursive;
+    font-family: var(--title-font);
     letter-spacing: 0.1em;
   }
   .cart-icon{

@@ -35,15 +35,19 @@ function Header() {
           <span></span>
           <span></span>
         </div>
+
+        {/* FLyttar man desktop-container känns det pånågot vis bättre */}
+        <div className="desktop-container">
         <NavLink to="/">
           <img className="loggo" src={Loggo} alt="Företagets logga" />
         </NavLink>
-
-        <div className="desktop-container">
+        {/* Här är den -  - */}
+        {/* <div className="desktop-container"> */}
+        
           <p className="company-name">FuNKy FUSION</p>
 
           <NavLink to="/">
-            <img className="desktop" src={desktop} alt="Företagets logga" />
+            <img className="desktop-img" src={desktop} alt="Företagets logga" />
           </NavLink>
         </div>
         <NavLink className="navbar" to="#">Om Oss</NavLink>

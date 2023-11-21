@@ -1,6 +1,3 @@
-/* NAVBAR TEXT - font-family: 'Playfair Display', serif; 
-Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
-*/
 
 .pic-container {
   display: flex;
@@ -49,7 +46,6 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /* padding: 1em; */
 }
 .body-text {
   color: white;
@@ -72,11 +68,37 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
 }
 .mobilbtn {
   display: block;
+  background-image: linear-gradient(
+    to right,
+    #235852 0%,
+    #001510 51%,
+    #00bf8f 100%
+  );
+  margin: 5em 0.4em;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 7px #eee;
+  border-radius: 10px;
+  display: block;
+  width: 100%;
 }
-.start.btn-grad {
+.mobilbtn:hover{
+  background-position: right center;
+color: #fff;
+text-decoration: none;
+transform: scale(0.9);
+}
+.desktop {
   display: none;
 }
-/* Desktop 1920 */
+.link-to-menu{
+  color: white;
+  text-decoration: none;
+}
 
 @media screen and (min-width: 320px) {
   .sushi {
@@ -87,7 +109,39 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
   }
 }
 
+/* Desktop 1920 */
+
 @media screen and (min-width: 1000px) {
+
+  .mobilbtn {
+    display: none;
+  }
+  .desktop {
+    display: block;
+    background-image: linear-gradient(
+      to right,
+      #235852 0%,
+      #001510 51%,
+      #00bf8f 100%
+    );
+    margin: 5em 0.4em;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 7px #eee;
+    border-radius: 10px;
+    display: block;
+    width: 50%;
+  }
+  .desktop:hover{
+    background-position: right center;
+  color: #fff;
+  text-decoration: none;
+  transform: scale(0.9);
+  }
   .sushi {
     display: block;
     z-index: 2;
@@ -105,21 +159,7 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
     flex-wrap: wrap;
     margin-top: -0.5em;
   }
-  .mobilbtn {
-    display: none;
-  }
-
-  .btn-grad-div{
-    display: flex;
-    justify-content: center;
-  }
-  .btn-grad {
-    display: block;
-    justify-content: center;
-    display: flex;
-    width: 50%;
-    margin-bottom: 8em;
-  }
+   
   .companytitletext-p {
     color: white;
     font-size: 20px;
@@ -127,8 +167,6 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
   }
   .company-title {
     font-family: var(--title-font);
-    /* font-family: 'Ubuntu', sans-serif; */
-
     color: white;
     font-size: 30px;
     padding-top: 2em;
