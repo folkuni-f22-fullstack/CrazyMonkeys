@@ -1,4 +1,4 @@
-import { useState, useRef, createContext } from "react";
+import { useState, useRef, createContext, useEffect } from "react";
 export const FunkyContext = createContext();
 
 const ContextRoot = ({ children }) => {
@@ -31,6 +31,14 @@ const ContextRoot = ({ children }) => {
 
     // Steps
     const [selectStep, setSelectStep] = useState(1)
+
+    useEffect(() => {
+        const jwt = sessionStorage.getItem("jwt");
+
+        if (jwt) {
+            setIsLoggedIn(true);
+        }
+    }, []);
 
     // Login
     const loginDialogRef = useRef();

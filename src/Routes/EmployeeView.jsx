@@ -57,7 +57,7 @@ export const EmployeeView = () => {
                     order.items.forEach((orderItem) => {
                         let newOrderItem = menuData.find((md) => md._id === orderItem.menuItem);
                         newOrderItem.quantity = orderItem.quantity;
-                        console.log("orderItem:", newOrderItem);
+                        // console.log("orderItem:", newOrderItem);
                         newOrder.items.push(newOrderItem);
                     });
                    ;

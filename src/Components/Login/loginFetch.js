@@ -15,6 +15,7 @@ const handleLoginEmp = async (username, password) => {
 
       if (response.status !== 401){
         const data = await response.json();
+        sessionStorage.removeItem(sessionStorageKey)
         sessionStorage.setItem(sessionStorageKey, data.token)
         sessionStorage.setItem('id', data.id)
         return true

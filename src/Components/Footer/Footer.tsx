@@ -14,9 +14,16 @@ import ff from "../../assets/footerpagepic/FF-red.png";
 import "../Login/login.css";
 
 import { FunkyContext } from "../../ContextRoot";
+import { useNavigate } from "react-router-dom";
 
 function Footer() {
-  const { stateLoginDialog } = useContext(FunkyContext);
+  const { stateLoginDialog, isLoggedIn} = useContext(FunkyContext);
+
+  const navigate = useNavigate()
+
+  const navigateToEmplyee = () => {
+    navigate("/employee")
+  }
 
   return (
     <>
@@ -95,10 +102,20 @@ function Footer() {
               <FaXTwitter className="twitter-icon" />
               <FaFacebook className="facebook-icon" />
             </div>
+            {isLoggedIn ?  
+            <LuLogIn
+              className="login-icon"
+              onClick={() => navigateToEmplyee()}
+            /> :
             <LuLogIn
               className="login-icon"
               onClick={() => stateLoginDialog(true)}
             />
+
+        }
+
+        
+        
           </div>
         </div>
       </footer>
