@@ -15,8 +15,9 @@ const UntreadOrder = ({ chartData, orders}) => {
         setSelectOrder(order)
     }
 
-    const onSubmit = (event) => {
-        event.preventDefault();
+    const onSubmitOrder = (order) => {
+       // setIsLocked(true)
+        console.log("order._id ", order._id);
               // if selectOrder is selected and has an object of an order, do this: if "skicka till kocken" button is clicked, send the order with "info till kocken" textarea text to "kockens vy" (if there is any message)
     };
 
@@ -158,7 +159,7 @@ const UntreadOrder = ({ chartData, orders}) => {
                                                     <button
                                                         className="button-confirm"
                                                         type="submit"
-                                                        onClick={() => setIsLocked(true)}
+                                                        onClick={() => onSubmitOrder(order)}
                                                     >
                                                         Skicka till kocken{" "}
                                                         {isLocked && (
