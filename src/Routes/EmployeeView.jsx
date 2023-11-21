@@ -49,18 +49,17 @@ export const EmployeeView = () => {
 
     // Edit order
     const [editOrder, setEditOrder] = useState({})
+    const [isEditing, setIsEditing] = useState(false)
 
     const onEditOrder = (order) => {
         setEditOrder(order)
+        setIsEditing(true)
     }
 
     const saveEditedOrder = () => {
         setEditOrder({})
+        setIsEditing(false)
     }
-
-    const [order, setOrder] = useState({
-
-    })
 
     useEffect(() => {
         const fetchData = async () => {
@@ -184,11 +183,22 @@ export const EmployeeView = () => {
                                                 <p className="send-to-cook-text">Skickar till kocken...</p>
                                             ) : (
                                                 <>
-                                                    <button className="button-decline">Neka</button>
-                                                    <button className="button-edit" type="submit" onClick={() => saveEditedOrder()}>Slutför ändring</button>
+                                                {
+                                                    isEditing ? (
+                                                        <>
+                                                            <button className="button-edit" type="submit" onClick={() => saveEditedOrder()}>Slutför ändring</button>
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            <button className="button-decline">Neka</button>
+                                                            <button onClick={() => onSelectOrder({})} className="button-unmark">Avmarkera</button>
+                                                        </>
+                                                    )
+                                                }
                                                 </>
+   
                                             )}
-                                            <button onClick={() => onSelectOrder({})} className="button-unmark">Avmarkera</button>
+                                            
                     
                                             <details>
                                                 <summary></summary>
@@ -214,7 +224,7 @@ export const EmployeeView = () => {
                                                         </div>
 
                                                         <div>
-                                                            <label htmlFor="customerPortCodeInput">Portkod: </label><input type="number" value={order.portCode} />
+                                                            <label htmlFor="customerPortCodeInput">Portkod: </label><input id= "customerPortCodeInput" type="number" value={order.portCode} />
                                                         </div>
                                                      
                                                         <div>
