@@ -1,15 +1,15 @@
-html, body {
+/* html, body {
     margin: 0px;
-}
+} */
 .employee-view-wrapper{
     background-color: var(--bg-color);
     
     display: flex;
-    justify-content: center;
+    /* justify-content: center;
     align-content: center;
-    align-items: center;
+    align-items: center; */
     width: 100%;
-    
+    margin-bottom: 4em;
 }
 /* Employee view */
 .employee-view-container {
@@ -122,7 +122,13 @@ html, body {
     font-size: 14px;
 }
 
-
+.employee-msg{
+    font-family: var(--mont-font);
+    font-size: 16px; 
+}
+.msg{
+    font-family: var(--meny-font);
+}
 
 
 .button-decline, .button-confirm, .button-edit, .button-more {

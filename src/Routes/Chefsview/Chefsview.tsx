@@ -1,28 +1,20 @@
 import { useEffect, useState } from "react";
-// import "./employeeStyle.css";
-// import OrderKort from "../Components/anställda/OrderKort";
 import OrderKort from "../../Components/anställda/OrderKort";
 import "./chefsview.css";
 
 export const Chefsview = () => {
   const [chartData, setChartData] = useState([]);
-  const [menuNames, setMenuNames] = useState([]);
+//   const [menuNames, setMenuNames] = useState([]);
   const [orders, setOrders] = useState([]);
 
   const [selectTab, setSelectTab] = useState("untreated");
-  const [isLocked, setIsLocked] = useState(false);
+
 
   const chosenTab = (tab) => {
     return selectTab === tab ? "selected-tab" : "unselected-tab";
   };
 
-  const [selectOrder, setSelectOrder] = useState({});
 
-  const [msgToCook, setMsgToCook] = useState("");
-
-  const onChangeTextArea = (event) => {
-    setMsgToCook(event.target.value);
-  };
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -108,7 +100,7 @@ export const Chefsview = () => {
       <section className="employee-view-container">
         <header className="title-header">
           <span>Du är inloggad</span>
-          <h1>Kockens Vy</h1>
+          <h1 className="chefsview-title">Kockens Vy</h1>
           <div className="title-line" />
           <section className="tabs-section">
             <button
@@ -138,12 +130,15 @@ export const Chefsview = () => {
               <summary></summary>
 
               <div className="details-about-order">
-                <hr /> <p>Meddelande från Anställd: <hr/> 
-                Kunden vill ha extra sallad</p>
+                <hr /> 
+                <p className="employee-msg">
+                Meddelande från anställd: </p>
+                <p className="msg">  TEXT FRÅN ANsTÄLLD</p>
+                     
 
                 {/* Render OrderKort outside the loop */}
                 <OrderKort key={order.id} order={order} orders={orders} />
-
+                <button className="btn-grad">Redo för leverans </button>
               </div>
             </details>
           </div>
