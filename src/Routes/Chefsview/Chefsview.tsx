@@ -4,16 +4,20 @@ import "./chefsview.css";
 
 export const Chefsview = () => {
   const [chartData, setChartData] = useState([]);
-//   const [menuNames, setMenuNames] = useState([]);
   const [orders, setOrders] = useState([]);
-
   const [selectTab, setSelectTab] = useState("untreated");
-
+ const [menuNames, setMenuNames] = useState([]);
 
   const chosenTab = (tab) => {
     return selectTab === tab ? "selected-tab" : "unselected-tab";
   };
 
+  // const handleOrderReady = (orderId) => {
+  //   const updatedOrders = orders.map((order) =>
+  //     order.id === orderId ? { ...order, status: "done" } : order
+  //   );
+  //   setOrders(updatedOrders);
+  // };
 
 
   const onSubmit = (event) => {
@@ -51,11 +55,12 @@ export const Chefsview = () => {
             newOrder.items.push(newOrderItem);
           });
           // console.log(newOrder);
+          // ordersList.push(newOrder);
           ordersList.push(newOrder);
         });
-        // console.log(ordersList);
+   
         setOrders(ordersList);
-        // console.log("orders", orders);
+      
         const sortedData = menuData.filter(
           (item) => item.itemType === "food",
           "dricka",
@@ -126,19 +131,19 @@ export const Chefsview = () => {
             <button className="ongoing-btn">Under behandling </button>
 
        
-            <details onClick={() => setSelectOrder({ order })}>
+            <details onClick={() => ({ order })}>
               <summary></summary>
 
               <div className="details-about-order">
-                <hr /> 
+                 <hr />
                 <p className="employee-msg">
                 Meddelande från anställd: </p>
-                <p className="msg">  TEXT FRÅN ANsTÄLLD</p>
+                <p className="msg">  lorem ipsum text från anställd  </p>
                      
 
                 {/* Render OrderKort outside the loop */}
                 <OrderKort key={order.id} order={order} orders={orders} />
-                <button className="btn-grad">Redo för leverans </button>
+                <button className="readyorder-btn">Redo för leverans </button>
               </div>
             </details>
           </div>
