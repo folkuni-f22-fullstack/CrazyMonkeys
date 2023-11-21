@@ -72,7 +72,7 @@ const Dryck = () => {
               <div className="dryck-item" key={dryck._id}>
                 <div className="dryck-details">
                   <div className="drink-name">
-                    <h3 className="meny-h3">{dryck.name} .............. </h3>
+                    <h3 className="meny-h3">{dryck.name} ............ </h3>
                   </div>
                   <p> {dryck.price} kr</p>
                 </div>
