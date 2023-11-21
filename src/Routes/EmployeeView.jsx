@@ -9,34 +9,24 @@ import OrderKort from "../Components/anställda/OrderKort";
 export const EmployeeView = () => {
     const navigate = useNavigate();
 
+    // Login
     const { setIsLoggedIn, isLoggedIn } = useContext(FunkyContext);
 
+
+    // Data
     const [chartData, setChartData] = useState([]);
     const [menuNames, setMenuNames] = useState([]);
     const [orders, setOrders] = useState([]);
 
+    // Tabs
     const [selectTab, setSelectTab] = useState("untreated");
-    const [isLocked, setIsLocked] = useState(false);
 
     const chosenTab = (tab) => {
         return selectTab === tab ? "selected-tab" : "unselected-tab";
     };
 
-    const [selectOrder, setSelectOrder] = useState({});
-
-    const onSelectOrder = (order) => {
-        setSelectOrder(order)
-    }
-
-    const [editOrder, setEditOrder] = useState({})
-
-    const onEditOrder = (order) => {
-        setEditOrder(order)
-    }
-
-    const saveEditedOrder = () => {
-        setEditOrder({})
-    }
+    // Send to cook
+    const [isLocked, setIsLocked] = useState(false);
 
     const [msgToCook, setMsgToCook] = useState("");
 
@@ -49,6 +39,28 @@ export const EmployeeView = () => {
 
         // if selectOrder is selected and has an object of an order, do this: if "skicka till kocken" button is clicked, send the order with "info till kocken" textarea text to "kockens vy" (if there is any message)
     };
+
+    // Select order
+    const [selectOrder, setSelectOrder] = useState({});
+
+    const onSelectOrder = (order) => {
+        setSelectOrder(order)
+    }
+
+    // Edit order
+    const [editOrder, setEditOrder] = useState({})
+
+    const onEditOrder = (order) => {
+        setEditOrder(order)
+    }
+
+    const saveEditedOrder = () => {
+        setEditOrder({})
+    }
+
+    const [order, setOrder] = useState({
+
+    })
 
     useEffect(() => {
         const fetchData = async () => {
@@ -173,7 +185,7 @@ export const EmployeeView = () => {
                                             ) : (
                                                 <>
                                                     <button className="button-decline">Neka</button>
-                                                    <button className="button-edit" onClick={() => saveEditedOrder()}>Slutför ändring</button>
+                                                    <button className="button-edit" type="submit" onClick={() => saveEditedOrder()}>Slutför ändring</button>
                                                 </>
                                             )}
                                             <button onClick={() => onSelectOrder({})} className="button-unmark">Avmarkera</button>
@@ -188,13 +200,31 @@ export const EmployeeView = () => {
 
                                                     <details>
                                                         <summary className="summary-box">Info om kund</summary>
-                                                        <p>Namn: {order.customerName} </p> <button>Ändra</button>
-                                                        <p>Adress: {order.adress} </p> <button>Ändra</button>
-                                                        <p>Våning: {order.floor} </p> <button>Ändra</button>
-                                                        <p>Portkod: {order.portCode} </p> <button>Ändra</button>
-                                                        <p>Mejl: {order.mail} </p> <button>Ändra</button>
-                                                        <p>Telefonnummer: {order.mobile} </p> <button>Ändra</button>
-                                                        <p>Kommentarer från kund: {order.comments}</p> <button>Ändra</button>
+                                                        
+                                                        <div>
+                                                            <label htmlFor="customerNameInput">Namn: </label> <input id="customerNameInput" type="text" value={order.customerName} />
+                                                        </div>
+
+                                                        <div>
+                                                            <label htmlFor="customerAddressInput">Address: </label> <input id="customerAddressInput" type="text" value={order.adress} />
+                                                        </div>
+                                                        
+                                                        <div>
+                                                            <label htmlFor="customerFloorInput">Våning: </label><input id="customerFloorInput" type="number" value={order.floor} />
+                                                        </div>
+
+                                                        <div>
+                                                            <label htmlFor="customerPortCodeInput">Portkod: </label><input type="number" value={order.portCode} />
+                                                        </div>
+                                                     
+                                                        <div>
+                                                            <label htmlFor="customerEmailInput">Mejl: </label> <input id="customerEmailInput" type="email" value={order.mail}  />
+                                                        </div>
+
+                                                        <div>
+                                                            <label htmlFor="customerPhoneInput">Telefonnummer: </label>
+                                                            <input id="customerPhoneInput" type="number" value={order.mobile}/>
+                                                        </div> 
                                                     </details>
                                                 </div>
                                             </details>
