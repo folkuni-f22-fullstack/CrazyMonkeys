@@ -40,8 +40,7 @@ const Kundkorg = () => {
                 setChartData(ordersData);
                 setMenuNames(menuItemsWithData);
 
-                console.log("Order", ordersData);
-                console.log("Menu Items with Data", menuItemsWithData);
+            
             } catch (error) {
                 console.error(error);
             }

@@ -14,6 +14,13 @@ const OrderItemSchema = new mongoose.Schema({
   });
 
   const OrdersSchema = new mongoose.Schema({
+    status:{
+        type: String,
+        required: true
+    },
+    comments: {
+        type: String
+      },
     orderId:{
         type: Number,
         required: true
@@ -43,9 +50,7 @@ const OrderItemSchema = new mongoose.Schema({
       required: true
     },
     items: [OrderItemSchema], // En array av OrderItemSchema för att lagra maträtter och drycker
-    comments: {
-      type: String
-    }
+    
   });
 
 

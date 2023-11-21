@@ -1,11 +1,14 @@
 
 import React, { useState } from 'react';
 import OrderKort from '../anställda/OrderKort';
+import {updateOrder} from "./updateOrder.js"
 
 const UntreadOrder = ({ chartData, orders}) => {
     const [isLocked, setIsLocked] = useState(false);
     const [selectOrder, setSelectOrder] = useState({});
     const [msgToCook, setMsgToCook] = useState('');
+    const [orderStatus, setOrderStatus] = useState("")
+
 
     const onChangeTextArea = (event) => {
         setMsgToCook(event.target.value);
@@ -13,12 +16,16 @@ const UntreadOrder = ({ chartData, orders}) => {
 
     const onSelectOrder = (order) => {
         setSelectOrder(order)
+
+        setOrderStatus("during-treatment")
     }
 
-    const onSubmitOrder = (order) => {
-       // setIsLocked(true)
-        console.log("order._id ", order._id);
-              // if selectOrder is selected and has an object of an order, do this: if "skicka till kocken" button is clicked, send the order with "info till kocken" textarea text to "kockens vy" (if there is any message)
+    const onSubmitOrder = async (order) => {
+        console.log(order._id);
+           
+       
+           const response = await updateOrder(orderStatus, order._id); 
+       
     };
 
     // Edit order
