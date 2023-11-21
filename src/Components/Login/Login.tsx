@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { FunkyContext } from "../../ContextRoot";
 import { AiOutlineClose } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import {handleLoginEmp} from "./loginFetch.js"
 
 export function Login() {
     const navigate = useNavigate();
@@ -9,33 +10,30 @@ export function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         if (username !== "" && password !== "") {
-            try {
-                // Skicka en förfrågan till backend-routen med Fetch
-                const response = await fetch("api/auth/login", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ username, password }),
-                });
-
-                if (response.ok) {
-                    // Om inloggningen är framgångsrik
-                    setIsLoggedIn(true);
-                    navigate("/employee");
-                    stateLoginDialog(false);
-                } else {
-                    // Om inloggningen misslyckades
-                    console.error("Inloggning misslyckades:", response.statusText);
+          try {
+            // Skicka en förfrågan till backend-routen med Fetch
+          const response = await handleLoginEmp(username, password)
+    
+            if (response) {
+              // Om inloggningen är framgångsrik
+              sessionStorage.getItem('jwt');
+              if(sessionStorage.getItem('jwt')){
+                  setIsLoggedIn(true);
+                  navigate("/employee");
+                  stateLoginDialog(false);
                 }
-            } catch (error) {
-                // Hantera eventuella nätverksfel eller andra problem här
-                console.error("Något gick fel:", error);
+            } else {
+              // Om inloggningen misslyckades
+              console.error("Inloggning misslyckades:", response);
             }
+          } catch (error) {
+            // Hantera eventuella nätverksfel eller andra problem här
+            console.error("Något gick fel:", error);
+          }
         }
-    };
+      }
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
