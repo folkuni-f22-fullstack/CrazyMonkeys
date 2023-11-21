@@ -66,7 +66,10 @@ const Matratter = () => {
   // };
 
   return (
+    <>
+    <h2 className="rubrik">Maträtt</h2>
     <div className="matratt-container">
+      
       {food.map((matratt) => (
       
         <div className="matratt" key={matratt._id}>
@@ -98,6 +101,7 @@ const Matratter = () => {
         </div>
       ))}
     </div>
+    </>
   );
 };
 

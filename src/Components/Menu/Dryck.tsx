@@ -60,8 +60,10 @@ const Dryck = () => {
   };
 
   return (
+    <>
+    <h2 className="rubrik">Välj din drink</h2>
     <div className="dryck-container">
-      <h2 className="dryck">Välj din drink</h2>
+      
       <div className="dryck-column">
         {/* <h2>Kolsyrade</h2> */}
         {dryckData.map(
@@ -98,7 +100,7 @@ const Dryck = () => {
                   <div className="drink-name">
                     <h3 className="meny-h3">{dryck.name} .............. </h3>
                   </div>
-                  <p> {dryck.price} kr</p>
+                  <p className="me"> {dryck.price} kr</p>
                 </div>
 
                 <div className="quantity-controls">
@@ -114,6 +116,7 @@ const Dryck = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

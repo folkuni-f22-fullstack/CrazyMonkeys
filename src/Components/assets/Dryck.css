@@ -4,7 +4,7 @@
   flex-wrap: wrap; 
   /* overflow-y: scroll; */
 }
-.dryck{
+.rubrik{
   margin: auto;
   width: 100%;
   margin-top: 3%;
@@ -34,12 +34,13 @@
 
 .drink-name h3 {
   margin: 0;
-  font-size: 1.2em;
+  font-size: 1.1em;
   color: #333;
 }
 
-.drink-price {
-  color: #777;
+.dryck-details p {
+  /* font-size: 11px ; */
+  color: #141313;
 }
 
 .quantity-controls {
@@ -66,5 +67,15 @@
   }
   .dryck-container{
   overflow-y: scroll;
+  }
+  .drink-name h3 {
+    margin: 0;
+    font-size: 12px;
+    color: #333;
+  }
+  
+  .dryck-details p {
+    font-size: 12px ;
+    color: #141313;
   }
 }

@@ -74,7 +74,7 @@ const handleAddToCart = (foodId: string) => {
 
   return (
     <>
-      <p>Tillbehör</p>
+      <h2 className='rubrik'>Tillbehör</h2>
       <div className="tillbehor-container">
         {tillbehorData.map((tillbehor) => (
           <div className="tillbehor-item" key={tillbehor._Id}>
