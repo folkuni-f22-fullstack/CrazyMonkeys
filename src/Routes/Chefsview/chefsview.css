@@ -70,8 +70,8 @@
     margin: .45em 0em;
 }
 .chefsview-title{
-    /* font-family: var(--andika-font); */
-    font-family: var(--meny-font);
+    font-family: var(--andika-font);
+    /* font-family: var(--meny-font); */
 padding:1em ;
 }
 
