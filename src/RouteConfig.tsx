@@ -9,7 +9,7 @@ import { Delivery } from "./Routes/Delivery";
 import CheckoutPage from "./Components/Betallning/Betallning.tsx";
 import Kvitto from "./Components/Kvitto/Kvitto.tsx";
 import { EmployeeView } from "./Routes/EmployeeView.jsx";
-
+import Chefsview from "./Routes/Chefsview/Chefsview.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/employee",
         element: <EmployeeView />,
+      },
+      {
+        path: "/chefsview",
+        element: <Chefsview />,
       },
     ],
   },

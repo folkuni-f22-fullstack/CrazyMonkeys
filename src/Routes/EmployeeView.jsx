@@ -57,7 +57,7 @@ export const EmployeeView = () => {
                     order.items.forEach((orderItem) => {
                         let newOrderItem = menuData.find((md) => md._id === orderItem.menuItem);
                         newOrderItem.quantity = orderItem.quantity;
-                        console.log("orderItem:", newOrderItem);
+                        // console.log("orderItem:", newOrderItem);
                         newOrder.items.push(newOrderItem);
                     });
                    ;
@@ -121,9 +121,9 @@ export const EmployeeView = () => {
                 {/* Det som ska göras är att vi ska ha olika Chartdata där vi hämtar
                 ordrar beroende på vad för status dem har.
                 
-                1. Lägg en "status" objekt i orderModelen som har "Obehandlade" som standard.
+                1. Lägg en "status" objekt i orderModellen som har "Obehandlade" som standard.
                 2. hämta ordrar beroende på status.
-                3. gör en PUT req som ändrar "status" när man klickar på skicka till kocken och den ska hamna i "UnDerbehandlade".
+                3. gör en PUT req som ändrar "status" när man klickar på skicka till kocken och den ska hamna i "Underbehandlade".
                 */}
 
 
