@@ -29,7 +29,8 @@ function Header() {
         <div
           className={`menu-icon ${isMenuIconCross ? "cross" : ""}`}
           onClick={toggleMenuOverlay}
-        >
+          //Span elementen är till för hamburgarmenyn. Radera ej. 
+          >
           <span></span>
           <span></span>
           <span></span>
@@ -47,9 +48,6 @@ function Header() {
         </div>
         <NavLink className="navbar" to="#">Om Oss</NavLink>
         <NavLink className="navbar" to="#">Kontakta Oss</NavLink>
-
-        {/* <span className="material-symbols-outlined cart">shopping_cart</span>
-         */}
 
          <div className="cart-icon"> <IoCartOutline /> </div>
 
