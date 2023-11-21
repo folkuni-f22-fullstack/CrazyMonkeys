@@ -61,6 +61,13 @@ export const EmployeeView = () => {
         setIsEditing(false)
     }
 
+    // Cancel order 
+    const cancelOrder = (orderId) => {
+        chartData.filter(order => order._id !== orderId)
+        // Cancel order will remove the selected order from the chart array.
+        // TODO: Update chartData
+    }
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -190,7 +197,7 @@ export const EmployeeView = () => {
                                                         </>
                                                     ) : (
                                                         <>
-                                                            <button className="button-decline">Neka</button>
+                                                            <button className="button-decline" onClick={() => cancelOrder(order._id)}>Neka</button>
                                                             <button onClick={() => onSelectOrder({})} className="button-unmark">Avmarkera</button>
                                                         </>
                                                     )
