@@ -11,15 +11,17 @@ import UntreadOrder from "../Components/Orders/untreadedOrder.jsx";
 export const EmployeeView = () => {
     const navigate = useNavigate();
 
+    // Login
     const { setIsLoggedIn, isLoggedIn } = useContext(FunkyContext);
 
+
+    // Data
     const [chartData, setChartData] = useState([]);
     const [orders, setOrders] = useState([]);
 
+    // Tabs
     const [selectTab, setSelectTab] = useState("untreated");
     const [viewTab, setView] = useState("untreated");
-
-    const [isLocked, setIsLocked] = useState(false);
 
     const chosenTab = (tab) => {
         return selectTab === tab ? "selected-tab" : "unselected-tab";
@@ -31,23 +33,6 @@ export const EmployeeView = () => {
         console.log(selectTab);
 
     },[selectTab])
-    
-
-    const [selectOrder, setSelectOrder] = useState({});
-
-    const onSelectOrder = (order) => {
-        setSelectOrder(order)
-    }
-
-    const [msgToCook, setMsgToCook] = useState("");
-
-    const onChangeTextArea = (event) => {
-        setMsgToCook(event.target.value);
-    };
-
-    const onSubmit = (event) => {
-        event.preventDefault();
-    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -105,7 +90,7 @@ export const EmployeeView = () => {
                     <button onClick={onClickLogOut} className="btn-grad">
                         logga ut
                     </button>
-                    <h1>Beställningar</h1>
+                    <h1>Anställdas vy</h1>
                     <div className="title-line" />
                     <section className="tabs-section">
                         <button
