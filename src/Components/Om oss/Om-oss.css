@@ -8,22 +8,22 @@ body{
 }
 
 /* .parent-about-container {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+  }
+  .about-container {
+    max-width: 1980px; 
+    margin: 0 auto;
+    padding: 20px;
+  } */
 
-    
-} */
-/* .about-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
+
 .title-pic{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .text-title-us{
     display: inline-flex;
     flex-wrap: wrap;
@@ -33,16 +33,18 @@ body{
     left: 32rem;
     color : #fff
 }
+
 .first-img{
     display:flex ;
     flex-direction: row;
     flex-wrap: wrap;
-
     height: 20rem;
 }
+
 .mobile-text{
     display: none;
 }
+
 .middle-page {
     display: flex;
     background-color: #15302D;
@@ -53,6 +55,18 @@ body{
     color: #fff;
     left: 4rem;
 }
+
+.middle-page-2 {   
+    display: flex;
+    background-color: #15302D;
+    height: 16rem;
+    margin-top: 8rem;
+    position: relative;
+    top: 8rem;
+    color: #fff;
+    right: 4rem;
+}
+
 .middle-contain{
     display: flex;
     flex-wrap: wrap;
@@ -60,13 +74,29 @@ body{
     width: 70%;
     position: relative;
     left: 4rem;
-   
+}
+
+.middle-contain-2{
+    display: flex;
+    flex-wrap: wrap;
+    height: 11rem;
+    width: 70%;
+    position: relative;
+    right: -6rem;   
 }
 .middle-img{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+}
+.middle-img-2{
+    /* border: 1px solid red; */
     display: flex;
     flex-wrap: wrap;
 }
 .funky-about-text{
+    /* border: 1px solid red; */
+
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -74,21 +104,24 @@ body{
     position: relative;
     left: -12rem;
 }
-.middle-text{
+.funky-about-text-2 p{
+    font-size: 19px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    right: -1rem;
     position: relative;
-    
 }
-.wok-img{
 
+.wok-img{
     position: relative;
     top: -6rem;
     left: 3rem;
-    width: 21rem;
+    width: 19rem;
     height: 18rem;
     margin-right: 2rem;
 }
 .pasta-img{
-    
     position: relative;
     z-index: 10;
     bottom: 10rem;
@@ -98,6 +131,29 @@ body{
     left: -3rem;
 
 }
+.whyfunky-2{
+    margin-left: 20rem;
+}
+
+.sushi{
+    position: relative;
+    top: -6rem;
+    left:21rem;
+    width: 21rem;
+    height: 17rem;
+}
+
+.seafood{
+    position: relative;
+    z-index: 10;
+    bottom: 17rem;
+    width: 19rem;
+    height:19rem ;
+    margin-left: 1rem;
+    left: 13rem;
+    /* margin-right: -15rem; */
+}
+
 @media screen and (min-width: 1000px) and (max-width:1320) {
     .wok-img {
         width: 15rem;
