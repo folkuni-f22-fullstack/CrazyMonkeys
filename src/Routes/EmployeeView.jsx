@@ -147,7 +147,7 @@ export const EmployeeView = () => {
                     <button onClick={onClickLogOut} className="btn-grad">
                         logga ut
                     </button>
-                    <h1>Beställningar</h1>
+                    <h1>Anställdas vy</h1>
                     <div className="title-line" />
                     <section className="tabs-section">
                         <button
