@@ -9,9 +9,6 @@
 
 .checkout-container {
     border: 5px solid #235852;
-    display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: white;
   padding: 20px;
   border-radius: 10px;
