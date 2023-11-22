@@ -9,10 +9,18 @@
 }
 .loggo {
   width: 3em;
-  margin-bottom: -28px;
+  margin-bottom: -27px;
+  display: block;
 }
-.desktop {
+.desktop-img {
   display: none;
+}
+.header-container .navbar{
+  text-decoration: none;
+}
+.navbar {
+  display: none;
+  color: white; 
 }
 .shopping-cart {
   width: 2em;
@@ -27,6 +35,8 @@
   font-size: 24px;
 }
 .overlay {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   left: 50%;
   transform: translate(-50%, 76%);
@@ -36,14 +46,26 @@
   z-index: 1000;
   color: white;
   background-color: #171010;
+
 }
-.overlay p {
+.head-navbar{
+  text-decoration: none;
+  color:white; 
   margin: 40px 0px;
   width: 9em;
   font-size: 18px;
   font-family: var(--mont-font);
   text-transform: uppercase;
 }
+
+
+/* .overlay p {
+  margin: 40px 0px;
+  width: 9em;
+  font-size: 18px;
+  font-family: var(--mont-font);
+  text-transform: uppercase;
+} */
 .menu-icon {
   display: flex;
   flex-direction: column;
@@ -89,14 +111,8 @@
   background-color: #4c5452;
   padding: 1.5em;
 }
-.navbar {
-  display: none;
-  color: white; 
-}
+
 .company-name {
-  display: none;
-}
-.desktop-container {
   display: none;
 }
 
@@ -111,7 +127,7 @@
     align-items: end;
     border-bottom: 0.1px solid #c0b8b896;
   }
-  .desktop {
+  .desktop-img {
     width: 3.8em;
     margin-bottom: -32px;
     display: block;
@@ -129,7 +145,7 @@
   .navbar {
     display: block;
     color: white;
-    font-family: "Playfair Display", serif;
+    font-family: var( --mont-font); 
     padding:1em;
   }
   .desktop-container {
@@ -141,9 +157,7 @@
   .company-name {
     display: block;
     color:#fffafa;
-    /* font-family: 'Permanent Marker', cursive; */
-    /* font-family: 'Zeyada', cursive; */
-    font-family: 'Gloria Hallelujah', cursive;
+    font-family: var(--title-font);
     letter-spacing: 0.1em;
   }
   .cart-icon{

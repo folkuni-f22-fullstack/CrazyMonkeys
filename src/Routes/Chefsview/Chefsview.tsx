@@ -67,6 +67,7 @@ export const Chefsview = () => {
           "tillbehör"
         );
 
+        
         // Hämta alla menuItems från alla order
         const allMenuItems = ordersData.flatMap((order) => order.items);
         // console.log(allMenuItems);

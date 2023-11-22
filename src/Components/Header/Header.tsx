@@ -4,15 +4,27 @@ import { useState } from "react";
 import desktop from "../../assets/Desktoplogga.png";
 import { NavLink } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
-
+import { Link } from "react-scroll";
 
 function Header() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [isMenuIconCross, setIsMenuIconCross] = useState(false);
 
+  const scrollDown = () => {
+    window.scrollTo({
+      top: document.body.scrollHeight - window.innerHeight,
+      behavior: "smooth",
+    });
+  };
+
   const toggleMenuOverlay = () => {
     setShowOverlay(!showOverlay);
     setIsMenuIconCross(!isMenuIconCross);
+  };
+
+  const closeOverlayAndScroll = () => {
+    toggleMenuOverlay();
+    scrollDown();
   };
 
   return (
@@ -29,36 +41,58 @@ function Header() {
         <div
           className={`menu-icon ${isMenuIconCross ? "cross" : ""}`}
           onClick={toggleMenuOverlay}
-          //Span elementen är till för hamburgarmenyn. Radera ej. 
-          >
+        >
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <NavLink to="/">
-          <img className="loggo" src={Loggo} alt="Företagets logga" />
-        </NavLink>
 
         <div className="desktop-container">
+          <NavLink to="/">
+            <img className="loggo" src={Loggo} alt="Företagets logga" />
+          </NavLink>
+          {/* Här är den -  - */}
+          {/* <div className="desktop-container"> */}
+
           <p className="company-name">FuNKy FUSION</p>
 
           <NavLink to="/">
-            <img className="desktop" src={desktop} alt="Företagets logga" />
+            <img className="desktop-img" src={desktop} alt="Företagets logga" />
           </NavLink>
         </div>
-        <NavLink className="navbar" to="#">Om Oss</NavLink>
-        <NavLink className="navbar" to="#">Kontakta Oss</NavLink>
+        <NavLink className="navbar" to="#">
+          Om Oss
+        </NavLink>
 
-         <div className="cart-icon"> <IoCartOutline /> </div>
+        <Link to="footer" className="navbar" smooth={true} duration={500}>
+          Kontakt
+        </Link>
+
+        <div className="cart-icon">
+          <IoCartOutline />
+        </div>
 
         {showOverlay && (
           <div className="overlay" onClick={toggleMenuOverlay}>
-            <NavLink to="/menu">
-              <p>Meny</p>
+            <NavLink to="/menu" className="head-navbar">
+              Meny
             </NavLink>
-            <NavLink to="#">Om oss</NavLink>
-            <NavLink to="#">Varukorg</NavLink>
-            <NavLink to="#">Kontakta oss</NavLink>
+            <NavLink to="#" className="head-navbar">
+              Om oss
+            </NavLink>
+            <NavLink to="/kundkorg" className="head-navbar">
+              Varukorg
+            </NavLink>
+
+            <Link
+              to="footer"
+              className="head-navbar"
+              smooth={true}
+              duration={500}
+              onClick={closeOverlayAndScroll}
+            >
+              Kontakt
+            </Link>
           </div>
         )}
       </section>

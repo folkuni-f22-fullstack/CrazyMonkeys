@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useRef} from "react";
 
 import "./footer.css";
 import { LuLogIn } from "react-icons/Lu";
@@ -17,6 +17,9 @@ import { FunkyContext } from "../../ContextRoot";
 import { useNavigate } from "react-router-dom";
 
 function Footer() {
+  const footerRef = useRef(null); 
+  window.scrollTo(0, 0);
+  // const { stateLoginDialog } = useContext(FunkyContext);
   const { stateLoginDialog, isLoggedIn} = useContext(FunkyContext);
 
   const navigate = useNavigate()
@@ -27,7 +30,7 @@ function Footer() {
 
   return (
     <>
-      <section className="footer-container">
+      <section className="footer-container"  ref={footerRef}>
         <div className="created-by-container ">
           <p className="created-by-p">
             <BiSolidCopyright className="copyright-icon" />
@@ -54,8 +57,7 @@ function Footer() {
           />
         </div>
       </section>
-
-      <footer className="footer-desktop-container">
+      <footer id="footer" className="footer-desktop-container" ref={footerRef}>
         <div className="footer-columns">
           <div className="footer-column">
             <h3 className="openhour">Öppettider</h3>

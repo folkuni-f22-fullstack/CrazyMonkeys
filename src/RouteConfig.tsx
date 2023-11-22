@@ -6,10 +6,12 @@ import Menu from "./Components/Menu/menu";
 import StartPage from "./Routes/Startpage/Startpage";
 import Kundkorg from "./Components/Kundkorg/Kundkorg";
 import { Delivery } from "./Routes/Delivery";
-import CheckoutPage from "./Components/Betallning/Betallning.tsx";
+import CheckoutPage from "./Components/betalning/Betalning.tsx";
 import Kvitto from "./Components/Kvitto/Kvitto.tsx";
 import { EmployeeView } from "./Routes/EmployeeView.jsx";
 import Chefsview from "./Routes/Chefsview/Chefsview.tsx";
+// import Footer from "./Components/Footer/Footer.tsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
