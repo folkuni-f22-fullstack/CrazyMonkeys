@@ -8,8 +8,20 @@ body {
 
 .chart-title{
     text-align: center;
+    grid-area: title;
 }
 
+.back-btn {
+    grid-area: button;
+    text-align: center;
+}
+
+.cart-header {
+    display: grid;
+    grid-template-areas: 'button title title ...';
+    padding: 1.25em 0em;
+    align-items: center;
+}
 
 .chart-wrapper{
     display: flex;
@@ -25,6 +37,7 @@ body {
     border-radius: 20px;
     background-color: white;
     min-width: 320px;
+    padding-top: 1.25em;
 }
 
 .empty-cart-text {
@@ -92,12 +105,7 @@ body {
     cursor: pointer;
 }
 
-.back-btn {
-    position: relative;
-    left: 0rem;
-    top: -10rem;
-   
-}
+
 
 .chart-btn-grad{
     display: flex;
@@ -119,5 +127,3 @@ body {
 .total-summa {
     text-align: center;
 }
-
-/*  */

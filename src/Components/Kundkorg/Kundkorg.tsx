@@ -68,14 +68,13 @@ const Kundkorg = () => {
         <div className="chart-wrapper">
             <div className="background-chart">
                 <StepsHeader />
-
-                <Link to="/menu">
-                    <span className="back-btn">
-                        <RiArrowGoBackFill size={30} />
-                    </span>
+                <header className="cart-header">
+                <Link to="/menu" className="back-btn">
+                            <RiArrowGoBackFill size={30} />
                 </Link>
-
                 <h1 className="chart-title">Kundkorg</h1>
+                </header>
+
                 {
                     chartData.length === 0 ? (
                         <p className="empty-cart-text">

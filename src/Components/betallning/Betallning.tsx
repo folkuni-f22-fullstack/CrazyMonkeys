@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./betallning.css";
 import { Link } from "react-router-dom";
 import OrderComponent from "../../dataApi/OrderComponent"
-import { StepsHeader } from "../StepsHeader/StepsHeader.tsx";
+import { StepsHeader } from "../StepsHeader/StepsHeader.jsx";
 
 interface CheckoutProps {}
 
