@@ -68,9 +68,9 @@ function Header() {
           Kontakt
         </Link>
 
-        <div className="cart-icon">
+        <NavLink to="/kundkorg" className="cart-icon">
           <IoCartOutline />
-        </div>
+          </NavLink>
 
         {showOverlay && (
           <div className="overlay" onClick={toggleMenuOverlay}>
