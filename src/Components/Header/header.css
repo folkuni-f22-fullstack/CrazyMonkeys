@@ -21,6 +21,7 @@
 .navbar {
   display: none;
   color: white; 
+  cursor: pointer;
 }
 .shopping-cart {
   width: 2em;
@@ -31,8 +32,8 @@
 }
 .cart-icon {
   color: white; 
-  margin-bottom:0.2em;
-  font-size: 24px;
+  font-size: 29px;
+  cursor: pointer;
 }
 .overlay {
   display: flex;

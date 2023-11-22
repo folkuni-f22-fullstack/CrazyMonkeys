@@ -44,6 +44,7 @@
   align-self: flex-end;
   margin: 0 0.5em 0.5em;
   font-size: 30px;
+  cursor: pointer;
 }
 .facebook-icon,
 .twitter-icon,

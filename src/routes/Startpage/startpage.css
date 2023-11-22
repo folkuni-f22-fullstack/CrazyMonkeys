@@ -88,6 +88,8 @@
   border-radius: 10px;
   display: block;
   width: 100%;
+  text-decoration: none;
+
 }
 .mobilbtn:hover{
   background-position: right center;
@@ -97,10 +99,6 @@ transform: scale(0.9);
 }
 .desktop {
   display: none;
-}
-.link-to-menu{
-  color: white;
-  text-decoration: none;
 }
 
 .fill-text{
@@ -146,6 +144,8 @@ transform: scale(0.9);
     display: block;
     width: 50%;
     border:none; 
+    text-decoration: none;
+    
   }
   .desktop:hover{
     background-position: right center;
