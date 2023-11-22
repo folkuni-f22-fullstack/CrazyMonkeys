@@ -50,11 +50,13 @@ const Kundkorg = () => {
 
     const onSubmitButton = () => {
         setOrder(order);
-        console.log("orderToSend ", orderToSend, " order ", order)
 
         if (orderToSend.items.length > 0) {
             navigate("/leverans");
             setSelectStep(2);
+        } else {
+            console.log("Välj en artikel för att gå vidare!");
+            
         }
 
     };
