@@ -7,6 +7,7 @@ import "./employeeStyle.css";
 
 import OrderKort from "../Components/anställda/OrderKort";
 import UntreadOrder from "../Components/Orders/untreadedOrder.jsx";
+import UnderTreatmentOrder from "../Components/Orders/underTreatmentOrder.jsx";
 
 export const EmployeeView = () => {
     const navigate = useNavigate();
@@ -16,7 +17,9 @@ export const EmployeeView = () => {
 
 
     // Data
-    const [chartData, setChartData] = useState([]);
+    const [untreatedData, setUntreatedData] = useState([]);
+    const [duringTreatmentData, setDuringTreatmentData] = useState([]);
+    const [doneData, setDoneData] = useState([]);
     const [orders, setOrders] = useState([]);
 
     // Tabs
@@ -30,7 +33,7 @@ export const EmployeeView = () => {
 
     useEffect(() => {
         setView(selectTab)
-        console.log(selectTab);
+       
 
     },[selectTab])
 
@@ -45,11 +48,51 @@ export const EmployeeView = () => {
                     throw new Error("Något gick fel");
                 }
 
+                
                 const ordersData = await ordersResponse.json();
                 const menuData = await menuResponse.json();
 
+                const untreadedOrder = ordersData.filter(order => order.status === "untreated")
+                const duringTreatmentOrder = ordersData.filter(order => order.status === "during-treatment")
+                const doneOrder = ordersData.filter(order => order.status === "done")
+
+            
+                
                 let ordersList = [];
-                ordersData.forEach((order) => {
+                //Untreadedorder
+                untreadedOrder.forEach((order) => {
+                    // hitta vilket menu item som tillhör id:t
+                    let newOrder = {};
+                    newOrder.id = order._id;
+                    newOrder.items = [];
+                    order.items.forEach((orderItem) => {
+                        let newOrderItem = menuData.find((md) => md._id === orderItem.menuItem);
+                        newOrderItem.quantity = orderItem.quantity;
+                        // console.log("orderItem:", newOrderItem);
+                        newOrder.items.push(newOrderItem);
+                    });
+                    ;
+                    ordersList.push(newOrder);
+                });
+                
+                //DuringTreatment
+                duringTreatmentOrder.forEach((order) => {
+                    // hitta vilket menu item som tillhör id:t
+                    let newOrder = {};
+                    newOrder.id = order._id;
+                    newOrder.items = [];
+                    order.items.forEach((orderItem) => {
+                        let newOrderItem = menuData.find((md) => md._id === orderItem.menuItem);
+                        newOrderItem.quantity = orderItem.quantity;
+                        // console.log("orderItem:", newOrderItem);
+                        newOrder.items.push(newOrderItem);
+                    });
+                   ;
+                    ordersList.push(newOrder);
+                });
+
+                //Done
+                doneOrder.forEach((order) => {
                     // hitta vilket menu item som tillhör id:t
                     let newOrder = {};
                     newOrder.id = order._id;
@@ -65,7 +108,9 @@ export const EmployeeView = () => {
                 });
               
                 setOrders(ordersList);
-                setChartData(ordersData);
+                setUntreatedData(untreadedOrder);
+                setDuringTreatmentData(duringTreatmentOrder)
+                setDoneData(doneOrder)
             } catch (error) {
                 console.error(error);
             }
@@ -112,11 +157,11 @@ export const EmployeeView = () => {
                 </header>
 
                 {viewTab === "untreated" && (
-                    <UntreadOrder chartData={chartData} orders={orders}/>)}
+                    <UntreadOrder chartData={untreatedData} orders={orders}/>)}
                 {viewTab === "during-treatment" && (
-                    <UntreadOrder chartData={chartData} orders={orders}/>)}
+                    <UnderTreatmentOrder chartData={duringTreatmentData} orders={orders}/>)}
                 {viewTab === "done" && (
-                    <UntreadOrder chartData={chartData} orders={orders}/>)}
+                    <UntreadOrder chartData={doneData} orders={orders}/>)}
 
                 {/* Det som ska göras är att vi ska ha olika Chartdata där vi hämtar
                 ordrar beroende på vad för status dem har.

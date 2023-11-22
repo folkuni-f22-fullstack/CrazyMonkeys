@@ -58,7 +58,8 @@ router.post("/", async (req, res) => {
             mail: orderData.mail,
             mobile: orderData.mobile,
             items: orderItemsWithDetails,
-            comments: orderData.comments
+            comments: orderData.comments,
+            status: orderData.status
         });
 
         const savedOrder = await newOrder.save();
@@ -67,6 +68,37 @@ router.post("/", async (req, res) => {
         console.error(err);
         res.status(500).json(err);
     }
+});
+
+
+
+
+router.put("/:id", async (req, res) => {
+    const orderId = req.params.id;
+    const updatedOrderData = req.body;
+
+    try {
+        const existingOrder = await Orders.findOne({ _id: orderId});
+
+        if (!existingOrder) {
+            return res.status(404).json({ message: "Order not found" });
+        }
+
+        Object.assign(existingOrder, updatedOrderData);
+        
+        if (updatedOrderData.items) {
+            existingOrder.items = await Promise.all(updatedOrderData.items.map(async (item) => {
+            }));
+        }
+
+        const updatedOrder = await existingOrder.save();
+        res.status(200).json(updatedOrder);
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+    }
+
 });
 
 

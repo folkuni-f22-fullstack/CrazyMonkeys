@@ -1,6 +1,12 @@
 html, body {
     margin: 0px;
 }
+
+.order-box-wrapper{
+    padding: 1em;
+    overflow-y: visible;
+    height: 20vh;
+}
 .employee-view-wrapper{
     background-color: #4c5452;
     margin-bottom: 3em;
@@ -114,6 +120,7 @@ html, body {
 }
 
 .order-name {
+    width: 140px;
     grid-area: order-name;
     margin: 0px;
 }
@@ -124,7 +131,7 @@ html, body {
 }
 
 .button-mark, .button-unmark {
-    grid-area: mark;
+    /* grid-area: spa; */
 }
 .button-mark {
     background-color: #CBE9C1;

@@ -7,6 +7,7 @@ import "./DeliveryStyle.css";
 
 export function Delivery() {
     const navigate = useNavigate();
+    const [status, setStatus] = useState("untreated")
 
     const {
         orderToSend,
@@ -190,6 +191,7 @@ export function Delivery() {
                         floor,
                         portCode,
                         comments: ownComments,
+                        status: status
                     });
                 } else {
                     setCustomerInfo({
@@ -200,6 +202,7 @@ export function Delivery() {
                         floor,
                         portCode,
                         comments: "",
+                        status: status
                     });
                 }
                 navigate("/betalning");
@@ -216,6 +219,7 @@ export function Delivery() {
                         floor: "",
                         portCode: "",
                         comments: ownComments,
+                        status: status
                     });
                 } else {
                     setCustomerInfo({
@@ -226,6 +230,7 @@ export function Delivery() {
                         floor: "",
                         portCode: "",
                         comments: ownComments,
+                        status: status
                     });
                 }
                 navigate("/betalning");
@@ -505,7 +510,7 @@ export function Delivery() {
                         </>
                     )}
                     <div className="delivery-btn-grad ">
-                        <button className="btn-grad delivery-btn" type="submit">
+                        <button className="btn-grad delivery-btn" type="submit" >
                             Gå till Betalning
                         </button>
                     </div>

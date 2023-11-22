@@ -11,7 +11,8 @@ const ContextRoot = ({ children }) => {
         portCode: "",
         mail: "",
         mobile: "",
-        comments:""
+        comments:"",
+        status: ""
     });
 
     const orderToSend = {
@@ -27,6 +28,7 @@ const ContextRoot = ({ children }) => {
             menuItem: orderItem.itemId,
             quantity: orderItem.quantity,
         })),
+        status: customerInfo.status
     };
 
     // Steps
