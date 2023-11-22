@@ -9,7 +9,8 @@
 }
 .loggo {
   width: 3em;
-  margin-bottom: -31px;
+  margin-bottom: -27px;
+  display: block;
 }
 .desktop-img {
   display: none;
@@ -34,6 +35,8 @@
   font-size: 24px;
 }
 .overlay {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   left: 50%;
   transform: translate(-50%, 76%);
@@ -43,14 +46,26 @@
   z-index: 1000;
   color: white;
   background-color: #171010;
+
 }
-.overlay p {
+.head-navbar{
+  text-decoration: none;
+  color:white; 
   margin: 40px 0px;
   width: 9em;
   font-size: 18px;
   font-family: var(--mont-font);
   text-transform: uppercase;
 }
+
+
+/* .overlay p {
+  margin: 40px 0px;
+  width: 9em;
+  font-size: 18px;
+  font-family: var(--mont-font);
+  text-transform: uppercase;
+} */
 .menu-icon {
   display: flex;
   flex-direction: column;
@@ -100,9 +115,6 @@
 .company-name {
   display: none;
 }
-.desktop-container {
-  display: none;
-}
 
 
 /* Desktop */
@@ -133,7 +145,7 @@
   .navbar {
     display: block;
     color: white;
-    font-family: "Playfair Display", serif;
+    font-family: var( --mont-font); 
     padding:1em;
   }
   .desktop-container {

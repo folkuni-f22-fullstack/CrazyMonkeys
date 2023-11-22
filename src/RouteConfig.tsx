@@ -10,6 +10,8 @@ import CheckoutPage from "./Components/Betallning/Betallning.tsx";
 import Kvitto from "./Components/Kvitto/Kvitto.tsx";
 import { EmployeeView } from "./Routes/EmployeeView.jsx";
 import Chefsview from "./Routes/Chefsview/Chefsview.tsx";
+// import Footer from "./Components/Footer/Footer.tsx";
+
 const router = createBrowserRouter([
   {
     path: "/",

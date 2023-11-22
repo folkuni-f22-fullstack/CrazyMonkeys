@@ -24,7 +24,7 @@
   font-size: 24px;
 }
 .companytitletext-p {
-  font-family: var(--content-font);
+  font-family: var(--andika-font);
   line-height: 2em;
   color: white;
   font-size: 14px;
@@ -34,18 +34,21 @@
 .startfood-title {
   margin-bottom: 1em;
   font-weight: 10;
+  font-family: var(--content-font);
+
 }
 
 .mainstartpage {
   background-color: var(--bg-color);
   min-height: 100vh;
-  padding: 2em;
+  padding: 0.5em;
 }
 .text-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin:3em 0em;
 }
 .body-text {
   color: white;
@@ -74,7 +77,7 @@
     #001510 51%,
     #00bf8f 100%
   );
-  margin: 5em 0.4em;
+  margin: 5em 0em;
   padding: 15px 45px;
   text-align: center;
   text-transform: uppercase;
@@ -100,6 +103,10 @@ transform: scale(0.9);
   text-decoration: none;
 }
 
+.fill-text{
+  display: none;
+}
+
 @media screen and (min-width: 320px) {
   .sushi {
     display: none;
@@ -112,7 +119,9 @@ transform: scale(0.9);
 /* Desktop 1920 */
 
 @media screen and (min-width: 1000px) {
-
+  .fill-text{
+    display: block;
+  }
   .mobilbtn {
     display: none;
   }
@@ -125,7 +134,7 @@ transform: scale(0.9);
       #00bf8f 100%
     );
     /* background-color: #316863;  */
-    margin: 5em 0.4em;
+    
     padding: 15px 45px;
     text-align: center;
     text-transform: uppercase;
@@ -166,6 +175,7 @@ transform: scale(0.9);
     color: white;
     font-size: 20px;
     margin: 4em 2em;
+    font-family: var(--andika-font);
   }
   .company-title {
     font-family: var(--title-font);
@@ -185,7 +195,7 @@ transform: scale(0.9);
     display: flex;
     flex-direction: row-reverse;
     padding: 2em;
-    margin-bottom: 6em;
+    margin-bottom: 10em;
   }
   .startmainpicture {
     width: 30em;
@@ -193,16 +203,22 @@ transform: scale(0.9);
     border-radius: 3%;
     margin-top: 1em;
   }
+  .bild{
+    height: 19em;
+  }
+
   .body-text {
     color: white;
     font-size: 18px;
     line-height: 2;
     font-family: var(--content-font);
-    padding: 3em;
+    /* padding: 3em; */
     text-align: left;
   }
   .startfood-title {
     margin-bottom: 2em;
     text-align: left;
+    font-family: var(--content-font);
   }
+
 }
