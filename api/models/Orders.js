@@ -21,6 +21,9 @@ const OrderItemSchema = new mongoose.Schema({
     comments: {
         type: String
       },
+    commentsEmployee: {
+        type: String
+      },
     orderId:{
         type: Number,
         required: true

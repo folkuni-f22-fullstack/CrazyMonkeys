@@ -24,7 +24,7 @@ const UntreadOrder = ({ chartData, orders}) => {
         console.log(order._id);
            
        
-           const response = await updateOrder(orderStatus, order._id); 
+           const response = await updateOrder(orderStatus, order._id, msgToCook); 
        
     };
 

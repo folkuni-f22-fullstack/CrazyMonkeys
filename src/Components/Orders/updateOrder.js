@@ -1,8 +1,9 @@
-const updateOrder = async (updatedOrderData, orderId) => {
+const updateOrder = async (updatedOrderData, orderId, msgTooCook) => {
 
 const url = `/api/orders/${orderId}`;
     const data = {
-        status: updatedOrderData
+        status: updatedOrderData,
+        commentsEmployee: msgTooCook
     }
 
 

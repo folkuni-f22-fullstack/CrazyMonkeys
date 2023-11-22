@@ -7,6 +7,7 @@ import "./employeeStyle.css";
 
 import OrderKort from "../Components/anställda/OrderKort";
 import UntreadOrder from "../Components/Orders/untreadedOrder.jsx";
+import UnderTreatmentOrder from "../Components/Orders/underTreatmentOrder.jsx";
 
 export const EmployeeView = () => {
     const navigate = useNavigate();
@@ -158,7 +159,7 @@ export const EmployeeView = () => {
                 {viewTab === "untreated" && (
                     <UntreadOrder chartData={untreatedData} orders={orders}/>)}
                 {viewTab === "during-treatment" && (
-                    <UntreadOrder chartData={duringTreatmentData} orders={orders}/>)}
+                    <UnderTreatmentOrder chartData={duringTreatmentData} orders={orders}/>)}
                 {viewTab === "done" && (
                     <UntreadOrder chartData={doneData} orders={orders}/>)}
 
