@@ -1,8 +1,9 @@
-import { useState, useRef, createContext } from "react";
+import { useState, useRef, createContext, useEffect } from "react";
 export const FunkyContext = createContext();
 
 const ContextRoot = ({ children }) => {
     const [order, setOrder] = useState([]);
+    const [orderPrice, setTotalPrice] = useState("0");
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [customerInfo, setCustomerInfo] = useState({
         name: "",
@@ -11,7 +12,8 @@ const ContextRoot = ({ children }) => {
         portCode: "",
         mail: "",
         mobile: "",
-        comments:""
+        comments:"",
+        status: ""
     });
 
     const orderToSend = {
@@ -27,10 +29,19 @@ const ContextRoot = ({ children }) => {
             menuItem: orderItem.itemId,
             quantity: orderItem.quantity,
         })),
+        status: customerInfo.status
     };
 
     // Steps
     const [selectStep, setSelectStep] = useState(1)
+
+    useEffect(() => {
+        const jwt = sessionStorage.getItem("jwt");
+
+        if (jwt) {
+            setIsLoggedIn(true);
+        }
+    }, []);
 
     // Login
     const loginDialogRef = useRef();
@@ -52,7 +63,7 @@ const ContextRoot = ({ children }) => {
                 order,
                 setOrder,
                 customerInfo,
-                setCustomerInfo, isLoggedIn, setIsLoggedIn, selectStep, setSelectStep
+                setCustomerInfo, isLoggedIn, setIsLoggedIn, selectStep, setSelectStep, orderPrice, setTotalPrice
             }}
         >
             {children}

@@ -83,6 +83,12 @@ body {
     top: 1em;
 }
 
+.plus-btn, .minus-btn{
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
 .back-btn {
     position: relative;
     left: 0rem;

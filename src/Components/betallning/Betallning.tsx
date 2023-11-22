@@ -34,6 +34,8 @@ const CheckoutPage: React.FC<CheckoutProps> = () => {
         mail: customerInfo.mail,
         mobile: customerInfo.mobile,
         items: item,
+        comments: customerInfo.comments,
+        status: customerInfo.status
     };
 
     try {
