@@ -2,12 +2,12 @@ import React, { useState, useContext } from "react";
 import { FunkyContext } from "../../ContextRoot.tsx";
 import { useNavigate } from "react-router-dom";
 
-import "./betallning.css";
+import "./betalning.css";
 import { Link } from "react-router-dom";
-import OrderComponent from "../../dataApi/OrderComponent"
+import OrderComponent from "../../dataApi/OrderComponent.jsx"
 import { StepsHeader } from "../StepsHeader/StepsHeader.jsx";
 
-interface CheckoutProps {}
+
 
 const CheckoutPage: React.FC<CheckoutProps> = () => {
   const navigate = useNavigate()
@@ -86,7 +86,13 @@ const handleOrderPost = async (event) => {
       <div className="checkout-container">
         <StepsHeader />
       <form onSubmit={handleOrderPost}>
-        <h2>Välj betalningsmetod</h2>
+        <header className="pay-header">
+        <Link to="/leverans" className="go-back-btn" >
+          <span className="material-symbols-outlined">undo</span>
+        </Link>
+        <h1>Välj betalningsmetod</h1>
+        </header>
+
 
         <div className="payment-method">
           <label>

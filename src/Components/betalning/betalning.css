@@ -7,6 +7,21 @@
   width: 100%;
 }
 
+.pay-header {
+  display: grid;
+  grid-template-areas: 'button title title ...';
+  padding: 1.25em 0em;
+}
+
+.pay-header > h1 {
+  grid-area: title;
+  text-align: center;
+}
+
+.go-back-btn {
+  grid-area: button;
+}
+
 .checkout-container {
   background-color: white;
   padding: 20px;
