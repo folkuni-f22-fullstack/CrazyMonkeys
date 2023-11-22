@@ -78,19 +78,21 @@ router.put("/:id", async (req, res) => {
     const updatedOrderData = req.body;
 
     try {
-        const existingOrder = await Orders.findOne({ _id: orderId});
+        const existingOrder = await Orders.findOne({ _id: orderId });
 
         if (!existingOrder) {
             return res.status(404).json({ message: "Order not found" });
         }
 
+        // Uppdatera befintlig order med nya uppgifter
         Object.assign(existingOrder, updatedOrderData);
-        
+
+        // Om det finns en uppdatering för items, gör en djup kopiering av dem
         if (updatedOrderData.items) {
-            existingOrder.items = await Promise.all(updatedOrderData.items.map(async (item) => {
-            }));
+            existingOrder.items = updatedOrderData.items.map(item => ({ ...item }));
         }
 
+        // Spara den uppdaterade ordern
         const updatedOrder = await existingOrder.save();
         res.status(200).json(updatedOrder);
 
@@ -98,8 +100,8 @@ router.put("/:id", async (req, res) => {
         console.error(err);
         res.status(500).json(err);
     }
-
 });
+
 
 
 export default router
