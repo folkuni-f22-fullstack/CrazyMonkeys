@@ -84,7 +84,10 @@ const UntreadOrder = ({ chartData, orders }) => {
             customerPortCode,
             customerEmail,
             customerPhone)
-            console.log("frontend: res", order._id);
+            if(response){
+                setIsEditing(false)
+                setEditOrder({})
+            }
     };
 
 
