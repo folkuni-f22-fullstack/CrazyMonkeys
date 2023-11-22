@@ -19,13 +19,16 @@ body {
 
 .background-chart{
     display: flex;
-    padding: 2em;
     margin: 2em;
-    flex-direction:column;
-    gap: 4em;
-    width: 70%;
+    flex-direction: column;
+    max-width: 70%;
     border-radius: 20px;
     background-color: white;
+    min-width: 320px;
+}
+
+.empty-cart-text {
+    text-align: center;
 }
 
 .order-line{

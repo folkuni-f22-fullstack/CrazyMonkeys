@@ -48,15 +48,15 @@ const Kundkorg = () => {
         setOrder(filteredOrder);
     };
 
-    const onSubmitButton = () => {
+    const onSubmitButton = (state) => {
         setOrder(order);
-
-        if (orderToSend.items.length > 0) {
+        console.log(chartData);
+        if (orderToSend.items.length > 0 && state) {
             navigate("/leverans");
             setSelectStep(2);
         } else {
             console.log("Välj en artikel för att gå vidare!");
-            
+            navigate("/menu")
         }
 
     };
@@ -76,45 +76,61 @@ const Kundkorg = () => {
                 </Link>
 
                 <h1 className="chart-title">Kundkorg</h1>
-                {chartData.map((order) => (
-                    <>
-                        <div className="order-line">
-                            <div className="food-name-div">
-                                <h2 className="foodname">{order.name}</h2>
-                            </div>
-
-                            <div className="price-div">
-                                <h4 className="price-title">Pris</h4>{" "}
-                                <span className="foodprice">{order.price}</span>
-                            </div>
-
-                            <div className="amount-order">
-                                <span className="amount">Antal</span>
-                                <div className="minus-plus">
-                                    <button className="minus-btn" onClick={() => handleAddToCart(order._id, -1)}>
-                                        <BiMinus className="minus" />
-                                    </button>
-                                    <span className="amount-food">
-                                        {orderToSend.items.find(
-                                            (item) => item.menuItem === order._id
-                                        )?.quantity || 0}
-                                    </span>
-                                    <button className="plus-btn" onClick={() => handleAddToCart(order._id, 1)}>
-                                        <BiPlus className="plus" />
-                                    </button>
+                {
+                    chartData.length === 0 ? (
+                        <p className="empty-cart-text">
+                            Din kundkorg är tom!
+                        </p>
+                    ) : (
+                        chartData.map((order) => (
+                            <>
+                                <div className="order-line">
+                                    <div className="food-name-div">
+                                        <h2 className="foodname">{order.name}</h2>
+                                    </div>
+        
+                                    <div className="price-div">
+                                        <h4 className="price-title">Pris</h4>{" "}
+                                        <span className="foodprice">{order.price}</span>
+                                    </div>
+        
+                                    <div className="amount-order">
+                                        <span className="amount">Antal</span>
+                                        <div className="minus-plus">
+                                            <button className="minus-btn" onClick={() => handleAddToCart(order._id, -1)}>
+                                                <BiMinus className="minus" />
+                                            </button>
+                                            <span className="amount-food">
+                                                {orderToSend.items.find(
+                                                    (item) => item.menuItem === order._id
+                                                )?.quantity || 0}
+                                            </span>
+                                            <button className="plus-btn" onClick={() => handleAddToCart(order._id, 1)}>
+                                                <BiPlus className="plus" />
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </>
-                ))}
+                            </>
+                        ))
+                    )
+                }
+
                 <div className="line-div">
                     <hr className="line" />
                 </div>
                 <p className="total-summa">Totalsumma: {totalSum} Kr</p>
                 <div className="chart-btn-grad">
-                    <button className="btn-grad" onClick={() => onSubmitButton()}>
-                        Gå vidare
-                    </button>
+                    {
+                        chartData.length === 0 ? (
+                        <button className="btn-grad" onClick={() => onSubmitButton(false)}>
+                        Gå tillbaka till menyn
+                        </button>) : (
+                            <button className="btn-grad" onClick={() => onSubmitButton(true)}>
+                                Gå vidare
+                            </button>
+                        )
+                    }
                 </div>
             </div>
         </div>
