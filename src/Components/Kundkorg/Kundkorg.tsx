@@ -50,8 +50,13 @@ const Kundkorg = () => {
 
     const onSubmitButton = () => {
         setOrder(order);
-        navigate("/leverans");
-        setSelectStep(2);
+        console.log("orderToSend ", orderToSend, " order ", order)
+
+        if (orderToSend.items.length > 0) {
+            navigate("/leverans");
+            setSelectStep(2);
+        }
+
     };
 
     const totalSum = chartData.reduce((acc, order) => acc + order.price * (orderToSend.items.find(item => item.menuItem === order._id)?.quantity || 0), 0);
@@ -68,7 +73,7 @@ const Kundkorg = () => {
                     </span>
                 </Link>
 
-                <h1 className="chart-title">Varukorg</h1>
+                <h1 className="chart-title">Kundkorg</h1>
                 {chartData.map((order) => (
                     <>
                         <div className="order-line">
