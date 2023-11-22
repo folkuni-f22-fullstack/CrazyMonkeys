@@ -3,6 +3,7 @@ export const FunkyContext = createContext();
 
 const ContextRoot = ({ children }) => {
     const [order, setOrder] = useState([]);
+    const [orderPrice, setTotalPrice] = useState("0");
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [customerInfo, setCustomerInfo] = useState({
         name: "",
@@ -62,7 +63,7 @@ const ContextRoot = ({ children }) => {
                 order,
                 setOrder,
                 customerInfo,
-                setCustomerInfo, isLoggedIn, setIsLoggedIn, selectStep, setSelectStep
+                setCustomerInfo, isLoggedIn, setIsLoggedIn, selectStep, setSelectStep, orderPrice, setTotalPrice
             }}
         >
             {children}
