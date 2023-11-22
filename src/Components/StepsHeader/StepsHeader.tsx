@@ -25,7 +25,7 @@ export const StepsHeader = () => {
             </div>
             <div className="line" />
             <div>
-                <button className="step-round" style={chosenStep(3)}>3</button>
+                <div className="step-round" style={chosenStep(3)}>3</div>
                 <legend>Betala</legend>
             </div>
             <div className="line" />
