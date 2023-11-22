@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 function Footer() {
   const footerRef = useRef(null); 
   window.scrollTo(0, 0);
-  // const { stateLoginDialog } = useContext(FunkyContext);
+ 
   const { stateLoginDialog, isLoggedIn} = useContext(FunkyContext);
 
   const navigate = useNavigate()
