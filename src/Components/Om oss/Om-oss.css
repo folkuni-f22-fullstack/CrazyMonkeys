@@ -2,192 +2,196 @@ body{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color:#4C5452 ;
     overflow-x: hidden;
-    
+    background-color: #4C5452;
+}
+.first-img{
+    width: 100% !important;
+}
+.mobile-text{
+    text-align: center;
+    font-size: 1.3rem;
+    color: #fff;
 }
 .middle-page{
-    display: flex;
-    height: 24rem;
-    margin-top: 13rem;
     color: #fff;
+    border: 3px solid red;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
     background-color: #183A37;
-    font-size: 1.7rem;
-
+    margin: 3rem 0;
+    
 }
 
 .middle-page-2{
+    color: #fff;
+    border: 3px solid yellow;
+    background: #183A37;
+}
+.middle-contain{
     display: flex;
-    height: 24rem;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: auto;
+ 
+}
+.funky-about-text{
+    border: 1px solid rgb(140, 233, 18);
+}
+.whyfunky , .whyfunky-2{
+    text-align: center;
+}
+.wok-img{
+    position: relative;
+    bottom: 3rem;
+    left: 1rem;
+    width: 12rem;
+
+}
+
+.pasta-img{
+    position: absolute;
+    right: 1rem;
+    top: 21rem;
+    width: 11rem;
+    
+}
+
+.sushi{
+    position: relative;
+    top: 1rem;
+    left: 6rem;
+    width: 12rem;
+}
+.seafood{
+    position: absolute;
+    right: 8rem;
+    bottom: 60rem;
+    width: 11rem;
+}
+
+
+/* body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #4C5452;
+    overflow-x: hidden;
+  }
+  
+  .middle-page,
+  .middle-page-2 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100% !important;
     margin-top: 13rem;
     color: #fff;
     background-color: #183A37;
     font-size: 1.7rem;
-}
-.middle-img{
+    position: relative;
+  }
+  
+  .middle-page {
+    width: 96%;
+    height: 24rem;
+  }
+  
+  .middle-page-2 {
+    height: 24rem;
+    width: 96%;
+  }
+  
+  .middle-img {
     display: flex;
     flex-wrap: wrap;
-}
-.middle-contain{
+  }
+  
+  .middle-contain,
+  .middle-contain-2 {
     display: flex;
     flex-wrap: wrap;
     width: 70%;
-
-   
-}
-
-
-.wok-img{
+    margin: 0 auto;
+  }
+  
+  .wok-img {
     position: absolute;
+  
     bottom: 2rem;
-
-}
-.pasta-img{
+    margin-left: 8%;
+    transform: translateX(-50%);
+  }
+  
+  .pasta-img {
     position: absolute;
     bottom: -1rem;
-}
-.whyfunky-2 , .whyfunky{
+    margin-left: 8%;
+    transform: translateX(-50%);
+  }
+  
+  .sushi {
+    position: absolute;
+    z-index: 10;
+    top: 13rem;
+    right: 3rem;
+  }
+  
+  .seafood {
+    margin-right: 7rem;
+    position: relative;
+    bottom: 4rem;
+  }
+  
+  .middle-text, .middle-text-2{
+    text-align: left;
+  }
+  .whyfunky-2,
+  .whyfunky {
     text-align: center;
-}
-
-
-
-
-@media (min-width:320px) and (max-width:460px){
-    .first-img{
-        width: 100%;
-    }
-    .middle-page{
-        display: flex;
-        flex-wrap: wrap;
-        position: relative;
-        margin-top: 7rem;
-        height: 55rem;
-        width: 100%;
-        padding: 2rem;
-        font-size: 18px;
+  }
+  
+  @media (max-width: 600px) {
+    .middle-page
+     {
+      margin-top: 7rem;
+      height: auto;
     }
     .middle-page-2{
         display: flex;
-        flex-wrap: wrap;
-        position: relative;
-        margin-top: 7rem 0;
-        height: 50rem;
-        width: 100%;
-        padding: 2rem;
-        font-size: 18px;
+        flex-direction: column-reverse;
+        height: auto;
     }
-    .wok-img{
-        position: absolute;
-        
-        top: -3rem;
-        width: 15rem;
-        height: 16rem;
+    .wok-img,
+    .pasta-img,
+    .sushi,
+    .seafood {
+      position: static;
+      transform: none;
+      width: 100%;
+      margin-bottom: 1rem;
     }
-    .pasta-img{
-        position: absolute;
-        left: 3rem;
-        top: 9rem;
-        width: 14rem;
+  
+    .middle-contain,
+    .middle-contain-2 {
+      width: 100%;
+      text-align: center;
+      margin: 1rem 0;
     }
-    .middle-contain{
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-items: end;
-        margin: 1rem 2rem;
-        position: relative;
-        left: -2rem;
-        bottom: -15rem;
-        align-items: center;
+  
+    .middle-contain-2 {
+      bottom: -8rem;
     }
-    .sushi{
-        position: absolute;
-        width:10rem ;
-        bottom: 37rem; 
-        left: 7rem;
-        z-index: 10;
+  }
+  
+  @media (min-width: 601px) and (max-width: 990px) {
+    .middle-contain,
+    .middle-contain-2 {
+      width: 80%;
     }
-    .seafood{
-        position: absolute;
-        width: 13rem;
-        height: 15rem;
-        top: -4rem;
-        
-    }
-    .middle-contain-2{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: end;
-        margin: 1rem 2rem;
-        position: relative;
-        left: -2rem;
-        bottom: -11rem;
-        align-items: center;
-    }
-    
-}
- @media (min-width:461px) and (max-width:990px){
-    .first-img{
-        width: 100%;
-    }
-    .middle-page {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        position: relative;
-        margin-top: 7rem;
-        height: 55rem;
-        font-size: 1.6rem;
-        padding: 2rem;
+  }
+   */
 
-    }
-    .middle-page{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    
-    .wok-img{
-        position: absolute;
-        top: -5rem;
-        left: 4rem;
-        width: 17rem;
-
-    }
-    .pasta-img{
-        display: flex;
-        flex-wrap: wrap;
-        position: absolute;
-        left: 9rem;
-        top: 6rem;
-        width: 16rem;
-    }
-    .middle-contain{
-        display: flex;
-        flex-wrap: wrap;
-        margin: 1rem;
-        position: relative;
-        bottom: -15rem;
-        left: -1.3rem;
-       
-    }
-} 
-@media (min-width: 991px) {
-    .middle-page{
-        display: flex;
-        height: 24rem;
-        margin-top: 13rem;
-        color: #fff;
-        background-color: #183A37;
-        font-size: 1.7rem;
-        position: relative;
-    
-    }
-    .middle-contain{
-        display: flex;
-        position: absolute;
-        left: 31rem;
-        width: 70%;
-    }
-}
-
+  

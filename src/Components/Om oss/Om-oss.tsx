@@ -53,7 +53,10 @@ const AboutUs = () => {
 
           <section className="middle-page-2">
            
-
+          <div className="middle-img">
+              <img src={seafood} alt="" className="seafood" />
+              <img src={sushi} alt="" className=" sushi" />
+            </div>
             <div className="middle-contain-2">
               <div className="funky-about-text-2">
                 <h1 className="whyfunky-2"> Varför välja Funkey Fusion </h1>
@@ -72,10 +75,7 @@ const AboutUs = () => {
                 </p>
               </div>
             </div>
-            <div className="middle-img">
-              <img src={sushi} alt="" className=" sushi" />
-              <img src={seafood} alt="" className="seafood" />
-            </div>
+           
           </section>
         </div>
       </div>
