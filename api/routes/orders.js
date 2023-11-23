@@ -15,6 +15,9 @@ router.get("/", async (req, res) => {
     }
 })
 
+
+
+// Ta bort hela ordern eller bara specifika varor
 router.delete("/:id", async (req, res) => {
     const orderId = req.params.id;
     const deleteOption = req.query.option; // Antag att du skickar 'option=order' eller 'option=menuItem' i förfrågan

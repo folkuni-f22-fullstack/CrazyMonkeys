@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./orderKort.css";
 import { removeOrderItem } from "../../dataApi/removeOrderItem.js";
 import { IoAddCircleSharp } from "react-icons/io5";
+import { FunkyContext } from "../../ContextRoot";
+
+
 export default function OrderKort(props) {
     const [isClicked, setIsClicked] = useState(false);
+    const {isEditing} = useContext(FunkyContext);
 
-    const additemInput = () => {};
+    const additemInput = () => {
+
+    };
 
     return (
         <article>
@@ -13,7 +19,8 @@ export default function OrderKort(props) {
                 <div className="customer-order">
                     <div className="order-card-header">
                         <h2>Kundens Order</h2>
-                        {props.order.status === "untreated" && (
+                        {props.order.status === "untreated" && isEditing && (
+                           
                             <button className="add-item-to-order-btn">
                                 <IoAddCircleSharp size={30} />
                             </button>
@@ -40,17 +47,21 @@ export default function OrderKort(props) {
                                                 : "Namn ej tillgängligt"}{" "}
                                             x {orderItem.quantity}
                                         </p>
-                                        {props.order.status === "untreated" && (
+                                        {props.order.status === "untreated" && isEditing &&(
+                                         
                                             <div className="remove-order-div">
                                                 <button
                                                     onClick={() => removeOrder(orderItem.menuItem)}
-                                                >
+                                                    >
                                                     Ta bort vara
                                                 </button>
                                             </div>
+                                                   
                                         )}
                                     </div>
-                                    <hr />
+                                        {props.order.status === "untreated" && isEditing &&(
+                                        <hr />
+                                        )}
                                 </div>
                             );
                         })}

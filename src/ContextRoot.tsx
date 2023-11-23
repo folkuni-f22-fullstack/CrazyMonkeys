@@ -2,6 +2,7 @@ import { useState, useRef, createContext, useEffect } from "react";
 export const FunkyContext = createContext();
 
 const ContextRoot = ({ children }) => {
+    const [isEditing, setIsEditing] = useState(false);
     const [order, setOrder] = useState([]);
     const [orderPrice, setTotalPrice] = useState("0");
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -63,7 +64,7 @@ const ContextRoot = ({ children }) => {
                 order,
                 setOrder,
                 customerInfo,
-                setCustomerInfo, isLoggedIn, setIsLoggedIn, selectStep, setSelectStep, orderPrice, setTotalPrice
+                setCustomerInfo, isLoggedIn, setIsLoggedIn, selectStep, setSelectStep, orderPrice, setTotalPrice,isEditing, setIsEditing
             }}
         >
             {children}

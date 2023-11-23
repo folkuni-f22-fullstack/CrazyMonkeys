@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import OrderKort from "../anställda/OrderKort";
 import { updateOrder } from "../../dataApi/updateOrder.js";
 import { updateCustomerInfo } from "../../dataApi/updateCustomerInfo.js";
+import { removeOrder } from "../../dataApi/removeOrder.js";
+import { FunkyContext } from "../../ContextRoot";
 
 const UntreatedOrder = ({ chartData, orders }) => {
     const [isLocked, setIsLocked] = useState(false);
@@ -75,7 +77,7 @@ const UntreatedOrder = ({ chartData, orders }) => {
 
     // Edit order
     const [editOrder, setEditOrder] = useState({});
-    const [isEditing, setIsEditing] = useState(false);
+    const {isEditing, setIsEditing} = useContext(FunkyContext);
 
     const onEditOrder = (order) => {
         setEditOrder(order);
@@ -95,12 +97,14 @@ const UntreatedOrder = ({ chartData, orders }) => {
                 setIsEditing(false)
                 setEditOrder({})
             }
+
+            //ändra order här också
     };
 
     // Cancel order
     const cancelOrder = (orderId) => {
         chartData.filter((order) => order._id !== orderId);
-        console.log("du har klickat");
+        removeOrder(orderId);
         
     };
 
@@ -133,11 +137,11 @@ const UntreatedOrder = ({ chartData, orders }) => {
                                                     >
                                                         Neka
                                                     </button>
-                                                    <button
+                                                    {/* <button
                                                 className="button-edit"
                                                 onClick={() => onEditOrder(order)}>
                                                     Ändra
-                                                </button>
+                                                </button> */}
                                                     <button
                                                         onClick={() => onDeselectOrder()}
                                                         className="button-deselect"
