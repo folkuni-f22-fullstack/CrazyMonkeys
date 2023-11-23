@@ -9,7 +9,7 @@ import { Delivery } from "./Routes/Delivery.jsx";
 import CheckoutPage from "./Components/betalning/Betalning.tsx";
 import Kvitto from "./Components/Kvitto/Kvitto.tsx";
 import { EmployeeView } from "./Routes/EmployeeView.jsx";
-import Chefsview from "./Routes/Chefsview/Chefsview.tsx";
+import Chefsview from "./routes/Chefsview/Chefsview.jsx";
 
 const router = createBrowserRouter([
   {

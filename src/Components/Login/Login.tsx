@@ -1,13 +1,46 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { FunkyContext } from "../../ContextRoot";
 import { AiOutlineClose } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import {handleLoginEmp} from "./loginFetch.js"
 
 export function Login() {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [usernameError, setUsernameError] = useState("");
+    const [passwordError, setPasswordError] = useState("");
     const navigate = useNavigate();
     const { loginDialogRef, stateLoginDialog, setIsLoggedIn } = useContext(FunkyContext);
+    const [emplyeeStatus, setEmployeeStatus] = useState("")
 
+
+    // useEffect(() => {
+    //     const fetchUsers = async () =>{
+    //         try{
+    //             const users = await fetch("/api/auth")
+    //             if(!users.ok) {
+    //                 throw new Error("Något gick fel")
+    //             }
+
+    //             const usersData = await users.json()
+
+    //             const findUser = usersData.find((user) => user.username === username)
+
+    //             const statusOfUser = findUser.map
+
+
+    //             setEmployeeStatus(statusOfUser)
+    //             console.log("status", emplyeeStatus);
+                
+
+    //         }catch(err){
+    //             console.error(err);
+    //         }
+    //     }
+    //     fetchUsers()
+    // }, [])
+
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
     
@@ -35,10 +68,6 @@ export function Login() {
         }
       }
 
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [usernameError, setUsernameError] = useState("");
-    const [passwordError, setPasswordError] = useState("");
 
     const handleLogin = () => {
         if (!username) {

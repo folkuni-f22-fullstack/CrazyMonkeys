@@ -6,7 +6,7 @@ const OrderComponent = () => {
 
     const postCustomerOrder = async () => {
         const item = order.map(orderItem => {
-            console.log('orderItem.ItemId:', orderItem.itemId);
+            
             return {
                 menuItem: orderItem.itemId,
                 quantity: orderItem.quantity

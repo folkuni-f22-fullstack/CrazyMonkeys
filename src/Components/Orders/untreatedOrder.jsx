@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import OrderKort from "../anställda/OrderKort";
-import { updateOrder } from "../../dataApi/updateOrder.js";
+import { updateOrder } from "../../dataApi/updateStatus&Msg.js";
 import { updateCustomerInfo } from "../../dataApi/updateCustomerInfo.js";
 import { removeOrder } from "../../dataApi/removeOrder.js";
 import { FunkyContext } from "../../ContextRoot";
