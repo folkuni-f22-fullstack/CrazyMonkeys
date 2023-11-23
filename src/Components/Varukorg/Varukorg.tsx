@@ -72,7 +72,7 @@ const Varukorg = () => {
                 <Link to="/menu" className="back-btn">
                             <RiArrowGoBackFill size={30} />
                 </Link>
-                <h1 className="chart-title">Kundkorg</h1>
+                <h1 className="chart-title">Varukorg</h1>
                 </header>
 
                 {
