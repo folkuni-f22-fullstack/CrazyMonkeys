@@ -93,8 +93,8 @@ html, body {
     position: relative;
     background-color: #fff;
     border-radius: 10px;
-    width: calc(465px - 2.5em);
-    height: 42px;
+    width: calc(480px - 2.5em);
+    height: 54px;
     display: grid;
     align-items: center;
     grid-template-areas: 'icon order-name order-name order-name mark decline edit more';
@@ -107,12 +107,12 @@ html, body {
     margin-bottom: 1em;
 }
 
-.send-to-cook-text {
-    grid-area: send
+.mode-status-text {
+    grid-area: text
 }
 
-.order-box:has(.send-to-cook-text) {
-    grid-template-areas: 'icon order-name order-name order-name mark send send send more'
+.order-box:has(.mode-status-text ) {
+    grid-template-areas: 'icon order-name order-name order-name mark text text text more'
 }
 
 .material-symbols-outlined {
@@ -127,18 +127,17 @@ html, body {
 
 .button-more {
     grid-area: more;
-    background-color: #fff;
 }
 
-.button-mark, .button-unmark {
-    /* grid-area: spa; */
+.button-mark, .button-deselect {
+    grid-area: mark
 }
 .button-mark {
     background-color: #CBE9C1;
     color: #000000;
 }
 
-.button-unmark {
+.button-deselect {
     background-color: #F08282;
     color: #000000;
 }
@@ -167,7 +166,7 @@ html, body {
     color: #000000;
 }
 
-.button-decline, .button-confirm, .button-edit, .button-more, .button-unmark, .button-mark {
+.button-decline, .button-confirm, .button-edit, .button-deselect, .button-mark {
     cursor: pointer;
     border-radius: 3.25px;
     border: none;
@@ -177,10 +176,10 @@ html, body {
 /* Details */
 .details-about-order {
     position: absolute;
-    top: 2em;
+    top: 2.5em;
     left: 0px;
     background-color: #fff;
-    width: calc(465px - 2.5em);
+    width: calc(480px - 2.5em);
     min-height: 330px;
     margin-top: .3em;
     border-radius: 0px 0px 10px 10px;
@@ -203,6 +202,7 @@ html, body {
     width: 200px;
     border-radius: 3px;
     margin: .75em 0em;
+    height: 36px;
 }
 
 .msg-to-cook-textarea {
