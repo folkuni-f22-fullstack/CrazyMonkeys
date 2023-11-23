@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./betalning.css";
 import { Link } from "react-router-dom";
-import OrderComponent from "../../dataApi/OrderComponent.jsx"
+import OrderComponent from "../Orders/OrderComponent.jsx"
 import { StepsHeader } from "../StepsHeader/StepsHeader.jsx";
 
 

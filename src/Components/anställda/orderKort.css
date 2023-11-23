@@ -1,3 +1,46 @@
 .customer-order{
     border-bottom: 1px solid black;
 }
+
+.order-card-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-card-list{
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.order-card-list p{
+    align-items: center;
+    align-self: center;
+}
+
+.remove-order-div{
+    display: flex;
+    margin-bottom: .5em;
+    margin-top: .5em;
+    padding: .2em;
+    align-content: center;
+    align-items: start;
+}
+
+.remove-order-div button{
+    border: none;
+    padding: 0.3em;
+    border-radius: 7px;
+    background-color: #F08282;
+    cursor: pointer;
+}
+
+.add-item-to-order-btn{
+    background-color: white;
+    border: none;
+    border-radius: 80%;
+    cursor: pointer;
+    margin-bottom: 1em;
+
+}

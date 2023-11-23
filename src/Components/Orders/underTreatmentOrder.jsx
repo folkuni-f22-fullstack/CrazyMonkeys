@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import OrderKort from "../anställda/OrderKort";
-import { updateOrder } from "./updateOrder.js";
+import { updateOrder } from "../../dataApi/updateOrder.js";
 
 const UnderTreatmentOrder = ({ chartData, orders }) => {
     const [isLocked, setIsLocked] = useState(false);

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { FunkyContext } from "../ContextRoot.tsx";
+import { FunkyContext } from "../../ContextRoot.tsx";
 
 const OrderComponent = () => {
     const { orderToSend, customerInfo, order } = useContext(FunkyContext);

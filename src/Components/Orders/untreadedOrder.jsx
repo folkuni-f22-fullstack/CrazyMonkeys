@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import OrderKort from "../anställda/OrderKort";
-import { updateOrder } from "./updateOrder.js";
-import { updateCustomerInfo } from "./updateCustomerInfo.js";
+import { updateOrder } from "../../dataApi/updateOrder.js";
+import { updateCustomerInfo } from "../../dataApi/updateCustomerInfo.js";
 
 const UntreadOrder = ({ chartData, orders }) => {
     const [isLocked, setIsLocked] = useState(false);
@@ -93,6 +93,8 @@ const UntreadOrder = ({ chartData, orders }) => {
 
     const cancelOrder = (orderId) => {
         chartData.filter((order) => order._id !== orderId);
+        console.log("du har klickat");
+        
     };
 
     return (
