@@ -34,7 +34,7 @@ function Header() {
         <NavLink className="navbar" to="/menu">
           Meny
         </NavLink>
-        <NavLink className="navbar " to="/kundkorg">
+        <NavLink className="navbar " to="/varukorg">
           Varukorg
         </NavLink>
 

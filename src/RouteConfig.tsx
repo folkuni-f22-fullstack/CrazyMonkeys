@@ -4,7 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "./Routes/Root";
 import Menu from "./Components/Menu/menu";
 import StartPage from "./Routes/Startpage/Startpage";
-import Kundkorg from "./Components/Kundkorg/Kundkorg";
+import Varukorg from "./Components/Varukorg/Varukorg.tsx";
 import { Delivery } from "./Routes/Delivery";
 import CheckoutPage from "./Components/betalning/Betalning.tsx";
 import Kvitto from "./Components/Kvitto/Kvitto.tsx";
@@ -26,8 +26,8 @@ const router = createBrowserRouter([
         element: <Menu />,
       },
       {
-        path: "/kundkorg",
-        element: <Kundkorg />,
+        path: "/varukorg",
+        element: <Varukorg />,
       },
       {
         path: "/leverans",

@@ -61,7 +61,7 @@ function Menu() {
                 {activeCategory === "drycker" && <Drycker />}
                 {activeCategory === "tillbehor" && <Tillbehor />}
                 <div className="order-btn-grad-div">
-                    <Link className="btn-grad" to="/kundkorg">
+                    <Link className="btn-grad" to="/varukorg">
                         Varukorg
                     </Link>
                 </div>

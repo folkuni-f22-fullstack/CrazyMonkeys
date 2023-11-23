@@ -258,7 +258,7 @@ export function Delivery() {
     };
 
     const onGoBackBtn = () => {
-        navigate("/kundkorg");
+        navigate("/varukorg");
     };
 
     return (
