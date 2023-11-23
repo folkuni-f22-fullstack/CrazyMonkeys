@@ -5,7 +5,7 @@ import { updateCustomerInfo } from "./updateCustomerInfo.js";
 
 const UntreatedOrder = ({ chartData, orders }) => {
     const [isLocked, setIsLocked] = useState(false);
-    const [selectOrder, setSelectOrder] = useState({});
+
     const [msgToCook, setMsgToCook] = useState("");
     const [orderStatus, setOrderStatus] = useState("");
 
@@ -18,6 +18,16 @@ const UntreatedOrder = ({ chartData, orders }) => {
     const [customerPhone, setCustomerPhone] = useState("");
 
 
+
+    // Select 
+    const [selectOrder, setSelectOrder] = useState({});
+    const [isSelected, setIsSelected] = useState(false);
+
+    const onDeselectOrder = () => {
+        onSelectOrder({})
+        console.log(isSelected)
+        setIsSelected(false)
+    }
 
     // const selectedOrder = chartData.find((item) => item._id === orderId);
 
@@ -39,7 +49,6 @@ const UntreatedOrder = ({ chartData, orders }) => {
     const onSelectOrder = (order) => {
         setSelectOrder(order);
         setOrderId(order._id);
-
         setOrderStatus("during-treatment");
     };
 
@@ -61,6 +70,7 @@ const UntreatedOrder = ({ chartData, orders }) => {
         setCustomerPhone(order.mobile)
         setOrderId(order._id)
         onSelectOrder(order)
+        setIsSelected(true)
     }
 
     // Edit order
@@ -96,7 +106,17 @@ const UntreatedOrder = ({ chartData, orders }) => {
         <>
             {chartData.map((order) => (
                 <div key={order._id} className="order-box">
-                    <span className="material-symbols-outlined">schedule</span>
+                    {
+                        isEditing ? (
+                            <span className="material-symbols-outlined">edit</span>
+                        ) : (
+                            isSelected ? (
+                                <span className="material-symbols-outlined">toggle_on</span>
+                            ) : (
+                                <span className="material-symbols-outlined">schedule</span>
+                            )
+                        )
+                    }
                     <p className="order-name">Ordernummer {order.orderId}</p>
 
                     {selectOrder._id === order._id ? (
@@ -117,7 +137,7 @@ const UntreatedOrder = ({ chartData, orders }) => {
                                                     Ändra
                                                 </button>
                                                     <button
-                                                        onClick={() => onSelectOrder({})}
+                                                        onClick={() => onDeselectOrder()}
                                                         className="button-deselect"
                                                     >
                                                         Avmarkera
