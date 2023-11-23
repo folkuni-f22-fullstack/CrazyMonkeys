@@ -38,13 +38,6 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
         setIsEditing(false);
     };
 
-    // Cancel order
-    const cancelOrder = (orderId) => {
-        chartData.filter((order) => order._id !== orderId);
-        // Cancel order will remove the selected order from the chart array.
-        // TODO: Update chartData
-    };
-
     return (
         <>
                 <div className="order-box-wrapper">
@@ -55,96 +48,6 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
 
                         {selectOrder._id === order._id ? (
                             <>
-                                {editOrder._id === order._id ? (
-                                    <>
-                                        <details>
-                                            <summary></summary>
-
-                                            <div className="details-about-order">
-                                                <hr />
-                                                {/* Render OrderKort outside the loop */}
-                                                <OrderKort
-                                                    key={order.id}
-                                                    order={order}
-                                                    orders={orders}
-                                                />{" "}
-                                                <button>Ändra</button>
-                                                <details>
-                                                    <summary className="summary-box">
-                                                        Info om kund
-                                                    </summary>
-
-                                                    <div>
-                                                        <label htmlFor="customerNameInput">
-                                                            Namn:{" "}
-                                                        </label>{" "}
-                                                        <input
-                                                            id="customerNameInput"
-                                                            type="text"
-                                                            value={order.customerName}
-                                                        />
-                                                    </div>
-
-                                                    <div>
-                                                        <label htmlFor="customerAddressInput">
-                                                            Address:{" "}
-                                                        </label>{" "}
-                                                        <input
-                                                            id="customerAddressInput"
-                                                            type="text"
-                                                            value={order.adress}
-                                                        />
-                                                    </div>
-
-                                                    <div>
-                                                        <label htmlFor="customerFloorInput">
-                                                            Våning:{" "}
-                                                        </label>
-                                                        <input
-                                                            id="customerFloorInput"
-                                                            type="number"
-                                                            value={order.floor}
-                                                        />
-                                                    </div>
-
-                                                    <div>
-                                                        <label htmlFor="customerPortCodeInput">
-                                                            Portkod:{" "}
-                                                        </label>
-                                                        <input
-                                                            id="customerPortCodeInput"
-                                                            type="number"
-                                                            value={order.portCode}
-                                                        />
-                                                    </div>
-
-                                                    <div>
-                                                        <label htmlFor="customerEmailInput">
-                                                            Mejl:{" "}
-                                                        </label>{" "}
-                                                        <input
-                                                            id="customerEmailInput"
-                                                            type="email"
-                                                            value={order.mail}
-                                                        />
-                                                    </div>
-
-                                                    <div>
-                                                        <label htmlFor="customerPhoneInput">
-                                                            Telefonnummer:{" "}
-                                                        </label>
-                                                        <input
-                                                            id="customerPhoneInput"
-                                                            type="number"
-                                                            value={order.mobile}
-                                                        />
-                                                    </div>
-                                                </details>
-                                            </div>
-                                        </details>
-                                    </>
-                                ) : (
-                                    <>
                                         <button
                                             onClick={() => onSelectOrder({})}
                                             className="button-unmark"
@@ -180,8 +83,6 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
                                             </div>
                                         </details>
                                     </>
-                                )}
-                            </>
                         ) : (
                             <button onClick={() => onSelectOrder(order)} className="button-mark">
                                 Visa Order
