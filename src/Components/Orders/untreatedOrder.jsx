@@ -87,7 +87,7 @@ const UntreatedOrder = ({ chartData, orders }) => {
             }
     };
 
-
+    // Cancel order
     const cancelOrder = (orderId) => {
         chartData.filter((order) => order._id !== orderId);
     };
