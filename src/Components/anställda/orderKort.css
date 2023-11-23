@@ -44,3 +44,10 @@
     margin-bottom: 1em;
 
 }
+
+/* New order div */
+.new-order-div{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: .5em;
+}

@@ -1,16 +1,24 @@
 import React, { useState, useContext } from "react";
 import "./orderKort.css";
 import { removeOrderItem } from "../../dataApi/removeOrderItem.js";
+import { postItemOrder } from "../../dataApi/postToOrder.js";
 import { IoAddCircleSharp } from "react-icons/io5";
+import { IoIosCloseCircle } from "react-icons/io";
 import { FunkyContext } from "../../ContextRoot";
-
+import MenuEmployee from "./MenuEmployee.jsx";
 
 export default function OrderKort(props) {
     const [isClicked, setIsClicked] = useState(false);
-    const {isEditing} = useContext(FunkyContext);
+    const { isEditing, selectedItemId, selectedItemQuantity, setSelectedItemQuantity } =
+        useContext(FunkyContext);
 
     const additemInput = () => {
+        setIsClicked(true);
+    };
 
+    const sendOrder = (orderId) => {
+        console.log(orderId, selectedItemId, selectedItemQuantity);
+        postItemOrder(orderId, selectedItemId, selectedItemQuantity)
     };
 
     return (
@@ -20,12 +28,42 @@ export default function OrderKort(props) {
                     <div className="order-card-header">
                         <h2>Kundens Order</h2>
                         {props.order.status === "untreated" && isEditing && (
-                           
-                            <button className="add-item-to-order-btn">
-                                <IoAddCircleSharp size={30} />
-                            </button>
+                            <>
+                                {isClicked ? (
+                                    <button
+                                        onClick={() => setIsClicked(false)}
+                                        className="add-item-to-order-btn"
+                                    >
+                                        <IoIosCloseCircle color="#F08282" size={30} />
+                                    </button>
+                                ) : (
+                                    <button
+                                        onClick={() => setIsClicked(true)}
+                                        className="add-item-to-order-btn"
+                                    >
+                                        <IoAddCircleSharp size={30} />
+                                    </button>
+                                )}
+                            </>
                         )}
                     </div>
+                    {props.order.status === "untreated" && isEditing && isClicked && (
+                        <div >
+                            <div className="new-order-div">
+                                <MenuEmployee />
+                                <div className="new-order-input-div">
+                                    <label htmlFor="quantity">Antal</label>
+                                    <input
+                                        onChange={(e) => setSelectedItemQuantity(e.target.value)}
+                                        name="quantity"
+                                        type="number"
+                                    />
+                                </div>
+                            </div>
+                            <button onClick={() => sendOrder(props.order._id)}>Lägg till order</button>
+                        </div>
+                    )}
+
                     {props.order.items &&
                         props.order.items.map((orderItem) => {
                             // Find the corresponding menu item in orders
@@ -47,21 +85,17 @@ export default function OrderKort(props) {
                                                 : "Namn ej tillgängligt"}{" "}
                                             x {orderItem.quantity}
                                         </p>
-                                        {props.order.status === "untreated" && isEditing &&(
-                                         
+                                        {props.order.status === "untreated" && isEditing && (
                                             <div className="remove-order-div">
                                                 <button
                                                     onClick={() => removeOrder(orderItem.menuItem)}
-                                                    >
+                                                >
                                                     Ta bort vara
                                                 </button>
                                             </div>
-                                                   
                                         )}
                                     </div>
-                                        {props.order.status === "untreated" && isEditing &&(
-                                        <hr />
-                                        )}
+                                    {props.order.status === "untreated" && isEditing && <hr />}
                                 </div>
                             );
                         })}
