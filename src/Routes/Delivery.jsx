@@ -218,6 +218,7 @@ export function Delivery() {
 
     const onGoBackBtn = () => {
         navigate("/varukorg");
+        setSelectStep(1);
     };
 
     return (

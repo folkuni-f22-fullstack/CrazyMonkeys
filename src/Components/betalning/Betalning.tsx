@@ -80,6 +80,11 @@ const handleOrderPost = async (event) => {
     setButtonDisabled(false);
   };
 
+  const goBackToDelivery = () => {
+    navigate("/leverans")
+    setSelectStep(2)
+  }
+
   return (
     <div className="outer-container">
 
@@ -87,9 +92,9 @@ const handleOrderPost = async (event) => {
         <StepsHeader />
       <form onSubmit={handleOrderPost}>
         <header className="pay-header">
-        <Link to="/leverans" className="go-back-btn" >
+        <button onClick={() => goBackToDelivery()} className="go-back-btn" >
           <span className="material-symbols-outlined">undo</span>
-        </Link>
+        </button>
         <h1>Välj betalningsmetod</h1>
         </header>
 
