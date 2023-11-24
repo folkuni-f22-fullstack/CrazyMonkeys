@@ -1,16 +1,17 @@
 :root {
   --title-font: "Gloria Hallelujah", cursive;
+
   --content-font: "Ubuntu", sans-serif;
-  /* --Helvetica-font: 'Helvetica', sans-serif; */
-  --mont-font: 'Montserrat', sans-serif;
   --meny-font:'Anonymous Pro', monospace; 
+  /* --Helvetica-font: 'Helvetica', sans-serif; */
+  /* --mont-font: 'Montserrat', sans-serif; */
   
   --andika-font: 'Andika', sans-serif;
 
   --header-color: #183A37;
   --bg-color: #4c5452;
   --bg-footer: #312e2e;
-
+  --bg-white: #F2F2F2;
   --black-icons: black;
 }
 /* Skrivs såhär:  background-color: var(--bg-color); */
@@ -41,6 +42,7 @@
   border-radius: 10px;
   display: block;
   width: 90%;
+  text-decoration: none;
 }
 .btn-grad:hover {
   background-position: right center;

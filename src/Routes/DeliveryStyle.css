@@ -44,10 +44,10 @@ html, body {
     margin-bottom: 3em;
 }
 
-.delivery-btn-grad{
+/* .delivery-btn-grad{
     display: flex;
     justify-content: center;
-  }
+  } */
 
 .delivery-btn{
     width: 100% !important;

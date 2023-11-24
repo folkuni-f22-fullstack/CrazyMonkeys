@@ -24,7 +24,7 @@ const Button: React.FC<ButtonProps> = ({ category, onClick, active }) => {
 };
 
 function Menu() {
-    const [activeCategory, setActiveCategory] = useState("matratter");
+    const [activeCategory, setActiveCategory] = useState("maträtter");
 
     const handleCategoryChange = (category: string) => {
         setActiveCategory(category);
@@ -33,35 +33,35 @@ function Menu() {
     return (
         <div className="outer-container">
             <div className="inner-container">
-                <h1>Meny</h1>
-                <div>
+                <h1 className="meny-title">Meny</h1>
+                <div className="meny-tabs">
                     <Button
-                        category="matratter"
+                        category="Maträtter"
                         onClick={handleCategoryChange}
-                        active={activeCategory === "matratter"}
+                        active={activeCategory === "Maträtter"}
                     />
                     <Button
-                        category="drycker"
+                        category="Drycker"
                         onClick={handleCategoryChange}
-                        active={activeCategory === "drycker"}
+                        active={activeCategory === "Drycker"}
                     />
                     <Button
-                        category="tillbehor"
+                        category="Tillbehör"
                         onClick={handleCategoryChange}
-                        active={activeCategory === "tillbehor"}
+                        active={activeCategory === "Tillbehör"}
                     />
                 </div>
                 <div className="funky-hr-title">
                     <hr className="funky-hr"></hr>
-                    <p>Funky Fusion</p>
+                    <p>FUNKY FUSION</p>
                     <hr className="funky-hr"></hr>
                 </div>
 
-                {activeCategory === "matratter" && <Matratter />}
-                {activeCategory === "drycker" && <Drycker />}
-                {activeCategory === "tillbehor" && <Tillbehor />}
+                {activeCategory === "Maträtter" && <Matratter />}
+                {activeCategory === "Drycker" && <Drycker />}
+                {activeCategory === "Tillbehör" && <Tillbehor />}
                 <div className="order-btn-grad-div">
-                    <Link className="btn-grad" to="/kundkorg">
+                    <Link className="btn-grad menybtn" to="/kundkorg">
                         Varukorg
                     </Link>
                 </div>
