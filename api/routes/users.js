@@ -10,6 +10,20 @@ dotenv.config();
 const secret = process.env.SECRET;
 
 
+router.get("/", async (req, res) => {
+    try{
+        const allUsers = await User.find({})
+        if(allUsers.length < 0) {
+            res.status(402).json("Finns inga användare att hämta")
+        }else{  
+            res.status(200).json(allUsers)
+        }
+    }catch(err){
+        res.status(500).json(err)
+    }
+})
+
+
 //Register 
 
 router.post ('/register', async (req, res) => {
@@ -17,6 +31,7 @@ router.post ('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, salt)
     try{
         const newUser = new User({
+            status: req.body.status,
             username: req.body.username,
             password: hashedPassword
         })

@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import { FunkyContext } from "../ContextRoot.tsx";
+import { FunkyContext } from "../../ContextRoot.tsx";
 
 const OrderComponent = () => {
     const { orderToSend, customerInfo, order } = useContext(FunkyContext);
 
     const postCustomerOrder = async () => {
         const item = order.map(orderItem => {
-            console.log('orderItem.ItemId:', orderItem.itemId);
+            
             return {
                 menuItem: orderItem.itemId,
                 quantity: orderItem.quantity

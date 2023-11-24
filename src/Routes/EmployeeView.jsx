@@ -6,7 +6,7 @@ import {handleLogout} from "../Components/Login/loginFetch.js"
 import "./employeeStyle.css";
 
 import OrderKort from "../Components/anställda/OrderKort";
-import UntreadOrder from "../Components/Orders/untreadedOrder.jsx";
+import UntreatedOrder from "../Components/Orders/untreatedOrder.jsx";
 import UnderTreatmentOrder from "../Components/Orders/underTreatmentOrder.jsx";
 
 export const EmployeeView = () => {
@@ -148,7 +148,7 @@ export const EmployeeView = () => {
                             className={chosenTab("during-treatment")}
                             onClick={() => setSelectTab("during-treatment")}
                             >
-                            Underbehandling
+                            Under behandling
                         </button>
                         <button className={chosenTab("done")} onClick={() => setSelectTab("done")}>
                             Färdig
@@ -157,18 +157,18 @@ export const EmployeeView = () => {
                 </header>
 
                 {viewTab === "untreated" && (
-                    <UntreadOrder chartData={untreatedData} orders={orders}/>)}
+                    <UntreatedOrder chartData={untreatedData} orders={orders}/>)}
                 {viewTab === "during-treatment" && (
                     <UnderTreatmentOrder chartData={duringTreatmentData} orders={orders}/>)}
                 {viewTab === "done" && (
-                    <UntreadOrder chartData={doneData} orders={orders}/>)}
+                    <UntreatedOrder chartData={doneData} orders={orders}/>)}
 
                 {/* Det som ska göras är att vi ska ha olika Chartdata där vi hämtar
                 ordrar beroende på vad för status dem har.
                 
                 1. Lägg en "status" objekt i orderModellen som har "Obehandlade" som standard.
                 2. hämta ordrar beroende på status.
-                3. gör en PUT req som ändrar "status" när man klickar på skicka till kocken och den ska hamna i "Underbehandlade".
+                3. gör en PUT req som ändrar "status" när man klickar på skicka till kocken och den ska hamna i "Under behandlade".
                 */}
 
 

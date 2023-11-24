@@ -15,17 +15,66 @@ router.get("/", async (req, res) => {
     }
 })
 
-router.delete("/:id", async (req, res) => {
-    let orderToDelete = req.params.id
 
+
+// Ta bort hela ordern eller bara specifika varor
+router.delete("/:id", async (req, res) => {
+    const orderId = req.params.id;
+    const deleteOption = req.query.option; // Antag att du skickar 'option=order' eller 'option=menuItem' i förfrågan
+  
     try {
-        const findOrder = await Orders.findOneAndDelete({orderId: orderToDelete})
-        console.log("Tog bort ordern");
-        res.sendStatus(200)
-    } catch(err){
-        res.status(500).send(err)
+      if (deleteOption === "order") {
+        // Radera hela ordern
+        const deletedOrder = await Orders.findOneAndDelete({ _id: orderId });
+  
+        if (!deletedOrder) {
+          return res.status(404).json({ message: "Order not found" });
+        }
+  
+        console.log("Removed the order");
+
+        /////////////////////////////////////////////////////////////////////
+      } else if (deleteOption === "menuItem") {
+        // Ta bort en maträtt från ordern
+
+        const existingOrder = await Orders.findOne({_id: orderId})
+        if(!existingOrder){
+           return res.status(404).json({ message: "Order not found"})
+        }
+
+        const menuItemIdToDelete = req.body.menuItemId;
+
+        const foundMenuItem = existingOrder.items.find(item => item.menuItem.toString() === menuItemIdToDelete)
+
+        if(!foundMenuItem){
+            return res.status(404).json({ message: "Item not found" });
+
+        }
+  
+        const updatedOrder = await Orders.findOneAndUpdate(
+          { _id: orderId },
+          { $pull: { items: { menuItem: menuItemIdToDelete } } },
+          { new: true }
+        );
+  
+        if (!updatedOrder) {
+          return res.status(404).json({ message: "Order not found" });
+        }
+  
+        console.log("Removed menuItem from order");
+      } else {
+        return res.status(400).json({ message: "Invalid delete option" });
+      }
+  
+      res.sendStatus(200);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send(err);
     }
-})
+  });
+//   För att radera hela ordern: /api/orders/:id?option=order
+//   För att ta bort en maträtt: /api/orders/:id?option=menuItem
+  
 
 // POST order
 router.post("/", async (req, res) => {
@@ -69,6 +118,40 @@ router.post("/", async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+
+router.post("/:id/addMenuItem", async (req, res) => {
+    const orderId = req.params.id
+    const newMenuItem = req.body.newMenuItem[0];
+  
+    try {
+         const existingOrder = await Orders.findOne({_id: orderId})
+         if(!existingOrder){
+            return res.status(404).json({ message: "Order not found"})
+         }
+      
+         
+         const existingMenuItem = existingOrder.items.find(item => item.menuItem.toString() === newMenuItem.menuItem)
+
+         if(existingMenuItem){
+            existingMenuItem.quantity += parseInt(newMenuItem.quantity, 10);
+         }else{
+            existingOrder.items.push(newMenuItem)
+         }
+
+         const updatedOrder = await existingOrder.save()
+        
+        console.log("req.body:", req.body);
+        console.log("Added new menuItem to order with quantity:", newMenuItem.quantity);
+        
+      console.log("Added new menuItem to order");
+      res.status(200).json(updatedOrder);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send(err);
+    }
+  });
+  
 
 
 

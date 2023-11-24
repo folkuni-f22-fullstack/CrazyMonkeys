@@ -2,7 +2,7 @@ import { BiPlus, BiMinus } from "react-icons/bi";
 import { useEffect, useState } from "react";
 import "./anställdaordrar.css";
 // import {postCustomerOrder} from "../../dataApi/postOrder.jsx"
-import OrderComponent from "../../dataApi/OrderComponent.jsx";
+import OrderComponent from "../Orders/OrderComponent.jsx";
 
 const Kundkorg = () => {
     const [chartData, setChartData] = useState([]);

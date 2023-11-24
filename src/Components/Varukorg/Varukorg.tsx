@@ -2,11 +2,11 @@ import { BiPlus, BiMinus } from "react-icons/bi";
 import { useEffect, useState, useContext } from "react";
 import { FunkyContext } from "../../ContextRoot";
 import { RiArrowGoBackFill } from "react-icons/ri";
-import "./Stylekorg.css";
+import "./StyleVarukorg.css";
 import { useNavigate, Link } from "react-router-dom";
 import { StepsHeader } from "../StepsHeader/StepsHeader";
 
-const Kundkorg = () => {
+const Varukorg = () => {
     const navigate = useNavigate();
 
     const { orderToSend, setSelectStep, setOrder, order } = useContext(FunkyContext);
@@ -72,7 +72,7 @@ const Kundkorg = () => {
                 <Link to="/menu" className="back-btn">
                             <RiArrowGoBackFill size={30} />
                 </Link>
-                <h1 className="chart-title">Kundkorg</h1>
+                <h1 className="chart-title">Varukorg</h1>
                 </header>
 
                 {
@@ -136,4 +136,4 @@ const Kundkorg = () => {
     );
 };
 
-export default Kundkorg;
+export default Varukorg;

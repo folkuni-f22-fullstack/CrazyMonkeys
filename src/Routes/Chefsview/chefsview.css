@@ -76,23 +76,6 @@ padding:1em ;
 }
 
 /* Orders */
-.order-box {
-    position: relative;
-    background-color: #fff;
-    border-radius: 10px;
-    width: calc(430px - 2.5em);
-    height: 42px;
-    display: grid;
-    align-items: center;
-    grid-template-areas: 'icon order-name order-name order-name decline edit more';
-    gap: 10px;
-    padding: 0em 1.25em;
-    box-shadow: 0.3px 0.5px 0.7px hsl(0deg 0% 53% / 0.36),
-    0.8px 1.6px 2px -0.8px hsl(0deg 0% 53% / 0.36),
-    2.1px 4.1px 5.2px -1.7px hsl(0deg 0% 53% / 0.36),
-    5px 10px 12.6px -2.5px hsl(0deg 0% 53% / 0.36);
-    margin-bottom: 1em;
-}
 .material-symbols-outlined {
     grid-area: icon;
     color:rgb(0, 0, 0); 
@@ -161,23 +144,6 @@ transition: transform 0.3s;
   }
 
 /* Details */
-.details-about-order {
-    position: absolute;
-    top: 2em;
-    left: 0px;
-    background-color: #fff;
-    width: calc(430px - 2.5em);
-    min-height: 330px;
-    margin-top: .3em;
-    border-radius: 0px 0px 10px 10px;
-    box-shadow: 0.3px 0.5px 0.7px hsl(0deg 0% 53% / 0.36),
-    0.8px 1.6px 2px -0.8px hsl(0deg 0% 53% / 0.36),
-    2.1px 4.1px 5.2px -1.7px hsl(0deg 0% 53% / 0.36),
-    5px 10px 12.6px -2.5px hsl(0deg 0% 53% / 0.36);
-    padding: 1em 1.25em;
-    z-index: 2;
-}
-
 .summary-box {
     box-shadow: 0.3px 0.5px 0.7px hsl(0deg 0% 63% / 0.36),
     0.8px 1.6px 2px -0.8px hsl(0deg 0% 63% / 0.36),

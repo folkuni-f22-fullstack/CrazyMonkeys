@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import OrderKort from "../anställda/OrderKort";
-import { updateOrder } from "./updateOrder.js";
-import { updateCustomerInfo } from "./updateCustomerInfo.js";
+import { updateOrder } from "../../dataApi/updateStatus&Msg.js";
+import { updateCustomerInfo } from "../../dataApi/updateCustomerInfo.js";
+import { removeOrder } from "../../dataApi/removeOrder.js";
+import { FunkyContext } from "../../ContextRoot";
 
-const UntreadOrder = ({ chartData, orders }) => {
+const UntreatedOrder = ({ chartData, orders }) => {
     const [isLocked, setIsLocked] = useState(false);
-    const [selectOrder, setSelectOrder] = useState({});
+
     const [msgToCook, setMsgToCook] = useState("");
     const [orderStatus, setOrderStatus] = useState("");
 
@@ -18,6 +20,16 @@ const UntreadOrder = ({ chartData, orders }) => {
     const [customerPhone, setCustomerPhone] = useState("");
 
 
+
+    // Select 
+    const [selectOrder, setSelectOrder] = useState({});
+    const [isSelected, setIsSelected] = useState(false);
+
+    const onDeselectOrder = () => {
+        onSelectOrder({})
+        console.log(isSelected)
+        setIsSelected(false)
+    }
 
     // const selectedOrder = chartData.find((item) => item._id === orderId);
 
@@ -39,7 +51,6 @@ const UntreadOrder = ({ chartData, orders }) => {
     const onSelectOrder = (order) => {
         setSelectOrder(order);
         setOrderId(order._id);
-
         setOrderStatus("during-treatment");
     };
 
@@ -61,11 +72,12 @@ const UntreadOrder = ({ chartData, orders }) => {
         setCustomerPhone(order.mobile)
         setOrderId(order._id)
         onSelectOrder(order)
+        setIsSelected(true)
     }
 
     // Edit order
     const [editOrder, setEditOrder] = useState({});
-    const [isEditing, setIsEditing] = useState(false);
+    const {isEditing, setIsEditing} = useContext(FunkyContext);
 
     const onEditOrder = (order) => {
         setEditOrder(order);
@@ -73,9 +85,6 @@ const UntreadOrder = ({ chartData, orders }) => {
     };
 
     const saveEditedOrder = async (order) => {
-        // console.log();
-        // setEditOrder({});
-        // setIsEditing(false);
         const response = await updateCustomerInfo(
             order._id,
             customerName,
@@ -88,38 +97,37 @@ const UntreadOrder = ({ chartData, orders }) => {
                 setIsEditing(false)
                 setEditOrder({})
             }
+
     };
 
-
+    // Cancel order
     const cancelOrder = (orderId) => {
         chartData.filter((order) => order._id !== orderId);
+        removeOrder(orderId);
+        
     };
 
     return (
         <>
             {chartData.map((order) => (
                 <div key={order._id} className="order-box">
-                    <span className="material-symbols-outlined">schedule</span>
+                    {
+                        isEditing ? (
+                            <span className="material-symbols-outlined">edit</span>
+                        ) : (
+                            isSelected ? (
+                                <span className="material-symbols-outlined">toggle_on</span>
+                            ) : (
+                                <span className="material-symbols-outlined">schedule</span>
+                            )
+                        )
+                    }
                     <p className="order-name">Ordernummer {order.orderId}</p>
 
                     {selectOrder._id === order._id ? (
                         <>
-                            {editOrder._id === order._id ? (
-                                <>
-                                    {isLocked ? (
-                                        <p className="send-to-cook-text">Skickar till kocken...</p>
-                                    ) : (
-                                        <>
                                             {isEditing ? (
-                                                <>
-                                                    <button
-                                                        className="button-edit"
-                                                        type="submit"
-                                                        onClick={() => saveEditedOrder(order)}
-                                                    >
-                                                        Slutför ändring
-                                                    </button>
-                                                </>
+                                                <p>Under redigering...</p>
                                             ) : (
                                                 <>
                                                     <button
@@ -129,19 +137,23 @@ const UntreadOrder = ({ chartData, orders }) => {
                                                         Neka
                                                     </button>
                                                     <button
-                                                        onClick={() => onSelectOrder({})}
-                                                        className="button-unmark"
+                                                className="button-edit"
+                                                onClick={() => onEditOrder(order)}>
+                                                    Ändra
+                                                </button>
+                                                    <button
+                                                        onClick={() => onDeselectOrder()}
+                                                        className="button-deselect"
                                                     >
                                                         Avmarkera
                                                     </button>
                                                 </>
                                             )}
-                                        </>
-                                    )}
-
-                                    <details>
-                                        <summary></summary>
-
+                        <details>
+                            <summary title={`Kika på order ${order.orderId}`}>
+                            </summary>
+                            {editOrder._id === order._id ? (
+                                <>
                                         <div className="details-about-order">
                                             <hr />
                                             {/* Render OrderKort outside the loop */}
@@ -150,17 +162,17 @@ const UntreadOrder = ({ chartData, orders }) => {
                                                 order={order}
                                                 orders={orders}
                                             />{" "}
-                                            <button>Ändra</button>
+                                            
                                             <details>
                                                 <summary className="summary-box">
                                                     Info om kund
                                                 </summary>
 
-                                                <div>
+                                                <div className="label-above-input">
                                                     <label htmlFor="customerNameInput">
                                                         Namn:{" "}
                                                     </label>{" "}
-                                                    <input
+                                                    <input className="input"
                                                         id="customerNameInput"
                                                         type="text"
                                                         value={customerName}
@@ -169,11 +181,11 @@ const UntreadOrder = ({ chartData, orders }) => {
                                                     />
                                                 </div>
 
-                                                <div>
+                                                <div className="label-above-input">
                                                     <label htmlFor="customerAddressInput">
                                                         Address:{" "}
                                                     </label>{" "}
-                                                    <input
+                                                    <input className="input"
                                                         id="customerAddressInput"
                                                         type="text"
                                                         value={customerAddress}
@@ -181,11 +193,11 @@ const UntreadOrder = ({ chartData, orders }) => {
                                                     />
                                                 </div>
 
-                                                <div>
+                                                <div className="label-above-input">
                                                     <label htmlFor="customerFloorInput">
                                                         Våning:{" "}
                                                     </label>
-                                                    <input
+                                                    <input className="input"
                                                         id="customerFloorInput"
                                                         type="number"
                                                         value={customerFloor}
@@ -193,11 +205,11 @@ const UntreadOrder = ({ chartData, orders }) => {
                                                     />
                                                 </div>
 
-                                                <div>
+                                                <div className="label-above-input">
                                                     <label htmlFor="customerPortCodeInput">
                                                         Portkod:{" "}
                                                     </label>
-                                                    <input
+                                                    <input className="input"
                                                         id="customerPortCodeInput"
                                                         type="number"
                                                         value={customerPortCode}
@@ -205,11 +217,11 @@ const UntreadOrder = ({ chartData, orders }) => {
                                                     />
                                                 </div>
 
-                                                <div>
+                                                <div className="label-above-input">
                                                     <label htmlFor="customerEmailInput">
                                                         Mejl:{" "}
                                                     </label>{" "}
-                                                    <input
+                                                    <input className="input"
                                                         id="customerEmailInput"
                                                         type="email"
                                                         value={customerEmail}
@@ -217,11 +229,11 @@ const UntreadOrder = ({ chartData, orders }) => {
                                                     />
                                                 </div>
 
-                                                <div>
+                                                <div className="label-above-input"> 
                                                     <label htmlFor="customerPhoneInput">
                                                         Telefonnummer:{" "}
                                                     </label>
-                                                    <input
+                                                    <input className="input"
                                                         id="customerPhoneInput"
                                                         type="number"
                                                         value={customerPhone}
@@ -229,34 +241,17 @@ const UntreadOrder = ({ chartData, orders }) => {
                                                     />
                                                 </div>
                                             </details>
+                                            <button
+                                                        className="button-edit"
+                                                        type="submit"
+                                                        onClick={() => saveEditedOrder(order)}
+                                                    >
+                                                        Slutför ändring
+                                                    </button>
                                         </div>
-                                    </details>
                                 </>
                             ) : (
                                 <>
-                                    {isLocked ? (
-                                        <p className="send-to-cook-text">Skickar till kocken...</p>
-                                    ) : (
-                                        <>
-                                            <button className="button-decline">Neka</button>
-                                            <button
-                                                className="button-edit"
-                                                onClick={() => onEditOrder(order)}
-                                            >
-                                                Ändra
-                                            </button>
-                                        </>
-                                    )}
-                                    <button
-                                        onClick={() => onSelectOrder({})}
-                                        className="button-unmark"
-                                    >
-                                        Avmarkera
-                                    </button>
-
-                                    <details>
-                                        <summary></summary>
-
                                         <div className="details-about-order">
                                             <hr />
                                             {/* Render OrderKort outside the loop */}
@@ -270,9 +265,8 @@ const UntreadOrder = ({ chartData, orders }) => {
                                                 <summary className="summary-box">
                                                     Meddela kocken
                                                 </summary>
-                                                <textarea
+                                                <textarea className="input msg-to-cook-textarea"
                                                     onChange={onChangeTextArea}
-                                                    className="msg-to-cook-textarea"
                                                     placeholder="Meddelande till kocken"
                                                 />
                                             </details>
@@ -303,9 +297,10 @@ const UntreadOrder = ({ chartData, orders }) => {
                                                 )}
                                             </button>
                                         </div>
-                                    </details>
                                 </>
                             )}
+                        </details>
+
                         </>
                     ) : (
                         <button onClick={() => test(order)} className="button-mark">
@@ -318,4 +313,4 @@ const UntreadOrder = ({ chartData, orders }) => {
     );
 };
 
-export default UntreadOrder;
+export default UntreatedOrder;
