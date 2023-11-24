@@ -35,8 +35,8 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
                                             Avmarkera
                                         </button>
 
-                                        <details>
-                                            <summary></summary>
+                                        <details className="details">
+                                            <summary className="summary" title={`Kika på order ${order.orderId}`}></summary>
 
                                             <div className="details-about-order">
                                                 <hr />
