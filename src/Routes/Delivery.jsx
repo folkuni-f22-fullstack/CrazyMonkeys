@@ -128,7 +128,7 @@ export function Delivery() {
                 deliveryFloor !== "" &&
                 deliveryPortCode !== "" && isValidFirstName && isValidLastName && isValidEmail && isValidNumber
             ) {
-                if (ownComments !== "") {
+                if (deliveryOwnComments !== "") {
                     setCustomerInfo({
                         name: `${deliveryFirstName} ${deliveryLastName}`,
                         mail: deliveryEmail,
@@ -156,7 +156,7 @@ export function Delivery() {
             }
         } else {
             if (deliveryFirstName !== "" && deliveryLastName !== "" && deliveryEmail !== "" && deliveryPhoneNumber !== "" && isValidFirstName && isValidLastName && isValidEmail && isValidNumber) {
-                if (ownComments !== "") {
+                if (deliveryOwnComments !== "") {
                     setCustomerInfo({
                         name: `${deliveryFirstName} ${deliveryLastName}`,
                         mail: deliveryEmail,
