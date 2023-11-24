@@ -20,6 +20,9 @@
 
 .go-back-btn {
   grid-area: button;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .checkout-container {
