@@ -20,9 +20,7 @@ const AboutUs = () => {
             />
             <p className="mobile-text">om oss på funky fusion</p>
             <p className="text-title-us">
-              Välkomna till vår exklusiva fusionrestaurang, där smaker från hela
-              världen möts för att skapa en unik och minnesvärd kulinarisk
-              upplevelse. Vi är
+            Fusionmat är den kreativa konsten att kombinera olika matkulturer och smaker för att skapa helt nya, spännande rätter.
             </p>
           </section>
           <section className="middle-page">
@@ -52,7 +50,7 @@ const AboutUs = () => {
           </section>
 
           <section className="middle-page-2">
-           
+        
           <div className="middle-img">
               <img src={seafood} alt="" className="seafood" />
               <img src={sushi} alt="" className=" sushi" />
