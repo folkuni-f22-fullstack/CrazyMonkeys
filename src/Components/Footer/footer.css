@@ -6,6 +6,9 @@
   justify-content: space-around;
   height: 7em;
   text-align: center;
+  position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer-desktop-container {
@@ -95,6 +98,8 @@
   .created-by-container {
     display: none;
   }
+
+
   .footer-container {
     display: none;
   }
@@ -104,6 +109,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
   }
   .footer-columns {
     display: flex;
