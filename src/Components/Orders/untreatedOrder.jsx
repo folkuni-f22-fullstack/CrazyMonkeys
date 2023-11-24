@@ -189,7 +189,7 @@ const UntreatedOrder = ({ chartData, orders }) => {
                     {selectOrder._id === order._id ? (
                         <>
                                             {isEditing ? (
-                                                <p>Under redigering...</p>
+                                                <p className="mode-status-text">Under redigering...</p>
                                             ) : (
                                                 <>
                                                     <button

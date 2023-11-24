@@ -28,6 +28,7 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
 
                         {selectOrder._id === order._id ? (
                             <>
+                                <p className="mode-status-text">Skickad till kocken ...</p>
                                         <button
                                             onClick={() => onSelectOrder({})}
                                             className="button-deselect"

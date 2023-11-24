@@ -107,7 +107,7 @@ html, body {
 }
 
 .order-box:has(.mode-status-text ) {
-    grid-template-areas: 'details icon order-name order-name order-name text text text'
+    grid-template-areas: 'details icon order-name order-name order-name text text text mark'
 }
 
 .material-symbols-outlined {
