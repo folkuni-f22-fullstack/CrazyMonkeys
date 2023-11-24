@@ -2,11 +2,11 @@ import { useEffect, useState, useContext } from "react";
 import "../assets/Matratter.css";
 import { FunkyContext } from "../../ContextRoot";
 
-
 const Matratter = () => {
   const [food, setFood] = useState([]);
   const { orderToSend, order, setOrder } = useContext(FunkyContext);
   const [itemCounter, setItemCounter] = useState(1);
+  const [showOverlay, setShowOverlay] = useState(false);
 
   const addOrder = () => {
     const newOrder = {
@@ -37,6 +37,7 @@ const Matratter = () => {
   }, []);
 
   const handleAddToCart = (foodId: string) => {
+    setShowOverlay(true);
     const existingOrder = order.find(
       (orderItem) => orderItem.itemId === foodId
     );
@@ -59,7 +60,9 @@ const Matratter = () => {
       setOrder((prevOrder) => [...prevOrder, newOrder]);
     }
     setItemCounter(itemCounter + 1);
-
+    setTimeout(() => {
+      setShowOverlay(false);
+    }, 9000);
     console.log(orderToSend);
   };
 
@@ -71,16 +74,13 @@ const Matratter = () => {
     <div className="matratt-container">
       {food.map((matratt) => (
         <div className="matratt" key={matratt._id}>
-          <div className="matratt-image">
-            <img src={matratt.img} alt={matratt.name} />
-          </div>
+          <h4 className="mattratter-title">{matratt.name}</h4>
 
-          <div className="matratt-details">
-            <h4>{matratt.name}</h4>
+          <div className="bottom-details">
+            <img className="matratt-image" src={matratt.img} alt={matratt.name} />
             <p className="matratt-p">{matratt.desc}</p>
-            <div className="bottom-details">
-              <p>Pris: {matratt.price} kr</p>
-
+            <div className="price-and-button">
+              <p className="menu-price"> {matratt.price} kr</p>
               <button
                 className="order-button"
                 onClick={() => handleAddToCart(matratt._id)}
@@ -89,6 +89,12 @@ const Matratter = () => {
               </button>
             </div>
           </div>
+
+          {showOverlay && (
+            <div className="menu-overlay">
+              <p>Varan har lagts i kundvagnen</p>
+            </div>
+          )}
         </div>
       ))}
     </div>

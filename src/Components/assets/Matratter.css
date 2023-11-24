@@ -1,88 +1,98 @@
 .matratt-container {
-    display: flex;
-    flex-direction: column;
-    height: 70vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-  
-  .matratt {
-    display: flex;
-    align-items: center;
-    margin: 10px;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  overflow-y: scroll;
+}
+.matratt-container::-webkit-scrollbar {
+  width: 12px;
+}
+.matratt {
+  margin-left: 0.6em;
+}
+
+.mattratter-title {
+  font-family: var(--meny-font);
+  font-size: 18px;
+  margin: 2em 0em 1.5em;
+}
+
+
+.matratt-image {
+  flex: 1;
+  width: 100%;
+  max-height: 15em;
+  border-radius: 7px;
+}
+
+.matratt-p {
+  text-align: start;
+  font-size: 16px;
+  padding: 0.5em;
+  font-family: var(--meny-font)
+}
+.bottom-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: space-around;
+background-color: white;
+box-shadow: 4px 2px 5px 0px gray; 
+border-radius: 0px 0px 5px 5px; 
+margin-bottom: 3em;
+}
+
+.price-and-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+  width: 15em;
+margin: 1em 0em 1em;
+}
+.menu-price{
+  display: flex;
+  align-self: end;
+}
+.order-button {
+  background-color: #316863;
+  color: white;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  padding: 0.4em 1em;
+ 
+}
+
+.order-button:hover {
+  background-color: #183118;
+}
+
+.menu-overlay {
+  position: absolute;
+  top: 50%;
+  left: 1em;
+  width: 90%;
+  height: 5%;
+  background: rgba(93, 122, 72, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+  z-index: 999; 
+  padding: 1em;
+}
+
+@media screen and (min-width: 430px) {
+  .menu-overlay {
+    top: 50%;
+    left: 7em;
     width: 100%;
-    box-sizing: border-box;
   }
-  
-  .matratt-image {
-    flex: 1;
+  .matratt-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 1fr)); /* Four items per row, adjust minmax accordingly */
+    gap: 1em; /* Adjust the gap between items */
   }
-  
-  .matratt-image img {
-    width: 230px;
-    height: 230px;
-    border-radius: 7px;
-  }
-  
-  .matratt-details {
-    background-color: rgb(196, 196, 196);
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex: 2;
-    padding: 10px;
-  }
-
-  .matratt-details .matratt-p{
-    width: 200px;
-    text-align: center;
-    font-size: 15px;
-  }
-
-  .bottom-details{
-    display: flex;
-    gap: 2em;
-    align-items: center;
-  }
-  
-  .order-button {
-    background-color: #316863;
-    color: white;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    padding: 10px 30px; 
-  }
-  
-  .order-button:hover {
-    background-color: #183118;
-  }
-  
-  @media (max-width: 767px) {
-    .matratt {
-      flex-direction: column; 
-    }
-  
-    .matratt-details {
-      flex: 1; 
-      text-align: center; 
-      font-size: 15px;
-      align-items: center;
-      justify-content: center;
-    }
-  
-    .order-button {
-      text-align: center; 
-    }.matratt-p{
-      font-size: 13px;
-    }
-  }
-  
-  @media(max-width:320){
-    .matratt-image img {
-      width: 150;
-      height: 150px;
-    }
-    
-  }
+}
