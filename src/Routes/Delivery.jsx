@@ -138,7 +138,7 @@ export function Delivery() {
                 apartmentNumber !== "" &&
                 postNumber !== "" &&
                 floor !== "" &&
-                portCode !== ""
+                portCode !== "" && isValidFirstName && isValidLastName && isValidEmail && isValidNumber
             ) {
                 if (ownComments !== "") {
                     setCustomerInfo({
@@ -167,7 +167,7 @@ export function Delivery() {
                 setSelectStep(3);
             }
         } else {
-            if (firstName !== "" && lastName !== "" && email !== "" && phoneNumber !== "") {
+            if (firstName !== "" && lastName !== "" && email !== "" && phoneNumber !== "" && isValidFirstName && isValidLastName && isValidEmail && isValidNumber) {
                 if (ownComments !== "") {
                     setCustomerInfo({
                         name: `${firstName} ${lastName}`,
