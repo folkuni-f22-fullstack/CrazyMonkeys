@@ -3,14 +3,9 @@ import OrderKort from "../anställda/OrderKort";
 import { updateOrder } from "../../dataApi/updateStatus&Msg.js";
 
 const UnderTreatmentOrder = ({ chartData, orders }) => {
-    const [isLocked, setIsLocked] = useState(false);
     const [selectOrder, setSelectOrder] = useState({});
-    const [msgToCook, setMsgToCook] = useState("");
     const [orderStatus, setOrderStatus] = useState("");
 
-    const onChangeTextArea = (event) => {
-        setMsgToCook(event.target.value);
-    };
 
     const onSelectOrder = (order) => {
         setSelectOrder(order);
@@ -24,33 +19,18 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
         const response = await updateOrder(orderStatus, order._id);
     };
 
-    // Edit order
-    const [editOrder, setEditOrder] = useState({});
-    const [isEditing, setIsEditing] = useState(false);
-
-    const onEditOrder = (order) => {
-        setEditOrder(order);
-        setIsEditing(true);
-    };
-
-    const saveEditedOrder = () => {
-        setEditOrder({});
-        setIsEditing(false);
-    };
-
     return (
         <>
-                <div className="order-box-wrapper">
             {chartData.map((order) => (
                     <div key={order._id} className="order-box">
-                        <span className="material-symbols-outlined">schedule</span>
+                        <span className="material-symbols-outlined">lock</span>
                         <p className="order-name">Ordernummer {order.orderId}</p>
 
                         {selectOrder._id === order._id ? (
                             <>
                                         <button
                                             onClick={() => onSelectOrder({})}
-                                            className="button-unmark"
+                                            className="button-deselect"
                                         >
                                             Avmarkera
                                         </button>
@@ -90,7 +70,6 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
                         )}
                     </div>
             ))}
-            </div>
         </>
     );
 };

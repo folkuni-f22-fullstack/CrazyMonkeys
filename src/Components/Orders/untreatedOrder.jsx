@@ -211,8 +211,8 @@ const UntreatedOrder = ({ chartData, orders }) => {
                                                     </button>
                                                 </>
                                             )}
-                        <details>
-                            <summary title={`Kika på order ${order.orderId}`}>
+                        <details className="details">
+                            <summary className="summary" title={`Kika på order ${order.orderId}`}>
                             </summary>
                             {editOrder._id === order._id ? (
                                 <>
