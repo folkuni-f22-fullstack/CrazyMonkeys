@@ -19,6 +19,7 @@ export function Delivery() {
         customerInfo,
         selectStep,
         setSelectStep,
+        deliveryFirstName, setDeliveryFirstName, deliveryLastName, setDeliveryLastName, deliveryEmail, setDeliveryEmail, deliveryPhoneNumber, setDeliveryPhoneNumber, deliveryOwnComments, setDeliveryOwnComments, deliveryAddress, setDeliveryAddress, deliveryCounty, setDeliveryCounty, deliveryApartmentNumber, setDeliveryApartmentNumber, deliveryPostNumber, setDeliveryPostNumber, deliveryFloor, setDeliveryFloor, deliveryPortCode, setDeliveryPortCode
     } = useContext(FunkyContext);
 
     // States
@@ -41,23 +42,10 @@ export function Delivery() {
 
     const [wrongEmail, setWrongEmail] = useState(false);
 
-   
 
-    // Inputs
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
-    const [ownComments, setOwnComments] = useState("");
-    const [address, setAddress] = useState("");
-    const [county, setCounty] = useState("");
-    const [apartmentNumber, setApartmentNumber] = useState("");
-    const [postNumber, setPostNumber] = useState("");
-    const [floor, setFloor] = useState("");
-    const [portCode, setPortCode] = useState("");
 
     const firstNameChange = (e) => {
-        setFirstName(e.target.value);
+        setDeliveryFirstName(e.target.value);
 
         if (e.target.value === "") {
             setIsEmptyFirstName(true);
@@ -67,7 +55,7 @@ export function Delivery() {
     };
 
     const lastNameChange = (e) => {
-        setLastName(e.target.value);
+        setDeliveryLastName(e.target.value);
 
         if (e.target.value === "") {
             setIsEmptyLastName(true);
@@ -77,7 +65,7 @@ export function Delivery() {
     };
 
     const emailChange = (e) => {
-        setEmail(e.target.value);
+        setDeliveryEmail(e.target.value);
 
         if (e.target.value === "") {
             setIsEmptyEmail(true);
@@ -87,7 +75,7 @@ export function Delivery() {
     };
 
     const phoneNumberChange = (e) => {
-        setPhoneNumber(e.target.value);
+        setDeliveryPhoneNumber(e.target.value);
 
         if (e.target.value === "") {
             setIsEmptyPhoneNumber(true);
@@ -97,31 +85,31 @@ export function Delivery() {
     };
 
     const addressChange = (e) => {
-        setAddress(e.target.value);
+        setDeliveryAddress(e.target.value);
     };
 
     const ownCommentsChange = (e) => {
-        setOwnComments(e.target.value);
+        setDeliveryOwnComments(e.target.value);
     };
 
     const countyChange = (e) => {
-        setCounty(e.target.value);
+        setDeliveryCounty(e.target.value);
     };
 
     const apartmentNumberChange = (e) => {
-        setApartmentNumber(e.target.value);
+        setDeliveryApartmentNumber(e.target.value);
     };
 
     const postNumberChange = (e) => {
-        setPostNumber(e.target.value);
+        setDeliveryPostNumber(e.target.value);
     };
 
     const floorChange = (e) => {
-        setFloor(e.target.value);
+        setDeliveryFloor(e.target.value);
     };
 
     const portCodeChange = (e) => {
-        setPortCode(e.target.value);
+        setDeliveryPortCode(e.target.value);
     };
 
     const handleSubmit = (event) => {
@@ -129,34 +117,34 @@ export function Delivery() {
 
         if (chosenDeliveryOption) {
             if (
-                firstName !== "" &&
-                lastName !== "" &&
-                email !== "" &&
-                phoneNumber !== "" &&
-                address !== "" &&
-                county !== "" &&
-                apartmentNumber !== "" &&
-                postNumber !== "" &&
-                floor !== "" &&
-                portCode !== "" && isValidFirstName && isValidLastName && isValidEmail && isValidNumber
+                deliveryFirstName !== "" &&
+                deliveryLastName !== "" &&
+                deliveryEmail !== "" &&
+                deliveryPhoneNumber !== "" &&
+                deliveryAddress !== "" &&
+                deliveryCounty !== "" &&
+                deliveryApartmentNumber !== "" &&
+                deliveryPostNumber !== "" &&
+                deliveryFloor !== "" &&
+                deliveryPortCode !== "" && isValidFirstName && isValidLastName && isValidEmail && isValidNumber
             ) {
                 if (ownComments !== "") {
                     setCustomerInfo({
-                        name: `${firstName} ${lastName}`,
-                        mail: email,
-                        mobile: phoneNumber,
-                        adress: address,
+                        name: `${deliveryFirstName} ${deliveryLastName}`,
+                        mail: deliveryEmail,
+                        mobile: deliveryPhoneNumber,
+                        adress: deliveryAddress,
                         floor,
                         portCode,
-                        comments: ownComments,
+                        comments: deliveryOwnComments,
                         status: status
                     });
                 } else {
                     setCustomerInfo({
-                        name: `${firstName} ${lastName}`,
-                        mail: email,
-                        mobile: phoneNumber,
-                        adress: address,
+                        name: `${deliveryFirstName} ${deliveryLastName}`,
+                        mail: deliveryEmail,
+                        mobile: deliveryPhoneNumber,
+                        adress: deliveryAddress,
                         floor,
                         portCode,
                         comments: "",
@@ -167,27 +155,27 @@ export function Delivery() {
                 setSelectStep(3);
             }
         } else {
-            if (firstName !== "" && lastName !== "" && email !== "" && phoneNumber !== "" && isValidFirstName && isValidLastName && isValidEmail && isValidNumber) {
+            if (deliveryFirstName !== "" && deliveryLastName !== "" && deliveryEmail !== "" && deliveryPhoneNumber !== "" && isValidFirstName && isValidLastName && isValidEmail && isValidNumber) {
                 if (ownComments !== "") {
                     setCustomerInfo({
-                        name: `${firstName} ${lastName}`,
-                        mail: email,
-                        mobile: phoneNumber,
+                        name: `${deliveryFirstName} ${deliveryLastName}`,
+                        mail: deliveryEmail,
+                        mobile: deliveryPhoneNumber,
                         adress: "",
                         floor: "",
                         portCode: "",
-                        comments: ownComments,
+                        comments: deliveryOwnComments,
                         status: status
                     });
                 } else {
                     setCustomerInfo({
-                        name: `${firstName} ${lastName}`,
-                        mail: email,
-                        mobile: phoneNumber,
+                        name: `${deliveryFirstName} ${deliveryLastName}`,
+                        mail: deliveryEmail,
+                        mobile: deliveryPhoneNumber,
                         adress: "",
                         floor: "",
                         portCode: "",
-                        comments: ownComments,
+                        comments: deliveryOwnComments,
                         status: status
                     });
                 }
@@ -197,11 +185,11 @@ export function Delivery() {
         }
     };
 
-    const [isValidFirstName, notValidFirstName] = isValidName(firstName);
+    const [isValidFirstName, notValidFirstName] = isValidName(deliveryFirstName);
 
-    const [isValidLastName, notValidLastName] = isValidName(lastName);
-    const [isValidNumber, notValidNumber] = isValidPhoneNumber(phoneNumber);
-    const [isValidEmail, notValidEmail] = isValidEmailAddress(email);
+    const [isValidLastName, notValidLastName] = isValidName(deliveryLastName);
+    const [isValidNumber, notValidNumber] = isValidPhoneNumber(deliveryPhoneNumber);
+    const [isValidEmail, notValidEmail] = isValidEmailAddress(deliveryEmail);
 
     // style
     const validationErrorBorder = (empty, wrong, isValid) => {
@@ -246,7 +234,7 @@ export function Delivery() {
                                     wrongFirstName,
                                     isValidFirstName
                                 )}
-                                value={firstName}
+                                value={deliveryFirstName}
                                 type="text"
                                 placeholder="Johanna"
                                 required
@@ -278,7 +266,7 @@ export function Delivery() {
                                     wrongLastName,
                                     isValidLastName
                                 )}
-                                value={lastName}
+                                value={deliveryLastName}
                                 type="text"
                                 placeholder="Doe"
                                 required
@@ -305,7 +293,7 @@ export function Delivery() {
                             onChange={emailChange}
                             onBlur={() => setWrongEmail(true)}
                             style={validationErrorBorder(isEmptyEmail, wrongEmail, isValidEmail)}
-                            value={email}
+                            value={deliveryEmail}
                             type="email"
                             placeholder="johannaDoe@example.com"
                             required
@@ -330,7 +318,7 @@ export function Delivery() {
                                 wrongPhoneNumber,
                                 isValidNumber
                             )}
-                            value={phoneNumber}
+                            value={deliveryPhoneNumber}
                             type="number"
                             placeholder="070 123 4561"
                             required
@@ -355,7 +343,7 @@ export function Delivery() {
                             id="own-comments-input"
                             name="comments"
                             onChange={ownCommentsChange}
-                            value={ownComments}
+                            value={deliveryOwnComments}
                             placeholder="Jag vill inte ha gurka i thai sushin"
                         />
                     </div>
@@ -396,7 +384,7 @@ export function Delivery() {
                                     id="address-input"
                                     name="adress"
                                     onChange={addressChange}
-                                    value={address}
+                                    value={deliveryAddress}
                                     type="text"
                                     placeholder="Drottninggatan 17"
                                     required
@@ -410,7 +398,7 @@ export function Delivery() {
                                         className="post-number-input input no-span-input"
                                         id="post-input"
                                         onChange={postNumberChange}
-                                        value={postNumber}
+                                        value={deliveryPostNumber}
                                         type="number"
                                         placeholder="12345"
                                         required
@@ -422,7 +410,7 @@ export function Delivery() {
                                         className="county-input input no-span-input"
                                         id="county-input"
                                         onChange={countyChange}
-                                        value={county}
+                                        value={deliveryCounty}
                                         type="text"
                                         placeholder="Karlstad"
                                         required
@@ -437,7 +425,7 @@ export function Delivery() {
                                         className="input tinier-inputs no-span-input"
                                         id="apartment-input"
                                         onChange={apartmentNumberChange}
-                                        value={apartmentNumber}
+                                        value={deliveryApartmentNumber}
                                         type="number"
                                         placeholder="430"
                                     />
@@ -449,7 +437,7 @@ export function Delivery() {
                                         id="port-code-input"
                                         name="portCode"
                                         onChange={portCodeChange}
-                                        value={portCode}
+                                        value={deliveryPortCode}
                                         type="number"
                                         placeholder="1234"
                                     />
@@ -461,7 +449,7 @@ export function Delivery() {
                                         id="floor-input"
                                         name="floor"
                                         onChange={floorChange}
-                                        value={floor}
+                                        value={deliveryFloor}
                                         type="number"
                                         placeholder="1"
                                     />
