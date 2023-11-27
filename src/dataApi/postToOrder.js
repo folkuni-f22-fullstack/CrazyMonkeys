@@ -1,4 +1,4 @@
-const postItemOrder = async (orderId, menuItem, quantity) => {
+const postItemOrder = async (orderId, menuItem, quantity, whenDone) => {
 
 const url = `/api/orders/${orderId}/addMenuItem`;
 
@@ -22,7 +22,9 @@ const data = {
     }
     const response = await fetch(url, options)
     const statusObject = await response.json()
+    // whenDone()
     if(statusObject){
+
         return true
     }
     return 

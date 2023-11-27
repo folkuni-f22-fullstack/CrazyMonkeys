@@ -7,7 +7,8 @@ import { FunkyContext } from "../../ContextRoot";
 import { isValidName, isValidEmailAddress, isValidPhoneNumber } from "../validation";
 
 
-const UntreatedOrder = ({ chartData, orders }) => {
+const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOrderItem, moveOrder }) => {
+    
     // States
     const [isLocked, setIsLocked] = useState(false);
     const [orderId, setOrderId] = useState(); // State-variabel för order._id
@@ -107,12 +108,12 @@ const UntreatedOrder = ({ chartData, orders }) => {
         console.log(order._id);
         console.log(customerName);
         console.log(orderId);
-
+        moveOrder(order._id)
         const response = await updateOrder(orderStatus, order._id, msgToCook);
     };
 
 
-    const test = (order) => {
+    const setInfo = (order) => {
         setCustomerName(order.customerName)
         setCustomerAddress(order.adress)
         setCustomerFloor(order.floor)
@@ -126,7 +127,7 @@ const UntreatedOrder = ({ chartData, orders }) => {
 
     // Edit order
     const [editOrder, setEditOrder] = useState({});
-    const {isEditing, setIsEditing} = useContext(FunkyContext);
+    const {isEditing, setIsEditing, } = useContext(FunkyContext);
 
     const onEditOrder = (order) => {
         setEditOrder(order);
@@ -134,6 +135,7 @@ const UntreatedOrder = ({ chartData, orders }) => {
     };
 
     const saveEditedOrder = async (order) => {
+       
         const response = await updateCustomerInfo(
             order._id,
             customerName,
@@ -153,6 +155,7 @@ const UntreatedOrder = ({ chartData, orders }) => {
     const cancelOrder = (orderId) => {
         chartData.filter((order) => order._id !== orderId);
         removeOrder(orderId);
+        deleteOrder(orderId);
         
     };
 
@@ -224,6 +227,8 @@ const UntreatedOrder = ({ chartData, orders }) => {
                                                 key={order.id}
                                                 order={order}
                                                 orders={orders}
+                                                deleteOrderItem={deleteOrderItem}
+                                                addOrderItem={addOrderItem}
                                             />{" "}
                                             
                                             <details>
@@ -359,6 +364,9 @@ const UntreatedOrder = ({ chartData, orders }) => {
                                                 key={order.id}
                                                 order={order}
                                                 orders={orders}
+                                                deleteOrderItem={deleteOrderItem}
+                                                addOrderItem={addOrderItem}
+                                              
                                             />
 
                                             <details>
@@ -403,7 +411,7 @@ const UntreatedOrder = ({ chartData, orders }) => {
 
                         </>
                     ) : (
-                        <button onClick={() => test(order)} className="button-mark">
+                        <button onClick={() => setInfo(order)} className="button-mark">
                             Markera
                         </button>
                     )}
