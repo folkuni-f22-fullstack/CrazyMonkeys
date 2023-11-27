@@ -128,41 +128,14 @@ html, body {
     color: #000000;
 }
 
-.button-deselect {
-    background-color: #F08282;
-    color: #000000;
-}
-
-.button-confirm {
-    grid-area: confirm;
-    background-color: #CBE9C1;
-    color: #000000;
-    display: flex;
-    align-items: center;
-}
-
-.button-confirm > span {
-    font-size: 14px;
-}
-
-.button-decline {
-    grid-area: decline;
-    background-color: #F08282;
-    color: #000000;
-}
-
-.button-edit {
-    grid-area: edit;
-    background-color: #E2C476;
-    color: #000000;
-}
-
 .button-decline, .button-confirm, .button-edit, .button-deselect, .button-mark {
     cursor: pointer;
     border-radius: 3.25px;
     border: none;
     padding: .25em .65em;
     margin-left: .15em;
+    background-color: transparent;
+    color: #000;
 }
 
 /* Details */

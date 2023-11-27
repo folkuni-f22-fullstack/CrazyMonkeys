@@ -198,21 +198,23 @@ const UntreatedOrder = ({ chartData, orders }) => {
                                             ) : (
                                                 <>
                                                     <button
-                                                className="button-edit"
+                                                className="button-edit" title="Redigera order"
                                                 onClick={() => onEditOrder(order)}>
-                                                    Ändra
+                                                    <span className="material-symbols-outlined">edit</span>
                                                 </button>
                                                 <button
-                                                        className="button-decline"
+                                                        className="button-decline" title="Ta bort hela ordern"
                                                         onClick={() => cancelOrder(order._id)}
                                                     >
-                                                        Neka
+                                                        <span className="material-symbols-outlined">delete</span>
                                                     </button>
                                                     <button
                                                         onClick={() => onDeselectOrder()}
-                                                        className="button-deselect"
+                                                        className="button-deselect" title="Avmarkera order"
                                                     >
-                                                        Avmarkera
+                                                        <span className="material-symbols-outlined">
+                                                            close
+                                                        </span>
                                                     </button>
                                                 </>
                                             )}
