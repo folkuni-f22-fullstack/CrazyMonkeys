@@ -4,14 +4,26 @@ import { updateOrder } from "../../dataApi/updateStatus&Msg.js";
 import { updateCustomerInfo } from "../../dataApi/updateCustomerInfo.js";
 import { removeOrder } from "../../dataApi/removeOrder.js";
 import { FunkyContext } from "../../ContextRoot";
+import { isValidName, isValidEmailAddress, isValidPhoneNumber } from "../validation";
+
 
 const UntreatedOrder = ({ chartData, orders }) => {
+    // States
     const [isLocked, setIsLocked] = useState(false);
-
-    const [msgToCook, setMsgToCook] = useState("");
+    const [orderId, setOrderId] = useState(); // State-variabel för order._id
     const [orderStatus, setOrderStatus] = useState("");
 
-    const [orderId, setOrderId] = useState(); // State-variabel för order._id
+    const [isEmptyName, setIsEmptyName] = useState(false)
+    const [isEmptyPhoneNumber, setIsEmptyPhoneNumber] = useState(false)
+    const [isEmptyEmail, setIsEmptyEmail] = useState(false)
+
+    // Validation
+    const [wrongName, setWrongName] = useState(false)
+    const [wrongPhoneNumber, setWrongPhoneNumber] = useState(false)
+    const [wrongEmail, setWrongEmail] = useState(false)
+
+    // Inputs
+    const [msgToCook, setMsgToCook] = useState("");
     const [customerName, setCustomerName] = useState("");
     const [customerAddress, setCustomerAddress] = useState("");
     const [customerFloor, setCustomerFloor] = useState("");
@@ -19,6 +31,43 @@ const UntreatedOrder = ({ chartData, orders }) => {
     const [customerEmail, setCustomerEmail] = useState("");
     const [customerPhone, setCustomerPhone] = useState("");
 
+
+    // For validation
+    const [isValidFullName, notValidFullName] = isValidName(customerName)
+    const [isValidNumber, notValidNumber] = isValidPhoneNumber(customerPhone)
+    const [isValidEmail, notValidEmail] = isValidEmailAddress(customerEmail)
+
+
+
+    const nameChange = (e) => {
+        setCustomerName(e.target.value)
+
+        if (e.target.value === "") {
+            setIsEmptyName(true)
+        } else {
+            setIsEmptyName(false)
+        }
+    }
+
+    const emailChange = (e) => {
+        setCustomerEmail(e.target.value)
+
+        if (e.target.value === "") {
+            setIsEmptyEmail(true)
+        } else {
+            setIsEmptyEmail(false)
+        }
+    }
+
+    const phoneChange = (e) => {
+        setCustomerPhone(e.target.value)
+
+        if (e.target.value === "") {
+            setIsEmptyPhoneNumber(true)
+        } else {
+            setIsEmptyPhoneNumber(false)
+        }
+    }
 
 
     // Select 
@@ -107,6 +156,19 @@ const UntreatedOrder = ({ chartData, orders }) => {
         
     };
 
+        // style
+        const validationErrorBorder = (empty, wrong, isValid) => {
+            return {
+                border: empty
+                    ? null
+                    : wrong
+                    ? isValid
+                        ? "2px solid #48E761"
+                        : "2px solid #FF0000"
+                    : null,
+            };
+        };
+
     return (
         <>
             {chartData.map((order) => (
@@ -126,8 +188,11 @@ const UntreatedOrder = ({ chartData, orders }) => {
 
                     {selectOrder._id === order._id ? (
                         <>
-                                            {isEditing ? (
-                                                <p>Under redigering...</p>
+
+                        <details className="details">
+                            <summary className="summary" title={`Kika på order ${order.orderId}`}>
+                            {isEditing ? (
+                                                <p className="mode-status-text">Under redigering...</p>
                                             ) : (
                                                 <>
                                                     <button
@@ -149,8 +214,6 @@ const UntreatedOrder = ({ chartData, orders }) => {
                                                     </button>
                                                 </>
                                             )}
-                        <details>
-                            <summary title={`Kika på order ${order.orderId}`}>
                             </summary>
                             {editOrder._id === order._id ? (
                                 <>
@@ -175,10 +238,23 @@ const UntreatedOrder = ({ chartData, orders }) => {
                                                     <input className="input"
                                                         id="customerNameInput"
                                                         type="text"
+                                                        style={validationErrorBorder(isEmptyName, wrongName,isValidFullName)}
+
                                                         value={customerName}
-                                                        onChange={(e) => setCustomerName(e.target.value)}
+                                                        onChange={(e) => nameChange}
 
                                                     />
+                                                    {!isEmptyName && (
+                                                    <div className="validation-error">
+                                                        <p>
+                                                            {isEmptyName
+                                                                ? ""
+                                                                : wrongName
+                                                                ? notValidFullName
+                                                                : ""}
+                                                        </p>
+                                                    </div>
+                                                )}
                                                 </div>
 
                                                 <div className="label-above-input">
@@ -224,9 +300,21 @@ const UntreatedOrder = ({ chartData, orders }) => {
                                                     <input className="input"
                                                         id="customerEmailInput"
                                                         type="email"
+                                                        style={validationErrorBorder(isEmptyEmail, wrongEmail, isValidEmail)}
                                                         value={customerEmail}
-                                                        onChange={(e) => setCustomerEmail(e.target.value)}
+                                                        onChange={(e) => emailChange}
                                                     />
+                                                    {!isEmptyEmail && (
+                                                    <div className="validation-error">
+                                                        <p>
+                                                            {isEmptyEmail
+                                                                ? ""
+                                                                : wrongEmail
+                                                                ? notValidEmail
+                                                                : ""}
+                                                        </p>
+                                                    </div>
+                                                )}
                                                 </div>
 
                                                 <div className="label-above-input"> 
@@ -236,9 +324,21 @@ const UntreatedOrder = ({ chartData, orders }) => {
                                                     <input className="input"
                                                         id="customerPhoneInput"
                                                         type="number"
+                                                        style={validationErrorBorder(isEmptyPhoneNumber, wrongPhoneNumber, isValidNumber)}
                                                         value={customerPhone}
-                                                        onChange={(e) => setCustomerPhone(e.target.value)}
+                                                        onChange={(e) => phoneChange}
                                                     />
+                                                    {!isEmptyPhoneNumber && (
+                                                    <div className="validation-error">
+                                                        <p>
+                                                            {isEmptyPhoneNumber
+                                                                ? ""
+                                                                : wrongPhoneNumber
+                                                                ? notValidNumber
+                                                                : ""}
+                                                        </p>
+                                                    </div>
+                                                )}
                                                 </div>
                                             </details>
                                             <button

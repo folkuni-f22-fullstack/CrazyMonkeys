@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
+
 import Matratter from "../Menu/Matratter.tsx";
 import Drycker from "../Menu/Dryck.tsx";
 import Tillbehor from "../Menu/Tillbehor.tsx";
 import "../assets/menu.css";
-import { Link } from "react-router-dom";
+
+import { FunkyContext } from "../../ContextRoot.tsx";
+import { StepsHeader } from "../StepsHeader/StepsHeader";
 
 interface ButtonProps {
     category: string;
@@ -30,6 +35,11 @@ function Menu() {
     const handleCategoryChange = (category: string) => {
         setActiveCategory(category);
     };
+
+    const goToCart = () => {
+        navigate("/varukorg")
+        setSelectStep(1)
+    }
 
     return (
         <div className="outer-container">
@@ -62,9 +72,9 @@ function Menu() {
                 {activeCategory === "Drycker" && <Drycker />}
                 {activeCategory === "Tillbehör" && <Tillbehor />}
                 <div className="order-btn-grad-div">
-                    <Link className="btn-grad" to="/varukorg">
+                    <button className="btn-grad" onClick={() => goToCart()}>
                         Varukorg
-                    </Link>
+                    </button>
                 </div>
             </div>
         </div>

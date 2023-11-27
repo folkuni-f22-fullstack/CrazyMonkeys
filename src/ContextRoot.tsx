@@ -2,6 +2,22 @@ import { useState, useRef, createContext, useEffect } from "react";
 export const FunkyContext = createContext();
 
 const ContextRoot = ({ children }) => {
+    // Delivery states
+        // Inputs
+        const [deliveryFirstName, setDeliveryFirstName] = useState("");
+        const [deliveryLastName, setDeliveryLastName] = useState("");
+        const [deliveryEmail, setDeliveryEmail] = useState("");
+        const [deliveryPhoneNumber, setDeliveryPhoneNumber] = useState("");
+        const [deliveryOwnComments, setDeliveryOwnComments] = useState("");
+        const [deliveryAddress, setDeliveryAddress] = useState("");
+        const [deliveryCounty, setDeliveryCounty] = useState("");
+        const [deliveryApartmentNumber, setDeliveryApartmentNumber] = useState("");
+        const [deliveryPostNumber, setDeliveryPostNumber] = useState("");
+        const [deliveryFloor, setDeliveryFloor] = useState("");
+        const [deliveryPortCode, setDeliveryPortCode] = useState("");
+
+
+    // States
     const [isEditing, setIsEditing] = useState(false);
     const [order, setOrder] = useState([]);
     const [selectedItemId, setSelectedItemId] = useState("")
@@ -66,7 +82,8 @@ const ContextRoot = ({ children }) => {
                 order,
                 setOrder,
                 customerInfo,
-                setCustomerInfo, isLoggedIn, setIsLoggedIn, selectStep, setSelectStep, orderPrice, setTotalPrice,isEditing, setIsEditing, selectedItemId, setSelectedItemId,selectedItemQuantity, setSelectedItemQuantity
+                setCustomerInfo, isLoggedIn, setIsLoggedIn, selectStep, setSelectStep, orderPrice, setTotalPrice,isEditing, setIsEditing, selectedItemId, setSelectedItemId,selectedItemQuantity, setSelectedItemQuantity,
+                deliveryFirstName, setDeliveryFirstName, deliveryLastName, setDeliveryLastName, deliveryEmail, setDeliveryEmail, deliveryPhoneNumber, setDeliveryPhoneNumber, deliveryOwnComments, setDeliveryOwnComments, deliveryAddress, setDeliveryAddress, deliveryCounty, setDeliveryCounty, deliveryApartmentNumber, setDeliveryApartmentNumber, deliveryPostNumber, setDeliveryPostNumber, deliveryFloor, setDeliveryFloor, deliveryPortCode, setDeliveryPortCode
             }}
         >
             {children}

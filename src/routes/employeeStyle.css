@@ -2,11 +2,6 @@ html, body {
     margin: 0px;
 }
 
-.order-box-wrapper{
-    padding: 1em;
-    overflow-y: visible;
-    height: 20vh;
-}
 .employee-view-wrapper{
     background-color: #4c5452;
     margin-bottom: 3em;
@@ -32,8 +27,7 @@ html, body {
 .employee-view-container {
     background-color: #D9D9D9;
     display: flex;
-    min-width: 320px;
-    max-width: 800px;
+    width: 632px;
     padding: 2em 6em;
     border-radius: 26.5px;
     overflow-y: visible;
@@ -93,13 +87,14 @@ html, body {
     position: relative;
     background-color: #fff;
     border-radius: 10px;
+    padding: 0em 1.25em;
     width: calc(480px - 2.5em);
-    height: 54px;
+    min-height: 64px;
     display: grid;
     align-items: center;
-    grid-template-areas: 'icon order-name order-name order-name mark decline edit more';
+    grid-template-areas: 
+    'details icon order-name order-name order-name   mark decline edit';
     gap: 10px;
-    padding: 0em 1.25em;
     box-shadow: 0.3px 0.5px 0.7px hsl(0deg 0% 53% / 0.36),
     0.8px 1.6px 2px -0.8px hsl(0deg 0% 53% / 0.36),
     2.1px 4.1px 5.2px -1.7px hsl(0deg 0% 53% / 0.36),
@@ -112,7 +107,7 @@ html, body {
 }
 
 .order-box:has(.mode-status-text ) {
-    grid-template-areas: 'icon order-name order-name order-name mark text text text more'
+    grid-template-areas: 'details icon order-name order-name order-name text text text mark'
 }
 
 .material-symbols-outlined {
@@ -123,10 +118,6 @@ html, body {
     width: 140px;
     grid-area: order-name;
     margin: 0px;
-}
-
-.button-more {
-    grid-area: more;
 }
 
 .button-mark, .button-deselect {
@@ -175,9 +166,8 @@ html, body {
 
 /* Details */
 .details-about-order {
-    position: absolute;
-    top: 2.5em;
-    left: 0px;
+    position: relative;
+    left: -1.25em;
     background-color: #fff;
     width: calc(480px - 2.5em);
     min-height: 330px;
@@ -188,10 +178,17 @@ html, body {
     2.1px 4.1px 5.2px -1.7px hsl(0deg 0% 53% / 0.36),
     5px 10px 12.6px -2.5px hsl(0deg 0% 53% / 0.36);
     padding: 1em 1.25em;
-    z-index: 2;
+    z-index: 1;
 }
 
+.details {
+    grid-area: details;
+}
 
+.summary {
+    position: relative;
+    width: 300px;
+}
 
 .summary-box {
     box-shadow: 0.3px 0.5px 0.7px hsl(0deg 0% 63% / 0.36),
