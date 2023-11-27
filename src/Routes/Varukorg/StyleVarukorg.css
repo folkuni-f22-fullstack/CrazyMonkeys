@@ -58,6 +58,11 @@
     width: 80px;
 }
 
+/* Cart container */
+.cart-container {
+    padding: 0em 4.25em;
+}
+
 /* Cart item */
 .cart-item {
     display: grid;

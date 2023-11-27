@@ -79,7 +79,7 @@ const Varukorg = () => {
                                     Din kundkorg är tom!
                                 </p>
             ) : (
-                <>
+                <div className="cart-container">
                     <header className="cart-items-header">
                         <p className="header-name">Namn</p>
                         <p className="header-price">Pris</p>
@@ -107,7 +107,7 @@ const Varukorg = () => {
                         }
                     </div>
 
-                </>
+                </div>
             )
         }
             {
