@@ -30,6 +30,8 @@
     border-radius: 20px;
     background-color: white;
     min-width: 320px;
+    padding-top: 1.25em;
+    padding-bottom: .65em;
 }
 
 /* Header */
