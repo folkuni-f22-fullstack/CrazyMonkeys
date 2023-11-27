@@ -23,7 +23,8 @@ const data = {
     const response = await fetch(url, options)
     const statusObject = await response.json()
     if(statusObject){
-        window.location.reload()
+        // window.location.reload()
+        console.log('Obs kom ihåg att göra om detta ')
         return true
     }
     return 
