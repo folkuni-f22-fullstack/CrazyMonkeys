@@ -32,9 +32,8 @@ html, body {
     border-radius: 26.5px;
     overflow-y: visible;
     flex-flow: column wrap;
-    height: calc(100vh - 4em);
+    min-height: calc(100vh - 4em);
     align-items: center;
-
 }
 
 
@@ -93,7 +92,7 @@ html, body {
     display: grid;
     align-items: center;
     grid-template-areas: 
-    'details icon order-name order-name order-name   mark decline edit';
+    'icon order-name order-name order-name mark details';
     gap: 10px;
     box-shadow: 0.3px 0.5px 0.7px hsl(0deg 0% 53% / 0.36),
     0.8px 1.6px 2px -0.8px hsl(0deg 0% 53% / 0.36),
@@ -102,12 +101,8 @@ html, body {
     margin-bottom: 1em;
 }
 
-.mode-status-text {
-    grid-area: text
-}
-
 .order-box:has(.mode-status-text ) {
-    grid-template-areas: 'details icon order-name order-name order-name text text text mark'
+    grid-template-areas: 'icon order-name order-name order-name details'
 }
 
 .material-symbols-outlined {
@@ -120,6 +115,11 @@ html, body {
     margin: 0px;
 }
 
+.order-box:has(.details[open]) > .order-name, .order-box:has(.details[open]) > .material-symbols-outlined {
+    position: relative;
+    top: -157px;
+}
+
 .button-mark, .button-deselect {
     grid-area: mark
 }
@@ -128,46 +128,20 @@ html, body {
     color: #000000;
 }
 
-.button-deselect {
-    background-color: #F08282;
-    color: #000000;
-}
-
-.button-confirm {
-    grid-area: confirm;
-    background-color: #CBE9C1;
-    color: #000000;
-    display: flex;
-    align-items: center;
-}
-
-.button-confirm > span {
-    font-size: 14px;
-}
-
-.button-decline {
-    grid-area: decline;
-    background-color: #F08282;
-    color: #000000;
-}
-
-.button-edit {
-    grid-area: edit;
-    background-color: #E2C476;
-    color: #000000;
-}
-
 .button-decline, .button-confirm, .button-edit, .button-deselect, .button-mark {
     cursor: pointer;
     border-radius: 3.25px;
     border: none;
     padding: .25em .65em;
+    margin-left: .15em;
+    background-color: transparent;
+    color: #000;
 }
 
 /* Details */
 .details-about-order {
     position: relative;
-    left: -1.25em;
+    left: -13.35em;
     background-color: #fff;
     width: calc(480px - 2.5em);
     min-height: 330px;
@@ -185,9 +159,12 @@ html, body {
     grid-area: details;
 }
 
+.details[open] {
+    margin-top: 1.35em;
+}
+
 .summary {
-    position: relative;
-    width: 300px;
+    min-width: 200px;
 }
 
 .summary-box {
@@ -209,7 +186,13 @@ html, body {
     border: .15px solid #000;
 }
 
-
+.message-board {
+    background-color: #E2C476;
+    height: 42px;
+    display: grid;
+    place-content: center;
+    border-radius: 15px;
+}
 
 
 

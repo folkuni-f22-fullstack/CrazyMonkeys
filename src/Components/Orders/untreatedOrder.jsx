@@ -176,44 +176,48 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
         <>
             {chartData.map((order) => (
                 <div key={order._id} className="order-box">
-                    {
-                        isEditing ? (
-                            <span className="material-symbols-outlined">edit</span>
-                        ) : (
-                            isSelected ? (
-                                <span className="material-symbols-outlined">toggle_on</span>
-                            ) : (
-                                <span className="material-symbols-outlined">schedule</span>
-                            )
-                        )
-                    }
-                    <p className="order-name">Ordernummer {order.orderId}</p>
+                            {
+                                isEditing ? (
+                                    <span className="material-symbols-outlined">edit</span>
+                                ) : (
+                                    isSelected ? (
+                                        <span className="material-symbols-outlined">toggle_on</span>
+                                    ) : (
+                                        <span className="material-symbols-outlined">schedule</span>
+                                    )
+                                )
+                            }
+                            <p className="order-name">Ordernummer {order.orderId}</p>
 
                     {selectOrder._id === order._id ? (
                         <>
 
                         <details className="details">
                             <summary className="summary" title={`Kika på order ${order.orderId}`}>
+
+
                             {isEditing ? (
-                                                <p className="mode-status-text">Under redigering...</p>
+                                                null
                                             ) : (
                                                 <>
                                                     <button
-                                                        className="button-decline"
+                                                className="button-edit" title="Redigera order"
+                                                onClick={() => onEditOrder(order)}>
+                                                    <span className="material-symbols-outlined">edit</span>
+                                                </button>
+                                                <button
+                                                        className="button-decline" title="Ta bort hela ordern"
                                                         onClick={() => cancelOrder(order._id)}
                                                     >
-                                                        Neka
+                                                        <span className="material-symbols-outlined">delete</span>
                                                     </button>
                                                     <button
-                                                className="button-edit"
-                                                onClick={() => onEditOrder(order)}>
-                                                    Ändra
-                                                </button>
-                                                    <button
                                                         onClick={() => onDeselectOrder()}
-                                                        className="button-deselect"
+                                                        className="button-deselect" title="Avmarkera order"
                                                     >
-                                                        Avmarkera
+                                                        <span className="material-symbols-outlined">
+                                                            close
+                                                        </span>
                                                     </button>
                                                 </>
                                             )}
@@ -221,6 +225,9 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                             {editOrder._id === order._id ? (
                                 <>
                                         <div className="details-about-order">
+                                        <div className="message-board">
+                                                    <p>Denna order redigeras...</p>
+                                        </div>
                                             <hr />
                                             {/* Render OrderKort outside the loop */}
                                             <OrderKort
