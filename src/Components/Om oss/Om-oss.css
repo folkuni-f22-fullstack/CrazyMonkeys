@@ -12,6 +12,7 @@ body{
   align-items: center;
 }
 .first-img{
+  margin-top: 5%;
   height: 150px;
   width: 40rem !important;
   position: relative;
@@ -27,7 +28,7 @@ body{
   font-size: 20px;
   position: absolute;
   color: #fff;
-  top: 1rem;
+  top: 8rem;
   width: auto;
 }
 .middle-page{
@@ -69,6 +70,7 @@ body{
     text-align: center;
 }
 .wok-img{
+  justify-content: center;
     position:relative;
     bottom: 4rem;
     left: 1rem;
@@ -77,6 +79,7 @@ body{
 }
 
 .pasta-img{
+  justify-content: center;
     position: absolute;
     left: 7rem;
     top: 6rem;
@@ -86,9 +89,9 @@ body{
 
 .sushi{
     position: absolute;
-    top: 4rem;
-    left: 8.4rem;
-    width: 10.6rem;
+    top: 4.9rem;
+    left: 7rem;
+    width: 11rem;
     height: 8rem;
     justify-content: center;
 }
@@ -99,109 +102,20 @@ body{
     width: 12rem;
     justify-content: center;
 }
-/*----------------------------------*/
+/*-------------------------------------------------*/
 
-@media (min-width: 1401px){
- 
-  .first-img{
-    height: 300px;
-    width: 100% !important;
-    /* position: relative; */
-    margin-bottom: 5rem;
-  }
-
-  .text-title-us{
-    margin-top: 9%;
-    font-size: 30px;
-    text-align: center;
-    color: #fff;
-    top: 1rem;
-    /* width: auto; */
-  }
- 
- 
-  .mobile-text{
-    display: none;
-  }
-  .middle-page{
-    display: flex;
-    flex-direction: row;
-    height: 20rem;
-    margin-bottom: 10rem;
-    margin-left: 4em;
-  }
-  
-  .middle-page-2{
-    margin-bottom: 5rem;
-    width: 95%;
-    height: 20rem;
-    display: flex;
-    flex-direction: row-reverse;
-  }
-  /* text container */
-  .middle-contain{
-   justify-content: center;
-    font-size: 24px;
-    margin: 5rem 6rem 4rem 4rem;
-    position: relative;
-    top:-1rem ;
-    left: 3rem;
-    width: 90%;
-    padding: 1rem;
-  }
-  .middle-text{
-    font-size: 1.2em;
-  }
-  .middle-contain-2{
-    justify-content: center;
-    font-size: 15px;
-    margin: 4rem 7rem 4rem 4rem ;
-    position: relative;
-    top:-1rem ;
-    right: 2.7rem;
-  }
-  .middle-img{
-    position: relative;
-  }
-/* maträtter bild */
-  .wok-img{ 
-    width: 19rem;
-    position: relative;
-    left: 5rem;
-    
-  }
-  .pasta-img{
-    position: absolute;
-    left: -2rem;
-    top: 12rem;
-    width: 15rem;
-    
-
-  }
-  .seafood {
-    position: absolute;
-    width: 20rem;
-    right: 5rem;
-    top: 5rem;
-    z-index: 10;
-    
-  }
-
-  .sushi{
-    position: relative;
-    top: -3rem;
-    left: 1.5rem;
-    height: 11rem;
-    width: 16rem;
-    
-    
-  }
-} 
 
 @media (min-width: 769px) and (max-width:1000px){
   
   .text-title-us{
-    margin: 2rem;
+    font-size: 1.5em !important;
+    margin: 4.5rem 3rem 3rem 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .first-img{
+    margin-top: 5%;
   }
   .middle-page{
     box-shadow: 5px 10px 28px #7c887b;
@@ -230,16 +144,17 @@ body{
   }
   /* text container */
   .middle-contain{
+    padding: 1em;
     justify-content: center;
      font-size: 18px;
-     margin: 2rem 3.4rem -3rem 2rem;
+     margin: 2rem 3.6rem -2rem 3rem;
      position: relative;
      top:-2em ;
      left: 2.6rem;
      width: 90%;
-     padding: 1rem;
    }
    .middle-contain-2{
+    padding: 1em;
      justify-content: center;
      font-size: 18px;
      margin: 2rem 4rem -2rem 3rem ;
@@ -288,99 +203,211 @@ body{
 
 }
 
+/*----------------------------------------------------------*/
 
 @media (min-width: 1001px) and (max-width:1928px){
-   .text-title-us{
-    margin: 0em 2em 2em 2em;
-   }
-  .first-img{
-    height: 250px;
-    width: 100% !important;
-    /* position: relative; */
-    margin-bottom: 5rem;
+  .text-title-us{
+   margin: 0em 2em 2em 2em;
   }
+ .first-img{
+  margin-top: .5%;
+   height: 250px;
+   width: 100% !important;
+   /* position: relative; */
+   margin-bottom: 5rem;
+ }
+
+ .first-img{
+   height: 300px;
+   width: 100% !important;
+   /* position: relative; */
+   margin-bottom: 5rem;
+ }
+
+ .text-title-us{
+   /* margin-top: 15%; */
+   font-size: 30px;
+   text-align: center;
+   color: #fff;
+   top: 18rem;
+   /* width: auto; */
+ }
+
+
+ .mobile-text{
+   display: none;
+ }
+ .middle-page{
+   box-shadow: 1px 0px 10px 5px #7c887b inset;
+
+   justify-content:center ;
+   align-items: center;
+   text-align: center;
+   display: flex;
+   flex-direction: row;
+   height: 30rem;
+   margin-bottom: 10rem;
+   width: 100%;
+   margin-left: 2rem;
+   border-radius: 1.3em 0em 0em 0em;
+ }
+ 
+ .middle-page-2{
+   box-shadow: 1px 1px 10px 10px #7c887b;
+   margin-bottom: 5rem;
+   width: 96%;
+   height: 30rem;
+   display: flex;
+   flex-direction: row-reverse;
+   border-radius: 0em 0em 1.3em 0em;
+
+
+   
+ }
+ /* text container */
+ .middle-contain{
+  padding: 25px;
+  justify-content: center;
+   font-size: 24px;
+   margin: 3rem 3rem 2rem 3rem;
+   position: relative;
+   top:-1rem ;
+   left: 10px;
+   width: 100%;
+   
+   text-align: start;
+   /* padding: 1rem; */
+ }
+
+ .middle-text, .middle-text-2{
+   font-size: 25px;
+ }
+ .middle-contain-2{
+  
+  padding: 30px;
+   justify-content: center;
+   font-size: 23px;
+   margin: 3rem 3rem 2rem 2rem ;
+   position: relative;
+   top:1rem ;
+   right: 2.7rem;
+   text-align: start;
+ }
+ .middle-img{
+   position: relative;
+ }
+/* maträtter bild */
+ .wok-img{ 
+   width: 20em;
+   height: 25em;
+   position: relative;
+   left: 3rem;
+   
+ }
+ .pasta-img{
+   position: absolute;
+   left: -1rem;
+   top: 19rem;
+   width: 18rem;
+   
+
+ }
+ .seafood {
+   position: absolute;
+   width: 20rem;
+   height: 25em;
+   right: 3.1rem;
+   top: 7rem;
+   z-index: 10;
+   
+ }
+
+ .sushi{
+   position: relative;
+   top: -3em;
+   left: 1.5rem;
+   height: 12.8rem;
+   width: 18rem;
+   
+   
+ }
+} 
+/*----------------------------------------------------- */
+
+@media (min-width: 1929px){
+ 
   .first-img{
     height: 300px;
     width: 100% !important;
     /* position: relative; */
     margin-bottom: 5rem;
   }
-
   .text-title-us{
-    margin-top: 9%;
+    margin-top: 5%;
     font-size: 30px;
     text-align: center;
     color: #fff;
-    top: 1rem;
+    top: 18rem;
     /* width: auto; */
   }
+  
  
  
   .mobile-text{
     display: none;
   }
   .middle-page{
-    box-shadow: 5px 10px #7c887b inset;
-
-    justify-content:center ;
-    align-items: center;
-    text-align: center;
     display: flex;
     flex-direction: row;
-    height: 26rem;
+    height: 20rem;
     margin-bottom: 10rem;
-    width: 100%;
-    margin-left: 2rem;
+    margin-left: 4em;
   }
   
   .middle-page-2{
-    box-shadow: 5px 10px #7c887b;
     margin-bottom: 5rem;
-    width: 96%;
-    height: 26rem;
+    width: 95%;
+    height: 20rem;
     display: flex;
     flex-direction: row-reverse;
-
-
-    
   }
   /* text container */
   .middle-contain{
    justify-content: center;
     font-size: 24px;
-    margin: 5rem 3rem 4rem 3rem;
+    margin: 5rem 6rem 4rem 4rem;
     position: relative;
     top:-1rem ;
-    left: .1rem;
-    width: 100%;
-    /* padding: 1rem; */
+    left: 2rem;
+    width: 90%;
+    padding: 1rem;
   }
- 
-  .middle-text, .middle-text-2{
-    font-size: 25px;
+  .middle-text , .middle-text-2{
+    font-size: 1.2em;
   }
   .middle-contain-2{
     justify-content: center;
-    font-size: 23px;
-    margin: 4rem 7rem 4rem 4rem ;
+    font-size: 24px;
+    margin: 4.5rem 7rem 2.6rem 4rem ;
     position: relative;
     top:-1rem ;
     right: 2.7rem;
   }
   .middle-img{
+   
     position: relative;
   }
 /* maträtter bild */
   .wok-img{ 
     width: 19rem;
     position: relative;
-    left: 3rem;
+    left: 5rem;
     
   }
   .pasta-img{
     position: absolute;
-    left: -1rem;
-    top: 14rem;
+    left: -2rem;
+    top: 12rem;
     width: 15rem;
     
 
@@ -389,14 +416,14 @@ body{
     position: absolute;
     width: 20rem;
     right: 5rem;
-    top: 7rem;
+    top: 5rem;
     z-index: 10;
     
   }
 
   .sushi{
     position: relative;
-    top: -1.7em;
+    top: -3rem;
     left: 1.5rem;
     height: 11rem;
     width: 16rem;
@@ -404,8 +431,6 @@ body{
     
   }
 } 
-
-
 
 
 
