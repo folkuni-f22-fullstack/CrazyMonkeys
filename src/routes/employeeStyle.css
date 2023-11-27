@@ -101,12 +101,8 @@ html, body {
     margin-bottom: 1em;
 }
 
-.mode-status-text {
-    grid-area: text
-}
-
 .order-box:has(.mode-status-text ) {
-    grid-template-areas: 'details icon order-name order-name order-name text text text'
+    grid-template-areas: 'icon order-name order-name order-name details'
 }
 
 .material-symbols-outlined {
@@ -190,7 +186,7 @@ html, body {
 }
 
 .details[open] {
-    margin-top: 1em;
+    margin-top: 1.45em;
 }
 
 .summary {

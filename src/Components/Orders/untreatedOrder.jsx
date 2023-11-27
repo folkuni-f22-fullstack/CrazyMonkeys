@@ -194,7 +194,7 @@ const UntreatedOrder = ({ chartData, orders }) => {
 
 
                             {isEditing ? (
-                                                <p className="mode-status-text">Under redigering...</p>
+                                                null
                                             ) : (
                                                 <>
                                                     <button
