@@ -213,7 +213,13 @@ html, body {
     border: .15px solid #000;
 }
 
-
+.message-board {
+    background-color: #E2C476;
+    height: 42px;
+    display: grid;
+    place-content: center;
+    border-radius: 15px;
+}
 
 
 

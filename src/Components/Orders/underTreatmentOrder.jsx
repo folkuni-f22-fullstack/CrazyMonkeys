@@ -39,6 +39,9 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
                                             </summary>
 
                                             <div className="details-about-order">
+                                                <div className="message-board">
+                                                    <p>Denna kan inte redigeras och finns hos kocken...</p>
+                                                </div>
                                                 <hr />
                                                 {/* Render OrderKort outside the loop */}
                                                 <OrderKort

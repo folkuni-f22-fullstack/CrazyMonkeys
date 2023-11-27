@@ -220,6 +220,9 @@ const UntreatedOrder = ({ chartData, orders }) => {
                             {editOrder._id === order._id ? (
                                 <>
                                         <div className="details-about-order">
+                                        <div className="message-board">
+                                                    <p>Denna order redigeras...</p>
+                                        </div>
                                             <hr />
                                             {/* Render OrderKort outside the loop */}
                                             <OrderKort
