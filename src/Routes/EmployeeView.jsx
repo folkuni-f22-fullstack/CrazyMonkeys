@@ -117,7 +117,7 @@ export const EmployeeView = () => {
         };
 
         fetchData();
-    }, []);
+    }, [orders]);
 
     const onClickLogOut = () => {
         handleLogout()

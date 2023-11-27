@@ -9,7 +9,10 @@ const MenuEmployee = () => {
 
     const selectItem = (id) => {
         setSelectedItemId(id)
+        console.log("menuEmployee selected item Id", id);
     }
+
+  
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,13 +32,14 @@ const MenuEmployee = () => {
       }, []);
 
 
+      console.log("menuEmployee render", menu);
 
     return (
         <div>
             <label htmlFor="menu">Välj från meny:</label>
-            <select name="menu" id="menu">
+            <select onChange={(e) => selectItem(e.target.value)}  name="menu" id="menu">
                 {menu.map((item) => (
-                    <option key={item._id} onClick={() => selectItem(item._id)} value={item.name}> {item.name}</option>
+                    <option key={item._id}  value={item._id}> {item.name}</option>
                 ))}
              
             </select>
