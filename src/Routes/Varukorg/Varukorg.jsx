@@ -1,10 +1,9 @@
 import { BiPlus, BiMinus } from "react-icons/bi";
 import { useEffect, useState, useContext } from "react";
 import { FunkyContext } from "../../ContextRoot";
-import { RiArrowGoBackFill } from "react-icons/ri";
 import "./StyleVarukorg.css";
 import { useNavigate, Link } from "react-router-dom";
-import { StepsHeader } from "../StepsHeader/StepsHeader";
+import { StepsHeader } from "../../Components/StepsHeader/StepsHeader";
 
 const Varukorg = () => {
     const navigate = useNavigate();
@@ -35,7 +34,7 @@ const Varukorg = () => {
         fetchData();
     }, [orderToSend.items]);
 
-    const handleAddToCart = (foodId: string, quantityChange: number) => {
+    const handleAddToCart = (foodId, quantityChange) => {
         const updatedOrder = order.map((orderItem) =>
             orderItem.itemId === foodId
                 ? { ...orderItem, quantity: orderItem.quantity + quantityChange }
@@ -70,7 +69,7 @@ const Varukorg = () => {
                 <StepsHeader />
                 <header className="cart-header">
                 <Link to="/menu" className="back-btn">
-                            <RiArrowGoBackFill size={30} />
+                    <span className="material-symbols-outlined">undo</span>
                 </Link>
                 <h1 className="chart-title">Varukorg</h1>
                 </header>
