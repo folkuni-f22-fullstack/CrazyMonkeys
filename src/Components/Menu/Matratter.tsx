@@ -62,15 +62,10 @@ const Matratter = () => {
     setItemCounter(itemCounter + 1);
     setTimeout(() => {
       setShowOverlay(false);
-    }, 9000);
+    }, 2000);
     console.log(orderToSend);
   };
-
-  // const handleOrderClick = (name: string) => {
-  //     alert(`Du lagt till: ${name} i korgen`);
-  // };
-
-  return (
+  return (<>
     <div className="matratt-container">
       {food.map((matratt) => (
         <div className="matratt" key={matratt._id}>
@@ -89,6 +84,27 @@ const Matratter = () => {
               </button>
             </div>
           </div>
+        </div>
+      ))}
+    </div>
+
+    <div className="matratt-container2">
+      {food.map((matratt) => (
+        <div className="matratt2" key={matratt._id}>
+          <img className="matratt-image2" src={matratt.img} alt={matratt.name} />
+          <div className="bottom-details2">
+            <h4 className="mattratter-title2">{matratt.name}</h4>
+            <p className="matratt-p2">{matratt.desc}</p>
+            <div className="price-and-button2">
+              <p className="menu-price2"> {matratt.price} :-</p>
+              <button
+                className="order-button2"
+                onClick={() => handleAddToCart(matratt._id)}
+              >
+                Lägg till
+              </button>
+            </div>
+          </div>
 
           {showOverlay && (
             <div className="menu-overlay">
@@ -98,6 +114,7 @@ const Matratter = () => {
         </div>
       ))}
     </div>
+    </>
   );
 };
 

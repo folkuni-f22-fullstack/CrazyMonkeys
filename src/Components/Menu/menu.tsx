@@ -24,7 +24,8 @@ const Button: React.FC<ButtonProps> = ({ category, onClick, active }) => {
 };
 
 function Menu() {
-    const [activeCategory, setActiveCategory] = useState("maträtter");
+    const [activeCategory, setActiveCategory] = useState("Maträtter");
+
 
     const handleCategoryChange = (category: string) => {
         setActiveCategory(category);
