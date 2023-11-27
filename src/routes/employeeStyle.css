@@ -89,11 +89,11 @@ html, body {
     border-radius: 10px;
     padding: 0em 1.25em;
     width: calc(480px - 2.5em);
-    height: 54px;
+    min-height: 64px;
     display: grid;
     align-items: center;
     grid-template-areas: 
-    'details icon order-name order-name order-name mark decline edit';
+    'details icon order-name order-name order-name   mark decline edit';
     gap: 10px;
     box-shadow: 0.3px 0.5px 0.7px hsl(0deg 0% 53% / 0.36),
     0.8px 1.6px 2px -0.8px hsl(0deg 0% 53% / 0.36),
@@ -182,16 +182,12 @@ html, body {
 }
 
 .details {
-    height: 0px;
-    width: 0px;
     grid-area: details;
 }
 
 .summary {
     position: relative;
-    top: -8px;
-    left: -8px;
-    cursor: pointer;
+    width: 300px;
 }
 
 .summary-box {

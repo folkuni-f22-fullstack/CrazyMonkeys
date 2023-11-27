@@ -188,7 +188,10 @@ const UntreatedOrder = ({ chartData, orders }) => {
 
                     {selectOrder._id === order._id ? (
                         <>
-                                            {isEditing ? (
+
+                        <details className="details">
+                            <summary className="summary" title={`Kika på order ${order.orderId}`}>
+                            {isEditing ? (
                                                 <p className="mode-status-text">Under redigering...</p>
                                             ) : (
                                                 <>
@@ -211,8 +214,6 @@ const UntreatedOrder = ({ chartData, orders }) => {
                                                     </button>
                                                 </>
                                             )}
-                        <details className="details">
-                            <summary className="summary" title={`Kika på order ${order.orderId}`}>
                             </summary>
                             {editOrder._id === order._id ? (
                                 <>
