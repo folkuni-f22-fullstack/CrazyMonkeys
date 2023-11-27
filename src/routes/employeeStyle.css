@@ -117,7 +117,7 @@ html, body {
 
 .order-box:has(.details[open]) > .order-name, .order-box:has(.details[open]) > .material-symbols-outlined {
     position: relative;
-    top: -158px;
+    top: -157px;
 }
 
 .button-mark, .button-deselect {
@@ -187,7 +187,7 @@ html, body {
 }
 
 .details[open] {
-    margin-top: 1.45em;
+    margin-top: 1.35em;
 }
 
 .summary {
