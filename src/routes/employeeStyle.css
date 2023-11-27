@@ -162,6 +162,7 @@ html, body {
     border-radius: 3.25px;
     border: none;
     padding: .25em .65em;
+    margin-left: .15em;
 }
 
 /* Details */

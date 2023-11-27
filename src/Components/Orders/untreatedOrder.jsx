@@ -198,16 +198,16 @@ const UntreatedOrder = ({ chartData, orders }) => {
                                             ) : (
                                                 <>
                                                     <button
+                                                className="button-edit"
+                                                onClick={() => onEditOrder(order)}>
+                                                    Ändra
+                                                </button>
+                                                <button
                                                         className="button-decline"
                                                         onClick={() => cancelOrder(order._id)}
                                                     >
                                                         Neka
                                                     </button>
-                                                    <button
-                                                className="button-edit"
-                                                onClick={() => onEditOrder(order)}>
-                                                    Ändra
-                                                </button>
                                                     <button
                                                         onClick={() => onDeselectOrder()}
                                                         className="button-deselect"
