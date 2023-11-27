@@ -32,9 +32,8 @@ html, body {
     border-radius: 26.5px;
     overflow-y: visible;
     flex-flow: column wrap;
-    height: calc(100vh - 4em);
+    min-height: calc(100vh - 4em);
     align-items: center;
-
 }
 
 
@@ -93,7 +92,7 @@ html, body {
     display: grid;
     align-items: center;
     grid-template-areas: 
-    'details icon order-name order-name order-name   mark decline edit';
+    'icon order-name order-name order-name mark details';
     gap: 10px;
     box-shadow: 0.3px 0.5px 0.7px hsl(0deg 0% 53% / 0.36),
     0.8px 1.6px 2px -0.8px hsl(0deg 0% 53% / 0.36),
@@ -107,7 +106,7 @@ html, body {
 }
 
 .order-box:has(.mode-status-text ) {
-    grid-template-areas: 'details icon order-name order-name order-name text text text mark'
+    grid-template-areas: 'details icon order-name order-name order-name text text text'
 }
 
 .material-symbols-outlined {
@@ -118,6 +117,11 @@ html, body {
     width: 140px;
     grid-area: order-name;
     margin: 0px;
+}
+
+.order-box:has(.details[open]) > .order-name, .order-box:has(.details[open]) > .material-symbols-outlined {
+    position: relative;
+    top: -160px;
 }
 
 .button-mark, .button-deselect {
@@ -167,7 +171,7 @@ html, body {
 /* Details */
 .details-about-order {
     position: relative;
-    left: -1.25em;
+    left: -13.35em;
     background-color: #fff;
     width: calc(480px - 2.5em);
     min-height: 330px;
@@ -185,9 +189,12 @@ html, body {
     grid-area: details;
 }
 
+.details[open] {
+    margin-top: 1em;
+}
+
 .summary {
-    position: relative;
-    width: 300px;
+    min-width: 200px;
 }
 
 .summary-box {

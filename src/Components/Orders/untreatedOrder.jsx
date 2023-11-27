@@ -173,24 +173,26 @@ const UntreatedOrder = ({ chartData, orders }) => {
         <>
             {chartData.map((order) => (
                 <div key={order._id} className="order-box">
-                    {
-                        isEditing ? (
-                            <span className="material-symbols-outlined">edit</span>
-                        ) : (
-                            isSelected ? (
-                                <span className="material-symbols-outlined">toggle_on</span>
-                            ) : (
-                                <span className="material-symbols-outlined">schedule</span>
-                            )
-                        )
-                    }
-                    <p className="order-name">Ordernummer {order.orderId}</p>
+                            {
+                                isEditing ? (
+                                    <span className="material-symbols-outlined">edit</span>
+                                ) : (
+                                    isSelected ? (
+                                        <span className="material-symbols-outlined">toggle_on</span>
+                                    ) : (
+                                        <span className="material-symbols-outlined">schedule</span>
+                                    )
+                                )
+                            }
+                            <p className="order-name">Ordernummer {order.orderId}</p>
 
                     {selectOrder._id === order._id ? (
                         <>
 
                         <details className="details">
                             <summary className="summary" title={`Kika på order ${order.orderId}`}>
+
+
                             {isEditing ? (
                                                 <p className="mode-status-text">Under redigering...</p>
                                             ) : (
