@@ -126,7 +126,7 @@ body {
   width: 11rem;
 }
 
-.sushi {
+.sushy {
   position: absolute;
   top: 4.9rem;
   left: 7rem;
@@ -228,7 +228,7 @@ body {
     z-index: 10;
   }
 
-  .sushi {
+  .sushy {
     position: relative;
     top: -3rem;
     left: -1rem;
@@ -352,7 +352,7 @@ body {
     z-index: 10;
   }
 
-  .sushi {
+  .sushy {
     position: relative;
     top: -3em;
     left: 1.5rem;
@@ -455,7 +455,7 @@ body {
     z-index: 10;
   }
 
-  .sushi {
+  .sushy {
     position: relative;
     top: -3rem;
     left: 1.5rem;

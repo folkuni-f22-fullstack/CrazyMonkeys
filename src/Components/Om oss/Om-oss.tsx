@@ -99,7 +99,7 @@ const AboutUs = () => {
 
             <div className="middle-img">
               <img src={seafood} alt="" className="seafood" />
-              <img src={sushi} alt="" className=" sushi" />
+              <img src={sushi} alt="" className=" sushy" />
             </div>
             <div className="middle-contain-2">
               <div className="funky-about-text-2">
