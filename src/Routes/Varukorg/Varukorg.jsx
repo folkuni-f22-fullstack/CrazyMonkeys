@@ -62,10 +62,18 @@ const Varukorg = () => {
 
     const totalSum = chartData.reduce((acc, order) => acc + order.price * (orderToSend.items.find(item => item.menuItem === order._id)?.quantity || 0), 0);
 
+    const backButton = () => {
+        navigate("/menu")
+    }
+
 
     return (
         <div className="cart-wrapper">
             <div className="cart">
+            <button className="back-btn" onClick={() => backButton()}>
+                    <span className="material-symbols-outlined">undo</span>
+                </button>
+                <h1 className="cart-title mobile">Varukorg</h1>
                 <StepsHeader />
                 <header className="cart-header">
                 <h1 className="cart-title">Varukorg</h1>

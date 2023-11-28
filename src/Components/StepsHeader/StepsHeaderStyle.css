@@ -6,6 +6,7 @@
     align-items: center;
     justify-items: center;
     justify-content: center;
+    padding-bottom: 1.75em;
 }
 
 .steps-container > div {
@@ -33,16 +34,10 @@
     margin: 0px;
 }
 
-.steps-back-container > .back-btn {
-    background-color: transparent;
-    font-size: 24px;
-    border: none;
-    cursor: pointer;
-    padding-left: 1.5em;
-}
-
 @media screen and (orientation: portrait) {
-    .steps-back-container > .back-btn {
-        padding-left: .75em;
+    .step-round {
+        width: 20.5px;
+        height: 20.5px;
+        border: 1.25px solid #000;
     }
 }

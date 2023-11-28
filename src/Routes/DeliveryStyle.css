@@ -34,16 +34,20 @@ html, body {
 
 .delivery-header {
     display: grid;
-    grid-template-areas: 'button text text ...';
+    grid-template-areas: '... text text ...';
     padding: 1.25em 0em;
 }
 
-.delivery-header > h1 {
+.delivery-title {
     margin: 0px;
     padding: 0px;
     text-align: center;
     grid-area: text;
     font-size: 24px;
+}
+
+.delivery-title.mobile {
+    display: none;
 }
 
 .delivery-header > .back-btn {
@@ -144,6 +148,7 @@ html, body {
     padding-left: 0px;
     background-color: #fff;
     padding: .65em;
+    margin-top: .55em;
 }
 
 .multi-inputs {
@@ -153,7 +158,7 @@ html, body {
 }
 
 .tinier-inputs {
-    max-width: 65px;
+    max-width: 75px;
 }
 
 .name-input {
@@ -184,8 +189,6 @@ html, body {
 .county-input {
     width: 170px;
 }
-
-
 
 .spacer {
     padding: 1.55em 0;
@@ -221,4 +224,34 @@ input[type='radio']:checked:after {
     padding: .45em 0em;
 }
 
+.back-btn {
+    background-color: transparent;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    padding-left: 1.5em;
+    z-index: 999;
+    position: relative;
+}
 
+@media screen and (orientation: portrait) {
+    .delivery-title {
+        display: none;
+    }
+    
+    .delivery-title.mobile {
+        display: block;
+        position: relative;
+        top: 28px;
+    }
+
+    .back-btn {
+        padding-left: .75em;
+    }
+
+    .delivery-title.mobile {
+        display: block;
+        top: -30px;
+        position: relative;
+    }
+}
