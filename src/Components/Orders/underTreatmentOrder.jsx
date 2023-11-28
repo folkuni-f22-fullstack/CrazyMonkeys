@@ -28,7 +28,7 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
 
                         {selectOrder._id === order._id ? (
                             <>
-                                        <details className="details">
+                                        <details className="details treatment">
                                             <summary className="summary" title={`Kika på order ${order.orderId}`}>
                                                 <button
                                                     onClick={() => onSelectOrder({})}

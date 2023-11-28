@@ -172,15 +172,32 @@ html, body {
     content: ' ►'; 
     position: relative;
     top: -6px;
+    cursor: pointer;
 }
 
 .details[open] .summary::after {
     content: " ▼";
+    cursor: pointer;
 }
 
 .details[open] .summary {
     top: -6px;
     position: relative;
+}
+
+.treatment.details > .summary::after {
+    top: 0px;
+    position: relative;
+}
+
+.order-box:has(.treatment.details[open]) > .order-name, .order-box:has(.treatment.details[open]) > .material-symbols-outlined {
+    position: relative;
+    top: -158px;
+}
+
+.treatment.details[open] > .summary {
+    position: relative;
+    top: -2px;
 }
 
 .summary-box {
