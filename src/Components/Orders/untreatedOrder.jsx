@@ -176,17 +176,17 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
         <>
             {chartData.map((order) => (
                 <div key={order._id} className="order-box">
-                            {
-                                isEditing ? (
-                                    <span className="material-symbols-outlined">edit</span>
-                                ) : (
-                                    isSelected ? (
-                                        <span className="material-symbols-outlined">toggle_on</span>
-                                    ) : (
-                                        <span className="material-symbols-outlined">schedule</span>
-                                    )
+                    {
+                        editOrder._id === order._id ? (
+                            <span className="material-symbols-outlined">edit</span>
+                        ) : (
+                            selectOrder._id === order._id ? (
+                                <span className="material-symbols-outlined">toggle_on</span>
+                            ) : (
+                                    <span className="material-symbols-outlined">schedule</span>
                                 )
-                            }
+                            )
+                    }
                             <p className="order-name">Ordernummer {order.orderId}</p>
 
                     {selectOrder._id === order._id ? (
