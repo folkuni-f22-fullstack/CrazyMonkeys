@@ -10,6 +10,7 @@ import CheckoutPage from "./Components/betalning/Betalning.tsx";
 import Kvitto from "./Components/Kvitto/Kvitto.tsx";
 import { EmployeeView } from "./Routes/EmployeeView.jsx";
 import Chefsview from "./routes/Chefsview/Chefsview.jsx";
+import AboutUs from "./Components/Om oss/Om-oss.tsx";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/chefsview",
         element: <Chefsview />,
+      },
+      {
+        path: "/omoss",
+        element: <AboutUs />,
       },
     ],
   },
