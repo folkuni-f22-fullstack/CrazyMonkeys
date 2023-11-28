@@ -8,7 +8,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { useEffect, useRef } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
-
+import "../../App.css"
 
 const AboutUs = () => {
   const resizePic = { minWidth: "100%" };
@@ -51,6 +51,9 @@ const AboutUs = () => {
               alt="bild på mat"
             />
             <p className="mobile-text">om oss på funky fusion</p>
+            <p className="mobile-text-title-us">
+            Fusionmat är konsten att kombinera matkulturer och smaker för att skapa nya, spännande rätter
+            </p>
             <p className="text-title-us">
               Fusionmat är den kreativa konsten att kombinera olika matkulturer och smaker för att skapa helt nya, spännande rätter.
             </p>
@@ -77,7 +80,7 @@ const AboutUs = () => {
                 <h1 className="whyfunky"> Varför välja Funkey Fusion </h1>
                 <p className="middle-text">
 
-                  Välkomna till vår exklusiva fusionrestaurang, där världens smaker möts för en unik och minnesvärd kulinarisk upplevelse. Vi erbjuder en elegant atmosfär och en läcker, mångsidig meny. Vårt passionerade köksteam skapar innovativa fusionrätter från olika kulturer. Varje tallrik är en konstnärlig kombination av noggrant utvalda smaker och ingredienser, skapad för att ge harmoni. Upplev en kulinarisk resa där varje tugga är i världsklass.
+                Välkomna till vår exklusiva fusionrestaurang där världens smaker möts för en minnesvärd kulinarisk upplevelse. Vi erbjuder en elegant atmosfär, en mångsidig meny och passionerade kockar som skapar innovativa fusionrätter från olika kulturer. Varje tallrik är en konstnärlig kombination av noggrant utvalda smaker och ingredienser, skapad för perfekt harmoni. Upplev en kulinarisk resa i världsklass
                 </p>
             
               </div>
@@ -101,10 +104,10 @@ const AboutUs = () => {
             </div>
             <div className="middle-contain-2">
               <div className="funky-about-text-2">
-                <h1 className="whyfunky-2"> Varför välja Funkey Fusion </h1>
+                <h1 className="whyfunky-2">Smak, Stil, Service, Fusion</h1>
                 <p className="middle-text-2">
 
-                  Vår restaurang förenar modernitet med tradition, och varje måltid är en hyllning till kreativitet och mångfald. Rätterna är noggrant balanserade med olika influenser, och vi är stolta över att erbjuda något för varje smak och preferens. Vi strävar efter att skapa minnesvärda stunder och överträffa förväntningarna hos våra gäster. Vår professionella och vänliga personal är dedikerad att ge er service i världsklass, vilket gör varje besök hos oss till en upplevelse utöver det vanliga.
+                Vår restaurang kombinerar modernitet med tradition, hyllar kreativitet och mångfald. Rätterna är noggrant balanserade med olika influenser, och vi är stolta över att erbjuda något för varje smak och preferens. Strävande efter minnesvärda stunder är vår dedikerade personal till världsklassservice, vilket gör varje besök hos oss till en upplevelse utöver det vanliga. 
                 </p>
               
               
