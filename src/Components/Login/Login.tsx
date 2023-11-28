@@ -10,35 +10,10 @@ export function Login() {
     const [usernameError, setUsernameError] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const navigate = useNavigate();
-    const { loginDialogRef, stateLoginDialog, setIsLoggedIn } = useContext(FunkyContext);
-    const [emplyeeStatus, setEmployeeStatus] = useState("")
+    const { loginDialogRef, stateLoginDialog, setIsLoggedIn, emplyeeStatus, setEmployeeStatus } = useContext(FunkyContext);
+    
 
 
-    // useEffect(() => {
-    //     const fetchUsers = async () =>{
-    //         try{
-    //             const users = await fetch("/api/auth")
-    //             if(!users.ok) {
-    //                 throw new Error("Något gick fel")
-    //             }
-
-    //             const usersData = await users.json()
-
-    //             const findUser = usersData.find((user) => user.username === username)
-
-    //             const statusOfUser = findUser.map
-
-
-    //             setEmployeeStatus(statusOfUser)
-    //             console.log("status", emplyeeStatus);
-                
-
-    //         }catch(err){
-    //             console.error(err);
-    //         }
-    //     }
-    //     fetchUsers()
-    // }, [])
 
     
     const handleSubmit = async (e) => {
@@ -47,26 +22,33 @@ export function Login() {
         if (username !== "" && password !== "") {
           try {
             // Skicka en förfrågan till backend-routen med Fetch
-          const response = await handleLoginEmp(username, password)
-    
-            if (response) {
-              // Om inloggningen är framgångsrik
+          const login = await handleLoginEmp(username, password)
+          setEmployeeStatus(login.data.status)
+          
+            
+            if (login) {
               sessionStorage.getItem('jwt');
               if(sessionStorage.getItem('jwt')){
-                  setIsLoggedIn(true);
-                  navigate("/employee");
-                  stateLoginDialog(false);
+                if(emplyeeStatus === "employee"){
+                    setIsLoggedIn(true);
+                    navigate("/employee");
+                    stateLoginDialog(false);
+                }else{
+                    setIsLoggedIn(true);
+                    navigate("/chefsview");
+                    stateLoginDialog(false);
+                }
                 }
             } else {
-              // Om inloggningen misslyckades
               console.error("Inloggning misslyckades:", response);
             }
           } catch (error) {
-            // Hantera eventuella nätverksfel eller andra problem här
             console.error("Något gick fel:", error);
           }
         }
       }
+
+
 
 
     const handleLogin = () => {

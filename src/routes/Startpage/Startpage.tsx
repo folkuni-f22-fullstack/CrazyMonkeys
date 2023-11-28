@@ -23,14 +23,14 @@ function StartPage() {
   const controls2 = useAnimation();
 
   useEffect(() => {
-    console.log("isInView1:", isInView1);
+    // console.log("isInView1:", isInView1);
     if (isInView1) {
       controls1.start("visible");
     }
   }, [isInView1]);
 
   useEffect(() => {
-    console.log("isInView2:", isInView2);
+    // console.log("isInView2:", isInView2);
     if (isInView2) {
       controls2.start("visible");
     }

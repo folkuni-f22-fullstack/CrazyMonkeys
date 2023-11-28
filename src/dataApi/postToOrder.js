@@ -22,9 +22,8 @@ const data = {
     }
     const response = await fetch(url, options)
     const statusObject = await response.json()
-    // whenDone()
     if(statusObject){
-
+        whenDone()
         return true
     }
     return 

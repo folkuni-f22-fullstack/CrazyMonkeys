@@ -22,13 +22,20 @@ export default function OrderKort(props) {
         console.log("order", props.order);
         console.log("orders", props.orders);
         console.log(orderId, selectedItemId, selectedItemQuantity);
-        // async function doSomething (whenDone)  {
+
+        async function doSomething (whenDone)  {
+           await postItemOrder(orderId, selectedItemId, selectedItemQuantity, whenDone)
             
-        //     whenDone()
-        // }
+            async function whenDone() {
+                await props.addOrderItem(orderId, selectedItemId, selectedItemQuantity,)
+
+            }
+        }
+        doSomething()
+
+        // försök att lösa detta
+        // står ej tillgängligt tills man uppdaterar sidan
         
-          postItemOrder(orderId, selectedItemId, selectedItemQuantity, whenDone)
-        props.addOrderItem(orderId, selectedItemId, selectedItemQuantity,)
     };
 
     return (
