@@ -2,6 +2,8 @@
 .cart-title {
     text-align: center;
     grid-area: title;
+    font-family: var(--meny-font);
+    font-size: 24px;
 }
 
 .back-btn {
@@ -13,6 +15,7 @@
     display: grid;
     grid-template-areas: 'button title title ...';
     padding: 1.25em 0em;
+    padding-bottom: 3.85em;
     align-items: center;
 }
 
@@ -27,7 +30,7 @@
 .cart {
     display: flex;
     flex-direction: column;
-    width: 870px;
+    width: 600px;
     border-radius: 20px;
     background-color: white;
     min-width: 320px;
@@ -74,11 +77,18 @@
 .item-name {
     grid-area: item-name;
     width: 300px;
+    font-family: var(--meny-font);
+    display: flex;
+    place-items: center;
 }
 
 .item-price {
     grid-area: item-price;
     width: 100px;
+    font-size: 18px;
+    font-family: var(--meny-font);
+    display: flex;
+    place-items: center;
 }
 
 .item-amount-container {
@@ -89,11 +99,17 @@
     width: 80px;
 }
 
+.item-amount {
+    display: flex;
+    place-items: center;
+}
+
 .item-minus-btn, .item-plus-btn {
     cursor: pointer;
     border: none;
     background-color: transparent;
-    font-size: 20px;
+    font-size: 24px;
+    padding: .05em;
 }
 
 /* Empty cart */
@@ -101,16 +117,37 @@
     text-align: center;
 }
 
-.total-summa {
+.cart-footer {
+    display: flex;
+    flex-flow: column wrap;
+    padding-top: 4.85em;
+    align-items: center;
+    min-width: 320px;
+}
+
+.total-sum {
     padding-top: 1.25em;
+    padding-bottom: 2.45em;
     text-align: right;
-    padding-right: 5em;
+    font-family: var(--meny-font);
+    font-weight: 500;
+    position: relative;
+    left: 145px;
+    font-size: 20px;
+}
+
+.line-break {
+    min-width: 300px;
+    width: 450px;
+    height: 2px;
+    background-color: #000;
+    display: flex;
 }
 
 /* Mobile */
 @media screen and (orientation: portrait) {
 .cart-items-header {
-    grid-template-areas: 'name ...''price ...''amount ...'
+    display: none;
 }
 
 .cart-item {
@@ -118,4 +155,9 @@
     'item-price ...'
     'item-amount ...';
 }
+
+.total-sum {
+    left: 0px;
+}
+
 }

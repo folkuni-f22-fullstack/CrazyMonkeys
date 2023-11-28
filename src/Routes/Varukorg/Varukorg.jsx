@@ -91,14 +91,18 @@ const Varukorg = () => {
                                 <>
                                     <div className="cart-item">
                                         <p className="item-name">{order.name}</p>
-                                        <p className="item-price">{order.price} :-</p>
+                                        <p className="item-price">{order.price}:-</p>
                                         <div className="item-amount-container">
-                                            <button className="item-minus-btn" onClick={() => handleAddToCart(order._id, -1)}>-</button>
+                                            <button className="item-minus-btn" onClick={() => handleAddToCart(order._id, -1)}><span className="material-symbols-outlined">
+remove
+</span></button>
                                             <p className="item-amount">
                                                 {orderToSend.items.find(
                                                         (item) => item.menuItem === order._id
                                                     )?.quantity || 0}</p>
-                                            <button className="item-plus-btn" onClick={() => handleAddToCart(order._id, 1)}>+</button>
+                                            <button className="item-plus-btn" onClick={() => handleAddToCart(order._id, 1)}><span className="material-symbols-outlined">
+add
+</span></button>
                                         </div>
                                     </div>
                                     <hr />
@@ -115,12 +119,13 @@ const Varukorg = () => {
                         <button className="btn-grad" onClick={() => onSubmitButton(false)}>
                         Gå tillbaka till menyn
                         </button>) : (
-                            <>
-                                <p className="total-summa">Totalsumma: {totalSum} :-</p>
+                            <div className="cart-footer">
+                                <div className="line-break"></div>
+                                <p className="total-sum">Totalsumma: {totalSum}:-</p>
                                 <button className="btn-grad" onClick={() => onSubmitButton(true)}>
                                     Gå vidare
                                 </button>
-                            </>
+                            </div>
                         )
                 }
             </div>
