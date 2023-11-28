@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import OrderKort from "../anställda/OrderKort";
-import { updateOrder } from "../../dataApi/updateStatus&Msg.js";
 
-const UnderTreatmentOrder = ({ chartData, orders }) => {
+const DoneCustomerOrder = ({ chartData, orders }) => {
     const [selectOrder, setSelectOrder] = useState({});
     const [orderStatus, setOrderStatus] = useState("");
 
@@ -12,11 +11,6 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
         console.log(selectOrder, orderStatus);
     };
 
-    const onSubmitOrder = async (order) => {
-        console.log(order._id);
-
-        const response = await updateOrder(orderStatus, order._id, ".");
-    };
 
 
 
@@ -44,7 +38,7 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
 
                                 <div className="details-about-order">
                                     <div className="message-board">
-                                        <p>Denna kan inte redigeras och finns hos kocken...</p>
+                                        <p>Denna order är klar för upphämtning...</p>
                                     </div>
                                     <hr />
                                     {/* Render OrderKort outside the loop */}
@@ -61,13 +55,6 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
                                         <p>Telefonnummer: {order.mobile} </p>
                                         <p>Kommentarer från kund: {order.comments}</p>
                                     </details>
-                                    <button
-                                className="button-confirm"
-                                type="submit"
-                                onClick={() => onSubmitOrder(order)}
-                            >
-                                Klar att servera
-                            </button>
                                 </div>
                             </details>
                         </>
@@ -76,7 +63,6 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
                             <button onClick={() => onSelectOrder(order)} className="button-mark">
                                 Visa Order
                             </button>
-                          
                         </div>
                     )}
                 </div>
@@ -85,4 +71,4 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
     );
 };
 
-export default UnderTreatmentOrder;
+export default DoneCustomerOrder;
