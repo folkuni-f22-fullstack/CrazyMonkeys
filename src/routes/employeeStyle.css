@@ -138,6 +138,11 @@ html, body {
     color: #000;
 }
 
+.button-to-right-div {
+    display: flex;
+    justify-content: right;
+}
+
 /* Details */
 .details-about-order {
     position: relative;
@@ -199,6 +204,8 @@ html, body {
     position: relative;
     top: -2px;
 }
+
+/* Summary */
 
 .summary-box {
     box-shadow: 0.3px 0.5px 0.7px hsl(0deg 0% 63% / 0.36),
