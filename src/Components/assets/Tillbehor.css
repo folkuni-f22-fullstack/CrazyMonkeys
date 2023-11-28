@@ -1,3 +1,10 @@
+
+.tillbehor-title{
+  font-family: var(--meny-font);
+  margin: 2em 0em 2em;
+  font-size: 16px;
+}
+
 .tillbehor-container {
   padding: 1em;
   display: flex;
@@ -18,32 +25,8 @@
 }
 
 
-@media (min-width: 768px) {
-  .tillbehor-item {
-    display: inline-block;
-  }
 
-  .tillbehor-item:hover {
-    transform: scale(1.05); 
-  }
-}
 
-@media (max-width: 767px) {
-  .tillbehor-item {
-    width: 100%;
-    display: block;
-  }
-  h4{
-    font-size: 13px;
-  }
-
-  .tillbehor-item:hover {
-    transform: none; 
-  }
-  .tillbehor-desc{
-    font-size: 14px;
-  }
-}
 
 .name-price-tillbehor {
   display: flex;

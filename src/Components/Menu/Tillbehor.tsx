@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import '../assets/Tillbehor.css'
+
 import { FunkyContext } from "../../ContextRoot";
 const Tillbehor = () => {
   const [tillbehorData, setTillbehorData] = useState([]);
@@ -74,7 +75,7 @@ const handleAddToCart = (foodId: string) => {
 
   return (
     <>
-      <p>Tillbehör</p>
+      <h3 className="tillbehor-title">Tillbehör</h3>
       <div className="tillbehor-container">
         {tillbehorData.map((tillbehor) => (
           <div className="tillbehor-item" key={tillbehor._Id}>
