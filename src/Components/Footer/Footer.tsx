@@ -20,12 +20,16 @@ function Footer() {
   const footerRef = useRef(null); 
   window.scrollTo(0, 0);
  
-  const { stateLoginDialog, isLoggedIn} = useContext(FunkyContext);
+  const { stateLoginDialog, isLoggedIn, emplyeeStatus} = useContext(FunkyContext);
 
   const navigate = useNavigate()
 
   const navigateToEmplyee = () => {
-    navigate("/employee")
+    if(emplyeeStatus === "employee") {
+        navigate("/employee")
+    }else{
+        navigate("/chefsview")
+    }
   }
 
   return (

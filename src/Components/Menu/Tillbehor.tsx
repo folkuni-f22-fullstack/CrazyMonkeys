@@ -93,7 +93,7 @@ const handleAddToCart = (foodId: string) => {
                 <div className="addto-btn">
                   <button
                     className="add-to-cart-button"
-                    onClick={() => handleAddToCart(tillbehor.id)}
+                    onClick={() => handleAddToCart(tillbehor._id)}
                   >
                     Lägg till
                   </button>

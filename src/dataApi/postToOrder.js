@@ -1,4 +1,4 @@
-const postItemOrder = async (orderId, menuItem, quantity) => {
+const postItemOrder = async (orderId, menuItem, quantity, whenDone) => {
 
 const url = `/api/orders/${orderId}/addMenuItem`;
 
@@ -23,8 +23,7 @@ const data = {
     const response = await fetch(url, options)
     const statusObject = await response.json()
     if(statusObject){
-        // window.location.reload()
-        console.log('Obs kom ihåg att göra om detta ')
+        whenDone()
         return true
     }
     return 

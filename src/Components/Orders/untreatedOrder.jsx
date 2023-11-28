@@ -7,7 +7,8 @@ import { FunkyContext } from "../../ContextRoot";
 import { isValidName, isValidEmailAddress, isValidPhoneNumber } from "../validation";
 
 
-const UntreatedOrder = ({ chartData, orders }) => {
+const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOrderItem, moveOrder }) => {
+    
     // States
     const [isLocked, setIsLocked] = useState(false);
     const [orderId, setOrderId] = useState(); // State-variabel för order._id
@@ -107,12 +108,12 @@ const UntreatedOrder = ({ chartData, orders }) => {
         console.log(order._id);
         console.log(customerName);
         console.log(orderId);
-
+        moveOrder(order._id)
         const response = await updateOrder(orderStatus, order._id, msgToCook);
     };
 
 
-    const test = (order) => {
+    const setInfo = (order) => {
         setCustomerName(order.customerName)
         setCustomerAddress(order.adress)
         setCustomerFloor(order.floor)
@@ -126,7 +127,7 @@ const UntreatedOrder = ({ chartData, orders }) => {
 
     // Edit order
     const [editOrder, setEditOrder] = useState({});
-    const {isEditing, setIsEditing} = useContext(FunkyContext);
+    const {isEditing, setIsEditing, } = useContext(FunkyContext);
 
     const onEditOrder = (order) => {
         setEditOrder(order);
@@ -134,6 +135,7 @@ const UntreatedOrder = ({ chartData, orders }) => {
     };
 
     const saveEditedOrder = async (order) => {
+       
         const response = await updateCustomerInfo(
             order._id,
             customerName,
@@ -153,6 +155,7 @@ const UntreatedOrder = ({ chartData, orders }) => {
     const cancelOrder = (orderId) => {
         chartData.filter((order) => order._id !== orderId);
         removeOrder(orderId);
+        deleteOrder(orderId);
         
     };
 
@@ -173,44 +176,48 @@ const UntreatedOrder = ({ chartData, orders }) => {
         <>
             {chartData.map((order) => (
                 <div key={order._id} className="order-box">
-                    {
-                        isEditing ? (
-                            <span className="material-symbols-outlined">edit</span>
-                        ) : (
-                            isSelected ? (
-                                <span className="material-symbols-outlined">toggle_on</span>
-                            ) : (
-                                <span className="material-symbols-outlined">schedule</span>
-                            )
-                        )
-                    }
-                    <p className="order-name">Ordernummer {order.orderId}</p>
+                            {
+                                isEditing ? (
+                                    <span className="material-symbols-outlined">edit</span>
+                                ) : (
+                                    isSelected ? (
+                                        <span className="material-symbols-outlined">toggle_on</span>
+                                    ) : (
+                                        <span className="material-symbols-outlined">schedule</span>
+                                    )
+                                )
+                            }
+                            <p className="order-name">Ordernummer {order.orderId}</p>
 
                     {selectOrder._id === order._id ? (
                         <>
 
                         <details className="details">
                             <summary className="summary" title={`Kika på order ${order.orderId}`}>
+
+
                             {isEditing ? (
-                                                <p className="mode-status-text">Under redigering...</p>
+                                                null
                                             ) : (
                                                 <>
                                                     <button
-                                                        className="button-decline"
+                                                className="button-edit" title="Redigera order"
+                                                onClick={() => onEditOrder(order)}>
+                                                    <span className="material-symbols-outlined">edit</span>
+                                                </button>
+                                                <button
+                                                        className="button-decline" title="Ta bort hela ordern"
                                                         onClick={() => cancelOrder(order._id)}
                                                     >
-                                                        Neka
+                                                        <span className="material-symbols-outlined">delete</span>
                                                     </button>
                                                     <button
-                                                className="button-edit"
-                                                onClick={() => onEditOrder(order)}>
-                                                    Ändra
-                                                </button>
-                                                    <button
                                                         onClick={() => onDeselectOrder()}
-                                                        className="button-deselect"
+                                                        className="button-deselect" title="Avmarkera order"
                                                     >
-                                                        Avmarkera
+                                                        <span className="material-symbols-outlined">
+                                                            close
+                                                        </span>
                                                     </button>
                                                 </>
                                             )}
@@ -218,12 +225,17 @@ const UntreatedOrder = ({ chartData, orders }) => {
                             {editOrder._id === order._id ? (
                                 <>
                                         <div className="details-about-order">
+                                        <div className="message-board">
+                                                    <p>Denna order redigeras...</p>
+                                        </div>
                                             <hr />
                                             {/* Render OrderKort outside the loop */}
                                             <OrderKort
                                                 key={order.id}
                                                 order={order}
                                                 orders={orders}
+                                                deleteOrderItem={deleteOrderItem}
+                                                addOrderItem={addOrderItem}
                                             />{" "}
                                             
                                             <details>
@@ -359,6 +371,9 @@ const UntreatedOrder = ({ chartData, orders }) => {
                                                 key={order.id}
                                                 order={order}
                                                 orders={orders}
+                                                deleteOrderItem={deleteOrderItem}
+                                                addOrderItem={addOrderItem}
+                                              
                                             />
 
                                             <details>
@@ -403,7 +418,7 @@ const UntreatedOrder = ({ chartData, orders }) => {
 
                         </>
                     ) : (
-                        <button onClick={() => test(order)} className="button-mark">
+                        <button onClick={() => setInfo(order)} className="button-mark">
                             Markera
                         </button>
                     )}

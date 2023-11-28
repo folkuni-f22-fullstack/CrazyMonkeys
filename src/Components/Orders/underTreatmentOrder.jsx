@@ -28,18 +28,20 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
 
                         {selectOrder._id === order._id ? (
                             <>
-                                <p className="mode-status-text">Skickad till kocken ...</p>
-                                        <button
-                                            onClick={() => onSelectOrder({})}
-                                            className="button-deselect"
-                                        >
-                                            Avmarkera
-                                        </button>
-
                                         <details className="details">
-                                            <summary className="summary" title={`Kika på order ${order.orderId}`}></summary>
+                                            <summary className="summary" title={`Kika på order ${order.orderId}`}>
+                                                <button
+                                                    onClick={() => onSelectOrder({})}
+                                                    className="button-deselect"
+                                                >
+                                                    Avmarkera
+                                                </button>
+                                            </summary>
 
                                             <div className="details-about-order">
+                                                <div className="message-board">
+                                                    <p>Denna kan inte redigeras och finns hos kocken...</p>
+                                                </div>
                                                 <hr />
                                                 {/* Render OrderKort outside the loop */}
                                                 <OrderKort

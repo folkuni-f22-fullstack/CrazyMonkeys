@@ -4,7 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "./Routes/Root";
 import Menu from "./Components/Menu/menu";
 import StartPage from "./Routes/Startpage/Startpage";
-import Varukorg from "./Components/Varukorg/Varukorg.tsx";
+import Varukorg from "./Routes/Varukorg/Varukorg.jsx";
 import { Delivery } from "./Routes/Delivery.jsx";
 import CheckoutPage from "./Components/betalning/Betalning.tsx";
 import Kvitto from "./Components/Kvitto/Kvitto.tsx";

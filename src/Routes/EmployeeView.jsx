@@ -13,7 +13,7 @@ export const EmployeeView = () => {
     const navigate = useNavigate();
 
     // Login
-    const { setIsLoggedIn, isLoggedIn } = useContext(FunkyContext);
+    const { setIsLoggedIn, isLoggedIn, updateState } = useContext(FunkyContext);
 
 
     // Data
@@ -21,6 +21,7 @@ export const EmployeeView = () => {
     const [duringTreatmentData, setDuringTreatmentData] = useState([]);
     const [doneData, setDoneData] = useState([]);
     const [orders, setOrders] = useState([]);
+    const [menuName, setMenuNames] = useState([]);
 
     // Tabs
     const [selectTab, setSelectTab] = useState("untreated");
@@ -51,6 +52,7 @@ export const EmployeeView = () => {
                 
                 const ordersData = await ordersResponse.json();
                 const menuData = await menuResponse.json();
+                setMenuNames(menuData)
 
                 const untreadedOrder = ordersData.filter(order => order.status === "untreated")
                 const duringTreatmentOrder = ordersData.filter(order => order.status === "during-treatment")
@@ -117,7 +119,81 @@ export const EmployeeView = () => {
         };
 
         fetchData();
-    }, [orders]);
+    }, [selectTab]);
+
+    const deleteOrderItem = (orderId, itemId) => {
+        const copy= [...untreatedData]
+        const foundOrderIndex = copy.findIndex((order) => order._id === orderId)
+        const orderCopy = {...copy[foundOrderIndex]}
+        copy[foundOrderIndex] = orderCopy
+        orderCopy.items = orderCopy.items.filter(item => item.menuItem !== itemId)
+        setUntreatedData(copy)
+        // console.log("deleteOrder", untreatedData);
+    }
+
+    const addOrderItem = async (orderId, menuItemId, quantity) => {
+        const copy = [...untreatedData];
+        const nameFromMenu = await menuName.find(item => item._id === menuItemId)?.name
+
+        console.log("namn på rätten",nameFromMenu);
+        const newItem = {
+                nameFromMenu,
+                quantity
+        }
+        const foundOrderIndex = copy.findIndex((order) => order._id === orderId);
+    
+        if (foundOrderIndex !== -1) {
+            const orderCopy = { ...copy[foundOrderIndex] };
+            
+        
+            // orderCopy.items.push(newItem);
+            orderCopy.items = [ ...orderCopy.items, newItem]
+    
+           
+            copy[foundOrderIndex] = orderCopy;
+    
+            
+            setUntreatedData(copy);
+        }
+    };
+    
+
+    const deleteOrder = (orderId) => {
+        const copy = [...untreatedData];
+        const foundOrderIndex = copy.findIndex((order) => order._id === orderId);
+    
+        if (foundOrderIndex !== -1) {
+            // Remove the order at foundOrderIndex from the copy array
+            copy.splice(foundOrderIndex, 1);
+    
+            // Update the state with the modified data
+            setUntreatedData(copy);
+        }
+    };
+
+    const moveOrder = (orderId) => {
+    
+        setUntreatedData(prevData => {
+            const copy = [...prevData];
+            const foundOrderIndex = copy.findIndex((order) => order._id === orderId);
+    
+            if (foundOrderIndex !== -1) {
+          
+                copy.splice(foundOrderIndex, 1);
+    
+                console.log("Order Removed: ", copy);
+                return copy;
+            }
+    
+            console.log("Order Not Found: ", prevData);
+            return prevData;
+        });
+    };
+    
+
+
+
+
 
     const onClickLogOut = () => {
         handleLogout()
@@ -157,7 +233,7 @@ export const EmployeeView = () => {
                 </header>
 
                 {viewTab === "untreated" && (
-                    <UntreatedOrder chartData={untreatedData} orders={orders}/>)}
+                    <UntreatedOrder chartData={untreatedData} orders={orders} deleteOrderItem={deleteOrderItem} deleteOrder={deleteOrder} addOrderItem={addOrderItem} moveOrder={moveOrder}/>)}
                 {viewTab === "during-treatment" && (
                     <UnderTreatmentOrder chartData={duringTreatmentData} orders={orders}/>)}
                 {viewTab === "done" && (
