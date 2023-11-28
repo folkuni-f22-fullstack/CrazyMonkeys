@@ -38,4 +38,11 @@
     font-size: 24px;
     border: none;
     cursor: pointer;
+    padding-left: 1.5em;
+}
+
+@media screen and (orientation: portrait) {
+    .steps-back-container > .back-btn {
+        padding-left: .75em;
+    }
 }

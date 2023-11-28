@@ -102,7 +102,7 @@ const Varukorg = () => {
                                             </span></button>
                                         </div>
                                     </div>
-                                    <hr />
+                                    <hr className="tinier-line" />
                                 </>
                             ))
                         }
