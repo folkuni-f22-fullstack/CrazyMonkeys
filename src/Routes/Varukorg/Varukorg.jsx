@@ -114,20 +114,23 @@ const Varukorg = () => {
                 </div>
             )
         }
+            <div className="cart-footer">
             {
                         chartData.length === 0 ? (
                         <button className="btn-grad" onClick={() => onSubmitButton(false)}>
                         Gå tillbaka till menyn
                         </button>) : (
-                            <div className="cart-footer">
+                            <>
                                 <div className="line-break"></div>
                                 <p className="total-sum">Totalsumma: {totalSum}:-</p>
                                 <button className="btn-grad" onClick={() => onSubmitButton(true)}>
                                     Gå vidare
                                 </button>
-                            </div>
+                            </>
                         )
                 }
+            </div>
+        
             </div>
         </div>
     );
