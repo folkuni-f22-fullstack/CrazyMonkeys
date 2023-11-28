@@ -9,6 +9,10 @@
 .back-btn {
     grid-area: button;
     text-align: center;
+
+}
+.back-btn > .material-symbols-outlined {
+    font-size: 34px;
 }
 
 .cart-header {

@@ -32,6 +32,36 @@ html, body {
 
 /* Leveransuppgifter */
 
+.delivery-header {
+    display: grid;
+    grid-template-areas: 'button text text ...';
+    padding: 1.25em 0em;
+}
+
+.delivery-header > h1 {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    grid-area: text;
+}
+
+.delivery-header > .back-btn {
+    grid-area: button;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.delivery-header > .back-btn > .material-symbols-outlined {
+    grid-area: icon;
+    color: #000;
+    display: block;
+    font-size: 34px;
+}
+
 .center{
     display: flex;
     justify-content: center;
@@ -154,33 +184,7 @@ html, body {
     width: 170px;
 }
 
-.delivery-header {
-    display: grid;
-    grid-template-areas: 'button text text ...';
-    padding: 1.25em 0em;
-}
 
-.delivery-header > h1 {
-    margin: 0px;
-    padding: 0px;
-    text-align: center;
-    grid-area: text;
-}
-
-.delivery-header > button {
-    grid-area: button;
-    border: none;
-    padding: 0px;
-    margin: 0px;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-.delivery-header > button > span.material-symbols-outlined {
-    grid-area: icon;
-    color: #000;
-    display: block;
-}
 
 .spacer {
     padding: 1.55em 0;

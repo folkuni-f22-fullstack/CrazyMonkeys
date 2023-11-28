@@ -214,7 +214,7 @@ export function Delivery() {
             <section className="delivery-container">
                 <StepsHeader />
                 <header className="delivery-header">
-                    <button onClick={onGoBackBtn}>
+                    <button className="back-btn" onClick={onGoBackBtn}>
                         <span className="material-symbols-outlined">undo</span>
                     </button>
                     <h1 className="delivery-title">Uppgifter</h1>

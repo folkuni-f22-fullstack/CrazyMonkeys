@@ -94,15 +94,15 @@ const Varukorg = () => {
                                         <p className="item-price">{order.price}:-</p>
                                         <div className="item-amount-container">
                                             <button className="item-minus-btn" onClick={() => handleAddToCart(order._id, -1)}><span className="material-symbols-outlined">
-remove
-</span></button>
+                                                remove
+                                            </span></button>
                                             <p className="item-amount">
                                                 {orderToSend.items.find(
                                                         (item) => item.menuItem === order._id
                                                     )?.quantity || 0}</p>
                                             <button className="item-plus-btn" onClick={() => handleAddToCart(order._id, 1)}><span className="material-symbols-outlined">
-add
-</span></button>
+                                                add
+                                            </span></button>
                                         </div>
                                     </div>
                                     <hr />
