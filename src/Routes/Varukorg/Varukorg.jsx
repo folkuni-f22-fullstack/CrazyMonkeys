@@ -68,9 +68,6 @@ const Varukorg = () => {
             <div className="cart">
                 <StepsHeader />
                 <header className="cart-header">
-                <Link to="/menu" className="back-btn">
-                    <span className="material-symbols-outlined">undo</span>
-                </Link>
                 <h1 className="cart-title">Varukorg</h1>
                 </header>
                         {

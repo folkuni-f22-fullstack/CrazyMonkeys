@@ -32,3 +32,10 @@
 .steps-container > div.line {
     margin: 0px;
 }
+
+.steps-back-container > .back-btn {
+    background-color: transparent;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
