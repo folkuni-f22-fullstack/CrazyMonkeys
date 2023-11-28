@@ -83,13 +83,11 @@
   border-radius: 5px;
   color: white;
   font-size: 20px;
-  z-index: 999;
+  z-index: 998;
   padding: 1em;
 }
 
-@media screen and (min-width: 430px) {
-
-  .matratt-container{display: none;}
+@media screen and (min-width: 1080px) {
 
   .menu-overlay {
     position: fixed; 
@@ -98,6 +96,11 @@
     transform: translate(-50%, -50%);
     width: 40%;
 }
+}
+@media screen and (min-width: 430px) {
+
+  .matratt-container{display: none;}
+
   .matratt-container2 {
     display: block;
     display: flex;
