@@ -204,20 +204,20 @@ export function Delivery() {
         };
     };
 
-    const onGoBackBtn = () => {
-        navigate("/varukorg");
-        setSelectStep(1);
-    };
+    const backButton = () => {
+        navigate("/varukorg")
+    }
 
     return (
         <section className="center">
             <section className="delivery-container">
+            <button className="back-btn" onClick={() => backButton()}>
+                    <span className="material-symbols-outlined">undo</span>
+            </button>
+                <h1 className="delivery-title mobile">Uppgifter</h1>
                 <StepsHeader />
-                <header className="header">
-                    <button onClick={onGoBackBtn}>
-                        <span className="material-symbols-outlined">undo</span>
-                    </button>
-                    <h1>Uppgifter</h1>
+                <header className="delivery-header">
+                    <h1 className="delivery-title">Uppgifter</h1>
                 </header>
                 <form className="form" onSubmit={handleSubmit}>
                     <div className="multi-inputs">

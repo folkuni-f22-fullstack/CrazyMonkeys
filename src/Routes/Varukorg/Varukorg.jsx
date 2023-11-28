@@ -62,15 +62,20 @@ const Varukorg = () => {
 
     const totalSum = chartData.reduce((acc, order) => acc + order.price * (orderToSend.items.find(item => item.menuItem === order._id)?.quantity || 0), 0);
 
+    const backButton = () => {
+        navigate("/menu")
+    }
+
 
     return (
         <div className="cart-wrapper">
             <div className="cart">
+            <button className="back-btn" onClick={() => backButton()}>
+                    <span className="material-symbols-outlined">undo</span>
+                </button>
+                <h1 className="cart-title mobile">Varukorg</h1>
                 <StepsHeader />
                 <header className="cart-header">
-                <Link to="/menu" className="back-btn">
-                    <span className="material-symbols-outlined">undo</span>
-                </Link>
                 <h1 className="cart-title">Varukorg</h1>
                 </header>
                         {
@@ -91,17 +96,21 @@ const Varukorg = () => {
                                 <>
                                     <div className="cart-item">
                                         <p className="item-name">{order.name}</p>
-                                        <p className="item-price">{order.price} :-</p>
+                                        <p className="item-price">{order.price}:-</p>
                                         <div className="item-amount-container">
-                                            <button className="item-minus-btn" onClick={() => handleAddToCart(order._id, -1)}>-</button>
+                                            <button className="item-minus-btn" onClick={() => handleAddToCart(order._id, -1)}><span className="material-symbols-outlined">
+                                                remove
+                                            </span></button>
                                             <p className="item-amount">
                                                 {orderToSend.items.find(
                                                         (item) => item.menuItem === order._id
                                                     )?.quantity || 0}</p>
-                                            <button className="item-plus-btn" onClick={() => handleAddToCart(order._id, 1)}>+</button>
+                                            <button className="item-plus-btn" onClick={() => handleAddToCart(order._id, 1)}><span className="material-symbols-outlined">
+                                                add
+                                            </span></button>
                                         </div>
                                     </div>
-                                    <hr />
+                                    <hr className="tinier-line" />
                                 </>
                             ))
                         }
@@ -110,19 +119,23 @@ const Varukorg = () => {
                 </div>
             )
         }
+            <div className="cart-footer">
             {
                         chartData.length === 0 ? (
                         <button className="btn-grad" onClick={() => onSubmitButton(false)}>
                         Gå tillbaka till menyn
                         </button>) : (
                             <>
-                                <p className="total-summa">Totalsumma: {totalSum} :-</p>
+                                <div className="line-break"></div>
+                                <p className="total-sum">Totalsumma: {totalSum}:-</p>
                                 <button className="btn-grad" onClick={() => onSubmitButton(true)}>
                                     Gå vidare
                                 </button>
                             </>
                         )
                 }
+            </div>
+        
             </div>
         </div>
     );

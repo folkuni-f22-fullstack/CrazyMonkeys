@@ -176,17 +176,17 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
         <>
             {chartData.map((order) => (
                 <div key={order._id} className="order-box">
-                            {
-                                isEditing ? (
-                                    <span className="material-symbols-outlined">edit</span>
-                                ) : (
-                                    isSelected ? (
-                                        <span className="material-symbols-outlined">toggle_on</span>
-                                    ) : (
-                                        <span className="material-symbols-outlined">schedule</span>
-                                    )
+                    {
+                        editOrder._id === order._id ? (
+                            <span className="material-symbols-outlined">edit</span>
+                        ) : (
+                            selectOrder._id === order._id ? (
+                                <span className="material-symbols-outlined">toggle_on</span>
+                            ) : (
+                                    <span className="material-symbols-outlined">schedule</span>
                                 )
-                            }
+                            )
+                    }
                             <p className="order-name">Ordernummer {order.orderId}</p>
 
                     {selectOrder._id === order._id ? (
@@ -353,13 +353,15 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                 )}
                                                 </div>
                                             </details>
-                                            <button
-                                                        className="button-edit"
-                                                        type="submit"
-                                                        onClick={() => saveEditedOrder(order)}
-                                                    >
+                                            <div className="button-to-right-div">
+                                                <button
+                                                    className="button-confirm"
+                                                    type="submit"
+                                                    onClick={() => saveEditedOrder(order)}>
                                                         Slutför ändring
-                                                    </button>
+                                                </button>
+                                            </div>
+
                                         </div>
                                 </>
                             ) : (
@@ -398,19 +400,20 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                 <p>Telefonnummer: {order.mobile} </p>
                                                 <p>Kommentarer från kund: {order.comments}</p>
                                             </details>
-
-                                            <button
-                                                className="button-confirm"
-                                                type="submit"
-                                                onClick={() => onSubmitOrder(order)}
-                                            >
-                                                Skicka till kocken{" "}
-                                                {isLocked && (
-                                                    <span className="material-symbols-outlined">
-                                                        lock
-                                                    </span>
-                                                )}
-                                            </button>
+                                            <div className="button-to-right-div">
+                                                <button
+                                                    className="button-confirm"
+                                                    type="submit"
+                                                    onClick={() => onSubmitOrder(order)}
+                                                >
+                                                    Skicka till kocken{" "}
+                                                    {isLocked && (
+                                                        <span className="material-symbols-outlined">
+                                                            lock
+                                                        </span>
+                                                    )}
+                                                </button>
+                                            </div>
                                         </div>
                                 </>
                             )}

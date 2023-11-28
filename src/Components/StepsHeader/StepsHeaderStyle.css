@@ -6,6 +6,7 @@
     align-items: center;
     justify-items: center;
     justify-content: center;
+    padding-bottom: 1.75em;
 }
 
 .steps-container > div {
@@ -31,4 +32,12 @@
 
 .steps-container > div.line {
     margin: 0px;
+}
+
+@media screen and (orientation: portrait) {
+    .step-round {
+        width: 20.5px;
+        height: 20.5px;
+        border: 1.25px solid #000;
+    }
 }
