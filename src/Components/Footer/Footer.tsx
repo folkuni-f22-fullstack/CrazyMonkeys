@@ -12,6 +12,7 @@ import { IoIosMail } from "react-icons/io";
 import { Login } from "../../Components/Login/Login";
 import ff from "../../assets/footerpagepic/FF-red.png";
 import "../Login/login.css";
+import "../../App.css";
 
 import { FunkyContext } from "../../ContextRoot";
 

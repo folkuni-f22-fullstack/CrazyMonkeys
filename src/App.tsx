@@ -18,9 +18,9 @@ function App() {
     <>
 
          
-    {/* {
-      isLoggedIn ? <EmployeeView /> : <StartPage/>
-    }  */}
+    
+     {/* <StartPage/> */}
+    
       <AboutUs/>
       {/* <Menu />
       <Kundkorg/>

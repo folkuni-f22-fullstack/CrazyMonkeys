@@ -12,6 +12,7 @@ import { motion, useInView, useAnimation } from "framer-motion";
 
 import "./startpage.css";
 
+
 function StartPage() {
   const ref1 = useRef(null);
   const isInView1 = useInView(ref1, { once: true });
