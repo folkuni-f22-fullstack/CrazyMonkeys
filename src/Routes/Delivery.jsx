@@ -213,11 +213,11 @@ export function Delivery() {
         <section className="center">
             <section className="delivery-container">
                 <StepsHeader />
-                <header className="header">
+                <header className="delivery-header">
                     <button onClick={onGoBackBtn}>
                         <span className="material-symbols-outlined">undo</span>
                     </button>
-                    <h1>Uppgifter</h1>
+                    <h1 className="delivery-title">Uppgifter</h1>
                 </header>
                 <form className="form" onSubmit={handleSubmit}>
                     <div className="multi-inputs">

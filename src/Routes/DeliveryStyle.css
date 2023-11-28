@@ -37,6 +37,10 @@ html, body {
     justify-content: center;
 }
 
+.delivery-title {
+    font-family: var(--meny-font);
+}
+
 .center:has(.delivery-container) {
     display: flex;
     justify-content: center;
@@ -150,20 +154,20 @@ html, body {
     width: 170px;
 }
 
-.header {
+.delivery-header {
     display: grid;
     grid-template-areas: 'button text text ...';
     padding: 1.25em 0em;
 }
 
-.header > h1 {
+.delivery-header > h1 {
     margin: 0px;
     padding: 0px;
     text-align: center;
     grid-area: text;
 }
 
-.header > button {
+.delivery-header > button {
     grid-area: button;
     border: none;
     padding: 0px;
@@ -172,7 +176,7 @@ html, body {
     cursor: pointer;
 }
 
-.header > button > span.material-symbols-outlined {
+.delivery-header > button > span.material-symbols-outlined {
     grid-area: icon;
     color: #000;
     display: block;
