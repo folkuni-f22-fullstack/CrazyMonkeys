@@ -6,17 +6,24 @@
     align-items: center;
     justify-items: center;
     justify-content: center;
-    padding-top: 2.5em;
 }
 
-.step-round-button {
+.steps-container > div {
+    display: flex;
+    flex-flow: column wrap;
+    place-items: center;
+}
+
+.step-round {
     border-radius: 100%;
     width: 25.5px;
     height: 25.5px;
     border: 1.75px solid #000;
+    display: grid;
+    place-content: center;
 }
 
-.line {
+.steps-container > .line {
     width: 30px;
     height: 2px;
     background-color: #000;

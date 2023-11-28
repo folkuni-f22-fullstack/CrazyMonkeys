@@ -6,6 +6,7 @@ import morgan from "morgan";
 import menuRoute from "./routes/menu.js"
 import messagesRoute from "./routes/message.js";
 import orderRoute from "./routes/orders.js";
+import authRoute from "./routes/users.js";
 
 dotenv.config();
 const app = express();
@@ -28,6 +29,7 @@ app.use(morgan("common"));
 app.use("/api/menu", menuRoute)
 app.use("/api/messages", messagesRoute)
 app.use("/api/orders", orderRoute)
+app.use("/api/auth", authRoute)
 
 
 app.listen(3114, () => {

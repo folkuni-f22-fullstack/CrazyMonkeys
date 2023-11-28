@@ -1,4 +1,3 @@
-import Header from "../../Components/Header/Header";
 import taco from "../../assets/startpagepic/taco.png";
 import musslor from "../../assets/startpagepic/musslor.png";
 import pizza from "../../assets/startpagepic/pizza.png";
@@ -6,9 +5,10 @@ import sushi from "../../assets/startpagepic/sushi.png";
 import sushirulle from "../../assets/startpagepic/sushirulle.png";
 import teriyaki from "../../assets/startpagepic/teriyaki.png";
 import koriander from "../../assets/startpagepic/Korianderpesto.png";
-import Footer from "../../Components/Footer/Footer";
 import { useEffect, useRef } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
+
+import { Link } from "react-router-dom";
 
 import "./startpage.css";
 
@@ -46,7 +46,6 @@ function StartPage() {
         <img className="top-pic sushi" src={sushirulle} alt="Bild på taco" />
         <img className="top-pic" src={pizza} alt="Bild på pizza" />
       </section>
-      <Header />
       <section className="pic-container2">
         <img className="top-pic" src={taco} alt="Bild på taco" />
         <img className="top-pic sushi" src={sushi} alt="Bild på taco" />
@@ -62,7 +61,10 @@ function StartPage() {
             Fusionmat är den kreativa konsten att kombinera olika matkulturer
             och smaker för att skapa helt nya, spännande rätter.
           </p>
-          <button className="start btn-grad">Beställ här</button>
+
+          <Link to="/menu" className="desktop">
+            Gå till Meny
+          </Link>
         </div>
 
         <motion.div
@@ -76,15 +78,27 @@ function StartPage() {
           animate={controls1}
           transition={{ duration: 2 }}
         >
-          <img className="startmainpicture" src={koriander} alt="Bild på mat" />
+          <img
+            className="startmainpicture bild"
+            src={koriander}
+            alt="Bild på mat"
+          />
 
           <div className="body-text">
             <h3 className="startfood-title">Korianderpesto-pasta</h3>
-            Korianderpesto-past - är en smakexplosion med sin friska och
-            kryddiga koriander, nötiga jordnötter och fräscha lime, vilket ger
-            en oemotståndlig smakupplevelse i varje tugga. Den kombinerar det
-            bästa av öst och väst i en pasta som är både djärv och harmonisk på
-            samma gång.
+            Korianderpesto-pasta är en smakexplosion med sin friska och kryddiga
+            koriander, nötiga jordnötter och fräscha lime, vilket ger en
+            oemotståndlig smakupplevelse i varje tugga. Den kombinerar det bästa
+            av öst och väst i en pasta som är både djärv och harmonisk på samma
+            gång.
+            <p className="fill-text">
+              Det som gör vår Korianderpesto-pasta så unik är den balanserade
+              kombinationen av ingredienser. Det är en smakupplevelse som går
+              utöver det vanliga och kommer att lämna dina smaklökar i extas.
+              Varje tugga är en resa genom en värld av smaker som är lika djärv
+              som den är harmonisk, och varje portion är ett konstverk av noga
+              avvägda smaker och dofter."
+            </p>
           </div>
         </motion.div>
 
@@ -110,14 +124,26 @@ function StartPage() {
 
           <div className="body-text">
             <h3 className="startfood-title">Teriyaki Tofu Sushi Burrito </h3>
-            Teriyaki Tofu Sushi Burrito - Den kombinerar den saftiga sötman från
+            Teriyaki Tofu Sushi Burrito - Kombinerar den saftiga sötman från
             teriyaki med den fräscha krispigheten av grönsaker och nori, vilket
             ger en spännande smakupplevelse i varje tugga.
+            <p className="fill-text">
+              Denna läckra skapelse förenar den perfekta balansen mellan
+              teriyakisåsens lockande sötma och tofuens saftiga textur. Varje
+              tugga är en förening av smaker och texturer, där den krispiga
+              fräschören från färska grönsaker dansar i perfekt symfoni med
+              noribladets lätt krispiga karaktär. En fusion av traditionella
+              smaker och modern kreativitet gör den till en oförglömlig
+              matupplevelse, perfekt för dem som söker något unikt och utsökt i
+              varje måltid."
+            </p>
           </div>
         </motion.div>
-        <button className="mobilbtn btn-grad ">Beställ här</button>
+
+        <Link to="/menu" className="mobilbtn">
+          Gå till Meny
+        </Link>
       </main>
-      <Footer />
     </>
   );
 }

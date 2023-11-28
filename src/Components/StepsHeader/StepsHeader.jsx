@@ -1,11 +1,11 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 
 import "./StepsHeaderStyle.css"
 
-import './StepsHeader.css'
+import { FunkyContext } from "../../ContextRoot"
 export const StepsHeader = () => {
 
-    const [selectStep, setSelectStep] = useState(1)
+   const {selectStep, setSelectStep} = useContext(FunkyContext)
 
     const chosenStep = (step) => {
         return {
@@ -15,22 +15,22 @@ export const StepsHeader = () => {
     return (
         <section className="steps-container">
             <div>
-                <button className="step-round-button" onClick={() => setSelectStep(1)} style={chosenStep(1)}>1</button>
+                <div className="step-round" style={chosenStep(1)}>1</div>
                 <legend>Varukorg</legend>
             </div>
             <div className="line" />
             <div>
-                <button className="step-round-button" onClick={() => setSelectStep(2)} style={chosenStep(2)}>2</button>
+                <div className="step-round" style={chosenStep(2)}>2</div>
                 <legend>Uppgifter</legend>
             </div>
             <div className="line" />
             <div>
-                <button className="step-round-button" onClick={() => setSelectStep(3)} style={chosenStep(3)}>3</button>
+                <div className="step-round" style={chosenStep(3)}>3</div>
                 <legend>Betala</legend>
             </div>
             <div className="line" />
             <div>
-                <button className="step-round-button" onClick={() => setSelectStep(4)} style={chosenStep(4)}>4</button>
+                <div className="step-round" style={chosenStep(4)}>4</div>
                 <legend>Kvitto</legend>
             </div>
         </section>

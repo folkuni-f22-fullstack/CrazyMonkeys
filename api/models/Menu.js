@@ -2,7 +2,7 @@
 
  const MenuSchema = new mongoose.Schema({
     itemId: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
         required: true
     },
     itemType: {

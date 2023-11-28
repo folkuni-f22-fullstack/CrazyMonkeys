@@ -40,7 +40,6 @@ const AboutUs = () => {
 
   return (
     <div>
-      <Header />
       <div className="parent-about-container">
         <div className="about-container">
           <section className="title-pic">
@@ -117,7 +116,6 @@ const AboutUs = () => {
       </motion.section>
     </div>
       </div >
-  <Footer />
     </div >
   );
 };

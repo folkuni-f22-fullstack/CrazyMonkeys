@@ -32,37 +32,34 @@ html, body {
 
 /* Leveransuppgifter */
 
-.btn-grad {
-    background-image: linear-gradient(to right, #235852 0%, 
-  #001510  51%, #00bf8f  100%); 
-    margin: 2em 0.4em;
-    padding: 15px 45px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    box-shadow: 0 0 7px #eee;
-    border-radius: 10px;
-    display: block;
-  }
-
-.center {
+.center{
     display: flex;
-    place-content: center;
+    justify-content: center;
 }
 
-.btn-grad:hover {
-    background-position: right center; 
-    color: #fff;
-    text-decoration: none;
+.center:has(.delivery-container) {
+    display: flex;
+    justify-content: center;
+    place-content: center;
+    margin-bottom: 3em;
+}
+
+.delivery-btn-grad{
+    display: flex;
+    justify-content: center;
   }
+
+.delivery-btn{
+    width: 100% !important;
+  }
+
 
 .delivery-container {
     min-width: 320px;
     background-color: #f2f2f2;
     width: 625px;
     border-radius: 30px;
+    padding-top: 1.25em;
 }
 
 .form {
@@ -75,6 +72,7 @@ html, body {
     display: flex;
     flex-flow: column wrap;
     align-items: flex-start;
+    margin-bottom: .75em;
 }
 
 .label-above-input:has(.span-validation) {
@@ -171,11 +169,13 @@ html, body {
     padding: 0px;
     margin: 0px;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .header > button > span.material-symbols-outlined {
     grid-area: icon;
     color: #000;
+    display: block;
 }
 
 .spacer {
