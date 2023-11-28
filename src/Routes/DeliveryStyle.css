@@ -43,6 +43,7 @@ html, body {
     padding: 0px;
     text-align: center;
     grid-area: text;
+    font-size: 24px;
 }
 
 .delivery-header > .back-btn {
