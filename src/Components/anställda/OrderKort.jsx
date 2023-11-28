@@ -8,6 +8,7 @@ import { FunkyContext } from "../../ContextRoot";
 import MenuEmployee from "./MenuEmployee.jsx";
 
 export default function OrderKort(props) {
+    
     const [isClicked, setIsClicked] = useState(false);
     const { isEditing, selectedItemId, selectedItemQuantity, setSelectedItemQuantity } =
         useContext(FunkyContext);
@@ -16,9 +17,25 @@ export default function OrderKort(props) {
         setIsClicked(true);
     };
 
+    
     const sendOrder = (orderId) => {
+        console.log("order", props.order);
+        console.log("orders", props.orders);
         console.log(orderId, selectedItemId, selectedItemQuantity);
-        postItemOrder(orderId, selectedItemId, selectedItemQuantity)
+
+        async function doSomething (whenDone)  {
+           await postItemOrder(orderId, selectedItemId, selectedItemQuantity, whenDone)
+            
+            async function whenDone() {
+                await props.addOrderItem(orderId, selectedItemId, selectedItemQuantity,)
+
+            }
+        }
+        doSomething()
+
+        // försök att lösa detta
+        // står ej tillgängligt tills man uppdaterar sidan
+        
     };
 
     return (
@@ -66,13 +83,14 @@ export default function OrderKort(props) {
 
                     {props.order.items &&
                         props.order.items.map((orderItem) => {
-                            // Find the corresponding menu item in orders
+                            
                             const menuItemData = props.orders
                                 .flatMap((order) => order.items)
                                 .find((menu) => menu._id === orderItem.menuItem);
 
                             const removeOrder = (itemOrderId) => {
                                 console.log(props.order.status, itemOrderId);
+                                props.deleteOrderItem(props.order._id, itemOrderId)
                                 const response = removeOrderItem(props.order._id, itemOrderId);
                             };
 

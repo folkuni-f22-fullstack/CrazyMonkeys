@@ -18,7 +18,8 @@ const handleLoginEmp = async (username, password) => {
         sessionStorage.removeItem(sessionStorageKey)
         sessionStorage.setItem(sessionStorageKey, data.token)
         sessionStorage.setItem('id', data.id)
-        return true
+        // console.log(data);
+        return {data}
       }else{
         console.log("login failed: " + response.status);
         return
