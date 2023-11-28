@@ -8,6 +8,8 @@ const Dryck = () => {
   const [itemCounter, setItemCounter] = useState(1);
   const { orderToSend, order, setOrder } = useContext(FunkyContext);
 
+  const [showDrinkOverlay, setShowDrinkOverlay] = useState(false);
+
   const addOrder = () => {
     const newOrder = {
       itemId: orderId,
@@ -37,6 +39,7 @@ const Dryck = () => {
   }, []);
 
   const handleAddToCart = (dryckId: string) => {
+    setShowDrinkOverlay(true);
     const existingOrder = order.find(
       (orderItem) => orderItem.itemId === dryckId
     );
@@ -59,34 +62,66 @@ const Dryck = () => {
       setOrder((prevOrder) => [...prevOrder, newOrder]);
     }
     setItemCounter(itemCounter + 1);
+    setTimeout(() => {
+      setShowDrinkOverlay(false);
+    }, 9000);
   };
 
-
   return (
-    <div className="dryck-container">
-      <h2>Dryck</h2>
-
-      {dryckData.map((dryck) => (
-        <div className="dryck-item" key={dryck._id}>
-          <div className="dryck-details">
-            <div className="drink-name">
-              <h3 className="meny-h3" >{dryck.name} .............. </h3>
-            </div>
-            <p> {dryck.price} kr</p>
-          </div>
-
-          <div className="quantity-controls">
-            {" "}
-            <button
-              className="quantity-button"
-              onClick={() => handleAddToCart(dryck._id)}
-            >
-              +
-            </button>
-          </div>
+    <>
+      <h2 className="rubrik">Drycker</h2>
+      <div className="dryck-container">
+        <div className="dryck-column">
+          {/* <h2>Kolsyrade</h2> */}
+          {dryckData.map(
+            (dryck, index) =>
+              index % 2 === 0 && (
+                <div className="dryck-item" key={dryck._id}>
+                  <div className="drink-container">
+                    <p className="meny-p">{dryck.name} </p>
+                  </div>
+                  <div className="price-and-btn">
+                    <p className="meny-price-p"> {dryck.price}:-</p>
+                    <button
+                      className="quantity-button"
+                      onClick={() => handleAddToCart(dryck._id)}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              )
+          )}
         </div>
-      ))}
-    </div>
+
+        <div className="dryck-column">
+          {/* <h2>Öl</h2> */}
+          {dryckData.map(
+            (dryck, index) =>
+              index % 2 !== 0 && (
+                <div className="dryck-item" key={dryck._id}>
+                  <div className="drink-container">
+                    <p className="meny-p">{dryck.name} </p>
+                  </div>
+                  <div className="price-and-btn">
+                    <p className="meny-price-p"> {dryck.price}:-</p>
+                    <button
+                      className="quantity-button"
+                      onClick={() => handleAddToCart(dryck._id)}
+                    >
+                      +
+                    </button>
+                  </div>
+                  {showDrinkOverlay && (
+            <div className="drink-overlay">
+              <p>Varan har lagts i kundvagnen</p>
+            </div>
+          )}
+                </div>
+              ))}
+        </div>
+      </div>
+    </>
   );
 };
 

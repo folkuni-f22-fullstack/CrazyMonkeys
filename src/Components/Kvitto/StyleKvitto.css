@@ -90,7 +90,9 @@ text-align: center;
 .last-message{
     text-align: center;
 }
-.btn-grad {
+
+/* Den knappen ställer till det för annan css */
+/* .btn-grad {
     background-image: linear-gradient(to right, #235852 0%, 
   #001510  51%, #00bf8f  100%); 
     margin: 2em 0.4em;
@@ -108,7 +110,7 @@ text-align: center;
     background-position: right center; 
     color: #fff;
     text-decoration: none;
-  }
+  } */
 
 @media (min-width: 320px) and (max-width:683px){
   .container{

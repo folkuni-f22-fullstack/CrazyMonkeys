@@ -123,21 +123,25 @@ router.post("/", async (req, res) => {
 router.post("/:id/addMenuItem", async (req, res) => {
     const orderId = req.params.id
     const newMenuItem = req.body.newMenuItem[0];
-  
+  console.log('AddmenuItem 1', orderId)
     try {
          const existingOrder = await Orders.findOne({_id: orderId})
          if(!existingOrder){
             return res.status(404).json({ message: "Order not found"})
          }
+  console.log('AddmenuItem 2', existingOrder)
+  console.log('NewmenuItem', newMenuItem)
       
          
          const existingMenuItem = existingOrder.items.find(item => item.menuItem.toString() === newMenuItem.menuItem)
+         console.log('AddmenuItem 3', existingMenuItem)
 
          if(existingMenuItem){
             existingMenuItem.quantity += parseInt(newMenuItem.quantity, 10);
          }else{
             existingOrder.items.push(newMenuItem)
          }
+         console.log('AddmenuItem 4')
 
          const updatedOrder = await existingOrder.save()
         

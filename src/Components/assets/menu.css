@@ -1,108 +1,163 @@
-.outer-container {
-  background-color: #4c5452;
+.meny-title {
+  font-family: var(--meny-font);
+  font-weight: lighter;
+  font-style: normal;
+  margin: 1em 0em;
+}
+
+.meny-tabs {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 1080px;
-  width: 100%;
-  margin-bottom: 1em;
+  justify-content: space-around;
+  margin-bottom: 1.1em;
 }
 
 .inner-container {
-  border: 5px solid #183A37;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: white;
-  padding:10px;
+  background-color: var(--bg-white);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   text-align: center;
-  width: 780px;
-  height: 100vh;
+  /* width: 60em; */
+  /* height: 100vh; */
   margin: 0 auto;
 }
 
-.meny-h3 {
-  color: #000;
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-.order-btn-grad-div{
-    display: flex;
-    justify-content: center;
+.menybtn {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 50%;
 }
 
 .btn {
-  padding: 10px 20px;
-  margin: 5px;
+  padding: 0.9em 0.5em;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #eee;
-  transition: background-color 0.3s ease-in-out; 
+  background-color: var(--bg-white);
+  transition: background-color 0.3s ease-in-out;
+  font-family: var(--meny-font);
+  font-size: 16px; 
+  margin: 0em 0em 0em 0.5em;
+ 
 }
 
-.btn.active, .btn:hover {
-  background-color: #7a907b; 
-  color: #fff;
+.btn.active,
+.btn:hover {
+  background-color: #ffffff;
+  border: 1px solid rgb(164, 161, 161);
+  box-shadow: 0px 2px 2px rgb(193, 192, 192);
+  color: #000000;
 }
 
 .btn:active {
-  background-color: #555;
+  background-color: #fcfcfc;
   color: #fff;
 }
 
-.funky-hr-title p{
-  width: 250px;
-  align-self: center;
-  
+
+.funky-hr-title p {
+  width: 40em;
+  font-family: var(--title-font);
+  font-size: 10px;
 }
 .funky-hr-title {
-  
   display: flex;
   align-items: center;
-  flex-direction: row;
-  font-family: 'Edu TAS Beginner', cursive;
 }
 
 .funky-hr {
-height: 5px;  
+  height: 4px;
   background: #000;
-  width: 500px;
+  width: 27em;
+  margin: 0em 0.5em;
 }
 
 .proceed-button {
-  background-image: linear-gradient(to right, #235852 0%, 
-  #001510  51%, #00bf8f  100%); 
-    margin: 2em 0.4em;
-    padding: 15px 45px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    box-shadow: 0 0 7px #eee;
-    border-radius: 10px;
-    display: block;
+  background-image: linear-gradient(
+    to right,
+    #235852 0%,
+    #001510 51%,
+    #00bf8f 100%
+  );
+  margin: 2em 0.4em;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 7px #eee;
+  border-radius: 10px;
+  display: block;
 }
 
 .proceed-button:hover {
-  background-position: right center; 
+  background-position: right center;
   color: #fff;
   text-decoration: none;
 }
 
-@media  (max-width: 320px) {
-  h1 {
-    font-size: 18px;
-  }
-  .inner-container {
-    width: 260px;
+  .order-btn-grad-div {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 100%; 
+    height: 10%; 
     
   }
+  
+  .btn-grad {
+    width: 90%;
+    max-width: 300px;
+    margin: 2em 0; 
+  }
+
+/* Desktop */
+@media (min-width: 400px) {
+  .outer-container {
+    display: flex;
+    justify-content: center;
+    margin: 0em 4em;
+  }
+
+  .inner-container {
+    border: 2px solid #183a37;
+    
+  }
+  .menybtn {
+    display: flex;
+    text-align: center;
+
+    justify-content: center;
+    width: 50%;
+  }
+
   .btn {
-    padding: 8px 16px;
+    padding: 13px 20px;
+  }
+
+  .funky-hr {
+    height: 4px;
+    background: #000;
+    width: 99em;
+    margin: 0em 0.5em;
+  }
+ 
+  .order-btn-grad-div {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 100%; 
+    height: 10%; 
+    
+  }
+  
+  .btn-grad {
+    width: 90%;
+    max-width: 300px;
+    margin: 2em 0; 
   }
 }

@@ -68,7 +68,7 @@ function Header() {
           Kontakt
         </Link>
 
-        <NavLink to="/kundkorg" className="cart-icon">
+        <NavLink to="/varukorg" className="cart-icon">
           <IoCartOutline />
           </NavLink>
 
