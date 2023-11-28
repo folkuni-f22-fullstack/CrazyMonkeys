@@ -69,7 +69,7 @@
 
 /* Cart container */
 .cart-container {
-    padding: 0em 4.25em;
+    padding: 0em 1.15em;
 }
 
 /* Cart item */
@@ -155,9 +155,11 @@
 }
 
 .cart-item {
-    grid-template-areas: 'item-name ...'
-    'item-price ...'
-    'item-amount ...';
+    font-size: 12px;
+}
+
+.item-name {
+    width: 120px;
 }
 
 .total-sum {
