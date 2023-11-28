@@ -11,7 +11,7 @@
   width: 12px;
 }
 .matratt {
-  margin-left: 0.6em;
+  margin-left: 1em;
 }
 
 .mattratter-title {
@@ -36,7 +36,7 @@
 .bottom-details {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-around;
   background-color: white;
   box-shadow: 4px 2px 5px 0px gray;
@@ -49,7 +49,7 @@
   flex-direction: row;
   justify-content: space-between;
   width: 15em;
-  margin: 1em 0em 1em;
+  margin: 1em 1em 1em;
 }
 .menu-price {
   display: flex;
