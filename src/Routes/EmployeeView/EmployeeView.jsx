@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import {FunkyContext} from "../../ContextRoot.js"
+import {FunkyContext} from "../../ContextRoot.tsx"
 import {handleLogout} from "../../Components/Login/loginFetch.js"
 
 import "./employeeStyle.css";
