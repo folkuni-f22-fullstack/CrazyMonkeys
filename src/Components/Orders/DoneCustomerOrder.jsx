@@ -1,7 +1,8 @@
 import { useState } from "react";
 import OrderKort from "../anställda/OrderKort";
+import { removeOrder } from "../../dataApi/removeOrder.js";
 
-const DoneCustomerOrder = ({ chartData, orders }) => {
+const DoneCustomerOrder = ({ chartData, orders, deleteDoneOrder }) => {
     const [selectOrder, setSelectOrder] = useState({});
     const [orderStatus, setOrderStatus] = useState("");
 
@@ -11,6 +12,13 @@ const DoneCustomerOrder = ({ chartData, orders }) => {
         console.log(selectOrder, orderStatus);
     };
 
+
+    const cancelOrder = (orderId) => {
+        chartData.filter((order) => order._id !== orderId);
+        removeOrder(orderId);
+        deleteDoneOrder(orderId);
+        
+    };
 
 
 
@@ -23,7 +31,7 @@ const DoneCustomerOrder = ({ chartData, orders }) => {
 
                     {selectOrder._id === order._id ? (
                         <>
-                            <details className="details">
+                            <details className="details treatment">
                                 <summary
                                     className="summary"
                                     title={`Kika på order ${order.orderId}`}
@@ -63,6 +71,13 @@ const DoneCustomerOrder = ({ chartData, orders }) => {
                             <button onClick={() => onSelectOrder(order)} className="button-mark">
                                 Visa Order
                             </button>
+                            <button
+                                                        className="button-decline" title="Ta bort hela ordern"
+                                                        onClick={() => cancelOrder(order._id)}
+                                                    >
+                                                        <span className="material-symbols-outlined">delete</span>
+                                                    </button>
+                            
                         </div>
                     )}
                 </div>

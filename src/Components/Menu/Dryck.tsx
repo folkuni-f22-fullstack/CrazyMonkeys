@@ -29,7 +29,7 @@ const Dryck = () => {
         const data = await response.json();
         const sortedData = data.filter((item) => item.itemType === "dricka");
         setDryckData(sortedData);
-        console.log(data);
+      
       } catch (error) {
         console.error(error);
       }

@@ -28,7 +28,6 @@ const Tillbehor = () => {
         const data = await response.json();
         const sortedData = data.filter((item) => item.itemType === "tillbehör");
         setTillbehorData(sortedData);
-        console.log(data);
       } catch (error) {
         console.error(error);
       }

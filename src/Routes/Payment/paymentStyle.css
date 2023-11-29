@@ -1,0 +1,88 @@
+/* Wrapper */
+.pay-wrapper {
+  background-color: #4c5452;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 5em;
+}
+
+/* Header */
+.pay-header {
+  display: grid;
+  grid-template-areas: '... title title ...';
+}
+
+.pay-title {
+  grid-area: title;
+  text-align: center;
+  grid-area: title;
+  font-family: var(--meny-font);
+  font-size: 24px;
+}
+
+.go-back-btn {
+  grid-area: button;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.pay-title.mobile {
+  display: none;
+}
+
+/* Content */
+.pay-container {
+  padding: 0em 10em;
+  padding-top: 3em;
+}
+
+.pay-form {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 25px;
+}
+
+.pay {
+  background-color: white;
+  padding-top: 1.25em;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 650px;
+  min-width: 320px;
+  height: 540px;
+}
+
+.pay-btn-div {
+    display: flex;
+    justify-content: center;
+    padding-top: 9.5em;
+}
+
+/* Inputs */
+.pay-label {
+  font-size: 20px;
+  margin-left: .75em;
+}
+
+
+@media screen and (orientation: portrait) {
+
+  .pay-title {
+    display: none;
+  }
+
+  .pay-title.mobile {
+    display: block;
+    top: -34px;
+    position: relative;
+}
+
+.pay-container {
+  padding: 0em 2em;
+  padding-top: 3em;
+}
+
+}

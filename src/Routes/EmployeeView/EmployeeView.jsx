@@ -1,14 +1,14 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import {FunkyContext} from "../ContextRoot"
-import {handleLogout} from "../Components/Login/loginFetch.js"
+import {FunkyContext} from "../../ContextRoot.tsx"
+import {handleLogout} from "../../Components/Login/loginFetch.js"
 
 import "./employeeStyle.css";
 
-import OrderKort from "../Components/anställda/OrderKort";
-import UntreatedOrder from "../Components/Orders/untreatedOrder.jsx";
-import UnderTreatmentOrder from "../Components/Orders/underTreatmentOrder.jsx";
-import DoneCustomerOrder from "../Components/Orders/DoneCustomerOrder.jsx";
+import OrderKort from "../../Components/anställda/OrderKort.jsx";
+import UntreatedOrder from "../../Components/Orders/untreatedOrder.jsx";
+import UnderTreatmentOrder from "../../Components/Orders/underTreatmentOrder.jsx";
+import DoneCustomerOrder from "../../Components/Orders/DoneCustomerOrder.jsx";
 
 export const EmployeeView = () => {
     const navigate = useNavigate();
@@ -129,7 +129,7 @@ export const EmployeeView = () => {
         copy[foundOrderIndex] = orderCopy
         orderCopy.items = orderCopy.items.filter(item => item.menuItem !== itemId)
         setUntreatedData(copy)
-        // console.log("deleteOrder", untreatedData);
+   
     }
 
     const addOrderItem = async (orderId, menuItemId, quantity) => {
@@ -147,7 +147,6 @@ export const EmployeeView = () => {
             const orderCopy = { ...copy[foundOrderIndex] };
             
         
-            // orderCopy.items.push(newItem);
             orderCopy.items = [ ...orderCopy.items, newItem]
     
            
@@ -164,13 +163,27 @@ export const EmployeeView = () => {
         const foundOrderIndex = copy.findIndex((order) => order._id === orderId);
     
         if (foundOrderIndex !== -1) {
-            // Remove the order at foundOrderIndex from the copy array
+           
             copy.splice(foundOrderIndex, 1);
     
-            // Update the state with the modified data
+            
             setUntreatedData(copy);
         }
     };
+
+    const deleteDoneOrder = (orderId) => {
+        const copy = [...doneData];
+        const foundOrderIndex = copy.findIndex((order) => order._id === orderId);
+    
+        if (foundOrderIndex !== -1) {
+            
+            copy.splice(foundOrderIndex, 1);
+    
+            
+            setDoneData(copy);
+        }
+    };
+
 
     const moveOrder = (orderId) => {
     
@@ -238,16 +251,7 @@ export const EmployeeView = () => {
                 {viewTab === "during-treatment" && (
                     <UnderTreatmentOrder chartData={duringTreatmentData} orders={orders}/>)}
                 {viewTab === "done" && (
-                    <DoneCustomerOrder chartData={doneData} orders={orders}/>)}
-
-                {/* Det som ska göras är att vi ska ha olika Chartdata där vi hämtar
-                ordrar beroende på vad för status dem har.
-                
-                1. Lägg en "status" objekt i orderModellen som har "Obehandlade" som standard.
-                2. hämta ordrar beroende på status.
-                3. gör en PUT req som ändrar "status" när man klickar på skicka till kocken och den ska hamna i "Under behandlade".
-                */}
-
+                    <DoneCustomerOrder chartData={doneData} orders={orders} deleteDoneOrder={deleteDoneOrder}/>)}
 
             </section>
                 ) : (

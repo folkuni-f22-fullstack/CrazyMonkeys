@@ -1,9 +1,9 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { StepsHeader } from "../Components/StepsHeader/StepsHeader";
-import { FunkyContext } from "../ContextRoot";
+import { StepsHeader } from "../../Components/StepsHeader/StepsHeader";
+import { FunkyContext } from "../../ContextRoot";
 
-import { isValidName, isValidEmailAddress, isValidPhoneNumber } from "../Components/validation";
+import { isValidName, isValidEmailAddress, isValidPhoneNumber } from "../../Components/validation";
 
 import "./DeliveryStyle.css";
 
@@ -19,11 +19,12 @@ export function Delivery() {
         customerInfo,
         selectStep,
         setSelectStep,
-        deliveryFirstName, setDeliveryFirstName, deliveryLastName, setDeliveryLastName, deliveryEmail, setDeliveryEmail, deliveryPhoneNumber, setDeliveryPhoneNumber, deliveryOwnComments, setDeliveryOwnComments, deliveryAddress, setDeliveryAddress, deliveryCounty, setDeliveryCounty, deliveryApartmentNumber, setDeliveryApartmentNumber, deliveryPostNumber, setDeliveryPostNumber, deliveryFloor, setDeliveryFloor, deliveryPortCode, setDeliveryPortCode
+        deliveryFirstName, setDeliveryFirstName, deliveryLastName, setDeliveryLastName, deliveryEmail, setDeliveryEmail, deliveryPhoneNumber, setDeliveryPhoneNumber, deliveryOwnComments, setDeliveryOwnComments, deliveryAddress, setDeliveryAddress, deliveryCounty, setDeliveryCounty, deliveryApartmentNumber, setDeliveryApartmentNumber, deliveryPostNumber, setDeliveryPostNumber, deliveryFloor, setDeliveryFloor, deliveryPortCode, setDeliveryPortCode, chosenDeliveryOption, setChosenDeliveryOption
     } = useContext(FunkyContext);
 
     // States
-    const [chosenDeliveryOption, setChosenDeliveryOption] = useState(false);
+
+    
 
     const [isEmptyFirstName, setIsEmptyFirstName] = useState(false);
 
@@ -134,8 +135,8 @@ export function Delivery() {
                         mail: deliveryEmail,
                         mobile: deliveryPhoneNumber,
                         adress: deliveryAddress,
-                        floor,
-                        portCode,
+                        floor: deliveryFloor,
+                        portCode: deliveryPortCode,
                         comments: deliveryOwnComments,
                         status: status
                     });

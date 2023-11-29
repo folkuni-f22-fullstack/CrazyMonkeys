@@ -27,7 +27,7 @@ const Matratter = () => {
         const data = await response.json();
         const sortedData = data.filter((item) => item.itemType === "food");
         setFood(sortedData);
-        console.log(data);
+       
       } catch (error) {
         console.error(error);
       }
@@ -63,7 +63,7 @@ const Matratter = () => {
     setTimeout(() => {
       setShowOverlay(false);
     }, 2000);
-    console.log(orderToSend);
+    
   };
   return (<>
     <div className="matratt-container">

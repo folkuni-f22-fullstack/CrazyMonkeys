@@ -1,4 +1,4 @@
-// import React, { useState, useEffect } from 'react';
+ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { TbTruckDelivery } from 'react-icons/tb';
 import { AiOutlineFieldTime } from 'react-icons/ai';
@@ -6,12 +6,17 @@ import { MdOutlinePeopleAlt } from 'react-icons/md';
 import image from './image/image1/images.png';
 import { StepsHeader } from '../StepsHeader/StepsHeader';
 import './StyleKvitto.css';
+import { FunkyContext } from '../../ContextRoot';
+// import { FunkyContext } from '../../ContextRoot';
 
 interface KvittoProps {
   orderNumber: number;
 }
 
 const Kvitto: React.FC<KvittoProps> = ({ orderNumber }) => {
+    const {chosenDeliveryOption, recipeId } = useContext(FunkyContext)
+
+  // const {chosenDeliveryOption} = useContext(FunkyContext)
   const resizeImageStyle = { width: '80%', height: '80%', objectFit: 'contain' };
 
   const getRandomBoolean = (): number => {
@@ -36,22 +41,26 @@ const Kvitto: React.FC<KvittoProps> = ({ orderNumber }) => {
         </div>
 
         <div className='deliver-icons'>
+            {!chosenDeliveryOption ? 
           <div>
             <span className='time'>
               <AiOutlineFieldTime size={35} className="timer" />
               <span>Order Time: {isFoodReady} min</span>
             </span>
           </div>
+           :
           <div>
             <span className='truck'>
               <TbTruckDelivery size={35} />
               <span>Leverans: {deliveryTime} min</span>
             </span>
-          </div>
+          </div> 
+        }
+
           <div>
             <span className='person'>
               <MdOutlinePeopleAlt size={35} />
-              <span>Order nr: 699{orderNumber}</span>
+              <span>Order nr: {recipeId}</span>
             </span>
           </div>
         </div>
@@ -71,3 +80,13 @@ const Kvitto: React.FC<KvittoProps> = ({ orderNumber }) => {
 };
 
 export default Kvitto;
+// /div>
+
+//         <Link to="/" className="btn-grad">Tillbaka till start</Link>
+//       </div>
+//     </main>
+//   );
+// };
+
+// export default Kvitto;
+

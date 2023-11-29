@@ -38,8 +38,6 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
     const [isValidNumber, notValidNumber] = isValidPhoneNumber(customerPhone)
     const [isValidEmail, notValidEmail] = isValidEmailAddress(customerEmail)
 
-
-
     const nameChange = (e) => {
         setCustomerName(e.target.value)
 
@@ -49,6 +47,9 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
             setIsEmptyName(false)
         }
     }
+
+
+
 
     const emailChange = (e) => {
         setCustomerEmail(e.target.value)
@@ -195,7 +196,6 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                         <details className="details">
                             <summary className="summary" title={`Kika på order ${order.orderId}`}>
 
-
                             {isEditing ? (
                                                 null
                                             ) : (
@@ -242,7 +242,7 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                 <summary className="summary-box">
                                                     Info om kund
                                                 </summary>
-
+                                                <div className="multi-inputs">
                                                 <div className="label-above-input">
                                                     <label htmlFor="customerNameInput">
                                                         Namn:{" "}
@@ -251,9 +251,9 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         id="customerNameInput"
                                                         type="text"
                                                         style={validationErrorBorder(isEmptyName, wrongName,isValidFullName)}
-
                                                         value={customerName}
-                                                        onChange={(e) => nameChange}
+                                                        onChange={nameChange}
+                                                        onBlur={() => setWrongName(true)}
 
                                                     />
                                                     {!isEmptyName && (
@@ -268,7 +268,6 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                     </div>
                                                 )}
                                                 </div>
-
                                                 <div className="label-above-input">
                                                     <label htmlFor="customerAddressInput">
                                                         Address:{" "}
@@ -280,7 +279,9 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         onChange={(e) => setCustomerAddress(e.target.value)}
                                                     />
                                                 </div>
+                                                </div>
 
+                                                <div className="multi-inputs">
                                                 <div className="label-above-input">
                                                     <label htmlFor="customerFloorInput">
                                                         Våning:{" "}
@@ -292,7 +293,6 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         onChange={(e) => setCustomerFloor(e.target.value)}
                                                     />
                                                 </div>
-
                                                 <div className="label-above-input">
                                                     <label htmlFor="customerPortCodeInput">
                                                         Portkod:{" "}
@@ -304,7 +304,9 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         onChange={(e) => setCustomerPortCode(e.target.value)}
                                                     />
                                                 </div>
+                                                </div>
 
+                                                <div className="multi-inputs">
                                                 <div className="label-above-input">
                                                     <label htmlFor="customerEmailInput">
                                                         Mejl:{" "}
@@ -314,7 +316,8 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         type="email"
                                                         style={validationErrorBorder(isEmptyEmail, wrongEmail, isValidEmail)}
                                                         value={customerEmail}
-                                                        onChange={(e) => emailChange}
+                                                        onChange={emailChange}
+                                                        onBlur={() => setWrongEmail(true)}
                                                     />
                                                     {!isEmptyEmail && (
                                                     <div className="validation-error">
@@ -338,7 +341,8 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         type="number"
                                                         style={validationErrorBorder(isEmptyPhoneNumber, wrongPhoneNumber, isValidNumber)}
                                                         value={customerPhone}
-                                                        onChange={(e) => phoneChange}
+                                                        onChange={phoneChange}
+                                                        onBlur={() => setWrongPhoneNumber(true)}
                                                     />
                                                     {!isEmptyPhoneNumber && (
                                                     <div className="validation-error">
@@ -352,6 +356,16 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                     </div>
                                                 )}
                                                 </div>
+
+                                                </div>
+
+
+                                                
+                                                
+
+                                                
+
+
                                             </details>
                                             <div className="button-to-right-div">
                                                 <button
