@@ -1,14 +1,14 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import {FunkyContext} from "../ContextRoot"
-import {handleLogout} from "../Components/Login/loginFetch.js"
+import {FunkyContext} from "../../ContextRoot.tsx"
+import {handleLogout} from "../../Components/Login/loginFetch.js"
 
 import "./employeeStyle.css";
 
-import OrderKort from "../Components/anställda/OrderKort";
-import UntreatedOrder from "../Components/Orders/untreatedOrder.jsx";
-import UnderTreatmentOrder from "../Components/Orders/underTreatmentOrder.jsx";
-import DoneCustomerOrder from "../Components/Orders/DoneCustomerOrder.jsx";
+import OrderKort from "../../Components/anställda/OrderKort.jsx";
+import UntreatedOrder from "../../Components/Orders/untreatedOrder.jsx";
+import UnderTreatmentOrder from "../../Components/Orders/underTreatmentOrder.jsx";
+import DoneCustomerOrder from "../../Components/Orders/DoneCustomerOrder.jsx";
 
 export const EmployeeView = () => {
     const navigate = useNavigate();

@@ -31,7 +31,7 @@ const DoneCustomerOrder = ({ chartData, orders, deleteDoneOrder }) => {
 
                     {selectOrder._id === order._id ? (
                         <>
-                            <details className="details">
+                            <details className="details treatment">
                                 <summary
                                     className="summary"
                                     title={`Kika på order ${order.orderId}`}
