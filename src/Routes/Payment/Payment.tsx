@@ -102,7 +102,7 @@ const handleOrderPost = async (event) => {
       <div className="pay-container">
         {orderToSend.items.length > 0 && (
 
-                  <form onSubmit={handleOrderPost}>
+                  <form className="pay-form" onSubmit={handleOrderPost}>
                     <div>
                     <input id="method-card-input"
                           type="radio"

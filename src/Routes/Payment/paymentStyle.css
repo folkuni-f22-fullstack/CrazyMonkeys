@@ -39,6 +39,12 @@
   padding-top: 2em;
 }
 
+.pay-form {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 25px;
+}
+
 .pay {
   background-color: white;
   padding-top: 1.25em;
