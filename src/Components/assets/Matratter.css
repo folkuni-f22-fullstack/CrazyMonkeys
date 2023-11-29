@@ -58,16 +58,20 @@
   font-family: var(--meny-font);
 } 
 .order-button {
-  background-color: #316863;
-  color: white;
-  border-radius: 2px;
+  color: #fff;
+
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
+
+  background-color: #316863;
+
   padding: 0.4em 1em;
 }
 
 .order-button:hover {
-  background-color: #183118;
+  background-color:var(--hover-btn);
 }
 
 .menu-overlay {
@@ -76,7 +80,7 @@
   left: 1em;
   width: 90%;
   height: 5%;
-  background: rgba(93, 122, 72, 0.7);
+  background: var(--overlay-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -176,6 +180,6 @@
   
   .order-button2:hover {
     transform: scale(1.2);
-    background-color: #728c72;
+    background-color: var(--hover-btn);
   }
 }

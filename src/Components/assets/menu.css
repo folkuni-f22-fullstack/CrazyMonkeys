@@ -117,15 +117,14 @@
 
 /* Desktop */
 @media (min-width: 400px) {
-  .outer-container {
+  /* .outer-container {
     display: flex;
     justify-content: center;
     margin: 0em 4em;
-  }
+  } */
 
   .inner-container {
     border: 2px solid #183a37;
-    
   }
   .menybtn {
     display: flex;

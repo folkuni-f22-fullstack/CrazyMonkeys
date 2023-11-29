@@ -86,7 +86,7 @@ const Matratter = () => {
           </div>
           {showOverlay && (
             <div className="menu-overlay">
-              <p>Varan har lagts i kundvagnen</p>
+              <p>Varan har lagts i varukorgen</p>
             </div>
           )}
         </div>

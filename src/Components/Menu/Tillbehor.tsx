@@ -1,22 +1,22 @@
-import { useEffect, useState, useContext } from 'react';
-import '../assets/Tillbehor.css'
+import { useEffect, useState, useContext } from "react";
+import "../assets/Tillbehor.css";
 
 import { FunkyContext } from "../../ContextRoot";
+import Kundkorg from "./../anställda/AnställdaOrdrar";
 const Tillbehor = () => {
   const [tillbehorData, setTillbehorData] = useState([]);
-  const {orderToSend, order, setOrder} = useContext(FunkyContext)
-  const [itemCounter, setItemCounter] = useState(1)
+  const { orderToSend, order, setOrder } = useContext(FunkyContext);
+  const [itemCounter, setItemCounter] = useState(1);
+  const [showTillbehorOverlay, setShowTillbehorOverlay] = useState(false);
 
   const addOrder = () => {
-      const newOrder = {
-        itemId: orderId,
-        quantity: itemCounter
-      };
-  
-      setOrder(prevOrder => [...prevOrder, newOrder]);
+    const newOrder = {
+      itemId: orderId,
+      quantity: itemCounter,
     };
-  
 
+    setOrder((prevOrder) => [...prevOrder, newOrder]);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,14 +37,11 @@ const Tillbehor = () => {
     fetchData();
   }, []);
 
-
-
-
-
-
-
-const handleAddToCart = (foodId: string) => {
-    const existingOrder = order.find((orderItem) => orderItem.itemId === foodId);
+  const handleAddToCart = (foodId: string) => {
+    setShowTillbehorOverlay(true);
+    const existingOrder = order.find(
+      (orderItem) => orderItem.itemId === foodId
+    );
 
     if (existingOrder) {
       // Om drycken finns, öka antalet
@@ -59,18 +56,15 @@ const handleAddToCart = (foodId: string) => {
       // Om drycken inte finns, lägg till en ny order
       const newOrder = {
         itemId: foodId,
-        quantity: 1
+        quantity: 1,
       };
       setOrder((prevOrder) => [...prevOrder, newOrder]);
       console.log(orderToSend);
-      
     }
     setItemCounter(itemCounter + 1);
-
-    console.log(orderToSend);
-    
-    
-    
+    setTimeout(() => {
+      setShowTillbehorOverlay(false);
+    }, 9000);
   };
 
   return (
@@ -79,34 +73,34 @@ const handleAddToCart = (foodId: string) => {
       <div className="tillbehor-container">
         {tillbehorData.map((tillbehor) => (
           <div className="tillbehor-item" key={tillbehor._Id}>
-            <div className="name-price-tillbehor">
-              <h4>{tillbehor.name}</h4>
-              <h4>{tillbehor.price} kr</h4>
+            <div className="tillbehor-img">
+              <img src={tillbehor.img} alt="" />
             </div>
-            <div className="tillbehor-details">
-              <div className="tillbehor-img">
-                <img src={tillbehor.img} alt="" />
+            <div className="border-container">
+              <h3 className="card-title">{tillbehor.name}</h3>
+              <p className="desc">{tillbehor.desc}</p>  
               </div>
-
-              <div className="tillbehor-desc">
-                <p>{tillbehor.desc}</p>
-
-                <div className="addto-btn">
-                  <button
-                    className="add-to-cart-button"
-                    onClick={() => handleAddToCart(tillbehor.id)}
-                  >
-                    Lägg till
-                  </button>
-                </div>
+              <div className="tillbehor-price-n-btn">
+                <h4 className="tillbehor-price">{tillbehor.price}:-</h4>
+                <button
+                  className="add-to-cart-button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleAddToCart(tillbehor.id);
+                  }}
+                >
+                  Lägg till
+                </button>
               </div>
-            </div>
+          
           </div>
-
-
-
         ))}
       </div>
+      {showTillbehorOverlay && (
+        <div className="tillbehor-overlay">
+          <p>Varan har lagts till i varukorgen</p>
+        </div>
+      )}
     </>
   );
 };

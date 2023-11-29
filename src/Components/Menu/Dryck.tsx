@@ -64,7 +64,7 @@ const Dryck = () => {
     setItemCounter(itemCounter + 1);
     setTimeout(() => {
       setShowDrinkOverlay(false);
-    }, 9000);
+    }, 2000);
   };
 
   return (
