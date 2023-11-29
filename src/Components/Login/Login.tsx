@@ -21,7 +21,7 @@ export function Login() {
                 // Skicka en förfrågan till backend-routen med Fetch
                 const login = await handleLoginEmp(username, password, afterLogin);
                 setEmployeeStatus(login.data.status);
-                console.log(emplyeeStatus);
+                
             } catch (error) {
                 console.error("Något gick fel:", error);
             }
