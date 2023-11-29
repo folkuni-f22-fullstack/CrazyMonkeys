@@ -5,10 +5,10 @@ import Root from "./Routes/Root";
 import Menu from "./Components/Menu/menu";
 import StartPage from "./Routes/Startpage/Startpage";
 import Varukorg from "./Routes/Varukorg/Varukorg.jsx";
-import { Delivery } from "./Routes/Delivery.jsx";
+import { Delivery } from "./Routes/Delivery/Delivery.jsx";
 import CheckoutPage from "./Components/betalning/Betalning.tsx";
 import Kvitto from "./Components/Kvitto/Kvitto.tsx";
-import { EmployeeView } from "./Routes/EmployeeView.jsx";
+import { EmployeeView } from "./Routes/EmployeeView/EmployeeView.jsx";
 import Chefsview from "./routes/Chefsview/Chefsview.jsx";
 import AboutUs from "./Components/Om oss/Om-oss.tsx";
 
