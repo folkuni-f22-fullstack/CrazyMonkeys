@@ -138,7 +138,7 @@ const handleOrderPost = async (event) => {
                           Slutför beställning
                         </button>
                     </div>
-                    </form>
+              </form>
  
         )}
         {
