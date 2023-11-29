@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import OrderKort from "../anställda/OrderKort";
 import { updateOrder } from "../../dataApi/updateStatus&Msg.js";
+import { FunkyContext } from "../../ContextRoot";
 
 const UnderTreatmentOrder = ({ chartData, orders }) => {
     const [selectOrder, setSelectOrder] = useState({});
     const [orderStatus, setOrderStatus] = useState("");
+    const { emplyeeStatus } = useContext(FunkyContext);
 
     const onSelectOrder = (order) => {
         setSelectOrder(order);
@@ -18,8 +20,6 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
         const response = await updateOrder(orderStatus, order._id, ".");
     };
 
-
-
     return (
         <>
             {chartData.map((order) => (
@@ -27,20 +27,26 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
                     <span className="material-symbols-outlined">lock</span>
                     <p className="order-name">Ordernummer {order.orderId}</p>
 
-                        {selectOrder._id === order._id ? (
-                            <>
-                                        <details className="details treatment">
-                                            <summary className="summary" title={`Kika på order ${order.orderId}`}>
-                                                <button
-                                                    onClick={() => onSelectOrder({})}
-                                                    className="button-deselect"
-                                                >
-                                                    Avmarkera
-                                                </button>
-                                            </summary>
+                    {selectOrder._id === order._id ? (
+                        <>
+                            <details className="details treatment">
+                                <summary
+                                    className="summary"
+                                    title={`Kika på order ${order.orderId}`}
+                                >
+                                    <button
+                                        onClick={() => onSelectOrder({})}
+                                        className="button-deselect"
+                                    >
+                                        Avmarkera
+                                    </button>
+                                </summary>
                                 <div className="details-about-order">
                                     <div className="message-board">
-                                        <p>Denna kan inte redigeras och finns hos kocken...</p>
+                                        {emplyeeStatus === "chef" ? 
+                                        <p>Denna kan inte redigeras...</p> :
+                                        <p>Denna kan inte redigeras och finns hos kocken...</p> 
+                                    }
                                     </div>
                                     <hr />
                                     {/* Render OrderKort outside the loop */}
@@ -57,13 +63,16 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
                                         <p>Telefonnummer: {order.mobile} </p>
                                         <p>Kommentarer från kund: {order.comments}</p>
                                     </details>
-                                    <button
-                                className="button-confirm"
-                                type="submit"
-                                onClick={() => onSubmitOrder(order)}
-                            >
-                                Klar att servera
-                            </button>
+
+                                    {emplyeeStatus === "chef" && (
+                                        <button
+                                            className="button-confirm"
+                                            type="submit"
+                                            onClick={() => onSubmitOrder(order)}
+                                        >
+                                            Klar att servera
+                                        </button>
+                                    )}
                                 </div>
                             </details>
                         </>
@@ -72,7 +81,6 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
                             <button onClick={() => onSelectOrder(order)} className="button-mark">
                                 Visa Order
                             </button>
-                          
                         </div>
                     )}
                 </div>

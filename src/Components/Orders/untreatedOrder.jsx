@@ -50,6 +50,9 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
         }
     }
 
+
+
+
     const emailChange = (e) => {
         setCustomerEmail(e.target.value)
 
@@ -250,9 +253,8 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         id="customerNameInput"
                                                         type="text"
                                                         style={validationErrorBorder(isEmptyName, wrongName,isValidFullName)}
-
                                                         value={customerName}
-                                                        onChange={(e) => nameChange}
+                                                        onChange={nameChange}
 
                                                     />
                                                     {!isEmptyName && (
@@ -315,7 +317,7 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         type="email"
                                                         style={validationErrorBorder(isEmptyEmail, wrongEmail, isValidEmail)}
                                                         value={customerEmail}
-                                                        onChange={(e) => emailChange}
+                                                        onChange={emailChange}
                                                     />
                                                     {!isEmptyEmail && (
                                                     <div className="validation-error">
@@ -339,7 +341,7 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         type="number"
                                                         style={validationErrorBorder(isEmptyPhoneNumber, wrongPhoneNumber, isValidNumber)}
                                                         value={customerPhone}
-                                                        onChange={(e) => phoneChange}
+                                                        onChange={phoneChange}
                                                     />
                                                     {!isEmptyPhoneNumber && (
                                                     <div className="validation-error">
