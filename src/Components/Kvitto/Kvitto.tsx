@@ -14,7 +14,7 @@ interface KvittoProps {
 }
 
 const Kvitto: React.FC<KvittoProps> = ({ orderNumber }) => {
-    const {chosenDeliveryOption } = useContext(FunkyContext)
+    const {chosenDeliveryOption, recipeId } = useContext(FunkyContext)
 
   // const {chosenDeliveryOption} = useContext(FunkyContext)
   const resizeImageStyle = { width: '80%', height: '80%', objectFit: 'contain' };
@@ -60,7 +60,7 @@ const Kvitto: React.FC<KvittoProps> = ({ orderNumber }) => {
           <div>
             <span className='person'>
               <MdOutlinePeopleAlt size={35} />
-              <span>Order nr: 699{orderNumber}</span>
+              <span>Order nr: {recipeId}</span>
             </span>
           </div>
         </div>

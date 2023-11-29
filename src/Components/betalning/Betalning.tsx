@@ -12,7 +12,7 @@ import { StepsHeader } from "../StepsHeader/StepsHeader.jsx";
 const CheckoutPage: React.FC<CheckoutProps> = () => {
   const navigate = useNavigate()
 
-  const { orderToSend, customerInfo, order, selectStep, setSelectStep } = useContext(FunkyContext);
+  const { orderToSend, customerInfo, order, selectStep, setSelectStep, recipeId, setRecipeId } = useContext(FunkyContext);
 
   const postCustomerOrder = async () => {
     const item = order.map(orderItem => {
@@ -48,17 +48,27 @@ const CheckoutPage: React.FC<CheckoutProps> = () => {
         });
 
         const data = await response.json();
+        if (data){
+            orderIdHandler(data.orderId)
+        }
         console.log("server response" + data);
     } catch (error) {
         console.error("Error:", error);
     }
 };
 
+const orderIdHandler = async (orderId) => {
+    await setRecipeId(orderId)
+    console.log("OrderID /////", recipeId);
+
+}
+
+
 const handleOrderPost = async (event) => {
   event.preventDefault();
 
+
   if (paymentMethod !== undefined) {
-    console.log(orderToSend);
     // console.log("orderData", );
     try {
         await postCustomerOrder();

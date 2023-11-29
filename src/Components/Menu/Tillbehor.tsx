@@ -27,7 +27,6 @@ const Tillbehor = () => {
         const data = await response.json();
         const sortedData = data.filter((item) => item.itemType === "tillbehör");
         setTillbehorData(sortedData);
-        console.log(data);
       } catch (error) {
         console.error(error);
       }
@@ -61,12 +60,12 @@ const handleAddToCart = (foodId: string) => {
         quantity: 1
       };
       setOrder((prevOrder) => [...prevOrder, newOrder]);
-      console.log(orderToSend);
+    
       
     }
     setItemCounter(itemCounter + 1);
 
-    console.log(orderToSend);
+    
     
     
     
@@ -77,7 +76,7 @@ const handleAddToCart = (foodId: string) => {
       <p>Tillbehör</p>
       <div className="tillbehor-container">
         {tillbehorData.map((tillbehor) => (
-          <div className="tillbehor-item" key={tillbehor._Id}>
+          <div className="tillbehor-item" key={tillbehor._id}>
             <div className="name-price-tillbehor">
               <h4>{tillbehor.name}</h4>
               <h4>{tillbehor.price} kr</h4>
