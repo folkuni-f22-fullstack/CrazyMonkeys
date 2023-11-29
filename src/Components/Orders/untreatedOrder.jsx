@@ -195,7 +195,6 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                         <details className="details">
                             <summary className="summary" title={`Kika på order ${order.orderId}`}>
 
-
                             {isEditing ? (
                                                 null
                                             ) : (
@@ -242,7 +241,7 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                 <summary className="summary-box">
                                                     Info om kund
                                                 </summary>
-
+                                                <div className="multi-inputs">
                                                 <div className="label-above-input">
                                                     <label htmlFor="customerNameInput">
                                                         Namn:{" "}
@@ -268,7 +267,6 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                     </div>
                                                 )}
                                                 </div>
-
                                                 <div className="label-above-input">
                                                     <label htmlFor="customerAddressInput">
                                                         Address:{" "}
@@ -280,7 +278,9 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         onChange={(e) => setCustomerAddress(e.target.value)}
                                                     />
                                                 </div>
+                                                </div>
 
+                                                <div className="multi-inputs">
                                                 <div className="label-above-input">
                                                     <label htmlFor="customerFloorInput">
                                                         Våning:{" "}
@@ -292,7 +292,6 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         onChange={(e) => setCustomerFloor(e.target.value)}
                                                     />
                                                 </div>
-
                                                 <div className="label-above-input">
                                                     <label htmlFor="customerPortCodeInput">
                                                         Portkod:{" "}
@@ -304,7 +303,9 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         onChange={(e) => setCustomerPortCode(e.target.value)}
                                                     />
                                                 </div>
+                                                </div>
 
+                                                <div className="multi-inputs">
                                                 <div className="label-above-input">
                                                     <label htmlFor="customerEmailInput">
                                                         Mejl:{" "}
@@ -352,6 +353,16 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                     </div>
                                                 )}
                                                 </div>
+
+                                                </div>
+
+
+                                                
+                                                
+
+                                                
+
+
                                             </details>
                                             <div className="button-to-right-div">
                                                 <button
