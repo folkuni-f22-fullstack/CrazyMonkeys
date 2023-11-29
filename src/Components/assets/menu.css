@@ -1,0 +1,162 @@
+.meny-title {
+  font-family: var(--meny-font);
+  font-weight: lighter;
+  font-style: normal;
+  margin: 1em 0em;
+}
+
+.meny-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1.1em;
+}
+
+.inner-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--bg-white);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  /* width: 60em; */
+  /* height: 100vh; */
+  margin: 0 auto;
+}
+
+.menybtn {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.btn {
+  padding: 0.9em 0.5em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--bg-white);
+  transition: background-color 0.3s ease-in-out;
+  font-family: var(--meny-font);
+  font-size: 16px; 
+  margin: 0em 0em 0em 0.5em;
+ 
+}
+
+.btn.active,
+.btn:hover {
+  background-color: #ffffff;
+  border: 1px solid rgb(164, 161, 161);
+  box-shadow: 0px 2px 2px rgb(193, 192, 192);
+  color: #000000;
+}
+
+.btn:active {
+  background-color: #fcfcfc;
+  color: #fff;
+}
+
+
+.funky-hr-title p {
+  width: 40em;
+  font-family: var(--title-font);
+  font-size: 10px;
+}
+.funky-hr-title {
+  display: flex;
+  align-items: center;
+}
+
+.funky-hr {
+  height: 4px;
+  background: #000;
+  width: 27em;
+  margin: 0em 0.5em;
+}
+
+.proceed-button {
+  background-image: linear-gradient(
+    to right,
+    #235852 0%,
+    #001510 51%,
+    #00bf8f 100%
+  );
+  margin: 2em 0.4em;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 7px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.proceed-button:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+  .order-btn-grad-div {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 100%; 
+    height: 10%; 
+    
+  }
+  
+  .btn-grad {
+    width: 90%;
+    max-width: 300px;
+    margin: 2em 0; 
+  }
+
+/* Desktop */
+@media (min-width: 400px) {
+  /* .outer-container {
+    display: flex;
+    justify-content: center;
+    margin: 0em 4em;
+  } */
+
+  .inner-container {
+    border: 2px solid #183a37;
+  }
+  .menybtn {
+    display: flex;
+    text-align: center;
+
+    justify-content: center;
+    width: 50%;
+  }
+
+  .btn {
+    padding: 13px 20px;
+  }
+
+  .funky-hr {
+    height: 4px;
+    background: #000;
+    width: 99em;
+    margin: 0em 0.5em;
+  }
+ 
+  .order-btn-grad-div {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 100%; 
+    height: 10%; 
+    
+  }
+  
+  .btn-grad {
+    width: 90%;
+    max-width: 300px;
+    margin: 2em 0; 
+  }
+}

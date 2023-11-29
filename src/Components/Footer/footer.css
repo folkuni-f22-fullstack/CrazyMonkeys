@@ -6,6 +6,9 @@
   justify-content: space-around;
   height: 7em;
   text-align: center;
+  /* position: fixed; */
+    bottom: 0;
+    width: 100%;
 }
 
 .footer-desktop-container {
@@ -30,11 +33,11 @@
   text-align: start;
   justify-content: flex-end;
   width: 10em;
-  /* width: 100%; */
+
 }
 .created-by-p {
   display: flex;
-  margin-bottom: 0.5em;
+  margin-bottom: 1.5em;
   align-items: flex-end;
   font-size: 11px;
 }
@@ -44,6 +47,7 @@
   align-self: flex-end;
   margin: 0 0.5em 0.5em;
   font-size: 30px;
+  cursor: pointer;
 }
 .facebook-icon,
 .twitter-icon,
@@ -54,6 +58,12 @@
 }
 .phone-icon {
   color: black;
+}
+
+.contact-us,
+.openhour{
+  font-family: var(--mont-font);
+  font-size: 16px;
 }
 
 .copyright-icon {
@@ -88,6 +98,8 @@
   .created-by-container {
     display: none;
   }
+
+
   .footer-container {
     display: none;
   }
@@ -97,6 +109,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
   }
   .footer-columns {
     display: flex;
@@ -121,11 +136,11 @@
     padding-right: 1em;
     line-height: 1.5;
   }
-  .time {
+  .footer-time {
     font-style: italic;
   }
   .ff-pic {
-    width: 4em;
+    width: 6em;
     margin-bottom:3em;
   }
   .footer-column:nth-child(2) {
@@ -156,6 +171,7 @@
 }
 .contact-us{
   margin-bottom:1em;
+
 } 
 .follow-us{
   font-size: 13px;

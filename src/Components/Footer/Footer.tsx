@@ -1,3 +1,5 @@
+import { useContext, useState, useRef} from "react";
+
 import "./footer.css";
 import { LuLogIn } from "react-icons/Lu";
 import { FaInstagram } from "react-icons/fa";
@@ -7,13 +9,33 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { BiSolidCopyright } from "react-icons/bi";
 import { SiGooglemaps } from "react-icons/si";
 import { IoIosMail } from "react-icons/io";
+import { Login } from "../../Components/Login/Login";
+import ff from "../../assets/footerpagepic/FF-red.png";
+import "../Login/login.css";
+import "../../App.css";
 
-import ff from "../../assets/footerpagepic/FFlogga.png";
+import { FunkyContext } from "../../ContextRoot";
+import { useNavigate } from "react-router-dom";
 
 function Footer() {
+  const footerRef = useRef(null); 
+  window.scrollTo(0, 0);
+ 
+  const { stateLoginDialog, isLoggedIn, emplyeeStatus} = useContext(FunkyContext);
+
+  const navigate = useNavigate()
+
+  const navigateToEmplyee = () => {
+    if(emplyeeStatus === "employee") {
+        navigate("/employee")
+    }else{
+        navigate("/chefsview")
+    }
+  }
+
   return (
     <>
-      <section className="footer-container">
+      <section className="footer-container"  ref={footerRef}>
         <div className="created-by-container ">
           <p className="created-by-p">
             <BiSolidCopyright className="copyright-icon" />
@@ -34,27 +56,31 @@ function Footer() {
           </div>
         </div>
         <div className="created-by-container">
-          <LuLogIn className="login-icon" />
+          <LuLogIn
+            className="login-icon"
+            onClick={() => stateLoginDialog(true)}
+          />
         </div>
       </section>
-
-      <footer className="footer-desktop-container">
+      <footer id="footer" className="footer-desktop-container" ref={footerRef}>
         <div className="footer-columns">
           <div className="footer-column">
             <h3 className="openhour">Öppettider</h3>
             <table>
-              <tr className="table">
-                <td className="weekday">Måndag - Fredag:</td>
-                <td className="time">16:00 - 22:00</td>
-              </tr>
-              <tr>
-                <td className="weekday">Lördag:</td>
-                <td className="time">18:00 - 24:00</td>
-              </tr>
-              <tr>
-                <td className="weekday">Söndag:</td>
-                <td className="time">16:00 - 22:00</td>
-              </tr>
+              <tbody>
+                <tr className="table">
+                  <td className="weekday">Måndag - Fredag:</td>
+                  <td className="footer-time">16:00 - 22:00</td>
+                </tr>
+                <tr>
+                  <td className="weekday">Lördag:</td>
+                  <td className="footer-time">18:00 - 24:00</td>
+                </tr>
+                <tr>
+                  <td className="weekday">Söndag:</td>
+                  <td className="footer-time">16:00 - 22:00</td>
+                </tr>
+              </tbody>
             </table>
           </div>
           <div className="footer-column">
@@ -83,10 +109,24 @@ function Footer() {
               <FaXTwitter className="twitter-icon" />
               <FaFacebook className="facebook-icon" />
             </div>
-          <LuLogIn className="login-icon-desktop" />
+            {isLoggedIn ?  
+            <LuLogIn
+              className="login-icon"
+              onClick={() => navigateToEmplyee()}
+            /> :
+            <LuLogIn
+              className="login-icon"
+              onClick={() => stateLoginDialog(true)}
+            />
+
+        }
+
+        
+        
           </div>
         </div>
       </footer>
+      <Login />
     </>
   );
 }

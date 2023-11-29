@@ -1,18 +1,55 @@
 :root {
-    --title-font: 'Gloria Hallelujah', cursive;
-    --content-font: 'Ubuntu', sans-serif;
-    
-    --header-color:#183a37;
-    --bg-color: #4c5452;
-    --bg-footer: #312E2E;
+  --title-font: "Gloria Hallelujah", cursive;
 
-    --black-icons: black;
-  }
-  /* Skrivs såhär:  background-color: var(--bg-color); */
+  --content-font: "Ubuntu", sans-serif;
+  --meny-font:'Anonymous Pro', monospace; 
+  /* --Helvetica-font: 'Helvetica', sans-serif; */
+  /* --mont-font: 'Montserrat', sans-serif; */
   
+  --andika-font: 'Andika', sans-serif;
+  --overlay-color: rgba(93, 122, 72, 0.7);
+  --header-color: #183A37;
+  --bg-color: #4c5452;
+  --bg-footer: #312e2e;
+  --bg-white: #F2F2F2;
+  --black-icons: black;
+  --hover-btn: #728c72;
+}
+/* Skrivs såhär:  background-color: var(--bg-color); */
 
 * {
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+  min-height: 100vh;
+}
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #235852 0%,
+    #001510 51%,
+    #00bf8f 100%
+  );
+  margin: 2em 0.4em;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 7px #eee;
+  border-radius: 10px;
+  display: block;
+  width: 90%;
+  text-decoration: none;
+}
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+  transform: scale(0.9);
 }

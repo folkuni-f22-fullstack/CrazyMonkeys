@@ -1,6 +1,3 @@
-/* NAVBAR TEXT - font-family: 'Playfair Display', serif; 
-Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
-*/
 
 .pic-container {
   display: flex;
@@ -27,7 +24,7 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
   font-size: 24px;
 }
 .companytitletext-p {
-  font-family: var(--content-font);
+  font-family: var(--andika-font);
   line-height: 2em;
   color: white;
   font-size: 14px;
@@ -37,19 +34,21 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
 .startfood-title {
   margin-bottom: 1em;
   font-weight: 10;
+  font-family: var(--content-font);
+
 }
 
 .mainstartpage {
   background-color: var(--bg-color);
   min-height: 100vh;
-  padding: 2em;
+  padding: 0.5em;
 }
 .text-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /* padding: 1em; */
+  margin:3em 0em;
 }
 .body-text {
   color: white;
@@ -72,18 +71,13 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
 }
 .mobilbtn {
   display: block;
-}
-.start.btn-grad {
-  display: none;
-}
-.btn-grad {
   background-image: linear-gradient(
     to right,
     #235852 0%,
     #001510 51%,
     #00bf8f 100%
   );
-  margin: 2em 0.4em;
+  margin: 5em 0em;
   padding: 15px 45px;
   text-align: center;
   text-transform: uppercase;
@@ -93,16 +87,23 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
   box-shadow: 0 0 7px #eee;
   border-radius: 10px;
   display: block;
-  width: 90%;
-}
-.btn-grad:hover {
-  background-position: right center;
-  color: #fff;
+  width: 100%;
   text-decoration: none;
-  transform: scale(0.9);
+
+}
+.mobilbtn:hover{
+  background-position: right center;
+color: #fff;
+text-decoration: none;
+transform: scale(0.9);
+}
+.desktop {
+  display: none;
 }
 
-/* Desktop 1920 */
+.fill-text{
+  display: none;
+}
 
 @media screen and (min-width: 320px) {
   .sushi {
@@ -113,7 +114,45 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
   }
 }
 
+/* Desktop 1920 */
+
 @media screen and (min-width: 1000px) {
+  .fill-text{
+    display: block;
+  }
+  .mobilbtn {
+    display: none;
+  }
+  .desktop {
+    display: block;
+    background-image: linear-gradient(
+      to right,
+      #235852 0%,
+      #001510 51%,
+      #00bf8f 100%
+    );
+    /* background-color: #316863;  */
+    
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 7px #939090;
+    border-radius: 10px;
+    display: block;
+    width: 50%;
+    border:none; 
+    text-decoration: none;
+    
+  }
+  .desktop:hover{
+    background-position: right center;
+  color: #fff;
+  text-decoration: none;
+  transform: scale(0.9);
+  }
   .sushi {
     display: block;
     z-index: 2;
@@ -131,25 +170,15 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
     flex-wrap: wrap;
     margin-top: -0.5em;
   }
-  .mobilbtn {
-    display: none;
-  }
-  .start.btn-grad {
-    display: block;
-    justify-content: center;
-    display: flex;
-    width: 50%;
-    margin-bottom: 8em;
-  }
+   
   .companytitletext-p {
     color: white;
     font-size: 20px;
     margin: 4em 2em;
+    font-family: var(--andika-font);
   }
   .company-title {
     font-family: var(--title-font);
-    /* font-family: 'Ubuntu', sans-serif; */
-
     color: white;
     font-size: 30px;
     padding-top: 2em;
@@ -166,7 +195,7 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
     display: flex;
     flex-direction: row-reverse;
     padding: 2em;
-    margin-bottom: 6em;
+    margin-bottom: 10em;
   }
   .startmainpicture {
     width: 30em;
@@ -174,16 +203,22 @@ Företagest namn -   font-family: 'Gloria Hallelujah', cursive;
     border-radius: 3%;
     margin-top: 1em;
   }
+  .bild{
+    height: 19em;
+  }
+
   .body-text {
     color: white;
     font-size: 18px;
     line-height: 2;
     font-family: var(--content-font);
-    padding: 3em;
+    /* padding: 3em; */
     text-align: left;
   }
   .startfood-title {
     margin-bottom: 2em;
     text-align: left;
+    font-family: var(--content-font);
   }
+
 }

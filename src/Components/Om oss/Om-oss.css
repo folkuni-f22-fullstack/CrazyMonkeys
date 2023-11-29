@@ -1,0 +1,465 @@
+:root {
+  --title-font: "Gloria Hallelujah", cursive;
+  --content-font: "Ubuntu", sans-serif;
+  --Helvetica-font: "Helvetica", sans-serif;
+  --mont-font: "Montserrat", sans-serif;
+  --meny-font: "Anonymous Pro", monospace;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  background-color: #4c5452;
+}
+
+.title-pic {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.first-img {
+  margin-top: 5%;
+  margin-bottom: 16%;
+  height: 150px;
+  width: 40rem !important;
+  position: relative;
+}
+
+.mobile-text {
+  font-family: var(--title-font);
+  text-align: center;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.mobile-text-title-us {
+  font-family: var(--Helvetica-font);
+  margin: 0em 1em 1em 0em;
+  text-align: center;
+  font-size: 19.5px;
+  position: absolute;
+  color: #fff;
+  top: 9.5rem;
+  width: auto;
+}
+
+.text-title-us {
+  display: none;
+  font-family: var(--Helvetica-font);
+  margin: 0em 1em 1em 0em;
+  text-align: center;
+  font-size: 19.5px;
+  position: absolute;
+  color: #fff;
+  top: 9.5rem;
+  width: auto;
+}
+
+.middle-page {
+  margin-top: 11rem;
+  margin-bottom: 10em;
+  color: #fff;
+  /* border: 3px solid red; */
+  width: 100%;
+  /* height: auto; */
+  background-color: #183a37;
+  /* margin: 4rem 0; */
+  box-shadow: 0 0 17px #000000;
+}
+
+.middle-text,
+.middle-text-2 {
+  font-family: var(--content-font);
+  font-size: 22px;
+  margin-top: 3%;
+  margin-bottom: 1em;
+  line-height: 1.5;
+}
+
+.middle-img,
+.middle-img-2 {
+  position: relative !important;
+}
+
+.middle-page-2 {
+  margin-top: 13em;
+  margin-bottom: 7em !important;
+  color: #fff;
+  /* border: 3px solid yellow; */
+  background: #183a37;
+  box-shadow: 0 0 17px #000000;
+}
+
+.middle-contain,
+.middle-contain-2 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 1rem;
+  width: auto;
+}
+
+.whyfunky,
+.whyfunky-2 {
+  font-family: var(--title-font);
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.wok-img {
+  justify-content: center;
+  position: relative;
+  bottom: 4rem;
+  left: 1rem;
+  width: 12rem;
+}
+
+.pasta-img {
+  justify-content: center;
+  position: absolute;
+  left: 7rem;
+  top: 6rem;
+  width: 11rem;
+}
+
+.sushy {
+  position: absolute;
+  top: 4.9rem;
+  left: 7rem;
+  width: 11rem;
+  height: 8rem;
+  justify-content: center;
+}
+
+.seafood {
+  position: relative;
+  right: -1rem;
+  bottom: 3rem;
+  width: 12rem;
+  justify-content: center;
+}
+/*-------------------------------------------------*/
+
+@media (min-width: 769px) and (max-width: 1000px) {
+  .mobile-text-title-us {
+    font-family: var(--Helvetica-font);
+    font-size: 1.5em !important;
+    margin: 4.5rem 3rem 3rem 1rem;
+    position: absolute;
+    top: 12rem ;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .first-img {
+    margin-top: 5%;
+    height: 300px;
+  }
+  .middle-page {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10rem;
+    border-radius: 0.5em 0em 0em 0.5em;
+  }
+
+  .middle-page-2 {
+    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: row-reverse;
+    border-radius: 0.5em 0em 0em 0.5em;
+  }
+
+  .middle-text,
+  .middle-text-2 {
+    font-family: var(--content-font);
+    font-size: 1.4em;
+  }
+
+  /* text container */
+  .middle-contain {
+    padding: 1em;
+    justify-content: center;
+    font-size: 18px;
+    margin: 2rem 3.6rem -2rem 3rem;
+    position: relative;
+    top: -2em;
+    left: 2.6rem;
+    width: 90%;
+  }
+
+  .middle-contain-2 {
+    padding: 1em;
+    justify-content: center;
+    font-size: 18px;
+    margin: 2rem 4rem -2rem 3rem;
+    position: relative;
+    top: -2em;
+    right: 2.7rem;
+  }
+
+  .middle-img {
+    position: relative;
+  }
+
+  /* maträtter bild */
+  .wok-img {
+    width: 14rem;
+    position: relative;
+    left: 5rem;
+  }
+
+  .pasta-img {
+    position: absolute;
+    left: 1rem;
+    top: 8rem;
+    width: 12rem;
+  }
+
+  .seafood {
+    position: absolute;
+    width: 14rem;
+    height: 15rem;
+    right: 4rem;
+    top: 3rem;
+    z-index: 10;
+  }
+
+  .sushy {
+    position: relative;
+    top: -3rem;
+    left: -1rem;
+    height: 9rem;
+    width: 12rem;
+  }
+
+  .whyfunky,
+  .whyfunky-2 {
+    font-family: var(--title-font);
+  }
+}
+
+/*----------------------------------------------------------*/
+
+@media (min-width: 1001px) and (max-width: 1928px) {
+  .text-title-us {
+    display: block;
+    margin: 0em 2em 2em 2em;
+  }
+  .first-img {
+    margin-top: 0.5%;
+    height: 250px;
+    width: 100% !important;
+    margin-bottom: 5rem;
+  }
+  .mobile-text-title-us {
+    display: none;
+  }
+
+  .first-img {
+    height: 450px;
+    width: 100% !important;
+    margin-bottom: 5rem;
+  }
+
+  .text-title-us {
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    top: 18rem;
+  }
+
+  .mobile-text {
+    display: none;
+  }
+
+  .middle-page {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    height: 30rem;
+    margin-bottom: 10rem;
+    width: 100%;
+    margin-left: 2rem;
+    border-radius: 1.3em 0em 0em 0em;
+  }
+
+  .middle-page-2 {
+    margin-bottom: 5rem;
+    width: 96%;
+    height: 30rem;
+    display: flex;
+    flex-direction: row-reverse;
+    border-radius: 0em 0em 1.3em 0em;
+  }
+
+  /* text container */
+  .middle-contain {
+    padding: 25px;
+    justify-content: center;
+    font-size: 24px;
+    margin: 3rem 3rem 2rem 3rem;
+    position: relative;
+    top: -1rem;
+    left: 10px;
+    width: 100%;
+    text-align: start;
+  }
+
+  .middle-text,
+  .middle-text-2 {
+    font-size: 25.7px;
+  }
+ 
+  .middle-contain-2 {
+    padding: 30px;
+    justify-content: center;
+    font-size: 23px;
+    margin: 3rem 3rem 2rem 2rem;
+    position: relative;
+    top: 1rem;
+    right: 2.7rem;
+    text-align: start;
+  }
+  .middle-img {
+    position: relative;
+  }
+
+  /* maträtter bild */
+  .wok-img {
+    width: 20em;
+    height: 25em;
+    position: relative;
+    left: 3rem;
+  }
+  .pasta-img {
+    position: absolute;
+    left: -1rem;
+    top: 19rem;
+    width: 18rem;
+  }
+  .seafood {
+    position: absolute;
+    width: 20rem;
+    height: 25em;
+    right: 3.1rem;
+    top: 7rem;
+    z-index: 10;
+  }
+
+  .sushy {
+    position: relative;
+    top: -3em;
+    left: 1.5rem;
+    height: 12.8rem;
+    width: 18rem;
+  }
+}
+/*----------------------------------------------------- */
+
+@media (min-width: 1929px) {
+  .first-img {
+    height: 500px;
+    width: 100% !important;
+    margin-bottom: 5rem;
+  }
+  .mobile-text-title-us{
+    display: none;
+  }
+  .text-title-us {
+    display: block;
+    margin-top: 5%;
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    top: 23rem;
+  }
+  .middle-page-2 {
+    margin-bottom: 10em !important;
+  }
+
+  .mobile-text {
+    display: none;
+  }
+
+  .middle-page {
+    display: flex;
+    flex-direction: row;
+    height: 20rem;
+    margin-bottom: 10rem;
+    margin-left: 4em;
+  }
+
+  .middle-page-2 {
+    margin-bottom: 5rem;
+    width: 95%;
+    height: 20rem;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  /* text container */
+  .middle-contain {
+    justify-content: center;
+    font-size: 24px;
+    margin: 5rem 6rem 4rem 4rem;
+    position: relative;
+    top: -1rem;
+    left: 2rem;
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .middle-text,
+  .middle-text-2 {
+    font-size: 1.2em;
+  }
+
+  .middle-contain-2 {
+    justify-content: center;
+    font-size: 24px;
+    margin: 4.5rem 7rem 2.6rem 4rem;
+    position: relative;
+    top: -1rem;
+    right: 2.7rem;
+  }
+
+  .middle-img {
+    position: relative;
+  }
+
+  /* maträtter bild */
+  .wok-img {
+    width: 19rem;
+    position: relative;
+    left: 5rem;
+  }
+
+  .pasta-img {
+    position: absolute;
+    left: -2rem;
+    top: 12rem;
+    width: 15rem;
+  }
+
+  .seafood {
+    position: absolute;
+    width: 20rem;
+    right: 5rem;
+    top: 5rem;
+    z-index: 10;
+  }
+
+  .sushy {
+    position: relative;
+    top: -3rem;
+    left: 1.5rem;
+    height: 11rem;
+    width: 16rem;
+  }
+}
