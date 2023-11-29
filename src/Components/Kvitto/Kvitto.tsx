@@ -6,6 +6,7 @@ import { MdOutlinePeopleAlt } from 'react-icons/md';
 import image from './image/image1/images.png';
 import { StepsHeader } from '../StepsHeader/StepsHeader';
 import './StyleKvitto.css';
+import { FunkyContext } from '../../ContextRoot';
 // import { FunkyContext } from '../../ContextRoot';
 
 interface KvittoProps {
@@ -13,6 +14,7 @@ interface KvittoProps {
 }
 
 const Kvitto: React.FC<KvittoProps> = ({ orderNumber }) => {
+    const {chosenDeliveryOption } = useContext(FunkyContext)
 
   // const {chosenDeliveryOption} = useContext(FunkyContext)
   const resizeImageStyle = { width: '80%', height: '80%', objectFit: 'contain' };
@@ -39,18 +41,22 @@ const Kvitto: React.FC<KvittoProps> = ({ orderNumber }) => {
         </div>
 
         <div className='deliver-icons'>
+            {!chosenDeliveryOption ? 
           <div>
             <span className='time'>
               <AiOutlineFieldTime size={35} className="timer" />
               <span>Order Time: {isFoodReady} min</span>
             </span>
           </div>
+           :
           <div>
             <span className='truck'>
               <TbTruckDelivery size={35} />
               <span>Leverans: {deliveryTime} min</span>
             </span>
           </div> 
+        }
+
           <div>
             <span className='person'>
               <MdOutlinePeopleAlt size={35} />

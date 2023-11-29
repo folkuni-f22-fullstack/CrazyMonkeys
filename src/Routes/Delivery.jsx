@@ -19,11 +19,11 @@ export function Delivery() {
         customerInfo,
         selectStep,
         setSelectStep,
-        deliveryFirstName, setDeliveryFirstName, deliveryLastName, setDeliveryLastName, deliveryEmail, setDeliveryEmail, deliveryPhoneNumber, setDeliveryPhoneNumber, deliveryOwnComments, setDeliveryOwnComments, deliveryAddress, setDeliveryAddress, deliveryCounty, setDeliveryCounty, deliveryApartmentNumber, setDeliveryApartmentNumber, deliveryPostNumber, setDeliveryPostNumber, deliveryFloor, setDeliveryFloor, deliveryPortCode, setDeliveryPortCode
+        deliveryFirstName, setDeliveryFirstName, deliveryLastName, setDeliveryLastName, deliveryEmail, setDeliveryEmail, deliveryPhoneNumber, setDeliveryPhoneNumber, deliveryOwnComments, setDeliveryOwnComments, deliveryAddress, setDeliveryAddress, deliveryCounty, setDeliveryCounty, deliveryApartmentNumber, setDeliveryApartmentNumber, deliveryPostNumber, setDeliveryPostNumber, deliveryFloor, setDeliveryFloor, deliveryPortCode, setDeliveryPortCode, chosenDeliveryOption, setChosenDeliveryOption
     } = useContext(FunkyContext);
 
     // States
-    const [chosenDeliveryOption, setChosenDeliveryOption] = useState(false);
+
     
 
     const [isEmptyFirstName, setIsEmptyFirstName] = useState(false);
@@ -135,8 +135,8 @@ export function Delivery() {
                         mail: deliveryEmail,
                         mobile: deliveryPhoneNumber,
                         adress: deliveryAddress,
-                        floor,
-                        portCode,
+                        floor: deliveryFloor,
+                        portCode: deliveryPortCode,
                         comments: deliveryOwnComments,
                         status: status
                     });

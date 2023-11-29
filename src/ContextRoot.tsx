@@ -26,6 +26,7 @@ const ContextRoot = ({ children }) => {
     const [emplyeeStatus, setEmployeeStatus] = useState("")
     const [orderPrice, setTotalPrice] = useState("0");
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [chosenDeliveryOption, setChosenDeliveryOption] = useState(false);
     const [customerInfo, setCustomerInfo] = useState({
         name: "",
         adress: "",
@@ -85,7 +86,8 @@ const ContextRoot = ({ children }) => {
                 setOrder,
                 customerInfo,
                 setCustomerInfo, isLoggedIn, setIsLoggedIn, selectStep, setSelectStep, orderPrice, setTotalPrice,isEditing, setIsEditing, selectedItemId, setSelectedItemId,selectedItemQuantity, setSelectedItemQuantity,
-                deliveryFirstName, setDeliveryFirstName, deliveryLastName, setDeliveryLastName, deliveryEmail, setDeliveryEmail, deliveryPhoneNumber, setDeliveryPhoneNumber, deliveryOwnComments, setDeliveryOwnComments, deliveryAddress, setDeliveryAddress, deliveryCounty, setDeliveryCounty, deliveryApartmentNumber, setDeliveryApartmentNumber, deliveryPostNumber, setDeliveryPostNumber, deliveryFloor, setDeliveryFloor, deliveryPortCode, setDeliveryPortCode, updateState, setUpdateState,emplyeeStatus, setEmployeeStatus
+                deliveryFirstName, setDeliveryFirstName, deliveryLastName, setDeliveryLastName, deliveryEmail, setDeliveryEmail, deliveryPhoneNumber, setDeliveryPhoneNumber, deliveryOwnComments, setDeliveryOwnComments, deliveryAddress, setDeliveryAddress, deliveryCounty, setDeliveryCounty, deliveryApartmentNumber, setDeliveryApartmentNumber, deliveryPostNumber, setDeliveryPostNumber, deliveryFloor, setDeliveryFloor, deliveryPortCode, setDeliveryPortCode, updateState, setUpdateState,emplyeeStatus, setEmployeeStatus,
+                chosenDeliveryOption, setChosenDeliveryOption
             }}
         >
             {children}

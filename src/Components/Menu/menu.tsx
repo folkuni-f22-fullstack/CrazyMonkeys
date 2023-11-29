@@ -30,6 +30,7 @@ const Button: React.FC<ButtonProps> = ({ category, onClick, active }) => {
 
 function Menu() {
     const [activeCategory, setActiveCategory] = useState("Maträtter");
+    const {setSelectStep} = useContext(FunkyContext)
 
     const navigate = useNavigate()
     const handleCategoryChange = (category: string) => {
