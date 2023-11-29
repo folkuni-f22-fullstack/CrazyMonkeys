@@ -82,6 +82,26 @@ export const Chefsview = () => {
     fetchData();
 }, []);
 
+
+const moveOrder = (orderId) => {
+    
+    setDuringTreatmentData(prevData => {
+        const copy = [...prevData];
+        const foundOrderIndex = copy.findIndex((order) => order._id === orderId);
+
+        if (foundOrderIndex !== -1) {
+      
+            copy.splice(foundOrderIndex, 1);
+
+            console.log("Order Removed: ", copy);
+            return copy;
+        }
+
+        console.log("Order Not Found: ", prevData);
+        return prevData;
+    });
+};
+
   return (
    
     <div className="employee-view-wrapper">
@@ -107,7 +127,7 @@ export const Chefsview = () => {
           </section>
         </header>
 
-            <UnderTreatmentOrder chartData={duringTreatmentData} orders={orders}/>
+            <UnderTreatmentOrder chartData={duringTreatmentData} orders={orders} moveOrder={moveOrder}/>
            
       
       </section>

@@ -3,7 +3,7 @@ import OrderKort from "../anställda/OrderKort";
 import { updateOrder } from "../../dataApi/updateStatus&Msg.js";
 import { FunkyContext } from "../../ContextRoot";
 
-const UnderTreatmentOrder = ({ chartData, orders }) => {
+const UnderTreatmentOrder = ({ chartData, orders, moveOrder }) => {
     const [selectOrder, setSelectOrder] = useState({});
     const [orderStatus, setOrderStatus] = useState("");
     const { emplyeeStatus } = useContext(FunkyContext);
@@ -16,7 +16,7 @@ const UnderTreatmentOrder = ({ chartData, orders }) => {
 
     const onSubmitOrder = async (order) => {
         console.log(order._id);
-
+        await moveOrder(order._id)
         const response = await updateOrder(orderStatus, order._id, ".");
     };
 
