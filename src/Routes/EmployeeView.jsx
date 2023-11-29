@@ -8,12 +8,13 @@ import "./employeeStyle.css";
 import OrderKort from "../Components/anställda/OrderKort";
 import UntreatedOrder from "../Components/Orders/untreatedOrder.jsx";
 import UnderTreatmentOrder from "../Components/Orders/underTreatmentOrder.jsx";
+import DoneCustomerOrder from "../Components/Orders/DoneCustomerOrder.jsx";
 
 export const EmployeeView = () => {
     const navigate = useNavigate();
 
     // Login
-    const { setIsLoggedIn, isLoggedIn, updateState } = useContext(FunkyContext);
+    const { setIsLoggedIn, isLoggedIn, updateState, setEmployeeStatus } = useContext(FunkyContext);
 
 
     // Data
@@ -237,7 +238,7 @@ export const EmployeeView = () => {
                 {viewTab === "during-treatment" && (
                     <UnderTreatmentOrder chartData={duringTreatmentData} orders={orders}/>)}
                 {viewTab === "done" && (
-                    <UntreatedOrder chartData={doneData} orders={orders}/>)}
+                    <DoneCustomerOrder chartData={doneData} orders={orders}/>)}
 
                 {/* Det som ska göras är att vi ska ha olika Chartdata där vi hämtar
                 ordrar beroende på vad för status dem har.

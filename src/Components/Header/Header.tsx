@@ -60,7 +60,7 @@ function Header() {
             <img className="desktop-img" src={desktop} alt="Företagets logga" />
           </NavLink>
         </div>
-        <NavLink className="navbar" to="#">
+        <NavLink className="navbar" to="/omoss">
           Om Oss
         </NavLink>
 
@@ -77,7 +77,7 @@ function Header() {
             <NavLink to="/menu" className="head-navbar">
               Meny
             </NavLink>
-            <NavLink to="#" className="head-navbar">
+            <NavLink to="/omoss" className="head-navbar" >
               Om oss
             </NavLink>
             <NavLink to="/kundkorg" className="head-navbar">

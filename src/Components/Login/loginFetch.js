@@ -1,6 +1,6 @@
 const sessionStorageKey = 'jwt'
 
-const handleLoginEmp = async (username, password) => {
+const handleLoginEmp = async (username, password, afterLogin) => {
     if (sessionStorage.getItem(sessionStorageKey) != null) {
         return;
     }
@@ -18,7 +18,8 @@ const handleLoginEmp = async (username, password) => {
         sessionStorage.removeItem(sessionStorageKey)
         sessionStorage.setItem(sessionStorageKey, data.token)
         sessionStorage.setItem('id', data.id)
-        // console.log(data);
+        console.log(data.status);
+        await afterLogin(response, data.status)
         return {data}
       }else{
         console.log("login failed: " + response.status);
