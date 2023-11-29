@@ -101,7 +101,7 @@ export const Chefsview = () => {
               className={chosenTab("untreated")}
               onClick={() => setSelectTab("untreated")}
               >
-              Underbehandling
+              Under behandling
             </button>
            
           </section>

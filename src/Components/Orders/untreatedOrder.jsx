@@ -38,8 +38,6 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
     const [isValidNumber, notValidNumber] = isValidPhoneNumber(customerPhone)
     const [isValidEmail, notValidEmail] = isValidEmailAddress(customerEmail)
 
-
-
     const nameChange = (e) => {
         setCustomerName(e.target.value)
 
@@ -255,6 +253,7 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         style={validationErrorBorder(isEmptyName, wrongName,isValidFullName)}
                                                         value={customerName}
                                                         onChange={nameChange}
+                                                        onBlur={() => setWrongName(true)}
 
                                                     />
                                                     {!isEmptyName && (
@@ -318,6 +317,7 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         style={validationErrorBorder(isEmptyEmail, wrongEmail, isValidEmail)}
                                                         value={customerEmail}
                                                         onChange={emailChange}
+                                                        onBlur={() => setWrongEmail(true)}
                                                     />
                                                     {!isEmptyEmail && (
                                                     <div className="validation-error">
@@ -342,6 +342,7 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         style={validationErrorBorder(isEmptyPhoneNumber, wrongPhoneNumber, isValidNumber)}
                                                         value={customerPhone}
                                                         onChange={phoneChange}
+                                                        onBlur={() => setWrongPhoneNumber(true)}
                                                     />
                                                     {!isEmptyPhoneNumber && (
                                                     <div className="validation-error">
