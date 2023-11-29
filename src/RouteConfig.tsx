@@ -6,7 +6,7 @@ import Menu from "./Components/Menu/menu";
 import StartPage from "./Routes/Startpage/Startpage";
 import Varukorg from "./Routes/Varukorg/Varukorg.jsx";
 import { Delivery } from "./Routes/Delivery/Delivery.jsx";
-import CheckoutPage from "./Components/betalning/Betalning.tsx";
+import Payment from "./Routes/Payment/Payment.tsx";
 import Kvitto from "./Components/Kvitto/Kvitto.tsx";
 import { EmployeeView } from "./Routes/EmployeeView/EmployeeView.jsx";
 import Chefsview from "./routes/Chefsview/Chefsview.jsx";
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/betalning",
-        element: <CheckoutPage />,
+        element: <Payment />,
       },
       {
         path: "/kvitto",

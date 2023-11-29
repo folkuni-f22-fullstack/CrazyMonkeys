@@ -2,14 +2,14 @@ import React, { useState, useContext } from "react";
 import { FunkyContext } from "../../ContextRoot.tsx";
 import { useNavigate } from "react-router-dom";
 
-import "./betalning.css";
+import "./paymentStyle.css";
 import { Link } from "react-router-dom";
-import OrderComponent from "../Orders/OrderComponent.jsx"
-import { StepsHeader } from "../StepsHeader/StepsHeader.jsx";
+import OrderComponent from "../../Components/Orders/OrderComponent.jsx"
+import { StepsHeader } from "../../Components/StepsHeader/StepsHeader.jsx";
 
 
 
-const CheckoutPage: React.FC<CheckoutProps> = () => {
+const Payment: React.FC<CheckoutProps> = () => {
   const navigate = useNavigate()
 
   const { orderToSend, customerInfo, order, selectStep, setSelectStep } = useContext(FunkyContext);
@@ -107,7 +107,7 @@ const handleOrderPost = async (event) => {
               checked={paymentMethod === "card"}
               onChange={handlePaymentChange}
             />
-            Betala med kort
+             Bank- eller kontantkort
           </label>
         </div>
 
@@ -119,7 +119,7 @@ const handleOrderPost = async (event) => {
               checked={paymentMethod === "swish"}
               onChange={handlePaymentChange}
             />
-            Betala med Swish
+            Swish
           </label>
         </div>
 
@@ -146,4 +146,4 @@ const handleOrderPost = async (event) => {
   );
 };
 
-export default CheckoutPage;
+export default Payment;
