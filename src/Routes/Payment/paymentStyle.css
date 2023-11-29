@@ -5,8 +5,8 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  padding-bottom: 5em;
 }
-
 
 /* Header */
 .pay-header {
@@ -35,66 +35,33 @@
 
 /* Content */
 .pay-container {
+  padding: 0em 10em;
+  padding-top: 2em;
+}
+
+.pay {
   background-color: white;
-  padding: 20px;
+  padding-top: 1.25em;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   width: 80%;
-  max-width: 550px;
+  max-width: 650px;
   min-width: 320px;
 }
 
-h2 {
-  color: #333;
-}
-
-.payment-method {
-  margin-bottom: 10px;
-}
-
-.payment-details {
-  margin-top: 20px;
-}
-
-.proceed-button {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
-}
-
-.proceed-button {
-  background-image: linear-gradient(to right, #235852 0%, #001510 51%, #00bf8f 100%);
-  margin: 0.4em;
-  padding: 15px 45px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  color: white;
-  box-shadow: 0 0 7px #eee;
-  border-radius: 10px;
-  display: block;
-}
-
-.proceed-button:hover {
-  background-position: right center; 
-  color: #fff;
-  text-decoration: none;
-}
-
-.pay-btn-div{
+.pay-btn-div {
     display: flex;
     justify-content: center;
+    padding-top: 2.5em;
 }
 
-.pay-btn-div button{
-    width: 100% !important;
+/* Inputs */
+.pay-label {
+  font-size: 20px;
+  margin-left: .75em;
 }
+
 
 @media screen and (orientation: portrait) {
-  .proceed-button {
-    justify-content: center;
-  }
 
   .pay-title {
     display: none;
@@ -102,8 +69,13 @@ h2 {
 
   .pay-title.mobile {
     display: block;
-    top: -30px;
+    top: -34px;
     position: relative;
+}
+
+.pay-container {
+  padding: 0em 2em;
+  padding-top: 3em;
 }
 
 }

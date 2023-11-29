@@ -91,7 +91,7 @@ const handleOrderPost = async (event) => {
 
   return (
     <div className="pay-wrapper">
-      <div className="pay-container">
+      <div className="pay">
       <button onClick={() => goBackToDelivery()} className="back-btn"><span className="material-symbols-outlined">undo</span>
       </button>
       <h1 className="pay-title mobile">Betalningsmetod</h1>
@@ -99,43 +99,38 @@ const handleOrderPost = async (event) => {
       <header className="pay-header">
           <h1 className="pay-title">Betalningsmetod</h1>
       </header>
+      <div className="pay-container">
         {orderToSend.items.length > 0 && (
-          <>
+
                   <form onSubmit={handleOrderPost}>
-                    <div className="payment-method">
-                      <label>
-                        <input
+                    <div>
+                    <input id="method-card-input"
                           type="radio"
                           value="card"
                           checked={paymentMethod === "card"}
                           onChange={handlePaymentChange}
                         />
-                         Bank- eller kontantkort
-                      </label>
+                      <label className="pay-label" htmlFor="method-card-input">Bank- eller kontantkort</label>
                     </div>
             
-                    <div className="payment-method">
-                      <label>
-                        <input
+                    <div>
+                    <input id="method-swish-input"
                           type="radio"
                           value="swish"
                           checked={paymentMethod === "swish"}
                           onChange={handlePaymentChange}
                         />
-                        Swish
-                      </label>
+                      <label className="pay-label" htmlFor="method-swish-input">Swish</label>
                     </div>
             
-                    <div className="payment-method">
-                      <label>
-                        <input
+                    <div>
+                    <input id="method-cash-input"
                           type="radio"
                           value="cash"
                           checked={paymentMethod === "cash"}
                           onChange={handlePaymentChange}
                         />
-                        Vid upphämtning
-                      </label>
+                      <label className="pay-label" htmlFor="method-cash-input">Vid upphämtning</label>
                     </div>
             
                     <div className="pay-btn-div">
@@ -144,7 +139,7 @@ const handleOrderPost = async (event) => {
                         </button>
                     </div>
                     </form>
-          </> 
+ 
         )}
         {
           !orderToSend.items.length && (
@@ -158,6 +153,7 @@ const handleOrderPost = async (event) => {
             </>
           )
         }
+      </div>
       </div>
     </div>
   );
