@@ -36,7 +36,7 @@
 /* Content */
 .pay-container {
   padding: 0em 10em;
-  padding-top: 2em;
+  padding-top: 3em;
 }
 
 .pay-form {
@@ -52,13 +52,13 @@
   width: 80%;
   max-width: 650px;
   min-width: 320px;
-  height: 500px;
+  height: 540px;
 }
 
 .pay-btn-div {
     display: flex;
     justify-content: center;
-    padding-top: 6.5em;
+    padding-top: 1.5em;
 }
 
 /* Inputs */
