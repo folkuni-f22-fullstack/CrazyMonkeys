@@ -236,7 +236,7 @@ export const EmployeeView = () => {
                 {viewTab === "untreated" && (
                     <UntreatedOrder chartData={untreatedData} orders={orders} deleteOrderItem={deleteOrderItem} deleteOrder={deleteOrder} addOrderItem={addOrderItem} moveOrder={moveOrder}/>)}
                 {viewTab === "during-treatment" && (
-                    <UnderTreatmentOrder chartData={duringTreatmentData} orders={orders}/>)}
+                    <UnderTreatmentOrder chartData={duringTreatmentData} orders={orders} moveOrder={moveOrder}/>)}
                 {viewTab === "done" && (
                     <DoneCustomerOrder chartData={doneData} orders={orders}/>)}
 

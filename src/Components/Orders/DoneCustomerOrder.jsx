@@ -1,7 +1,7 @@
 import { useState } from "react";
 import OrderKort from "../anställda/OrderKort";
 
-const DoneCustomerOrder = ({ chartData, orders }) => {
+const DoneCustomerOrder = ({ chartData, orders, moveOrder }) => {
     const [selectOrder, setSelectOrder] = useState({});
     const [orderStatus, setOrderStatus] = useState("");
 
