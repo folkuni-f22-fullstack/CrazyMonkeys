@@ -85,62 +85,79 @@ const handleOrderPost = async (event) => {
     setSelectStep(2)
   }
 
+  const goBackToMenu = () => {
+    navigate("/menu")
+  }
+
   return (
-    <div className="outer-container">
-
-      <div className="checkout-container">
-        <StepsHeader />
-      <form onSubmit={handleOrderPost}>
-        <header className="pay-header">
-        <button onClick={() => goBackToDelivery()} className="go-back-btn" >
-          <span className="material-symbols-outlined">undo</span>
-        </button>
-        <h1>Välj betalningsmetod</h1>
-        </header>
-
-
-        <div className="payment-method">
-          <label>
-            <input
-              type="radio"
-              value="card"
-              checked={paymentMethod === "card"}
-              onChange={handlePaymentChange}
-            />
-             Bank- eller kontantkort
-          </label>
-        </div>
-
-        <div className="payment-method">
-          <label>
-            <input
-              type="radio"
-              value="swish"
-              checked={paymentMethod === "swish"}
-              onChange={handlePaymentChange}
-            />
-            Swish
-          </label>
-        </div>
-
-        <div className="payment-method">
-          <label>
-            <input
-              type="radio"
-              value="cash"
-              checked={paymentMethod === "cash"}
-              onChange={handlePaymentChange}
-            />
-            Vid upphämtning
-          </label>
-        </div>
-
-        <div className="pay-btn-div">
-            <button type="submit" className="btn-grad" disabled={isButtonDisabled}>
-              Slutför beställning
-            </button>
-        </div>
-        </form>
+    <div className="pay-wrapper">
+      <div className="pay-container">
+      <button onClick={() => goBackToDelivery()} className="back-btn"><span className="material-symbols-outlined">undo</span>
+      </button>
+      <h1 className="pay-title mobile">Betalningsmetod</h1>
+      <StepsHeader />
+      <header className="pay-header">
+          <h1 className="pay-title">Betalningsmetod</h1>
+      </header>
+        {orderToSend.items.length > 0 && (
+          <>
+                  <form onSubmit={handleOrderPost}>
+                    <div className="payment-method">
+                      <label>
+                        <input
+                          type="radio"
+                          value="card"
+                          checked={paymentMethod === "card"}
+                          onChange={handlePaymentChange}
+                        />
+                         Bank- eller kontantkort
+                      </label>
+                    </div>
+            
+                    <div className="payment-method">
+                      <label>
+                        <input
+                          type="radio"
+                          value="swish"
+                          checked={paymentMethod === "swish"}
+                          onChange={handlePaymentChange}
+                        />
+                        Swish
+                      </label>
+                    </div>
+            
+                    <div className="payment-method">
+                      <label>
+                        <input
+                          type="radio"
+                          value="cash"
+                          checked={paymentMethod === "cash"}
+                          onChange={handlePaymentChange}
+                        />
+                        Vid upphämtning
+                      </label>
+                    </div>
+            
+                    <div className="pay-btn-div">
+                        <button type="submit" className="btn-grad" disabled={isButtonDisabled}>
+                          Slutför beställning
+                        </button>
+                    </div>
+                    </form>
+          </> 
+        )}
+        {
+          !orderToSend.items.length && (
+            <>
+               <p>För att slutföra en beställning behöver du ha fyllt varukorgen och skrivit in dina leveransuppgifter!</p>
+                <div className="pay-btn-div">
+                  <button onClick={() => goBackToMenu()} className="btn-grad">
+                          Gå tillbaka till menyn
+                        </button>
+                    </div>
+            </>
+          )
+        }
       </div>
     </div>
   );

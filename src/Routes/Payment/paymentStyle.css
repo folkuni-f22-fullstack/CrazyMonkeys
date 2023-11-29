@@ -1,21 +1,25 @@
-/* .outer-container {
+/* Wrapper */
+.pay-wrapper {
   background-color: #4c5452;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   width: 100%;
-} */
-
-.pay-header {
-  display: grid;
-  grid-template-areas: 'button title title ...';
-  padding: 1.25em 0em;
 }
 
-.pay-header > h1 {
+
+/* Header */
+.pay-header {
+  display: grid;
+  grid-template-areas: '... title title ...';
+}
+
+.pay-title {
   grid-area: title;
   text-align: center;
+  grid-area: title;
+  font-family: var(--meny-font);
+  font-size: 24px;
 }
 
 .go-back-btn {
@@ -25,12 +29,16 @@
   cursor: pointer;
 }
 
-.checkout-container {
+.pay-title.mobile {
+  display: none;
+}
+
+/* Content */
+.pay-container {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  text-align: center;
   width: 80%;
   max-width: 550px;
   min-width: 320px;
@@ -83,8 +91,19 @@ h2 {
     width: 100% !important;
 }
 
-@media (max-width: 600px) {
+@media screen and (orientation: portrait) {
   .proceed-button {
     justify-content: center;
   }
+
+  .pay-title {
+    display: none;
+  }
+
+  .pay-title.mobile {
+    display: block;
+    top: -30px;
+    position: relative;
+}
+
 }
