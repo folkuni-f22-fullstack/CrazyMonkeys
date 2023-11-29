@@ -36,7 +36,9 @@ const Kvitto: React.FC<KvittoProps> = ({ orderNumber }) => {
       <div className='container'>
         <div className='title-line'>
           <h2 className='kvitto-title'>Orderbekräftelse</h2>
-          <StepsHeader />
+          <span className='stephead'>
+            <StepsHeader />
+          </span>
           <div className='message'>Tack för att du handlar på Funky Fusion</div>
         </div>
 

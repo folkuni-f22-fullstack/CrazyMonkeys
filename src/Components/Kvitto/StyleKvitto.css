@@ -9,58 +9,60 @@ body{
 
 }
 .parent-container{
-    display: flex;
-    justify-content: center;
-    
-
-}
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: auto !important;
-    width: 50%;
-    background-color: #fff;
-    margin: 3rem;
-    padding: 2em;
-    border: 0.4em solid #183A37;
-    border-radius: 2rem !important;
+  display: flex;
+  flex-direction: column;
 }
 
-.title-line > * {
-text-align: center;
-   position: relative;
-   top:-2rem ;
-} 
-/* .kvitto-title{
-   
-       display: flex;
-    justify-content: center;
-    flex-wrap: row wrap;
-    position: relative;
-    top: -2rem;
-    text-align: center;
-} */
-.message{
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  width: auto !important;
+  height: auto !important;
+  border: 0.4em solid #183A37;
+  border-radius: 1em;
+}
+.title-line  {
+  /* border: 1px solid green; */
+  display: flex;
+}
+
+.kvitto-title{
+  border: 1px solid rgb(69, 47, 212);
+  display: flex;
+}
+.stephead{
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid red;
+}
+
+
+
+
+
+
+
+
+/* .message{
     margin-top: 1.5rem;
-    
-} 
-  
 
-.deliver-icons > div{
+} */
+
+
+/* .deliver-icons > div{
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 40px;
-   
-   
 }
   .truck , .person{
     display: inline-flex;
     position: relative;
     left: -8rem;
-    
+
 }
 .time{
     display: inline-flex;
@@ -89,81 +91,4 @@ text-align: center;
 }
 .last-message{
     text-align: center;
-}
-
-/* Den knappen ställer till det för annan css */
-/* .btn-grad {
-    background-image: linear-gradient(to right, #235852 0%, 
-  #001510  51%, #00bf8f  100%); 
-    margin: 2em 0.4em;
-    padding: 15px 45px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    box-shadow: 0 0 7px #eee;
-    border-radius: 10px;
-    display: block;
-  }
-  .btn-grad:hover {
-    background-position: right center; 
-    color: #fff;
-    text-decoration: none;
-  } */
-
-@media (min-width: 320px) and (max-width:683px){
-  .container{
-    padding: 4.5rem;
-    width: 50%;
-    height: 20vh;
-    position: relative;
-    
-  }
-  .kvitto-title{
-    font-size: 20px;
-    position: relative;
-    top: -5rem;
-  }
-    
-   
-   .deliver-icons{
-    position: relative;
-    left: 4rem;
-    
-   }
-   .deliver-icons > * {
-    height: 50px;
-   }
-   .timer{
-    size: 80px;
-   
-   }
-   
-   .truck{
-    size: 20px;
-    width: 110px;
-   }
-   .person{
-    display: inline-flex;
-    flex-wrap: nowrap;
-    width: 100px;
-    position: relative;
-    left: -8.4rem;
-   }
-  
-   
-   .last-message{
-    position: relative;
-    left: -1rem;
-   }
-   .confirm-btn{
-    position: relative;
-    left: -1rem;
-   }
-   .btn-grad{
-    margin-top: .6rem;
-    padding: 10px;
-   }
-   
-}
+} */
