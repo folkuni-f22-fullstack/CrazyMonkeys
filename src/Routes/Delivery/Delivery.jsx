@@ -1,9 +1,9 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { StepsHeader } from "../Components/StepsHeader/StepsHeader";
-import { FunkyContext } from "../ContextRoot";
+import { StepsHeader } from "../../Components/StepsHeader/StepsHeader";
+import { FunkyContext } from "../../ContextRoot";
 
-import { isValidName, isValidEmailAddress, isValidPhoneNumber } from "../Components/validation";
+import { isValidName, isValidEmailAddress, isValidPhoneNumber } from "../../Components/validation";
 
 import "./DeliveryStyle.css";
 

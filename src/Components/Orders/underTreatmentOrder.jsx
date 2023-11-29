@@ -65,6 +65,7 @@ const UnderTreatmentOrder = ({ chartData, orders, moveOrder }) => {
                                     </details>
 
                                     {emplyeeStatus === "chef" && (
+                                        <div className="button-to-right-div">
                                         <button
                                             className="button-confirm"
                                             type="submit"
@@ -72,6 +73,7 @@ const UnderTreatmentOrder = ({ chartData, orders, moveOrder }) => {
                                         >
                                             Klar att servera
                                         </button>
+                                        </div>
                                     )}
                                 </div>
                             </details>
