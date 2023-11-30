@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import {FunkyContext} from "../../ContextRoot.tsx"
 import {handleLogout} from "../../Components/Login/loginFetch.js"
+import '../../App.css'
 
 import "./employeeStyle.css";
 
