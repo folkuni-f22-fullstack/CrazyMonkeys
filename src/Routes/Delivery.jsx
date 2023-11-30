@@ -134,8 +134,8 @@ export function Delivery() {
                         mail: deliveryEmail,
                         mobile: deliveryPhoneNumber,
                         adress: deliveryAddress,
-                        floor,
-                        portCode,
+                        floor: "",
+                        portCode: '',
                         comments: deliveryOwnComments,
                         status: status
                     });
@@ -145,8 +145,8 @@ export function Delivery() {
                         mail: deliveryEmail,
                         mobile: deliveryPhoneNumber,
                         adress: deliveryAddress,
-                        floor,
-                        portCode,
+                        floor: "",
+                        portCode: '',
                         comments: "",
                         status: status
                     });
