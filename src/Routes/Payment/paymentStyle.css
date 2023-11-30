@@ -52,13 +52,14 @@
   width: 80%;
   max-width: 650px;
   min-width: 320px;
-  height: 540px;
+  height: auto;
 }
 
 .pay-btn-div {
     display: flex;
     justify-content: center;
-    padding-top: 9.5em;
+    padding-top: 2em;
+    padding-bottom: 1.25em;
 }
 
 /* Inputs */
