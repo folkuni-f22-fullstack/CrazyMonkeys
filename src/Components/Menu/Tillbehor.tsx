@@ -1,8 +1,11 @@
 import { useEffect, useState, useContext } from "react";
-import "../assets/Tillbehor.css";
+import { motion } from "framer-motion";
 
+import "../assets/Tillbehor.css";
 import { FunkyContext } from "../../ContextRoot";
 import Kundkorg from "./../anställda/AnställdaOrdrar";
+
+
 const Tillbehor = () => {
   const [tillbehorData, setTillbehorData] = useState([]);
   const { orderToSend, order, setOrder } = useContext(FunkyContext);
@@ -71,7 +74,7 @@ const Tillbehor = () => {
       <h3 className="tillbehor-title">Tillbehör</h3>
       <div className="tillbehor-container">
         {tillbehorData.map((tillbehor) => (
-          <div className="tillbehor-item" key={tillbehor._Id}>
+          <motion.div initial={{y: "-10%", opacity: 0 }} animate={{y: "0%", opacity: 1}} transition={{ duration: 1 }} className="tillbehor-item" key={tillbehor._Id}>
             <div className="tillbehor-img">
               <img src={tillbehor.img} alt="" />
             </div>
@@ -92,7 +95,7 @@ const Tillbehor = () => {
                 </button>
               </div>
           
-          </div>
+          </motion.div>
         ))}
       </div>
       {showTillbehorOverlay && (

@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { FunkyContext } from "../../ContextRoot";
+import { FunkyContext } from "../../ContextRoot.tsx";
 import { AiOutlineClose } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { handleLoginEmp } from "./loginFetch.js";
@@ -10,7 +10,7 @@ export function Login() {
     const [usernameError, setUsernameError] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const navigate = useNavigate();
-    const { loginDialogRef, stateLoginDialog, setIsLoggedIn, emplyeeStatus, setEmployeeStatus } =
+    const { loginDialogRef, stateLoginDialog, setIsLoggedIn, emplyeeStatus, setEmployeeStatus, loginFailedMsg, setLoginFailedMsg } =
         useContext(FunkyContext);
 
     const handleSubmit = async (e) => {
@@ -24,6 +24,7 @@ export function Login() {
                 
             } catch (error) {
                 console.error("Något gick fel:", error);
+                setLoginFailedMsg(true)
             }
         }
 
@@ -88,6 +89,11 @@ export function Login() {
                         onChange={(e) => setUsername(e.target.value)}
                     />
                     {!username && usernameError && <p className="error-text"> {usernameError}</p>}
+                    {
+                        loginFailedMsg && (
+                            <p className="error-text">Användarnamnet kan vara felaktigt</p>
+                        )
+                    }
                 </div>
                 <div
                     className={`password-container ${
@@ -106,6 +112,14 @@ export function Login() {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     {!password && passwordError && <p className="error-text">{passwordError}</p>}
+                    {
+                        loginFailedMsg && (
+                            <p className="error-text">Lösenordet kan vara felaktigt</p>
+                        )
+                    }
+                </div>
+                <div>
+
                 </div>
                 <div className="login-btn-div">
                     <button className="btn-grad" onClick={handleLogin}>
