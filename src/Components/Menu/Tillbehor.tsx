@@ -63,7 +63,7 @@ const Tillbehor = () => {
     setItemCounter(itemCounter + 1);
     setTimeout(() => {
       setShowTillbehorOverlay(false);
-    }, 9000);
+    }, 2000);
   };
 
   return (
@@ -85,7 +85,7 @@ const Tillbehor = () => {
                   className="add-to-cart-button"
                   onClick={(e) => {
                     e.preventDefault();
-                    handleAddToCart(tillbehor.id);
+                    handleAddToCart(tillbehor._id);
                   }}
                 >
                   Lägg till
