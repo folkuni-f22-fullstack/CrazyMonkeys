@@ -7,7 +7,7 @@ import { FunkyContext } from "../../ContextRoot";
 import { isValidName, isValidEmailAddress, isValidPhoneNumber } from "../validation";
 
 
-const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOrderItem, moveOrder }) => {
+const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOrderItem, moveOrder, menuName }) => {
     
     // States
     const [isLocked, setIsLocked] = useState(false);
@@ -236,6 +236,7 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                 orders={orders}
                                                 deleteOrderItem={deleteOrderItem}
                                                 addOrderItem={addOrderItem}
+                                                
                                             />{" "}
                                             
                                             <details>

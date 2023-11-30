@@ -137,7 +137,7 @@ export const EmployeeView = () => {
         const copy = [...untreatedData];
         const nameFromMenu = await menuName.find(item => item._id === menuItemId)?.name
 
-        console.log("namn på rätten",nameFromMenu);
+        // console.log("namn på rätten",nameFromMenu);
         const newItem = {
                 nameFromMenu,
                 quantity
@@ -248,7 +248,7 @@ export const EmployeeView = () => {
                 </header>
 
                 {viewTab === "untreated" && (
-                    <UntreatedOrder chartData={untreatedData} orders={orders} deleteOrderItem={deleteOrderItem} deleteOrder={deleteOrder} addOrderItem={addOrderItem} moveOrder={moveOrder}/>)}
+                    <UntreatedOrder chartData={untreatedData} orders={orders} deleteOrderItem={deleteOrderItem} deleteOrder={deleteOrder} addOrderItem={addOrderItem} moveOrder={moveOrder} /> )}
                 {viewTab === "during-treatment" && (
                     <UnderTreatmentOrder chartData={duringTreatmentData} orders={orders}/>)}
                 {viewTab === "done" && (

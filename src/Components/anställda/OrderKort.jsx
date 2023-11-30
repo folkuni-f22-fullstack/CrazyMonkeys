@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./orderKort.css";
 import { removeOrderItem } from "../../dataApi/removeOrderItem.js";
 import { postItemOrder } from "../../dataApi/postToOrder.js";
@@ -10,26 +10,41 @@ import MenuEmployee from "./MenuEmployee.jsx";
 export default function OrderKort(props) {
     
     const [isClicked, setIsClicked] = useState(false);
+    const [produktName, setProduktName] = useState("")
+    const [menuList, setMenuList] = useState([])
+
     const { isEditing, selectedItemId, selectedItemQuantity, setSelectedItemQuantity } =
         useContext(FunkyContext);
 
     const additemInput = () => {
         setIsClicked(true);
     };
+    useEffect(() => {
+        const fetchData = async () => {
+            const menuResponse = await fetch("/api/menu");
+            const menuData = await menuResponse.json();
+            setMenuList(menuData)
+        }
+        fetchData()
+    },[])
 
     
     const sendOrder = (orderId) => {
-        console.log("order", props.order);
-        console.log("orders", props.orders);
-        console.log(orderId, selectedItemId, selectedItemQuantity);
-
+        // console.log("order", props.order);
+        // console.log("orders", props.orders);
+        // console.log(orderId, selectedItemId, selectedItemQuantity);
+        
         async function doSomething (whenDone)  {
-           await postItemOrder(orderId, selectedItemId, selectedItemQuantity, whenDone)
+            await postItemOrder(orderId, selectedItemId, selectedItemQuantity, whenDone)
             
             async function whenDone() {
                 await props.addOrderItem(orderId, selectedItemId, selectedItemQuantity,)
-
+                
             }
+            const nameFromMenu = menuList.find(item => item._id === selectedItemId)?.name
+            setProduktName(nameFromMenu)
+            console.log(produktName);
+            
         }
         doSomething()
 
@@ -66,7 +81,7 @@ export default function OrderKort(props) {
                     </div>
                     {props.order.status === "untreated" && isEditing && isClicked && (
                         <div >
-                            <div className="new-order-div">
+                            <div className="new-order-div" >
                                 <MenuEmployee />
                                 <div className="new-order-input-div">
                                     <label htmlFor="quantity">Antal</label>
@@ -94,13 +109,15 @@ export default function OrderKort(props) {
                                 const response = removeOrderItem(props.order._id, itemOrderId);
                             };
 
+                            
+
                             return (
                                 <div key={orderItem._id}>
                                     <div className="order-card-list">
-                                        <p>
+                                        <p key={orderItem._id}>
                                             {menuItemData
                                                 ? menuItemData.name
-                                                : "Namn ej tillgängligt"}{" "}
+                                                : produktName}{" "}
                                             x {orderItem.quantity}
                                         </p>
                                         {props.order.status === "untreated" && isEditing && (
