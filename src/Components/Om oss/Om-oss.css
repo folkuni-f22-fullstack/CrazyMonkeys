@@ -1,18 +1,18 @@
-:root {
+/* :root {
   --title-font: "Gloria Hallelujah", cursive;
   --content-font: "Ubuntu", sans-serif;
   --Helvetica-font: "Helvetica", sans-serif;
   --mont-font: "Montserrat", sans-serif;
   --meny-font: "Anonymous Pro", monospace;
-}
+} */
 
-body {
+/* body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   overflow-x: hidden;
   background-color: #4c5452;
-}
+} */
 
 .title-pic {
   display: flex;
@@ -22,45 +22,51 @@ body {
 }
 
 .first-img {
-  margin-top: 5%;
+  /* margin-top: 5%; */
   margin-bottom: 16%;
-  height: 150px;
-  width: 40rem !important;
+  /* height: 150px; */
+  width: 40rem;
   position: relative;
 }
-
-.mobile-text {
+.title {
   font-family: var(--title-font);
+  text-align: center;
+  font-size: 1.5rem;
+  color: #fff;
+}
+.mobile-text {
+  font-family: var(--content-font);
   text-align: center;
   font-size: 1.3rem;
   color: #fff;
+  margin-bottom: 1em;
 }
 
 .mobile-text-title-us {
-  font-family: var(--Helvetica-font);
-  margin: 0em 1em 1em 0em;
+  font-family: var(--andika-font);
+  /* margin: 0em 1em 1em 0em; */
   text-align: center;
-  font-size: 19.5px;
+  /* font-size: 19.5px; */
   position: absolute;
   color: #fff;
   top: 9.5rem;
-  width: auto;
+  /* width: auto; */
 }
 
 .text-title-us {
   display: none;
-  font-family: var(--Helvetica-font);
-  margin: 0em 1em 1em 0em;
-  text-align: center;
-  font-size: 19.5px;
+  font-family: var(  --andika-font);
+  /* margin: 0em 1em 1em 0em; */
+  /* text-align: center; */
+  font-size: 20px;
   position: absolute;
   color: #fff;
-  top: 9.5rem;
-  width: auto;
+  /* top: 9.5rem; */
+  /* width: auto; */
 }
 
 .middle-page {
-  margin-top: 11rem;
+  margin-top: 8em;
   margin-bottom: 10em;
   color: #fff;
   /* border: 3px solid red; */
@@ -74,9 +80,10 @@ body {
 .middle-text,
 .middle-text-2 {
   font-family: var(--content-font);
-  font-size: 22px;
+  /* font-size: 22px; */
   margin-top: 3%;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
+
   line-height: 1.5;
 }
 
@@ -86,8 +93,8 @@ body {
 }
 
 .middle-page-2 {
-  margin-top: 13em;
-  margin-bottom: 7em !important;
+  /* margin-top: 13em; */
+  margin-bottom: 10em;
   color: #fff;
   /* border: 3px solid yellow; */
   background: #183a37;
@@ -97,17 +104,18 @@ body {
 .middle-contain,
 .middle-contain-2 {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  /* flex-direction: column; */
+  /* flex-wrap: wrap; */
   margin: 1rem;
-  width: auto;
+  /* font-family: var( --andika-font); */
+  /* width: auto; */
 }
 
 .whyfunky,
 .whyfunky-2 {
-  font-family: var(--title-font);
-  text-align: center;
-  margin-bottom: 1em;
+  font-family: var(--content-font);
+  font-size: 20px;
+  margin-bottom: 1.5em;
 }
 
 .wok-img {
@@ -146,41 +154,41 @@ body {
 
 @media (min-width: 769px) and (max-width: 1000px) {
   .mobile-text-title-us {
-    font-family: var(--Helvetica-font);
-    font-size: 1.5em !important;
+    font-family: var(--content-font);
+    /* font-size: 1.5em !important; */
     margin: 4.5rem 3rem 3rem 1rem;
-    position: absolute;
-    top: 12rem ;
-    justify-content: center;
-    align-items: center;
+    /* position: absolute; */
+    top: 12rem;
+    /* justify-content: center; */
+    /* align-items: center; */
   }
 
   .first-img {
-    margin-top: 5%;
-    height: 300px;
+    /* margin-top: 5%; */
+    height: 250px;
   }
   .middle-page {
     display: flex;
     flex-direction: row;
-    margin-bottom: 10rem;
-    border-radius: 0.5em 0em 0em 0.5em;
+    /* margin-bottom: 10rem; */
+    /* border-radius: 0.5em 0em 0em 0.5em; */
+    /* border: 12px solid hotpink; */
   }
 
   .middle-page-2 {
-    margin-bottom: 5rem;
+    /* margin-bottom: 5rem; */
     display: flex;
     flex-direction: row-reverse;
     border-radius: 0.5em 0em 0em 0.5em;
   }
 
-  .middle-text,
+  /* .middle-text,
   .middle-text-2 {
     font-family: var(--content-font);
     font-size: 1.4em;
-  }
+  } */
 
-  /* text container */
-  .middle-contain {
+  /* .middle-contain {
     padding: 1em;
     justify-content: center;
     font-size: 18px;
@@ -189,9 +197,9 @@ body {
     top: -2em;
     left: 2.6rem;
     width: 90%;
-  }
+  } */
 
-  .middle-contain-2 {
+  /* .middle-contain-2 {
     padding: 1em;
     justify-content: center;
     font-size: 18px;
@@ -199,13 +207,12 @@ body {
     position: relative;
     top: -2em;
     right: 2.7rem;
-  }
+  } */
 
-  .middle-img {
+  /* .middle-img {
     position: relative;
-  }
+  } */
 
-  /* maträtter bild */
   .wok-img {
     width: 14rem;
     position: relative;
@@ -236,10 +243,10 @@ body {
     width: 12rem;
   }
 
-  .whyfunky,
+  /* .whyfunky,
   .whyfunky-2 {
-    font-family: var(--title-font);
-  }
+    font-family: var(--content-font);
+  } */
 }
 
 /*----------------------------------------------------------*/
@@ -247,107 +254,101 @@ body {
 @media (min-width: 1001px) and (max-width: 1928px) {
   .text-title-us {
     display: block;
-    margin: 0em 2em 2em 2em;
-  }
-  .first-img {
-    margin-top: 0.5%;
-    height: 250px;
-    width: 100% !important;
-    margin-bottom: 5rem;
-  }
+    top: 18rem;
+  } 
   .mobile-text-title-us {
     display: none;
   }
-
   .first-img {
-    height: 450px;
-    width: 100% !important;
+    /* margin-top: 0.5%; */
+    /* height: 250px; */
+    /* width: 100% !important; */
     margin-bottom: 5rem;
   }
-
-  .text-title-us {
-    font-size: 30px;
-    text-align: center;
-    color: #fff;
-    top: 18rem;
-  }
-
-  .mobile-text {
+ 
+/* .mobile-text {
     display: none;
+  } */
+  .first-img {
+    height: 350px;
   }
+
+  
 
   .middle-page {
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
-    text-align: center;
+    /* text-align: center; */
     display: flex;
-    flex-direction: row;
-    height: 30rem;
-    margin-bottom: 10rem;
-    width: 100%;
+    /* flex-direction: row; */
+    /* height: 30rem; */
+    /* margin-bottom: 10rem; */
+    /* width: 100%; */
     margin-left: 2rem;
-    border-radius: 1.3em 0em 0em 0em;
+    /* border-radius: 1.3em 0em 0em 0em; */
   }
 
   .middle-page-2 {
-    margin-bottom: 5rem;
+    /* margin-bottom: 5rem; */
     width: 96%;
-    height: 30rem;
+    /* height: 30rem; */
     display: flex;
     flex-direction: row-reverse;
-    border-radius: 0em 0em 1.3em 0em;
+    /* border-radius: 0em 0em 1.3em 0em; */
   }
 
-  /* text container */
   .middle-contain {
-    padding: 25px;
+    padding: 0em 2em 0em 1em;
     justify-content: center;
-    font-size: 24px;
-    margin: 3rem 3rem 2rem 3rem;
-    position: relative;
+    /* font-size: 24px; */
+    /* margin-left: 1.5em; */
+    /* margin: 3rem 3rem 2rem 3rem; */
+    /* position: relative;
     top: -1rem;
-    left: 10px;
+    left: 10px; */
+    padding: 50px;
     width: 100%;
     text-align: start;
   }
 
   .middle-text,
   .middle-text-2 {
-    font-size: 25.7px;
+    font-family: var(--content-font);
+    margin: 0em 0em 0em 2em;
+    font-size: 18px;
+    line-height: 2em;
   }
- 
   .middle-contain-2 {
-    padding: 30px;
+    padding: 50px;
     justify-content: center;
-    font-size: 23px;
-    margin: 3rem 3rem 2rem 2rem;
-    position: relative;
+    /* font-size: 23px; */
+    /* margin: 3rem 3rem 2rem 2rem; */
+    /* position: relative;
     top: 1rem;
-    right: 2.7rem;
+    right: 2.7rem; */
     text-align: start;
   }
   .middle-img {
     position: relative;
   }
 
-  /* maträtter bild */
   .wok-img {
-    width: 20em;
-    height: 25em;
+    width: 15em;
+    /* height: 25em; */
     position: relative;
     left: 3rem;
   }
   .pasta-img {
     position: absolute;
     left: -1rem;
-    top: 19rem;
+    top: 10em;
     width: 18rem;
   }
   .seafood {
     position: absolute;
-    width: 20rem;
-    height: 25em;
-    right: 3.1rem;
+    width: 15rem;
+    /* height: 25em; */
+    right: 5em;
     top: 7rem;
     z-index: 10;
   }
@@ -355,14 +356,21 @@ body {
   .sushy {
     position: relative;
     top: -3em;
-    left: 1.5rem;
-    height: 12.8rem;
+    left: 1.2rem;
+    height: 12em;
     width: 18rem;
   }
+
+  .whyfunky,
+.whyfunky-2 {
+  font-family: var(--content-font);
+  font-size: 20px;
+  margin: 0em 0em 1em 2em;
+}
 }
 /*----------------------------------------------------- */
 
-@media (min-width: 1929px) {
+/* @media (min-width: 1929px) {
   .first-img {
     height: 500px;
     width: 100% !important;
@@ -403,7 +411,6 @@ body {
     flex-direction: row-reverse;
   }
 
-  /* text container */
   .middle-contain {
     justify-content: center;
     font-size: 24px;
@@ -433,7 +440,7 @@ body {
     position: relative;
   }
 
-  /* maträtter bild */
+
   .wok-img {
     width: 19rem;
     position: relative;
@@ -462,4 +469,4 @@ body {
     height: 11rem;
     width: 16rem;
   }
-}
+} */
