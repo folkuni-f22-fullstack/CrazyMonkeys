@@ -105,19 +105,18 @@ function Header() {
 
         {showOverlay && (
           <motion.div initial="closed" variants={variants} transition={{ duration: 0.2 }}  animate={showOverlay ? "open" : "closed"} className="overlay" onClick={toggleMenuOverlay}>
-            <MotionNavLink variants={childVariants} whileTap={{scale: 1.2 }} whileHover={{ scale: 1.1 }} to="/menu" className="head-navbar">
+            <MotionNavLink variants={childVariants} whileTap={{scale: 1.3 }} whileHover={{ scale: 1.1 }} to="/menu" className="head-navbar">
               Meny
             </MotionNavLink>
-            <MotionNavLink variants={childVariants} whileTap={{scale: 1.2 }} whileHover={{ scale: 1.1 }} to="/omoss" className="head-navbar" >
+            <MotionNavLink variants={childVariants} whileTap={{scale: 1.3 }} whileHover={{ scale: 1.1 }} to="/omoss" className="head-navbar" >
               Om oss
             </MotionNavLink>
-            <MotionNavLink variants={childVariants} whileTap={{scale: 1.2 }} whileHover={{ scale: 1.1 }} to="/kundkorg" className="head-navbar">
+            <MotionNavLink variants={childVariants} whileTap={{scale: 1.3 }} whileHover={{ scale: 1.1 }} to="/varukorg" className="head-navbar">
               Varukorg
             </MotionNavLink>
-            <motion.div variants={childVariants} whileTap={{scale: 1.2 }} whileHover={{ scale: 1.1 }}>
+            <motion.div className="head-navbar" variants={childVariants} whileTap={{scale: 1.3 }} whileHover={{ scale: 1.1 }}>
             <Link
               to="footer"
-              className="head-navbar"
               smooth={true}
               duration={500}
               onClick={closeOverlayAndScroll}
