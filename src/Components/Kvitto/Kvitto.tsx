@@ -1,4 +1,4 @@
-// import React, { useState, useEffect } from 'react';
+ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { TbTruckDelivery } from 'react-icons/tb';
 import { AiOutlineFieldTime } from 'react-icons/ai';
@@ -6,12 +6,15 @@ import { MdOutlinePeopleAlt } from 'react-icons/md';
 import image from './image/image1/images.png';
 import { StepsHeader } from '../StepsHeader/StepsHeader';
 import './StyleKvitto.css';
+// import { FunkyContext } from '../../ContextRoot';
 
 interface KvittoProps {
   orderNumber: number;
 }
 
 const Kvitto: React.FC<KvittoProps> = ({ orderNumber }) => {
+
+  // const {chosenDeliveryOption} = useContext(FunkyContext)
   const resizeImageStyle = { width: '80%', height: '80%', objectFit: 'contain' };
 
   const getRandomBoolean = (): number => {
@@ -47,7 +50,7 @@ const Kvitto: React.FC<KvittoProps> = ({ orderNumber }) => {
               <TbTruckDelivery size={35} />
               <span>Leverans: {deliveryTime} min</span>
             </span>
-          </div>
+          </div> 
           <div>
             <span className='person'>
               <MdOutlinePeopleAlt size={35} />
@@ -71,3 +74,13 @@ const Kvitto: React.FC<KvittoProps> = ({ orderNumber }) => {
 };
 
 export default Kvitto;
+// /div>
+
+//         <Link to="/" className="btn-grad">Tillbaka till start</Link>
+//       </div>
+//     </main>
+//   );
+// };
+
+// export default Kvitto;
+

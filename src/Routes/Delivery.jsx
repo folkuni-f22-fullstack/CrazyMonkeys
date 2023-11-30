@@ -24,6 +24,7 @@ export function Delivery() {
 
     // States
     const [chosenDeliveryOption, setChosenDeliveryOption] = useState(false);
+    
 
     const [isEmptyFirstName, setIsEmptyFirstName] = useState(false);
 
