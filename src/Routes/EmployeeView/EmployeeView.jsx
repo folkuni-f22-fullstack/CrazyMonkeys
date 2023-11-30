@@ -15,7 +15,7 @@ export const EmployeeView = () => {
     const navigate = useNavigate();
 
     // Login
-    const { setIsLoggedIn, isLoggedIn, updateState, setEmployeeStatus } = useContext(FunkyContext);
+    const { setIsLoggedIn, isLoggedIn, updateState, setEmployeeStatus, produktName, isEditing } = useContext(FunkyContext);
 
 
     // Data
@@ -121,7 +121,7 @@ export const EmployeeView = () => {
         };
 
         fetchData();
-    }, [selectTab]);
+    }, [selectTab, produktName, isEditing]);
 
     const deleteOrderItem = (orderId, itemId) => {
         const copy= [...untreatedData]

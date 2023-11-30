@@ -8,12 +8,11 @@ import { FunkyContext } from "../../ContextRoot";
 import MenuEmployee from "./MenuEmployee.jsx";
 
 export default function OrderKort(props) {
-    
     const [isClicked, setIsClicked] = useState(false);
-    const [produktName, setProduktName] = useState("")
-    const [menuList, setMenuList] = useState([])
+    const [menuList, setMenuList] = useState([]);
+    
 
-    const { isEditing, selectedItemId, selectedItemQuantity, setSelectedItemQuantity } =
+    const { isEditing, selectedItemId, selectedItemQuantity, setSelectedItemQuantity, produktName, setProduktName } =
         useContext(FunkyContext);
 
     const additemInput = () => {
@@ -23,34 +22,25 @@ export default function OrderKort(props) {
         const fetchData = async () => {
             const menuResponse = await fetch("/api/menu");
             const menuData = await menuResponse.json();
-            setMenuList(menuData)
-        }
-        fetchData()
-    },[])
+            setMenuList(menuData);
+        };
+        fetchData();
+    }, []);
 
-    
     const sendOrder = (orderId) => {
-        // console.log("order", props.order);
-        // console.log("orders", props.orders);
-        // console.log(orderId, selectedItemId, selectedItemQuantity);
-        
-        async function doSomething (whenDone)  {
-            await postItemOrder(orderId, selectedItemId, selectedItemQuantity, whenDone)
-            
-            async function whenDone() {
-                await props.addOrderItem(orderId, selectedItemId, selectedItemQuantity,)
-                
-            }
-            const nameFromMenu = menuList.find(item => item._id === selectedItemId)?.name
-            setProduktName(nameFromMenu)
-            console.log(produktName);
-            
-        }
-        doSomething()
+        async function handleOrderCompletion(whenDone) {
+            await postItemOrder(orderId, selectedItemId, selectedItemQuantity, whenDone);
+            setProduktName("");
 
-        // försök att lösa detta
-        // står ej tillgängligt tills man uppdaterar sidan
-        
+            console.log(produktName);
+
+            async function whenDone() {
+                await props.addOrderItem(orderId, selectedItemId, selectedItemQuantity);
+                const nameFromMenu = menuList.find((item) => item._id === selectedItemId)?.name;
+                setProduktName(nameFromMenu);
+            }
+        }
+        handleOrderCompletion();
     };
 
     return (
@@ -80,8 +70,8 @@ export default function OrderKort(props) {
                         )}
                     </div>
                     {props.order.status === "untreated" && isEditing && isClicked && (
-                        <div >
-                            <div className="new-order-div" >
+                        <div>
+                            <div className="new-order-div">
                                 <MenuEmployee />
                                 <div className="new-order-input-div">
                                     <label htmlFor="quantity">Antal</label>
@@ -92,33 +82,30 @@ export default function OrderKort(props) {
                                     />
                                 </div>
                             </div>
-                            <button onClick={() => sendOrder(props.order._id)}>Lägg till order</button>
+                            <button onClick={() => sendOrder(props.order._id)}>
+                                Lägg till order
+                            </button>
                         </div>
                     )}
 
                     {props.order.items &&
                         props.order.items.map((orderItem) => {
-                            
                             const menuItemData = props.orders
                                 .flatMap((order) => order.items)
                                 .find((menu) => menu._id === orderItem.menuItem);
 
                             const removeOrder = (itemOrderId) => {
                                 console.log(props.order.status, itemOrderId);
-                                props.deleteOrderItem(props.order._id, itemOrderId)
+                                props.deleteOrderItem(props.order._id, itemOrderId);
                                 const response = removeOrderItem(props.order._id, itemOrderId);
                             };
-
-                            
 
                             return (
                                 <div key={orderItem._id}>
                                     <div className="order-card-list">
                                         <p key={orderItem._id}>
-                                            {menuItemData
-                                                ? menuItemData.name
-                                                : produktName}{" "}
-                                            x {orderItem.quantity}
+                                            {menuItemData ? menuItemData.name : produktName} x{" "}
+                                            {orderItem.quantity}
                                         </p>
                                         {props.order.status === "untreated" && isEditing && (
                                             <div className="remove-order-div">

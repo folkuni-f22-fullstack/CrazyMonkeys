@@ -16,6 +16,7 @@ const ContextRoot = ({ children }) => {
         const [deliveryFloor, setDeliveryFloor] = useState("");
         const [deliveryPortCode, setDeliveryPortCode] = useState("");
         const [recipeId, setRecipeId] = useState();
+        const [produktName, setProduktName] = useState("");
 
 
     // States
@@ -88,7 +89,8 @@ const ContextRoot = ({ children }) => {
                 customerInfo,
                 setCustomerInfo, isLoggedIn, setIsLoggedIn, selectStep, setSelectStep, orderPrice, setTotalPrice,isEditing, setIsEditing, selectedItemId, setSelectedItemId,selectedItemQuantity, setSelectedItemQuantity,
                 deliveryFirstName, setDeliveryFirstName, deliveryLastName, setDeliveryLastName, deliveryEmail, setDeliveryEmail, deliveryPhoneNumber, setDeliveryPhoneNumber, deliveryOwnComments, setDeliveryOwnComments, deliveryAddress, setDeliveryAddress, deliveryCounty, setDeliveryCounty, deliveryApartmentNumber, setDeliveryApartmentNumber, deliveryPostNumber, setDeliveryPostNumber, deliveryFloor, setDeliveryFloor, deliveryPortCode, setDeliveryPortCode, updateState, setUpdateState,emplyeeStatus, setEmployeeStatus,
-                chosenDeliveryOption, setChosenDeliveryOption, recipeId, setRecipeId
+                chosenDeliveryOption, setChosenDeliveryOption, recipeId, setRecipeId,
+                produktName, setProduktName
             }}
         >
             {children}
