@@ -234,6 +234,13 @@ input[type='radio']:checked:after {
     position: relative;
 }
 
+.delivery-center {
+    display: flex;
+    justify-content: center;
+    padding-top: 3em;
+    padding-bottom: 2em;
+}
+
 @media screen and (orientation: portrait) {
     .delivery-title {
         display: none;
