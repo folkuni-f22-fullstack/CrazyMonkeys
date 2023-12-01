@@ -8,14 +8,13 @@ import { StepsHeader } from "../StepsHeader/StepsHeader.jsx";
 // import 
 import './StyleKvitto.css';
 import { FunkyContext } from '../../ContextRoot';
-// import { FunkyContext } from '../../ContextRoot';
 
 interface KvittoProps {
   orderNumber: number;
 }
 
 const Kvitto: React.FC<KvittoProps> = ({ orderNumber }) => {
-    const {chosenDeliveryOption } = useContext(FunkyContext)
+    const {chosenDeliveryOption, recipeId, order } = useContext(FunkyContext)
 
   // const {chosenDeliveryOption} = useContext(FunkyContext)
   const resizeImageStyle = { width: '80%', height: '80%', objectFit: 'contain' };
@@ -31,7 +30,7 @@ const Kvitto: React.FC<KvittoProps> = ({ orderNumber }) => {
 
   const isFoodReady = getRandomBoolean();
   const deliveryTime = getRandomDeliveryTime();
-
+  console.log(order);
   return (
     <main className='parent-container'>
       <div className='container'>
@@ -82,13 +81,4 @@ const Kvitto: React.FC<KvittoProps> = ({ orderNumber }) => {
 };
 
 export default Kvitto;
-// /div>
-
-//         <Link to="/" className="btn-grad">Tillbaka till start</Link>
-//       </div>
-//     </main>
-//   );
-// };
-
-// export default Kvitto;
 

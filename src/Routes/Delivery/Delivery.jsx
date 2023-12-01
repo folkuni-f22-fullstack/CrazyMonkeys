@@ -1,9 +1,9 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { StepsHeader } from "../Components/StepsHeader/StepsHeader";
-import { FunkyContext } from "../ContextRoot";
+import { StepsHeader } from "../../Components/StepsHeader/StepsHeader";
+import { FunkyContext } from "../../ContextRoot";
 
-import { isValidName, isValidEmailAddress, isValidPhoneNumber } from "../Components/validation";
+import { isValidName, isValidEmailAddress, isValidPhoneNumber } from "../../Components/validation";
 
 import "./DeliveryStyle.css";
 
@@ -209,6 +209,10 @@ export function Delivery() {
         navigate("/varukorg")
     }
 
+    const goBackToMenu = () => {
+        navigate("/menu")
+      }
+
     return (
         <section className="center">
             <section className="delivery-container">
@@ -220,7 +224,9 @@ export function Delivery() {
                 <header className="delivery-header">
                     <h1 className="delivery-title">Uppgifter</h1>
                 </header>
-                <form className="form" onSubmit={handleSubmit}>
+                {
+                    orderToSend.items.length > 0 ? (
+                        <form className="form" onSubmit={handleSubmit}>
                     <div className="multi-inputs">
                         <div className="label-above-input">
                             <label htmlFor="firstname-input">Förnamn</label>
@@ -458,12 +464,26 @@ export function Delivery() {
                             </div>
                         </>
                     )}
-                    <div className="delivery-btn-grad ">
+                    <div className="delivery-btn-grad">
                         <button className="btn-grad delivery-btn" type="submit" >
                             Gå till Betalning
                         </button>
                     </div>
                 </form>
+                    ) : (
+                        <>
+                            <div className="delivery-center">
+                                <p>För att fortsätta behöver du påbörja en beställning.</p>
+                            </div>
+                            <div className="pay-btn-div">
+                                    <button onClick={() => goBackToMenu()} className="btn-grad">Gå tillbaka till menyn</button>
+                            </div>
+                        </>
+                        
+
+                    )
+                }
+               
             </section>
         </section>
     );

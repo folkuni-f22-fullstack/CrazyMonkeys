@@ -45,6 +45,7 @@
 
 .quantity-button {
   background-color: #183a37;
+  /* background-color: #316863; */
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -53,7 +54,7 @@
   transition: transform 0.3s;
 
   &:hover {
-    background-color:  #728c72;
+    background-color: var(--hover-btn);
     transform: scale(1.2);
   }
 }
@@ -64,14 +65,14 @@
   left: 1em;
   width: 90%;
   height: 5%;
-  background: rgba(93, 122, 72, 0.7);
+  background: var(--overlay-color);
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
   color: white;
   font-size: 20px;
-  z-index: 999;
+  z-index: 700;
   padding: 1em;
 }
 

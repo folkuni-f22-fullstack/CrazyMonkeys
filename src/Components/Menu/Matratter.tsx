@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import "../assets/Matratter.css";
 import { FunkyContext } from "../../ContextRoot";
+import { inView, motion } from "framer-motion"
 
 const Matratter = () => {
   const [food, setFood] = useState([]);
@@ -27,7 +28,7 @@ const Matratter = () => {
         const data = await response.json();
         const sortedData = data.filter((item) => item.itemType === "food");
         setFood(sortedData);
-        console.log(data);
+       
       } catch (error) {
         console.error(error);
       }
@@ -63,12 +64,12 @@ const Matratter = () => {
     setTimeout(() => {
       setShowOverlay(false);
     }, 2000);
-    console.log(orderToSend);
+    
   };
   return (<>
-    <div className="matratt-container">
+    <motion.div className="matratt-container">
       {food.map((matratt) => (
-        <div className="matratt" key={matratt._id}>
+        <motion.div initial={{y: "-10%", opacity: 0 }} animate={{y: "0%", opacity: 1}} transition={{ duration: 1 }} className="matratt" key={matratt._id}>
           <h4 className="mattratter-title">{matratt.name}</h4>
 
           <div className="bottom-details">
@@ -86,16 +87,16 @@ const Matratter = () => {
           </div>
           {showOverlay && (
             <div className="menu-overlay">
-              <p>Varan har lagts i kundvagnen</p>
+              <p>Varan har lagts i varukorgen</p>
             </div>
           )}
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
 
     <div className="matratt-container2">
       {food.map((matratt) => (
-        <div className="matratt2" key={matratt._id}>
+        <motion.div initial={{y: "-10%", opacity: 0 }} animate={{y: "0%", opacity: 1}} transition={{ duration: 1 }}  className="matratt2" key={matratt._id}>
           <img className="matratt-image2" src={matratt.img} alt={matratt.name} />
           <div className="bottom-details2">
             <h4 className="mattratter-title2">{matratt.name}</h4>
@@ -116,7 +117,7 @@ const Matratter = () => {
               <p>Varan har lagts i kundvagnen</p>
             </div>
           )}
-        </div>
+        </motion.div>
       ))}
     </div>
     </>

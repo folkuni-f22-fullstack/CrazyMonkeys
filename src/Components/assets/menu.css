@@ -20,8 +20,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   text-align: center;
   /* width: 60em; */
-  /* height: 100vh; */
-  margin: 0 auto;
+  margin: 0 auto 2em;
 }
 
 .menybtn {
@@ -39,9 +38,8 @@
   background-color: var(--bg-white);
   transition: background-color 0.3s ease-in-out;
   font-family: var(--meny-font);
-  font-size: 16px; 
+  font-size: 16px;
   margin: 0em 0em 0em 0.5em;
- 
 }
 
 .btn.active,
@@ -56,7 +54,6 @@
   background-color: #fcfcfc;
   color: #fff;
 }
-
 
 .funky-hr-title p {
   width: 40em;
@@ -100,32 +97,30 @@
   text-decoration: none;
 }
 
-  .order-btn-grad-div {
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    width: 100%; 
-    height: 10%; 
-    
-  }
-  
-  .btn-grad {
-    width: 90%;
-    max-width: 300px;
-    margin: 2em 0; 
-  }
+.order-btn-grad-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+}
+
+.btn-grad {
+  width: 90%;
+  max-width: 300px;
+  margin: 2em 0;
+}
 
 /* Desktop */
 @media (min-width: 400px) {
-  .outer-container {
+  /* .outer-container {
     display: flex;
     justify-content: center;
     margin: 0em 4em;
-  }
+  } */
 
   .inner-container {
     border: 2px solid #183a37;
-    
   }
   .menybtn {
     display: flex;
@@ -145,19 +140,18 @@
     width: 99em;
     margin: 0em 0.5em;
   }
- 
+
   .order-btn-grad-div {
     display: flex;
     justify-content: center;
-    align-items: center; 
-    width: 100%; 
-    height: 10%; 
-    
+    align-items: center;
+    width: 100%;
+    height: 10%;
   }
-  
+
   .btn-grad {
     width: 90%;
     max-width: 300px;
-    margin: 2em 0; 
+    margin: 2em 0;
   }
 }

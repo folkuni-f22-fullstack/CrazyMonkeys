@@ -9,7 +9,7 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { BiSolidCopyright } from "react-icons/bi";
 import { SiGooglemaps } from "react-icons/si";
 import { IoIosMail } from "react-icons/io";
-import { Login } from "../../Components/Login/Login";
+import { Login } from "../Login/Login";
 import ff from "../../assets/footerpagepic/FF-red.png";
 import "../Login/login.css";
 import "../../App.css";
@@ -101,7 +101,7 @@ function Footer() {
               <BsFillTelephoneFill className="dark-icons" /> 054-240 240
             </p>
             <p>
-              <IoIosMail className="dark-icons" /> Fonky_Fusion@CrazyMonkeys.com
+              <IoIosMail className="dark-icons" /> Funky_Fusion@CrazyMonkeys.com
             </p>
             <div className="media-icons-desktop">
               <p className="follow-us">Följ oss</p>

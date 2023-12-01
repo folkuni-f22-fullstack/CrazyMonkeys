@@ -14,7 +14,8 @@ html, body {
 }
 
 .employee-view-not-logged-in {
-    background-color: #D9D9D9;
+    /* background-color: #D9D9D9; */
+    background-color: var(--bg-white);
     display: flex;
     max-width: 800px;
     padding: 2em 6em;
@@ -25,7 +26,7 @@ html, body {
 
 /* Employee view */
 .employee-view-container {
-    background-color: #D9D9D9;
+    background-color: var(--bg-white);
     display: flex;
     width: 632px;
     padding: 2em 6em;
@@ -101,6 +102,10 @@ html, body {
     margin-bottom: 1em;
 }
 
+.order-box:has(.details[open]) {
+    grid-template-rows: 390px 0em 0em;
+}
+
 .order-box:has(.mode-status-text ) {
     grid-template-areas: 'icon order-name order-name order-name details'
 }
@@ -166,7 +171,8 @@ html, body {
 }
 
 .details[open] {
-    margin-top: 1.35em;
+    margin-top: 3.15em;
+    height: 370px;
 }
 
 .summary {
@@ -187,8 +193,8 @@ html, body {
 }
 
 .details[open] .summary {
-    top: -6px;
     position: relative;
+    top: -20px;
 }
 
 .treatment.details > .summary::after {
@@ -198,12 +204,12 @@ html, body {
 
 .order-box:has(.treatment.details[open]) > .order-name, .order-box:has(.treatment.details[open]) > .material-symbols-outlined {
     position: relative;
-    top: -158px;
+    top: -164px;
 }
 
 .treatment.details[open] > .summary {
     position: relative;
-    top: -2px;
+    top: -14px;
 }
 
 /* Summary */

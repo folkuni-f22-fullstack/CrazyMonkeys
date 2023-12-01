@@ -1,11 +1,13 @@
-.matratt-container2{display: none;}
+.matratt-container2 {
+  display: none;
+}
 
 .matratt-container {
   display: block;
   display: flex;
   flex-direction: column;
-  height: 70vh;
-  overflow-y: scroll;
+  height: auto;
+  overflow-y: visible;
 }
 .matratt-container::-webkit-scrollbar {
   width: 12px;
@@ -56,18 +58,22 @@
   align-self: end;
   font-size: 20px;
   font-family: var(--meny-font);
-} 
+}
 .order-button {
-  background-color: #316863;
-  color: white;
-  border-radius: 2px;
+  color: #fff;
+
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
+
+  background-color: #316863;
+
   padding: 0.4em 1em;
 }
 
 .order-button:hover {
-  background-color: #183118;
+  background-color: var(--hover-btn);
 }
 
 .menu-overlay {
@@ -76,7 +82,7 @@
   left: 1em;
   width: 90%;
   height: 5%;
-  background: rgba(93, 122, 72, 0.7);
+  background: var(--overlay-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,25 +94,25 @@
 }
 
 @media screen and (min-width: 1080px) {
-
   .menu-overlay {
-    position: fixed; 
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 40%;
-}
+  }
 }
 @media screen and (min-width: 430px) {
-
-  .matratt-container{display: none;}
+  .matratt-container {
+    display: none;
+  }
 
   .matratt-container2 {
     display: block;
     display: flex;
     flex-direction: column;
-    height: 70vh;
-    overflow-y: scroll;
+    height: auto;
+    overflow-y: visible;
     /* display: grid;
     grid-template-columns: repeat(3, minmax(200px, 1fr)); 
     gap: 1em;  */
@@ -143,11 +149,10 @@
     margin-top: 3em;
     width: 15em;
     justify-content: space-between;
-    margin-bottom:1em;
-
+    margin-bottom: 1em;
   }
   .mattratter-title2 {
-      font-family: var(--meny-font);
+    font-family: var(--meny-font);
     font-size: 18px;
     margin: 1em 0em 1.5em;
   }
@@ -163,19 +168,18 @@
     font-family: var(--meny-font);
   }
 
-
   .order-button2 {
     background-color: #316863;
     color: white;
     border: none;
     cursor: pointer;
-     border-radius: 5px;
+    border-radius: 5px;
     padding: 0.5em 2em;
     transition: transform 0.3s;
   }
-  
+
   .order-button2:hover {
     transform: scale(1.2);
-    background-color: #728c72;
+    background-color: var(--hover-btn);
   }
 }

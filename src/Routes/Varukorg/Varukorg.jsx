@@ -94,7 +94,7 @@ const Varukorg = () => {
                         {
                             chartData.map((order) => (
                                 <>
-                                    <div className="cart-item">
+                                    <div className="cart-item" key={order.id}>
                                         <p className="item-name">{order.name}</p>
                                         <p className="item-price">{order.price}:-</p>
                                         <div className="item-amount-container">

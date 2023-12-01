@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import "../assets/Dryck.css";
 import { FunkyContext } from "../../ContextRoot";
+import { motion } from "framer-motion";
 
 const Dryck = () => {
   const [dryckData, setDryckData] = useState([]);
@@ -29,7 +30,7 @@ const Dryck = () => {
         const data = await response.json();
         const sortedData = data.filter((item) => item.itemType === "dricka");
         setDryckData(sortedData);
-        console.log(data);
+      
       } catch (error) {
         console.error(error);
       }
@@ -64,7 +65,7 @@ const Dryck = () => {
     setItemCounter(itemCounter + 1);
     setTimeout(() => {
       setShowDrinkOverlay(false);
-    }, 9000);
+    }, 2000);
   };
 
   return (
@@ -76,7 +77,7 @@ const Dryck = () => {
           {dryckData.map(
             (dryck, index) =>
               index % 2 === 0 && (
-                <div className="dryck-item" key={dryck._id}>
+                <motion.div initial={{y: "-10%", opacity: 0 }} animate={{y: "0%", opacity: 1}} transition={{ duration: 1 }} className="dryck-item" key={dryck._id}>
                   <div className="drink-container">
                     <p className="meny-p">{dryck.name} </p>
                   </div>
@@ -89,7 +90,7 @@ const Dryck = () => {
                       +
                     </button>
                   </div>
-                </div>
+                </motion.div>
               )
           )}
         </div>
@@ -99,7 +100,7 @@ const Dryck = () => {
           {dryckData.map(
             (dryck, index) =>
               index % 2 !== 0 && (
-                <div className="dryck-item" key={dryck._id}>
+                <motion.div initial={{y: "-10%", opacity: 0 }} animate={{y: "0%", opacity: 1}} transition={{ duration: 1 }}  className="dryck-item" key={dryck._id}>
                   <div className="drink-container">
                     <p className="meny-p">{dryck.name} </p>
                   </div>
@@ -117,7 +118,7 @@ const Dryck = () => {
               <p>Varan har lagts i kundvagnen</p>
             </div>
           )}
-                </div>
+                </motion.div>
               ))}
         </div>
       </div>
