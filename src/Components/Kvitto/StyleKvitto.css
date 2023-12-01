@@ -27,7 +27,7 @@ body{
   background-color: #fff;
   width: auto !important;
   height: auto !important;
-  border: 0.4em solid #183A37;
+  border: 0.2em solid #183A37;
   border-radius: 2em;
   
 
@@ -36,20 +36,21 @@ body{
 }
 .title-page-n1 {
   width: 100% !important;
-  margin-top: 2.6em;
+  margin-top: 2.7em;
 }
 
 .kvitto-title{
   font-family: var(--meny-font);
   /* border: 1px solid rgb(69, 47, 212); */
   text-align: center;
-  margin-bottom: 1.4em;
+  margin-bottom: 2em;
 }
 
 .message{
   font-family:var(--title-font) ;
   text-align: center;
-  margin-bottom: 1em;
+  margin: 2em 0em;
+
 }
 
 .deliver-icons{
@@ -63,7 +64,8 @@ body{
   height: 2em;
   margin: 1em 0em;
   position:relative;
-  left: -3em;
+  font-size: 1.3em;
+  /* left: -3em; */
 } 
 
 .person-icon{
@@ -81,10 +83,11 @@ body{
 
 .last-message {
   font-family: var(--content-font);
+  margin: 2.5em 0em -.3em;
 }
 
 .btn-grad{
-  margin-bottom: 4em;
+  margin: 3.3em 0em 2.8em;
 }
 
 
@@ -115,7 +118,7 @@ body{
   }
   .container{
     width: 40em !important;
-    height: 42.2em !important;
+    height: auto !important;
     margin-bottom: auto;
   }
   .kvitto-title{
@@ -126,20 +129,25 @@ body{
     font-family:var(--meny-font) ;
     display: block;
     text-align: center;
-    margin: .3em 0em 1em 0em;
+    margin: .9em 0em 2.4em 0em;
   }
   .delivery-pic{
-    width: 30em;
+    width: 26em;
+  }
+  .message{
+    font-size: 1.1em;
+    margin: 2em 0em;
   }
   .kvitto-icons{
     position: relative;
-    left: -7em !important;
+    /* left: -7em !important; */
   }
   .last-message{
-    margin: -2em;
+    margin: 2em 0em 2em 0em;
+    font-size: 1.3em;
     
   }
   .btn-grad{
-    margin: .8em;
+    margin: 1.3em 0em 3em 0em  ;
   }
 }
