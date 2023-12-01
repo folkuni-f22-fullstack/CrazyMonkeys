@@ -47,7 +47,7 @@ body{
 }
 
 .message{
-  font-family:var(--content-font) ;
+  font-family:var(--title-font) ;
   text-align: center;
   margin-bottom: 1em;
 }
@@ -137,6 +137,7 @@ body{
   }
   .last-message{
     margin: -2em;
+    
   }
   .btn-grad{
     margin: .8em;
