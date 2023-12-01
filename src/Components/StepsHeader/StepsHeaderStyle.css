@@ -13,6 +13,8 @@
     display: flex;
     flex-flow: column wrap;
     place-items: center;
+    margin-left: .4em ;  
+
 }
 
 .step-round {
