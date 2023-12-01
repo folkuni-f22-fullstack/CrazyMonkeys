@@ -68,12 +68,12 @@ font-size: 12px;
 
 .username-container.error input,
 .password-container.error input {
-  border: 1px solid red; /* Red border for error */
+  border: 1px solid rgb(237, 0, 0);
 }
 
 .username-container.success input,
 .password-container.success input {
-  border: 1px solid green; /* Green border for success */
+  border: 1px solid green;
 }
 
 

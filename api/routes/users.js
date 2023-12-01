@@ -44,27 +44,30 @@ router.post ('/register', async (req, res) => {
 
 })
 
-
 router.post("/login", async (req, res) => {
     try {
         // Hitta användaren i databasen baserat på det angivna användarnamnet
         const user = await User.findOne({ username: req.body.username });
         const status = user ? user.status : null;
-        
-        
-        !user && res.status(404).send("Användaren hittades inte");
+
+        if (!user) {
+            res.status(404).send("Användaren hittades inte");
+            return;
+        }
 
         const validPassword = await bcrypt.compare(req.body.password, user.password);
 
-       
-        !validPassword && res.status(400).send("Fel lösenord");
+        if (!validPassword) {
+            res.status(400).send("Fel lösenord");
+            return;
+        }
 
         const day = 3600 * 24;
-        const payLoad = {userId: user._id}
+        const payLoad = { userId: user._id };
 
-        let token = jwt.sign(payLoad, secret, {expiresIn: day})
+        let token = jwt.sign(payLoad, secret, { expiresIn: day });
         console.log("signed token: " + token);
-        res.send({id: user._id, token: token, status: status})
+        res.send({ id: user._id, token: token, status: status });
     } catch (error) {
         // Om ett fel inträffar, skicka en 500-status och felinformation som JSON
         res.status(500).json(error);
