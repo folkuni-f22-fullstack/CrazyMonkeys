@@ -30,7 +30,6 @@ const Kvitto: React.FC<KvittoProps> = ({ orderNumber }) => {
 
   const isFoodReady = getRandomBoolean();
   const deliveryTime = getRandomDeliveryTime();
-  console.log(order);
   return (
     <main className='parent-container'>
       <div className='container'>
@@ -38,43 +37,57 @@ const Kvitto: React.FC<KvittoProps> = ({ orderNumber }) => {
           <h2 className='kvitto-title'>Orderbekräftelse</h2>
           <span className='step-kvitto-header'><StepsHeader /> </span>
           <h2 className='desktop-kvitto-title'>Orderbekräftelse</h2>
-          <div className='message'>Tack för att du handlar på Funky Fusion</div>
         </div>
 
-        <div className='deliver-icons'>
-            {!chosenDeliveryOption ? 
-          <div>
-            <span className='kvitto-icons'>
-              <AiOutlineFieldTime size={35}  />
-              <span>Order Time: {isFoodReady} min</span>
-            </span>
-          </div>
-           :
-          <div>
-            <span >
-              <TbTruckDelivery size={35} />
-              <span>Leverans: {deliveryTime} min</span>
-            </span>
-          </div> 
+        {
+          order.length > 0 ? (
+            <>
+               <div className='deliver-icons'>
+            <div className='message'>Tack för att du handlar på Funky Fusion</div>
+                {!chosenDeliveryOption ? 
+              <div>
+                <span className='kvitto-icons'>
+                  <AiOutlineFieldTime size={35}  />
+                  <span>Order Time: {isFoodReady} min</span>
+                </span>
+              </div>
+               :
+              <div>
+                <span >
+                  <TbTruckDelivery size={35} />
+                  <span>Leverans: {deliveryTime} min</span>
+                </span>
+              </div> 
+            }
+    
+              <div>
+                <span className='kvitto-icons'>
+                  <MdOutlinePeopleAlt size={35} className='person-icon'/>
+                  <span>Order nr: {recipeId}</span>
+                </span>
+              </div>
+            </div>
+    
+            <div className='delivery-pic'>
+              <img style={resizeImageStyle} src={image} alt="delivery pic" />
+            </div>
+    
+            <div>
+              <p className='last-message'>Kvitto har skickats till din mejl!</p>
+            </div>
+    
+            <Link to="/" className="btn-grad">Tillbaka till start</Link>
+            </>
+          ) : (
+            <>
+                <div className="receipt-center">
+                  <p>Du måste ha slutfört en beställning för att få en orderbekräftelse!</p>
+                </div>
+                <Link to="/menu" className="btn-grad">Tillbaka till menyn</Link>
+              </>
+          )
         }
 
-          <div>
-            <span className='kvitto-icons'>
-              <MdOutlinePeopleAlt size={35} className='person-icon'/>
-              <span>Order nr: {recipeId}</span>
-            </span>
-          </div>
-        </div>
-
-        <div className='delivery-pic'>
-          <img style={resizeImageStyle} src={image} alt="delivery pic" />
-        </div>
-
-        <div>
-          <p className='last-message'>Kvitto har skickats till din mejl!</p>
-        </div>
-
-        <Link to="/" className="btn-grad">Tillbaka till start</Link>
       </div>
     </main>
   );
