@@ -164,10 +164,13 @@
     font-size:21px; 
     color: white; 
   }
-   
+   .footer-column p {
+    line-height: 1.7em;
+   }
 .dark-icons{
   color: var(--black-icons);
-  margin-top: 0.5em;
+  margin-bottom: -0.2em;
+
 }
 .contact-us{
   margin-bottom:1em;

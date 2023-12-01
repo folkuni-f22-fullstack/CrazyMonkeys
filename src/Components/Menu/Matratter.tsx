@@ -85,13 +85,13 @@ const Matratter = () => {
               </button>
             </div>
           </div>
-          {showOverlay && (
-            <div className="menu-overlay">
-              <p>Varan har lagts i varukorgen</p>
-            </div>
-          )}
         </motion.div>
       ))}
+      {showOverlay && (
+        <div className="menu-overlay">
+          <p>Varan har lagts i varukorgen</p>
+        </div>
+      )}
     </motion.div>
 
     <div className="matratt-container2">
@@ -112,13 +112,13 @@ const Matratter = () => {
             </div>
           </div>
 
-          {showOverlay && (
-            <div className="menu-overlay">
-              <p>Varan har lagts i kundvagnen</p>
-            </div>
-          )}
         </motion.div>
       ))}
+      {showOverlay && (
+        <div className="menu-overlay">
+          <p>Varan har lagts i kundvagnen</p>
+        </div>
+      )}
     </div>
     </>
   );
