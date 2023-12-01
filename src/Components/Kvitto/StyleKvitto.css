@@ -64,7 +64,7 @@ body{
   height: 2em;
   margin: 1em 0em;
   position:relative;
-  font-size: 1.3em;
+  font-size: 1em;
   /* left: -3em; */
 } 
 
@@ -141,6 +141,7 @@ body{
   .kvitto-icons{
     position: relative;
     /* left: -7em !important; */
+    font-size: 1.3em;
   }
   .last-message{
     margin: 2em 0em 2em 0em;

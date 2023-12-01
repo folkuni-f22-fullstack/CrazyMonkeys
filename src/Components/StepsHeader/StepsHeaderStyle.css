@@ -33,7 +33,7 @@
 }
 
 .steps-container > div.line {
-    margin: -10px;
+    margin: 0px;
 }
 
 @media screen and (orientation: portrait) {
