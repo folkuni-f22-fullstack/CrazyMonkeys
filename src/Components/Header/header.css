@@ -59,14 +59,6 @@
   text-transform: uppercase;
 }
 
-
-/* .overlay p {
-  margin: 40px 0px;
-  width: 9em;
-  font-size: 18px;
-  font-family: var(--mont-font);
-  text-transform: uppercase;
-} */
 .menu-icon {
   display: flex;
   flex-direction: column;
@@ -146,7 +138,7 @@
   .navbar {
     display: block;
     color: white;
-    font-family: var( --mont-font); 
+    font-family: var(--mont-font);
     padding:1em;
   }
   .desktop-container {

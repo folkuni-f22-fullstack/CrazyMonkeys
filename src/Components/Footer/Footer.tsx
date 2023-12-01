@@ -101,7 +101,7 @@ function Footer() {
               <BsFillTelephoneFill className="dark-icons" /> 054-240 240
             </p>
             <p>
-              <IoIosMail className="dark-icons" /> Fonky_Fusion@CrazyMonkeys.com
+              <IoIosMail className="dark-icons" /> Funky_Fusion@CrazyMonkeys.com
             </p>
             <div className="media-icons-desktop">
               <p className="follow-us">Följ oss</p>
