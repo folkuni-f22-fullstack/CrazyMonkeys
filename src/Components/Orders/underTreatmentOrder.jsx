@@ -26,6 +26,7 @@ const UnderTreatmentOrder = ({ chartData, orders, moveOrder }) => {
                 <div key={order._id} className="order-box">
                     <span className="material-symbols-outlined">lock</span>
                     <p className="order-name">Ordernummer {order.orderId}</p>
+                    {/* <p>Kommentarer från kund: {order.comments}</p>  */}
 
                     {selectOrder._id === order._id ? (
                         <>
