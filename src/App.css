@@ -1,17 +1,18 @@
 :root {
   --title-font: "Gloria Hallelujah", cursive;
+
   --content-font: "Ubuntu", sans-serif;
   --meny-font:'Anonymous Pro', monospace; 
+  /* --Helvetica-font: 'Helvetica', sans-serif; */
+  /* --mont-font: 'Montserrat', sans-serif; */
+  
   --andika-font: 'Andika', sans-serif;
 
-
-  --overlay-color: rgba(93, 122, 72);
   --header-color: #183A37;
   --bg-color: #4c5452;
   --bg-footer: #312e2e;
   --bg-white: #F2F2F2;
   --black-icons: black;
-  --hover-btn: #728c72;
 }
 /* Skrivs såhär:  background-color: var(--bg-color); */
 
@@ -21,7 +22,7 @@
   padding: 0px;
 }
 
-body{
+body {
   min-height: 100vh;
 }
 
