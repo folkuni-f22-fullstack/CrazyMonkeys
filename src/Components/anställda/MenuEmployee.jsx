@@ -9,7 +9,7 @@ const MenuEmployee = () => {
 
     const selectItem = (id) => {
         setSelectedItemId(id)
-        console.log("menuEmployee selected item Id", id);
+        // console.log("menuEmployee selected item Id", id);
     }
 
   
@@ -32,7 +32,7 @@ const MenuEmployee = () => {
       }, []);
 
 
-      console.log("menuEmployee render", menu);
+    //   console.log("menuEmployee render", menu);
 
     return (
         <div>

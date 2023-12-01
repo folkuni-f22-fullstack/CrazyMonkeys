@@ -9,6 +9,7 @@ export function Login() {
   const [password, setPassword] = useState("");
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+   const[errorCred, setErrorCred] = useState(false);
   const navigate = useNavigate();
   const {
     loginDialogRef,
@@ -19,6 +20,8 @@ export function Login() {
     loginFailedMsg,
     setLoginFailedMsg,
   } = useContext(FunkyContext);
+ 
+   
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +29,7 @@ export function Login() {
     if (username !== "" && password !== "") {
       try {
         // Skicka en förfrågan till backend-routen med Fetch
-        const login = await handleLoginEmp(username, password, afterLogin);
+        const login = await handleLoginEmp(username, password, afterLogin, wrongCred);
         setEmployeeStatus(login.data.status);
       } catch (error) {
         console.error("Något gick fel:", error);
@@ -35,41 +38,50 @@ export function Login() {
     }
 
     async function afterLogin(login, status) {
-      if (login) {
-        sessionStorage.getItem("jwt");
-        if (sessionStorage.getItem("jwt")) {
-          if (status === "employee") {
-            setIsLoggedIn(true);
-            navigate("/employee");
-            stateLoginDialog(false);
-          } else if (status === "chef") {
-            setIsLoggedIn(true);
-            navigate("/chefsview");
-            stateLoginDialog(false);
-          }
+        if (login) {
+            sessionStorage.getItem("jwt");
+            setErrorCred(false);
+            if (sessionStorage.getItem("jwt")) {
+                if (status === "employee") {
+                    setIsLoggedIn(true);
+                    navigate("/employee");
+                    stateLoginDialog(false);
+                } else if (status === "chef") {
+                    setIsLoggedIn(true);
+                    navigate("/chefsview");
+                    stateLoginDialog(false);
+                }
+            }
+        } else {
+            setErrorCred(true);
+            console.error("Inloggning misslyckades:", error);
         }
-      } else {
-        console.error("Inloggning misslyckades:", response);
-      }
     }
-  };
 
-  const handleLogin = () => {
+    async function wrongCred() {
+        setErrorCred(true);
+    }
+};
+
+
+
+const handleLogin = () => {
     if (!username) {
-      setUsernameError("Du måste fylla i fältet");
+        setUsernameError("Du måste fylla i fältet");
     } else {
-      setUsernameError("");
+        setUsernameError("");
     }
 
     if (!password) {
-      setPasswordError("Du måste fylla i fältet");
+        setPasswordError("Du måste fylla i fältet");
     } else {
-      setPasswordError("");
+        setPasswordError("");
     }
+
     if (username && password) {
-      console.log("Nu har du fyllt i både användarnamn och lösenord");
+        console.log("Nu har du fyllt i både användarnamn och lösenord");
     }
-  };
+};
 
   return (
     <form onSubmit={handleSubmit}>
@@ -77,7 +89,9 @@ export function Login() {
         <span className="close-overlay" onClick={() => stateLoginDialog(false)}>
           <AiOutlineClose className="close-icon" />
         </span>
-        <h1 className="login-title"> Inloggning för anställda</h1>
+        <h1 className="login-title"> Inloggning för anställda</h1> {errorCred && 
+                    <div>Hej</div>
+                }
 
         <div
           className={`username-container ${
@@ -134,4 +148,4 @@ export function Login() {
       </dialog>
     </form>
   );
-}
+          }
