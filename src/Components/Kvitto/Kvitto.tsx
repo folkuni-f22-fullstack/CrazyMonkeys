@@ -61,7 +61,7 @@ const Kvitto: React.FC<KvittoProps> = ({ orderNumber }) => {
           <div>
             <span className='kvitto-icons'>
               <MdOutlinePeopleAlt size={35} className='person-icon'/>
-              <span>Order nr: 699{orderNumber}</span>
+              <span>Order nr: {recipeId}</span>
             </span>
           </div>
         </div>
