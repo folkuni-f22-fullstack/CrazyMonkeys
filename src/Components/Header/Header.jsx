@@ -1,17 +1,19 @@
 import "./header.css";
 import Loggo from "../../assets/Loggo.png";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import desktop from "../../assets/Desktoplogga.png";
 import { NavLink } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion"
+import {FunkyContext} from "../../ContextRoot.tsx"
 
 const MotionNavLink = motion(NavLink);
 
 function Header() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [isMenuIconCross, setIsMenuIconCross] = useState(false);
+  const { setSelectStep } = useContext(FunkyContext);
 
   const scrollDown = () => {
     window.scrollTo({
@@ -19,6 +21,10 @@ function Header() {
       behavior: "smooth",
     });
   };
+
+  const goBackToCart = () => {
+    setSelectStep(1)
+  }
 
   const toggleMenuOverlay = () => {
     setShowOverlay(!showOverlay);
@@ -65,7 +71,7 @@ function Header() {
         <NavLink className="navbar" to="/menu">
           Meny
         </NavLink>
-        <NavLink className="navbar " to="/varukorg">
+        <NavLink onClick={goBackToCart} className="navbar " to="/varukorg">
           Varukorg
         </NavLink>
 
@@ -99,7 +105,7 @@ function Header() {
           Kontakt
         </Link>
 
-        <NavLink to="/varukorg" className="cart-icon">
+        <NavLink onClick={goBackToCart} to="/varukorg" className="cart-icon">
           <IoCartOutline />
           </NavLink>
 
