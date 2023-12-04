@@ -3,6 +3,8 @@ import OrderKort from "../../Components/anställda/OrderKort";
 import "./chefsview.css";
 import UnderTreatmentOrder from "../../Components/Orders/underTreatmentOrder";
 import { FunkyContext } from "../../ContextRoot";
+import { handleLogout } from "../../Components/Login/loginFetch";
+import { useNavigate } from "react-router-dom";
 
 export const Chefsview = () => {
   const [chartData, setChartData] = useState([]);
@@ -10,13 +12,19 @@ export const Chefsview = () => {
   const [selectTab, setSelectTab] = useState("untreated");
  const [menuNames, setMenuNames] = useState([]);
  const [duringTreatmentData, setDuringTreatmentData] = useState([]);
- const {isLoggedIn} = useContext(FunkyContext)
+ const {isLoggedIn, setIsLoggedIn, setEmployeeStatus} = useContext(FunkyContext)
 
   const chosenTab = (tab) => {
     return selectTab === tab ? "selected-tab" : "unselected-tab";
   };
 
+  const navigate = useNavigate();
 
+  const onClickLogOut = () => {
+    handleLogout()
+    setIsLoggedIn(false);
+    navigate("/");
+  };
 
 
   const onSubmit = (event) => {
@@ -74,6 +82,26 @@ export const Chefsview = () => {
     fetchData();
 }, []);
 
+
+const moveOrder = (orderId) => {
+    
+    setDuringTreatmentData(prevData => {
+        const copy = [...prevData];
+        const foundOrderIndex = copy.findIndex((order) => order._id === orderId);
+
+        if (foundOrderIndex !== -1) {
+      
+            copy.splice(foundOrderIndex, 1);
+
+            console.log("Order Removed: ", copy);
+            return copy;
+        }
+
+        console.log("Order Not Found: ", prevData);
+        return prevData;
+    });
+};
+
   return (
    
     <div className="employee-view-wrapper">
@@ -83,6 +111,9 @@ export const Chefsview = () => {
             <section className="employee-view-container">
         <header className="title-header">
           <span>Du är inloggad</span>
+          <button onClick={onClickLogOut} className="btn-grad">
+                        logga ut
+                    </button>
           <h1 className="chefsview-title">Kockens Vy</h1>
           <div className="title-line" />
           <section className="tabs-section">
@@ -90,19 +121,13 @@ export const Chefsview = () => {
               className={chosenTab("untreated")}
               onClick={() => setSelectTab("untreated")}
               >
-              Underbehandling
+              Under behandling
             </button>
            
-            <button
-              className={chosenTab("done")}
-              onClick={() => setSelectTab("done")}
-              >
-              Färdig
-            </button>
           </section>
         </header>
 
-            <UnderTreatmentOrder chartData={duringTreatmentData} orders={orders}/>
+            <UnderTreatmentOrder chartData={duringTreatmentData} orders={orders} moveOrder={moveOrder}/>
            
       
       </section>

@@ -14,7 +14,8 @@ html, body {
 }
 
 .employee-view-not-logged-in {
-    background-color: #D9D9D9;
+    /* background-color: #D9D9D9; */
+    background-color: var(--bg-white);
     display: flex;
     max-width: 800px;
     padding: 2em 6em;
@@ -25,7 +26,7 @@ html, body {
 
 /* Employee view */
 .employee-view-container {
-    background-color: #D9D9D9;
+    background-color: var(--bg-white);
     display: flex;
     width: 632px;
     padding: 2em 6em;
@@ -101,6 +102,10 @@ html, body {
     margin-bottom: 1em;
 }
 
+.order-box:has(.details[open]) {
+    grid-template-rows: 390px 0em 0em;
+}
+
 .order-box:has(.mode-status-text ) {
     grid-template-areas: 'icon order-name order-name order-name details'
 }
@@ -117,7 +122,7 @@ html, body {
 
 .order-box:has(.details[open]) > .order-name, .order-box:has(.details[open]) > .material-symbols-outlined {
     position: relative;
-    top: -157px;
+    top: -163px;
 }
 
 .button-mark, .button-deselect {
@@ -136,6 +141,12 @@ html, body {
     margin-left: .15em;
     background-color: transparent;
     color: #000;
+}
+
+.button-to-right-div {
+    padding-top: 3em;
+    display: flex;
+    justify-content: right;
 }
 
 /* Details */
@@ -160,12 +171,48 @@ html, body {
 }
 
 .details[open] {
-    margin-top: 1.35em;
+    margin-top: 3.15em;
+    height: 370px;
 }
 
 .summary {
     min-width: 200px;
+    list-style: none;
 }
+
+.summary::after {
+    content: ' ►'; 
+    position: relative;
+    top: -6px;
+    cursor: pointer;
+}
+
+.details[open] .summary::after {
+    content: " ▼";
+    cursor: pointer;
+}
+
+.details[open] .summary {
+    position: relative;
+    top: -20px;
+}
+
+.treatment.details > .summary::after {
+    top: 0px;
+    position: relative;
+}
+
+.order-box:has(.treatment.details[open]) > .order-name, .order-box:has(.treatment.details[open]) > .material-symbols-outlined {
+    position: relative;
+    top: -164px;
+}
+
+.treatment.details[open] > .summary {
+    position: relative;
+    top: -14px;
+}
+
+/* Summary */
 
 .summary-box {
     box-shadow: 0.3px 0.5px 0.7px hsl(0deg 0% 63% / 0.36),

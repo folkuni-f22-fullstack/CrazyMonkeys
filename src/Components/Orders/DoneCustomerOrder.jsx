@@ -1,12 +1,10 @@
-import React, { useState, useContext } from "react";
+import { useState } from "react";
 import OrderKort from "../anställda/OrderKort";
-import { updateOrder } from "../../dataApi/updateStatus&Msg.js";
-import { FunkyContext } from "../../ContextRoot";
+import { removeOrder } from "../../dataApi/removeOrder.js";
 
-const UnderTreatmentOrder = ({ chartData, orders, moveOrder }) => {
+const DoneCustomerOrder = ({ chartData, orders, deleteDoneOrder }) => {
     const [selectOrder, setSelectOrder] = useState({});
     const [orderStatus, setOrderStatus] = useState("");
-    const { emplyeeStatus } = useContext(FunkyContext);
 
     const onSelectOrder = (order) => {
         setSelectOrder(order);
@@ -14,11 +12,15 @@ const UnderTreatmentOrder = ({ chartData, orders, moveOrder }) => {
         console.log(selectOrder, orderStatus);
     };
 
-    const onSubmitOrder = async (order) => {
-        console.log(order._id);
-        await moveOrder(order._id)
-        const response = await updateOrder(orderStatus, order._id, ".");
+
+    const cancelOrder = (orderId) => {
+        chartData.filter((order) => order._id !== orderId);
+        removeOrder(orderId);
+        deleteDoneOrder(orderId);
+        
     };
+
+
 
     return (
         <>
@@ -26,7 +28,6 @@ const UnderTreatmentOrder = ({ chartData, orders, moveOrder }) => {
                 <div key={order._id} className="order-box">
                     <span className="material-symbols-outlined">lock</span>
                     <p className="order-name">Ordernummer {order.orderId}</p>
-                    {/* <p>Kommentarer från kund: {order.comments}</p>  */}
 
                     {selectOrder._id === order._id ? (
                         <>
@@ -42,12 +43,10 @@ const UnderTreatmentOrder = ({ chartData, orders, moveOrder }) => {
                                         Avmarkera
                                     </button>
                                 </summary>
+
                                 <div className="details-about-order">
                                     <div className="message-board">
-                                        {emplyeeStatus === "chef" ? 
-                                        <p>Denna kan inte redigeras...</p> :
-                                        <p>Denna kan inte redigeras och finns hos kocken...</p> 
-                                    }
+                                        <p>Denna order är klar för upphämtning...</p>
                                     </div>
                                     <hr />
                                     {/* Render OrderKort outside the loop */}
@@ -64,18 +63,6 @@ const UnderTreatmentOrder = ({ chartData, orders, moveOrder }) => {
                                         <p>Telefonnummer: {order.mobile} </p>
                                         <p>Kommentarer från kund: {order.comments}</p>
                                     </details>
-
-                                    {emplyeeStatus === "chef" && (
-                                        <div className="button-to-right-div">
-                                        <button
-                                            className="button-confirm"
-                                            type="submit"
-                                            onClick={() => onSubmitOrder(order)}
-                                        >
-                                            Klar att servera
-                                        </button>
-                                        </div>
-                                    )}
                                 </div>
                             </details>
                         </>
@@ -84,6 +71,13 @@ const UnderTreatmentOrder = ({ chartData, orders, moveOrder }) => {
                             <button onClick={() => onSelectOrder(order)} className="button-mark">
                                 Visa Order
                             </button>
+                            <button
+                                                        className="button-decline" title="Ta bort hela ordern"
+                                                        onClick={() => cancelOrder(order._id)}
+                                                    >
+                                                        <span className="material-symbols-outlined">delete</span>
+                                                    </button>
+                            
                         </div>
                     )}
                 </div>
@@ -92,4 +86,4 @@ const UnderTreatmentOrder = ({ chartData, orders, moveOrder }) => {
     );
 };
 
-export default UnderTreatmentOrder;
+export default DoneCustomerOrder;

@@ -1,14 +1,19 @@
 import "./header.css";
 import Loggo from "../../assets/Loggo.png";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import desktop from "../../assets/Desktoplogga.png";
 import { NavLink } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import { Link } from "react-scroll";
+import { motion } from "framer-motion"
+import {FunkyContext} from "../../ContextRoot.tsx"
+
+const MotionNavLink = motion(NavLink);
 
 function Header() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [isMenuIconCross, setIsMenuIconCross] = useState(false);
+  const { setSelectStep } = useContext(FunkyContext);
 
   const scrollDown = () => {
     window.scrollTo({
@@ -16,6 +21,10 @@ function Header() {
       behavior: "smooth",
     });
   };
+
+  const goBackToCart = () => {
+    setSelectStep(1)
+  }
 
   const toggleMenuOverlay = () => {
     setShowOverlay(!showOverlay);
@@ -27,6 +36,34 @@ function Header() {
     scrollDown();
   };
 
+  const variants = {
+    open: {
+      opacity: 1,
+      transition: { staggerChildren: 0.09, delayChildren: 0.3 }
+    },
+    closed: {
+      opacity: 0,
+      transition: { staggerChildren: 0.05, staggerDirection: -1 }
+    }
+  };
+  
+  const childVariants = {
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        y: { stiffness: 1000, velocity: -100 }
+      }
+    },
+    closed: {
+      y: 50,
+      opacity: 0,
+      transition: {
+        y: { stiffness: 1000 }
+      }
+    }
+  };
+  
   return (
     <>
       <section className="header-container">
@@ -34,7 +71,7 @@ function Header() {
         <NavLink className="navbar" to="/menu">
           Meny
         </NavLink>
-        <NavLink className="navbar " to="/varukorg">
+        <NavLink onClick={goBackToCart} className="navbar " to="/varukorg">
           Varukorg
         </NavLink>
 
@@ -68,32 +105,33 @@ function Header() {
           Kontakt
         </Link>
 
-        <NavLink to="/kundkorg" className="cart-icon">
+        <NavLink onClick={goBackToCart} to="/varukorg" className="cart-icon">
           <IoCartOutline />
           </NavLink>
 
         {showOverlay && (
-          <div className="overlay" onClick={toggleMenuOverlay}>
-            <NavLink to="/menu" className="head-navbar">
+          <motion.div initial="closed" variants={variants} transition={{ duration: 0.2 }}  animate={showOverlay ? "open" : "closed"} className="overlay" onClick={toggleMenuOverlay}>
+            <MotionNavLink variants={childVariants} whileTap={{scale: 1.3 }} whileHover={{ scale: 1.1 }} to="/menu" className="head-navbar">
               Meny
-            </NavLink>
-            <NavLink to="/omoss" className="head-navbar" >
+            </MotionNavLink>
+            <MotionNavLink variants={childVariants} whileTap={{scale: 1.3 }} whileHover={{ scale: 1.1 }} to="/omoss" className="head-navbar" >
               Om oss
-            </NavLink>
-            <NavLink to="/kundkorg" className="head-navbar">
+            </MotionNavLink>
+            <MotionNavLink variants={childVariants} whileTap={{scale: 1.3 }} whileHover={{ scale: 1.1 }} to="/varukorg" className="head-navbar">
               Varukorg
-            </NavLink>
-
+            </MotionNavLink>
+            <motion.div className="head-navbar" variants={childVariants} whileTap={{scale: 1.3 }} whileHover={{ scale: 1.1 }}>
             <Link
               to="footer"
-              className="head-navbar"
               smooth={true}
               duration={500}
               onClick={closeOverlayAndScroll}
             >
               Kontakt
             </Link>
-          </div>
+            </motion.div>
+
+          </motion.div>
         )}
       </section>
       <div className="darkgrey"></div>

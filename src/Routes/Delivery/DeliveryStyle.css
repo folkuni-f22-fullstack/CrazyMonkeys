@@ -32,9 +32,48 @@ html, body {
 
 /* Leveransuppgifter */
 
+.delivery-header {
+    display: grid;
+    grid-template-areas: '... text text ...';
+    padding: 1.25em 0em;
+}
+
+.delivery-title {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    grid-area: text;
+    font-size: 24px;
+}
+
+.delivery-title.mobile {
+    display: none;
+}
+
+.delivery-header > .back-btn {
+    grid-area: button;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.delivery-header > .back-btn > .material-symbols-outlined {
+    grid-area: icon;
+    color: #000;
+    display: block;
+    font-size: 34px;
+}
+
 .center{
     display: flex;
     justify-content: center;
+}
+
+.delivery-title {
+    font-family: var(--meny-font);
 }
 
 .center:has(.delivery-container) {
@@ -44,10 +83,10 @@ html, body {
     margin-bottom: 3em;
 }
 
-.delivery-btn-grad{
+/* .delivery-btn-grad{
     display: flex;
     justify-content: center;
-  }
+  } */
 
 .delivery-btn{
     width: 100% !important;
@@ -57,6 +96,7 @@ html, body {
 .delivery-container {
     min-width: 320px;
     background-color: #f2f2f2;
+    /* background-color: var(--bg-white); */
     width: 625px;
     border-radius: 30px;
     padding-top: 1.25em;
@@ -109,6 +149,7 @@ html, body {
     padding-left: 0px;
     background-color: #fff;
     padding: .65em;
+    margin-top: .55em;
 }
 
 .multi-inputs {
@@ -118,7 +159,7 @@ html, body {
 }
 
 .tinier-inputs {
-    max-width: 65px;
+    max-width: 75px;
 }
 
 .name-input {
@@ -148,34 +189,6 @@ html, body {
 
 .county-input {
     width: 170px;
-}
-
-.header {
-    display: grid;
-    grid-template-areas: 'button text text ...';
-    padding: 1.25em 0em;
-}
-
-.header > h1 {
-    margin: 0px;
-    padding: 0px;
-    text-align: center;
-    grid-area: text;
-}
-
-.header > button {
-    grid-area: button;
-    border: none;
-    padding: 0px;
-    margin: 0px;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-.header > button > span.material-symbols-outlined {
-    grid-area: icon;
-    color: #000;
-    display: block;
 }
 
 .spacer {
@@ -212,4 +225,41 @@ input[type='radio']:checked:after {
     padding: .45em 0em;
 }
 
+.back-btn {
+    background-color: transparent;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    padding-left: 1.5em;
+    z-index: 999;
+    position: relative;
+}
 
+.delivery-center {
+    display: flex;
+    justify-content: center;
+    padding-top: 3em;
+    padding-bottom: 2em;
+}
+
+@media screen and (orientation: portrait) {
+    .delivery-title {
+        display: none;
+    }
+    
+    .delivery-title.mobile {
+        display: block;
+        position: relative;
+        top: 28px;
+    }
+
+    .back-btn {
+        padding-left: .75em;
+    }
+
+    .delivery-title.mobile {
+        display: block;
+        top: -30px;
+        position: relative;
+    }
+}

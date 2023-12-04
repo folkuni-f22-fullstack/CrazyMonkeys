@@ -1,9 +1,9 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { StepsHeader } from "../Components/StepsHeader/StepsHeader";
-import { FunkyContext } from "../ContextRoot";
+import { StepsHeader } from "../../Components/StepsHeader/StepsHeader";
+import { FunkyContext } from "../../ContextRoot";
 
-import { isValidName, isValidEmailAddress, isValidPhoneNumber } from "../Components/validation";
+import { isValidName, isValidEmailAddress, isValidPhoneNumber } from "../../Components/validation";
 
 import "./DeliveryStyle.css";
 
@@ -19,11 +19,11 @@ export function Delivery() {
         customerInfo,
         selectStep,
         setSelectStep,
-        deliveryFirstName, setDeliveryFirstName, deliveryLastName, setDeliveryLastName, deliveryEmail, setDeliveryEmail, deliveryPhoneNumber, setDeliveryPhoneNumber, deliveryOwnComments, setDeliveryOwnComments, deliveryAddress, setDeliveryAddress, deliveryCounty, setDeliveryCounty, deliveryApartmentNumber, setDeliveryApartmentNumber, deliveryPostNumber, setDeliveryPostNumber, deliveryFloor, setDeliveryFloor, deliveryPortCode, setDeliveryPortCode
+        deliveryFirstName, setDeliveryFirstName, deliveryLastName, setDeliveryLastName, deliveryEmail, setDeliveryEmail, deliveryPhoneNumber, setDeliveryPhoneNumber, deliveryOwnComments, setDeliveryOwnComments, deliveryAddress, setDeliveryAddress, deliveryCounty, setDeliveryCounty, deliveryApartmentNumber, setDeliveryApartmentNumber, deliveryPostNumber, setDeliveryPostNumber, deliveryFloor, setDeliveryFloor, deliveryPortCode, setDeliveryPortCode, chosenDeliveryOption, setChosenDeliveryOption
     } = useContext(FunkyContext);
 
     // States
-    const [chosenDeliveryOption, setChosenDeliveryOption] = useState(false);
+
     
 
     const [isEmptyFirstName, setIsEmptyFirstName] = useState(false);
@@ -135,8 +135,8 @@ export function Delivery() {
                         mail: deliveryEmail,
                         mobile: deliveryPhoneNumber,
                         adress: deliveryAddress,
-                        floor: "",
-                        portCode: '',
+                        floor: deliveryFloor,
+                        portCode: deliveryPortCode,
                         comments: deliveryOwnComments,
                         status: status
                     });
@@ -146,8 +146,8 @@ export function Delivery() {
                         mail: deliveryEmail,
                         mobile: deliveryPhoneNumber,
                         adress: deliveryAddress,
-                        floor: "",
-                        portCode: '',
+                        floor,
+                        portCode,
                         comments: "",
                         status: status
                     });
@@ -205,22 +205,29 @@ export function Delivery() {
         };
     };
 
-    const onGoBackBtn = () => {
-        navigate("/varukorg");
-        setSelectStep(1);
-    };
+    const backButton = () => {
+        navigate("/varukorg")
+        setSelectStep(1)
+    }
+
+    const goBackToMenu = () => {
+        navigate("/menu")
+      }
 
     return (
         <section className="center">
             <section className="delivery-container">
+            <button className="back-btn" onClick={() => backButton()}>
+                    <span className="material-symbols-outlined">undo</span>
+            </button>
+                <h1 className="delivery-title mobile">Uppgifter</h1>
                 <StepsHeader />
-                <header className="header">
-                    <button onClick={onGoBackBtn}>
-                        <span className="material-symbols-outlined">undo</span>
-                    </button>
-                    <h1>Uppgifter</h1>
+                <header className="delivery-header">
+                    <h1 className="delivery-title">Uppgifter</h1>
                 </header>
-                <form className="form" onSubmit={handleSubmit}>
+                {
+                    orderToSend.items.length > 0 ? (
+                        <form className="form" onSubmit={handleSubmit}>
                     <div className="multi-inputs">
                         <div className="label-above-input">
                             <label htmlFor="firstname-input">Förnamn</label>
@@ -337,31 +344,7 @@ export function Delivery() {
                         )}
                     </div>
 
-                    <div className="spacer label-above-input">
-                        <label htmlFor="own-comments-input">Egna kommentarer</label>
-                        <textarea
-                            className="input text-area no-span-input"
-                            id="own-comments-input"
-                            name="comments"
-                            onChange={ownCommentsChange}
-                            value={deliveryOwnComments}
-                            placeholder="Jag vill inte ha gurka i thai sushin"
-                        />
-                    </div>
-
                     <div className="spacer">
-                        <div className="radio-spacing">
-                            <input
-                                id="takeaway-delivery-radio"
-                                type="radio"
-                                name="deliveryOption"
-                                onClick={() => setChosenDeliveryOption(false)}
-                                required
-                            />
-                            <label htmlFor="takeaway-delivery-radio" className="radio-label">
-                                Takeaway
-                            </label>
-                        </div>
                         <div className="radio-spacing">
                             <input
                                 id="home-delivery-radio"
@@ -370,13 +353,13 @@ export function Delivery() {
                                 onClick={() => setChosenDeliveryOption(true)}
                                 required
                             />
+                        
                             <label htmlFor="home-delivery-radio" className="radio-label">
                                 Hemleverans
                             </label>
                         </div>
-                    </div>
 
-                    {chosenDeliveryOption && (
+                        {chosenDeliveryOption && (
                         <>
                             <div className="label-above-input">
                                 <label htmlFor="address-input">Adress</label>
@@ -458,12 +441,53 @@ export function Delivery() {
                             </div>
                         </>
                     )}
-                    <div className="delivery-btn-grad ">
+
+                        <div className="radio-spacing">
+                            <input
+                                id="takeaway-delivery-radio"
+                                type="radio"
+                                name="deliveryOption"
+                                onClick={() => setChosenDeliveryOption(false)}
+                                required
+                            />
+                            <label htmlFor="takeaway-delivery-radio" className="radio-label">
+                                Takeaway
+                            </label>
+                        </div>
+                    </div>
+
+                    <div className="spacer label-above-input">
+                        <label htmlFor="own-comments-input">Egna kommentarer</label>
+                        <textarea
+                            className="input text-area no-span-input"
+                            id="own-comments-input"
+                            name="comments"
+                            onChange={ownCommentsChange}
+                            value={deliveryOwnComments}
+                            placeholder="Jag vill inte ha gurka i thai sushin"
+                        />
+                    </div>
+
+                    <div className="delivery-btn-grad">
                         <button className="btn-grad delivery-btn" type="submit" >
                             Gå till Betalning
                         </button>
                     </div>
                 </form>
+                    ) : (
+                        <>
+                            <div className="delivery-center">
+                                <p>För att fortsätta behöver du påbörja en beställning.</p>
+                            </div>
+                            <div className="pay-btn-div">
+                                    <button onClick={() => goBackToMenu()} className="btn-grad">Gå tillbaka till menyn</button>
+                            </div>
+                        </>
+                        
+
+                    )
+                }
+               
             </section>
         </section>
     );

@@ -141,7 +141,6 @@ transition: transform 0.3s;
 }
 
 
-
-
-
-
+.chef-done-div{
+    display: flex;
+}

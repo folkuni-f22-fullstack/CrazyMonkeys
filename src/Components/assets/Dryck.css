@@ -1,83 +1,103 @@
+.rubrik {
+  /* margin: auto; */
+  /* width: 100%; */
+  margin: 2em 0em 2em;
+  font-size: 16px;
+  font-family: var(--meny-font);
+}
+.dryck-column {
+  margin: 10px;
+  margin-left:1.4em;
 
-.dryck-container {
-  display: flex;
-  
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-  align-self: center;
-  width: 700px;
-  height: 75vh;
-  overflow-y: scroll;
 }
 
 .dryck-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 10px;
 }
 
 .dryck-details {
   display: flex;
-  justify-content: center;
-  flex-direction: row;
-  width: 300px;
-  gap: .5em;
+  /* flex-grow: 1; */
 }
-
-
-.dryck-details :nth-child(2) {
-  margin-top: 1.3em;
-}
-
-.quantity-controls {
+.drink-container {
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+.meny-p,
+.meny-price-p,
+.price,
+.quantity-button {
+  font-family: var(--meny-font);
+}
+.meny-price-p{
+  margin-right: 1em;
+  
+}
+.price-and-btn {
+  display: flex;
 }
 
 .quantity-button {
-  background-color: #224422;
-  color: white;
+  background-color: #183a37;
+  /* background-color: #316863; */
+  color: #fff;
   border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
   cursor: pointer;
-  padding: 5px 10px;
-  margin: 0 5px;
+  transition: transform 0.3s;
+
+  &:hover {
+    background-color: var(--hover-btn);
+    transform: scale(1.2);
+  }
 }
 
-.quantity-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.quantity {
-  font-weight: bold;
-  margin: 0 5px;
-}
-
-.add-to-cart-button {
-  background-color: #316863;
+.drink-overlay {
+  position: absolute;
+  top: 50%;
+  left: 1em;
+  width: 90%;
+  height: 5%;
+  background: var(--overlay-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
   color: white;
-  border: none;
-  cursor: pointer;
-  padding: 5px 10px;
+  font-size: 20px;
+  z-index: 700;
+  padding: 1em;
 }
 
-.add-to-cart-button:hover {
-  background-color: #183118;
+@media screen and (min-width: 1080px) {
+  .drink-overlay {
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
 }
+ .dryck-container{
+  display: flex;
+ }
+ .drink-container {
+  margin: 0em 0.4em;
+  border-radius: 5px;
+}
+ .dryck-column {
+  width: 100%;
+  margin: 0em 2em 3em;
 
-
-
-@media screen and (max-width:320px) {
-  .dryck-container{
-    flex-direction: column;
-    width: 250px;
-  }
- .dryck-details h3{
-    font-size: 14px;
-  }
-  .dryck-details{
-    width: 200px;
-    font-size: 12px;
-  }
+}
+.meny-price-p{
+  display: flex;
+  align-items: center;
+}
 }

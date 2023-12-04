@@ -7,7 +7,7 @@ import { FunkyContext } from "../../ContextRoot";
 import { isValidName, isValidEmailAddress, isValidPhoneNumber } from "../validation";
 
 
-const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOrderItem, moveOrder }) => {
+const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOrderItem, moveOrder, menuName }) => {
     
     // States
     const [isLocked, setIsLocked] = useState(false);
@@ -38,8 +38,6 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
     const [isValidNumber, notValidNumber] = isValidPhoneNumber(customerPhone)
     const [isValidEmail, notValidEmail] = isValidEmailAddress(customerEmail)
 
-
-
     const nameChange = (e) => {
         setCustomerName(e.target.value)
 
@@ -49,6 +47,9 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
             setIsEmptyName(false)
         }
     }
+
+
+
 
     const emailChange = (e) => {
         setCustomerEmail(e.target.value)
@@ -176,17 +177,17 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
         <>
             {chartData.map((order) => (
                 <div key={order._id} className="order-box">
-                            {
-                                isEditing ? (
-                                    <span className="material-symbols-outlined">edit</span>
-                                ) : (
-                                    isSelected ? (
-                                        <span className="material-symbols-outlined">toggle_on</span>
-                                    ) : (
-                                        <span className="material-symbols-outlined">schedule</span>
-                                    )
+                    {
+                        editOrder._id === order._id ? (
+                            <span className="material-symbols-outlined">edit</span>
+                        ) : (
+                            selectOrder._id === order._id ? (
+                                <span className="material-symbols-outlined">toggle_on</span>
+                            ) : (
+                                    <span className="material-symbols-outlined">schedule</span>
                                 )
-                            }
+                            )
+                    }
                             <p className="order-name">Ordernummer {order.orderId}</p>
 
                     {selectOrder._id === order._id ? (
@@ -194,7 +195,6 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
 
                         <details className="details">
                             <summary className="summary" title={`Kika på order ${order.orderId}`}>
-
 
                             {isEditing ? (
                                                 null
@@ -236,13 +236,14 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                 orders={orders}
                                                 deleteOrderItem={deleteOrderItem}
                                                 addOrderItem={addOrderItem}
+                                                
                                             />{" "}
                                             
                                             <details>
                                                 <summary className="summary-box">
                                                     Info om kund
                                                 </summary>
-
+                                                <div className="multi-inputs">
                                                 <div className="label-above-input">
                                                     <label htmlFor="customerNameInput">
                                                         Namn:{" "}
@@ -251,9 +252,9 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         id="customerNameInput"
                                                         type="text"
                                                         style={validationErrorBorder(isEmptyName, wrongName,isValidFullName)}
-
                                                         value={customerName}
-                                                        onChange={(e) => nameChange}
+                                                        onChange={nameChange}
+                                                        onBlur={() => setWrongName(true)}
 
                                                     />
                                                     {!isEmptyName && (
@@ -268,7 +269,6 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                     </div>
                                                 )}
                                                 </div>
-
                                                 <div className="label-above-input">
                                                     <label htmlFor="customerAddressInput">
                                                         Address:{" "}
@@ -280,7 +280,9 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         onChange={(e) => setCustomerAddress(e.target.value)}
                                                     />
                                                 </div>
+                                                </div>
 
+                                                <div className="multi-inputs">
                                                 <div className="label-above-input">
                                                     <label htmlFor="customerFloorInput">
                                                         Våning:{" "}
@@ -292,7 +294,6 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         onChange={(e) => setCustomerFloor(e.target.value)}
                                                     />
                                                 </div>
-
                                                 <div className="label-above-input">
                                                     <label htmlFor="customerPortCodeInput">
                                                         Portkod:{" "}
@@ -304,7 +305,9 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         onChange={(e) => setCustomerPortCode(e.target.value)}
                                                     />
                                                 </div>
+                                                </div>
 
+                                                <div className="multi-inputs">
                                                 <div className="label-above-input">
                                                     <label htmlFor="customerEmailInput">
                                                         Mejl:{" "}
@@ -314,7 +317,8 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         type="email"
                                                         style={validationErrorBorder(isEmptyEmail, wrongEmail, isValidEmail)}
                                                         value={customerEmail}
-                                                        onChange={(e) => emailChange}
+                                                        onChange={emailChange}
+                                                        onBlur={() => setWrongEmail(true)}
                                                     />
                                                     {!isEmptyEmail && (
                                                     <div className="validation-error">
@@ -338,7 +342,8 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                         type="number"
                                                         style={validationErrorBorder(isEmptyPhoneNumber, wrongPhoneNumber, isValidNumber)}
                                                         value={customerPhone}
-                                                        onChange={(e) => phoneChange}
+                                                        onChange={phoneChange}
+                                                        onBlur={() => setWrongPhoneNumber(true)}
                                                     />
                                                     {!isEmptyPhoneNumber && (
                                                     <div className="validation-error">
@@ -352,14 +357,26 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                     </div>
                                                 )}
                                                 </div>
+
+                                                </div>
+
+
+                                                
+                                                
+
+                                                
+
+
                                             </details>
-                                            <button
-                                                        className="button-edit"
-                                                        type="submit"
-                                                        onClick={() => saveEditedOrder(order)}
-                                                    >
+                                            <div className="button-to-right-div">
+                                                <button
+                                                    className="button-confirm"
+                                                    type="submit"
+                                                    onClick={() => saveEditedOrder(order)}>
                                                         Slutför ändring
-                                                    </button>
+                                                </button>
+                                            </div>
+
                                         </div>
                                 </>
                             ) : (
@@ -398,19 +415,20 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
                                                 <p>Telefonnummer: {order.mobile} </p>
                                                 <p>Kommentarer från kund: {order.comments}</p>
                                             </details>
-
-                                            <button
-                                                className="button-confirm"
-                                                type="submit"
-                                                onClick={() => onSubmitOrder(order)}
-                                            >
-                                                Skicka till kocken{" "}
-                                                {isLocked && (
-                                                    <span className="material-symbols-outlined">
-                                                        lock
-                                                    </span>
-                                                )}
-                                            </button>
+                                            <div className="button-to-right-div">
+                                                <button
+                                                    className="button-confirm"
+                                                    type="submit"
+                                                    onClick={() => onSubmitOrder(order)}
+                                                >
+                                                    Skicka till kocken{" "}
+                                                    {isLocked && (
+                                                        <span className="material-symbols-outlined">
+                                                            lock
+                                                        </span>
+                                                    )}
+                                                </button>
+                                            </div>
                                         </div>
                                 </>
                             )}

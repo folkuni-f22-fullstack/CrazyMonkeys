@@ -24,14 +24,14 @@ function StartPage() {
   const controls2 = useAnimation();
 
   useEffect(() => {
-    console.log("isInView1:", isInView1);
+    // console.log("isInView1:", isInView1);
     if (isInView1) {
       controls1.start("visible");
     }
   }, [isInView1]);
 
   useEffect(() => {
-    console.log("isInView2:", isInView2);
+    // console.log("isInView2:", isInView2);
     if (isInView2) {
       controls2.start("visible");
     }
@@ -59,7 +59,7 @@ function StartPage() {
           <h1 className="company-title">FuNKY FUSION</h1>
           <p className="companytitletext-p">
             Fusionmat är den kreativa konsten att kombinera olika matkulturer
-            och smaker för att skapa helt nya, spännande rätter.
+            och smaker för att skapa helt nya, spännande rätter
           </p>
 
           <Link to="/menu" className="desktop">
@@ -104,7 +104,7 @@ function StartPage() {
 
         <div className="text-container">
           <p className="companytitletext-p">
-            Fonkey Fusion är stället där du kan uppleva spännande och unika
+            Fonky Fusion är stället där du kan uppleva spännande och unika
             matuapplevelser som förenar smaker från hela världen."
           </p>
         </div>

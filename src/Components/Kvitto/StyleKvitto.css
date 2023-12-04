@@ -3,165 +3,157 @@ body{
 
     margin: 0;
     padding: 0;
-    background-color: #4C5452;
+    background-color: --bg-color;
     overflow: hidden;
     box-sizing: border-box;
 
 }
+
 .parent-container{
-    display: flex;
-    justify-content: center;
-    
-
+  display: flex;
+  flex-direction: column;
+  /* margin-top: 2em; */
+  margin-bottom: 2.7em;
 }
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: auto !important;
-    width: 50%;
-    background-color: #fff;
-    margin: 3rem;
-    padding: 2em;
-    border: 0.4em solid #183A37;
-    border-radius: 2rem !important;
+.desktop-kvitto-title{
+  display: none;
 }
 
-.title-line > * {
-text-align: center;
-   position: relative;
-   top:-2rem ;
-} 
-/* .kvitto-title{
-   
-       display: flex;
-    justify-content: center;
-    flex-wrap: row wrap;
-    position: relative;
-    top: -2rem;
-    text-align: center;
-} */
-.message{
-    margin-top: 1.5rem;
-    
-} 
+.receipt-center {
+  padding-top: 3em;
+  padding-bottom: 2.5em;
+}
+
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  width: auto !important;
+  height: auto !important;
+  border: 0.2em solid #183A37;
+  border-radius: 2em;
   
 
-.deliver-icons > div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 40px;
-   
-   
+  
+  /* margin-bottom: 15em; */
 }
-  .truck , .person{
-    display: inline-flex;
-    position: relative;
-    left: -8rem;
-    
-}
-.time{
-    display: inline-flex;
-    position: relative;
-    left: -9.3rem;
-    margin: .2rem;
+.title-page-n1 {
+  width: 100% !important;
+  margin-top: 2.7em;
 }
 
-.time > span {
-    position: relative;
-    top: .6rem;
-    margin-left: .1rem;
+.kvitto-title{
+  font-family: var(--meny-font);
+  /* border: 1px solid rgb(69, 47, 212); */
+  text-align: center;
+  margin-bottom: 2em;
 }
-.truck > span {
-    position: relative;
-    top: .6rem;
-    margin-left: .1rem;
+
+.message{
+  font-family:var(--title-font) ;
+  text-align: center;
+  margin: 2em 0em;
+
 }
-.person > span {
-    position: relative;
-    top: .6rem;
-    margin-left: .1rem;
+
+.deliver-icons{
+  position:relative ;
 }
+
+.kvitto-icons{
+  display: flex;
+  flex-direction: row  !important;
+  align-items: center;
+  height: 2em;
+  margin: 1em 0em;
+  position:relative;
+  font-size: 1em;
+  /* left: -3em; */
+} 
+
+.person-icon{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+}
+
 .delivery-pic{
-   padding-top: 2rem;
+  width: 60%;
+  text-align: center;
+  margin: 1em 0em;
 }
-.last-message{
-    text-align: center;
-}
-.btn-grad {
-    background-image: linear-gradient(to right, #235852 0%, 
-  #001510  51%, #00bf8f  100%); 
-    margin: 2em 0.4em;
-    padding: 15px 45px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    box-shadow: 0 0 7px #eee;
-    border-radius: 10px;
-    display: block;
-  }
-  .btn-grad:hover {
-    background-position: right center; 
-    color: #fff;
-    text-decoration: none;
-  }
 
-@media (min-width: 320px) and (max-width:683px){
+.last-message {
+  font-family: var(--content-font);
+  margin: 2.5em 0em -.3em;
+}
+
+.btn-grad{
+  margin: 3.3em 0em 2.8em;
+}
+
+
+@media (min-width:550px) {
+  
   .container{
-    padding: 4.5rem;
-    width: 50%;
-    height: 20vh;
-    position: relative;
-    
+    width: 70% !important;
+    display: flex !important;
+    align-self: center;
   }
   .kvitto-title{
-    font-size: 20px;
-    position: relative;
-    top: -5rem;
+    display: block;
   }
-    
-   
-   .deliver-icons{
-    position: relative;
-    left: 4rem;
-    
-   }
-   .deliver-icons > * {
-    height: 50px;
-   }
-   .timer{
-    size: 80px;
-   
-   }
-   
-   .truck{
-    size: 20px;
-    width: 110px;
-   }
-   .person{
-    display: inline-flex;
-    flex-wrap: nowrap;
-    width: 100px;
-    position: relative;
-    left: -8.4rem;
-   }
+  .desktop-kvitto-title{
+    display: none;
+  }
   
-   
-   .last-message{
+}
+
+@media (min-width: 1080px){
+  .parent-container{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2em;
+  }
+  .title-page-n1{
+    margin-top: 3em;
+  }
+  .container{
+    width: 40em !important;
+    height: auto !important;
+    margin-bottom: auto;
+  }
+  .kvitto-title{
+    display: none !important;
+
+  }
+  .desktop-kvitto-title{
+    font-family:var(--meny-font) ;
+    display: block;
+    text-align: center;
+    margin: .9em 0em 2.4em 0em;
+  }
+  .delivery-pic{
+    width: 26em;
+  }
+  .message{
+    font-size: 1.1em;
+    margin: 2em 0em;
+  }
+  .kvitto-icons{
     position: relative;
-    left: -1rem;
-   }
-   .confirm-btn{
-    position: relative;
-    left: -1rem;
-   }
-   .btn-grad{
-    margin-top: .6rem;
-    padding: 10px;
-   }
-   
+    /* left: -7em !important; */
+    font-size: 1.3em;
+  }
+  .last-message{
+    margin: 2em 0em 2em 0em;
+    font-size: 1.3em;
+    
+  }
+  .btn-grad{
+    margin: 1.3em 0em 3em 0em  ;
+  }
 }

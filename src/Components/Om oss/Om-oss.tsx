@@ -49,7 +49,8 @@ const AboutUs = () => {
               src={titlePic}
               alt="bild på mat"
             />
-            <p className="mobile-text">om oss på funky fusion</p>
+            <p className="mobile-text">om oss på </p>
+            <p className="title">funky fusion</p>
             <p className="mobile-text-title-us">
             Fusionmat är konsten att kombinera matkulturer och smaker för att skapa nya, spännande rätter
             </p>
@@ -76,7 +77,7 @@ const AboutUs = () => {
       
             >
               <div className="funky-about-text">
-                <h1 className="whyfunky"> Varför välja Funkey Fusion </h1>
+                <h1 className="whyfunky"> Varför välja Funky Fusion </h1>
                 <p className="middle-text">
 
                 Välkomna till vår exklusiva fusionrestaurang där världens smaker möts för en minnesvärd kulinarisk upplevelse. Vi erbjuder en elegant atmosfär, en mångsidig meny och passionerade kockar som skapar innovativa fusionrätter från olika kulturer. Varje tallrik är en konstnärlig kombination av noggrant utvalda smaker och ingredienser, skapad för perfekt harmoni. Upplev en kulinarisk resa i världsklass
@@ -103,10 +104,10 @@ const AboutUs = () => {
             </div>
             <div className="middle-contain-2">
               <div className="funky-about-text-2">
-                <h1 className="whyfunky-2">Smak, Stil, Service, Fusion</h1>
+                <h1 className="whyfunky-2">Smak, stil, service, fusion</h1>
                 <p className="middle-text-2">
 
-                Vår restaurang kombinerar modernitet med tradition, hyllar kreativitet och mångfald. Rätterna är noggrant balanserade med olika influenser, och vi är stolta över att erbjuda något för varje smak och preferens. Strävande efter minnesvärda stunder är vår dedikerade personal till världsklassservice, vilket gör varje besök hos oss till en upplevelse utöver det vanliga. 
+                Kreativitet och mångfald hyllas på vår restaurang, där modernitet och tradition blandas. Vi är stolta över att kunna erbjuda något för varje smak och preferens, och våra rätter är noggrant balanserade med olika influenser. Vår dedikerade personal till världsklassservice är präglad av strävan efter minnesvärda stunder, vilket gör varje besök hos oss till en upplevelse utöver det vanliga. 
                 </p>
               
               
