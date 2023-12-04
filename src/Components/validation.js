@@ -14,7 +14,7 @@ export function isValidName(name) {
 }
 
 export function isValidPhoneNumber(number) {
-    const validPhoneFormat = "+461234567890";
+    const validPhoneFormat = "1234567890";
     const whiteSpace = /\s/;
     if (whiteSpace.test(number)) {
         return [false, "Vänligen använd utan mellanrum"];
@@ -29,8 +29,8 @@ export function isValidPhoneNumber(number) {
     }
     if (number.length < 10) {
         return [false, "Minst 10 tecken"];
-    } else if (number.length > 13) {
-        return [false, "Inte mer än 13 tecken"];
+    } else if (number.length > 10) {
+        return [false, "Inte mer än 10 tecken"];
     }
     return [true, ""];
 }
