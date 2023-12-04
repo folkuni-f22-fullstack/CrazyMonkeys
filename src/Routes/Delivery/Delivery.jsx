@@ -207,6 +207,7 @@ export function Delivery() {
 
     const backButton = () => {
         navigate("/varukorg")
+        setSelectStep(1)
     }
 
     const goBackToMenu = () => {
