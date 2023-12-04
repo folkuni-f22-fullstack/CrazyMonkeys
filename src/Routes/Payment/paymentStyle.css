@@ -70,6 +70,9 @@
 
 
 @media screen and (orientation: portrait) {
+    .pay-wrapper{
+        min-height: 80vh;
+    }
 
   .pay-title {
     display: none;
