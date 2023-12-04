@@ -22,6 +22,7 @@ export default function OrderKort(props) {
         const fetchData = async () => {
             const menuResponse = await fetch("/api/menu");
             const menuData = await menuResponse.json();
+           
             setMenuList(menuData);
         };
         fetchData();
@@ -29,10 +30,11 @@ export default function OrderKort(props) {
 
     const sendOrder = (orderId) => {
         async function handleOrderCompletion(whenDone) {
+            // setProduktName("");
+           
             await postItemOrder(orderId, selectedItemId, selectedItemQuantity, whenDone);
-            setProduktName("");
 
-            console.log(produktName);
+           
 
             async function whenDone() {
                 await props.addOrderItem(orderId, selectedItemId, selectedItemQuantity);
@@ -46,8 +48,8 @@ export default function OrderKort(props) {
     return (
         <article>
             <section>
-                <div className="customer-order">
-                    <div className="order-card-header">
+                <div  className="customer-order">
+                    <div key={props.order._id} className="order-card-header">
                         <h2>Kundens Order</h2>
                         {props.order.status === "untreated" && isEditing && (
                             <>
@@ -95,15 +97,16 @@ export default function OrderKort(props) {
                                 .find((menu) => menu._id === orderItem.menuItem);
 
                             const removeOrder = (itemOrderId) => {
-                                console.log(props.order.status, itemOrderId);
                                 props.deleteOrderItem(props.order._id, itemOrderId);
                                 const response = removeOrderItem(props.order._id, itemOrderId);
                             };
 
+
                             return (
-                                <div key={orderItem._id}>
+                                orderItem._id ? 
+                                (<div key={orderItem._id}>
                                     <div className="order-card-list">
-                                        <p key={orderItem._id}>
+                                        <p>
                                             {menuItemData ? menuItemData.name : produktName} x{" "}
                                             {orderItem.quantity}
                                         </p>
@@ -119,6 +122,7 @@ export default function OrderKort(props) {
                                     </div>
                                     {props.order.status === "untreated" && isEditing && <hr />}
                                 </div>
+                                ) : "Laddar...."
                             );
                         })}
                 </div>

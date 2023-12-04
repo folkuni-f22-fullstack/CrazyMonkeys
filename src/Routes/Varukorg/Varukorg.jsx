@@ -49,7 +49,7 @@ const Varukorg = () => {
 
     const onSubmitButton = (state) => {
         setOrder(order);
-        console.log(chartData);
+       
         if (orderToSend.items.length > 0 && state) {
             navigate("/leverans");
             setSelectStep(2);

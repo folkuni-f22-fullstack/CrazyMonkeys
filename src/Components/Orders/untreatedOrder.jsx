@@ -78,7 +78,7 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
 
     const onDeselectOrder = () => {
         onSelectOrder({})
-        console.log(isSelected)
+     
         setIsSelected(false)
     }
 
@@ -106,9 +106,7 @@ const UntreatedOrder = ({ chartData, orders, deleteOrderItem, deleteOrder, addOr
     };
 
     const onSubmitOrder = async (order) => {
-        console.log(order._id);
-        console.log(customerName);
-        console.log(orderId);
+       
         moveOrder(order._id)
         const response = await updateOrder(orderStatus, order._id, msgToCook);
     };

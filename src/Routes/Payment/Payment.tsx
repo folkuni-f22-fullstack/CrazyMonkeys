@@ -16,14 +16,14 @@ const Payment: React.FC<CheckoutProps> = () => {
 
   const postCustomerOrder = async () => {
     const item = order.map(orderItem => {
-        console.log('orderItem.ItemId:', orderItem.itemId);
+      
         return {
             menuItem: orderItem.itemId,
             quantity: orderItem.quantity
         };
     });
 
-    console.log("order", order);
+    
 
     const orderTo = {
         orderId: orderToSend.orderId,
@@ -48,7 +48,7 @@ const Payment: React.FC<CheckoutProps> = () => {
         });
 
         const data = await response.json();
-        console.log("server response" + data);
+       
         setRecipeId(data.orderId)
     } catch (error) {
         console.error("Error:", error);
@@ -59,7 +59,7 @@ const handleOrderPost = async (event) => {
   event.preventDefault();
 
   if (paymentMethod !== undefined) {
-    console.log(orderToSend);
+    
     // console.log("orderData", );
     try {
         await postCustomerOrder();

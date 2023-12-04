@@ -32,7 +32,6 @@ export function Login() {
         const login = await handleLoginEmp(username, password, afterLogin);
         setEmployeeStatus(login.data.status);
       } catch (error) {
-        console.error("Något gick fel:", error);
         setLoginFailedMsg(true);
       }
     }
