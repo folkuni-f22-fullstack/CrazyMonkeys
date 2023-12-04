@@ -24,7 +24,7 @@ export const EmployeeView = () => {
     const [doneData, setDoneData] = useState([]);
     const [orders, setOrders] = useState([]);
     const [menuName, setMenuNames] = useState([]);
-
+    
     // Tabs
     const [selectTab, setSelectTab] = useState("untreated");
     const [viewTab, setView] = useState("untreated");

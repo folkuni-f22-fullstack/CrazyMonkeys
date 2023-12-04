@@ -115,11 +115,6 @@ const Dryck = () => {
                       +
                     </button>
                   </div>
-                  {showDrinkOverlay && orderOverlay == dryck._id && (
-            <div className="drink-overlay">
-              <p>Varan har lagts i kundvagnen</p>
-            </div>
-          )}
                 </motion.div>
               ))}
               {showDrinkOverlay && (

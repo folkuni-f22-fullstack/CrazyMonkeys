@@ -10,15 +10,18 @@ const Matratter = () => {
   const [itemCounter, setItemCounter] = useState(1);
   const [showOverlay, setShowOverlay] = useState(false);
   const [orderOverlay, setOrderOverlay] = useState(null);
+  // console.log('matträtter', order.length)
   // console.log('Food är: ', food.length, food)
-  const addOrder = () => {
-    const newOrder = {
-      itemId: orderId,
-      quantity: itemCounter,
-    };
+  // const addOrder = () => {
+  //   const newOrder = {
+  //     itemId: orderId,
+  //     quantity: itemCounter,
+  //   };
 
-    setOrder((prevOrder) => [...prevOrder, newOrder]);
-  };
+  //   setOrder((prevOrder) => [...prevOrder, newOrder]);
+  //   console.log('rad 21')
+    
+  // };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,7 +43,7 @@ const Matratter = () => {
   }, []);
 
   const handleAddToCart = (foodId: string) => {
-    console.log('Scroll position before:', window.scrollY);
+    // console.log('Scroll position before:', window.scrollY);
     setShowOverlay(true);
     setOrderOverlay(foodId)
 
@@ -57,20 +60,25 @@ const Matratter = () => {
             : orderItem
         )
       );
-    } else {
+     }
+   else {
       // Om drycken inte finns, lägg till en ny order
       const newOrder = {
         itemId: foodId,
         quantity: 1,
       };
-      setOrder((prevOrder) => [...prevOrder, newOrder]);
+      
+      // setOrder((prevOrder) => [...prevOrder, newOrder]);
+
+      const newList = [...order, newOrder]
+      setOrder(newList)
     }
     setItemCounter(itemCounter + 1);
-    setTimeout(() => {
+      setTimeout(() => {
       setShowOverlay(false);
     }, 2000);
     
-  };
+    };
   return (<>
     <motion.div className="matratt-container">
       {food.map((matratt) => (
