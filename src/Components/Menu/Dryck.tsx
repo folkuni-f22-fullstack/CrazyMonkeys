@@ -122,6 +122,11 @@ const Dryck = () => {
           )}
                 </motion.div>
               ))}
+              {showDrinkOverlay && (
+        <div className="drink-overlay">
+          <p>Varan har lagts i kundvagnen</p>
+        </div>
+      )}
         </div>
       </div>
     </>

@@ -156,5 +156,12 @@
   .cart-icon{
 display: none;
   }
+
+  .overlay{
+    display: none;
+  }
+  .menu-icon.cross{
+    display: none;
+  }
  
 }

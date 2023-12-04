@@ -1,4 +1,5 @@
 .footer-container {
+    /* position: absolute; */
   /* border: 2px solid green;  */
   background-color: var(--bg-footer);
   color: #b1a8a8;
@@ -7,7 +8,7 @@
   height: 7em;
   text-align: center;
   /* position: fixed; */
-    bottom: 0;
+    bottom: -10;
     width: 100%;
 }
 
@@ -164,10 +165,13 @@
     font-size:21px; 
     color: white; 
   }
-   
+   .footer-column p {
+    line-height: 1.7em;
+   }
 .dark-icons{
   color: var(--black-icons);
-  margin-top: 0.5em;
+  margin-bottom: -0.2em;
+
 }
 .contact-us{
   margin-bottom:1em;

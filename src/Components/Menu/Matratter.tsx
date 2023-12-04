@@ -97,6 +97,11 @@ const Matratter = () => {
           )}
         </motion.div>
       ))}
+      {showOverlay && (
+        <div className="menu-overlay">
+          <p>Varan har lagts i varukorgen</p>
+        </div>
+      )}
     </motion.div>
     <div className="matratt-container2">
       {food.map((matratt) => (
