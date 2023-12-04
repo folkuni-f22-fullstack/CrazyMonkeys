@@ -107,7 +107,7 @@ const AboutUs = () => {
                 <h1 className="whyfunky-2">Smak, stil, service, fusion</h1>
                 <p className="middle-text-2">
 
-                Vår restaurang kombinerar modernitet med tradition, hyllar kreativitet och mångfald. Rätterna är noggrant balanserade med olika influenser, och vi är stolta över att erbjuda något för varje smak och preferens. Strävande efter minnesvärda stunder är vår dedikerade personal till världsklassservice, vilket gör varje besök hos oss till en upplevelse utöver det vanliga. 
+                Kreativitet och mångfald hyllas på vår restaurang, där modernitet och tradition blandas. Vi är stolta över att kunna erbjuda något för varje smak och preferens, och våra rätter är noggrant balanserade med olika influenser. Vår dedikerade personal till världsklassservice är präglad av strävan efter minnesvärda stunder, vilket gör varje besök hos oss till en upplevelse utöver det vanliga. 
                 </p>
               
               

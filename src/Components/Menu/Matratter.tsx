@@ -2,13 +2,15 @@ import { useEffect, useState, useContext } from "react";
 import "../assets/Matratter.css";
 import { FunkyContext } from "../../ContextRoot";
 import { inView, motion } from "framer-motion"
+// import { withRouter } from 'react-router-dom';
 
 const Matratter = () => {
   const [food, setFood] = useState([]);
   const { orderToSend, order, setOrder } = useContext(FunkyContext);
   const [itemCounter, setItemCounter] = useState(1);
   const [showOverlay, setShowOverlay] = useState(false);
-
+  const [orderOverlay, setOrderOverlay] = useState(null);
+  // console.log('Food är: ', food.length, food)
   const addOrder = () => {
     const newOrder = {
       itemId: orderId,
@@ -38,7 +40,10 @@ const Matratter = () => {
   }, []);
 
   const handleAddToCart = (foodId: string) => {
+    console.log('Scroll position before:', window.scrollY);
     setShowOverlay(true);
+    setOrderOverlay(foodId)
+
     const existingOrder = order.find(
       (orderItem) => orderItem.itemId === foodId
     );
@@ -77,7 +82,7 @@ const Matratter = () => {
             <p className="matratt-p">{matratt.desc}</p>
             <div className="price-and-button">
               <p className="menu-price"> {matratt.price} kr</p>
-              <button
+              <button 
                 className="order-button"
                 onClick={() => handleAddToCart(matratt._id)}
               >
@@ -85,6 +90,11 @@ const Matratter = () => {
               </button>
             </div>
           </div>
+          {showOverlay && orderOverlay == matratt._id && (
+            <div className="menu-overlay">
+              <p>Varan har lagts i varukorgen</p>
+            </div>
+          )}
         </motion.div>
       ))}
       {showOverlay && (
@@ -93,7 +103,6 @@ const Matratter = () => {
         </div>
       )}
     </motion.div>
-
     <div className="matratt-container2">
       {food.map((matratt) => (
         <motion.div initial={{y: "-10%", opacity: 0 }} animate={{y: "0%", opacity: 1}} transition={{ duration: 1 }}  className="matratt2" key={matratt._id}>
@@ -103,25 +112,29 @@ const Matratter = () => {
             <p className="matratt-p2">{matratt.desc}</p>
             <div className="price-and-button2">
               <p className="menu-price2"> {matratt.price} :-</p>
-              <button
+              <button 
                 className="order-button2"
-                onClick={() => handleAddToCart(matratt._id)}
+                onClick={() => handleAddToCart( matratt._id)}
               >
                 Lägg till
               </button>
             </div>
           </div>
 
+          {showOverlay && orderOverlay == matratt._id  &&  (
+            <div className="menu-overlay">
+              <p>Varan har lagts i kundvagnen</p>
+            </div>
+          )}
         </motion.div>
       ))}
-      {showOverlay && (
-        <div className="menu-overlay">
-          <p>Varan har lagts i kundvagnen</p>
-        </div>
-      )}
+      
     </div>
+    
     </>
+    
   );
+ 
 };
-
+ 
 export default Matratter;
