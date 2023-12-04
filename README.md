@@ -1,27 +1,13 @@
-# React + TypeScript + Vite
+﻿<div align="center">
+<img src="https://raw.githubusercontent.com/folkuni-f22-fullstack/CrazyMonkeys/dev/src/assets/footerpagepic/FF-red.png" alt="Funky Fusion" />
+</div>
+<h1 align="center">Funky Fusion, a project created by <i>Crazy Monkeys</i></h1>
+The group, Crazy Monkeys, consists of Malin, Mustafa, Ali, Victor and Abbe.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Our teacher assigned us a project to create a fullstack web app for a hypothetical restaurant. The app should cater to the needs of customers, employees and chefs. We decided to design our app for a fusion restaurant, because we wanted to showcase our creativity and diversity.
 
-Currently, two official plugins are available:
+The costumer role can browse the menu, search for information about the fake restaurant, and also do food orders that are sent to the employees, and after that to the chef. The costumer can write comments to the employees. When the order has come to the employee, the customer can edit the order to their liking, if they change their mind. When the order has come to the chef, the order can't be undone.  The employee role can see food order requests that the costumer has made. The employee can make messages to the chef when sending the order further to the chef.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Our project followed the scrum process, as instructed by our teacher, and we organized our tasks using *Trello* as a kanban board. We had daily stand-ups, sprint reviews and sprint retrospective and much communication. Every member of the group got the chance of being a scrum master.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
