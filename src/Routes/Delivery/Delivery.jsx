@@ -422,8 +422,8 @@ export function Delivery() {
                                         name="portCode"
                                         onChange={portCodeChange}
                                         value={deliveryPortCode}
-                                        type="number"
-                                        placeholder="1234"
+                                        type="text"
+                                        placeholder="*1234#"
                                     />
                                 </div>
                                 <div className="label-above-input">
