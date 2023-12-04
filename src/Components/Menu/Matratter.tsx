@@ -43,7 +43,6 @@ const Matratter = () => {
   }, []);
 
   const handleAddToCart = (foodId: string) => {
-    // console.log('Scroll position before:', window.scrollY);
     setShowOverlay(true);
     setOrderOverlay(foodId)
 

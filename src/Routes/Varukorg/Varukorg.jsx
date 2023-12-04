@@ -24,7 +24,6 @@ const Varukorg = () => {
                 const sortedOrder = data.filter((item) => orderIds.includes(item._id));
 
                 setChartData(sortedOrder);
-                console.log(chartData);
                 // console.log("OrderIds:" + orderIds);
             } catch (error) {
                 console.error(error);
@@ -49,7 +48,7 @@ const Varukorg = () => {
 
     const onSubmitButton = (state) => {
         setOrder(order);
-        console.log(chartData);
+       
         if (orderToSend.items.length > 0 && state) {
             navigate("/leverans");
             setSelectStep(2);
@@ -94,7 +93,9 @@ const Varukorg = () => {
                         {
                             chartData.map((order) => (
                                 <>
-                                    <div className="cart-item" key={order.id}>
+                                    {order._id ? (
+
+                                    <div className="cart-item" key={order._id}>
                                         <p className="item-name">{order.name}</p>
                                         <p className="item-price">{order.price}:-</p>
                                         <div className="item-amount-container">
@@ -110,6 +111,11 @@ const Varukorg = () => {
                                             </span></button>
                                         </div>
                                     </div>
+
+                                    ): "loading"
+                                    
+                                    
+                                    }
                                     <hr className="tinier-line" />
                                 </>
                             ))

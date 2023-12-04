@@ -9,7 +9,7 @@ const DoneCustomerOrder = ({ chartData, orders, deleteDoneOrder }) => {
     const onSelectOrder = (order) => {
         setSelectOrder(order);
         setOrderStatus("done");
-        console.log(selectOrder, orderStatus);
+       
     };
 
 
