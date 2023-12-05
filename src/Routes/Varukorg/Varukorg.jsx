@@ -89,7 +89,8 @@ const Varukorg = () => {
                         <p className="header-price">Pris</p>
                         <p className="header-amount">Antal</p>
                     </header>
-                    <div className="cart-items">
+                    <div className="cart-items" >
+                       
                         {
                             chartData.map((order) => (
                                 <>
@@ -120,6 +121,7 @@ const Varukorg = () => {
                                 </>
                             ))
                         }
+
                     </div>
 
                 </div>

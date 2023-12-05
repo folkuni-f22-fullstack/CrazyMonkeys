@@ -45,6 +45,7 @@ export default function OrderKort(props) {
         handleOrderCompletion();
     };
 
+
     return (
         <article>
             <section>
@@ -126,7 +127,6 @@ export default function OrderKort(props) {
                             );
                         })}
                 </div>
-                <p> </p>
             </section>
         </article>
     );

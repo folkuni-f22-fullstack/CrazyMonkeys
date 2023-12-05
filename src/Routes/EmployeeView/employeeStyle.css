@@ -126,7 +126,9 @@ html, body {
 }
 
 .button-mark, .button-deselect {
-    grid-area: mark
+    grid-area: mark;
+    font-size: 18px;
+    
 }
 .button-mark {
     background-color: #CBE9C1;
@@ -178,6 +180,7 @@ html, body {
 .summary {
     min-width: 200px;
     list-style: none;
+    font-size: 30px;
 }
 
 .summary::after {
@@ -243,3 +246,10 @@ html, body {
 
 
 
+.btn-chef{
+    font-size: 18px;
+}
+
+.trash{
+    font-size: 35px;
+}
