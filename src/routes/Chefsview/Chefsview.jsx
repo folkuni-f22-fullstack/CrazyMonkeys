@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import OrderKort from "../../Components/anställda/OrderKort";
-import "../../routes/Chefsview/Chefsview.css";
+import "../../Routes/Chefsview/chefsview.css";
 import UnderTreatmentOrder from "../../Components/Orders/underTreatmentOrder";
 import { FunkyContext } from "../../ContextRoot";
 import { handleLogout } from "../../Components/Login/loginFetch";
