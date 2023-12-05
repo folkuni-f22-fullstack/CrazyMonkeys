@@ -57,6 +57,12 @@ You don't need to use the frontend to do orders, send costumer messages to emplo
 
 <h3 align="center">Data Modeling</h3>
 
+| Property | Data type | Short description                     |
+|----------|-----------|---------------------------------------|
+| _id      | Number    | Unique identifier number from mongoDB |
+|          |           |                                       |
+|          |           |                                       |
+
 <h3 align="center">Endpoints</h3>
 
 Amazing! Thank you for reading this README! ❤️
