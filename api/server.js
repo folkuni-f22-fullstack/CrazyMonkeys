@@ -28,7 +28,7 @@ mongoose
     });
 
     const whereWeAre = dirname(fileURLToPath(import.meta.url));
-    const dist = join(whereWeAre, "./dist");
+    const dist = join(whereWeAre, "../dist");
     app.use(express.static(dist));
     
     app.options("*", (req, res) => {
