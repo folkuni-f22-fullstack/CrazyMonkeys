@@ -7,24 +7,22 @@ import image from './image/image 19.png';
 import { StepsHeader } from "../StepsHeader/StepsHeader.jsx";
 // import 
 import './StyleKvitto.css';
-import { FunkyContext } from '../../ContextRoot';
+import { FunkyContext } from '../../ContextRoot.jsx';
 
-interface KvittoProps {
-  orderNumber: number;
-}
 
-const Kvitto: React.FC<KvittoProps> = ({ orderNumber }) => {
+
+const Kvitto = ({ orderNumber }) => {
     const {chosenDeliveryOption, recipeId, order } = useContext(FunkyContext)
 
   // const {chosenDeliveryOption} = useContext(FunkyContext)
   const resizeImageStyle = { width: '80%', height: '80%', objectFit: 'contain' };
 
-  const getRandomBoolean = (): number => {
+  const getRandomBoolean = () => {
     const preparationTime = Math.floor(Math.random() * (30 - 14 + 1)) + 10;
     return preparationTime ;
   };
 
-  const getRandomDeliveryTime = (): number => {
+  const getRandomDeliveryTime = () => {
     return Math.floor(Math.random() * (25 - 15 + 1)) + 15;
   };
 

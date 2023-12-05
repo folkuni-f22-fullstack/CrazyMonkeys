@@ -71,7 +71,7 @@ const ContextRoot = ({ children }) => {
     // Login
     const loginDialogRef = useRef();
     
-    const stateLoginDialog = (state: boolean) => {
+    const stateLoginDialog = (state) => {
         if (state) {
             // show() eller showModal()
             loginDialogRef.current.showModal();

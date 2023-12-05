@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { FunkyContext } from "../../ContextRoot.tsx";
+import { FunkyContext } from "../../ContextRoot.jsx";
 import { useNavigate } from "react-router-dom";
 
 import "./paymentStyle.css";
@@ -9,7 +9,7 @@ import { StepsHeader } from "../../Components/StepsHeader/StepsHeader.jsx";
 
 
 
-const Payment: React.FC<CheckoutProps> = () => {
+const Payment = () => {
   const navigate = useNavigate()
 
   const { orderToSend, customerInfo, order, selectStep, setSelectStep, setRecipeId } = useContext(FunkyContext);
@@ -73,10 +73,10 @@ const handleOrderPost = async (event) => {
   
 };
 
-  const [paymentMethod, setPaymentMethod] = useState<string>("");
-  const [isButtonDisabled, setButtonDisabled] = useState<boolean>(true);
+  const [paymentMethod, setPaymentMethod] = useState("");
+  const [isButtonDisabled, setButtonDisabled] = useState(true);
 
-  const handlePaymentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePaymentChange = (event) => {
     setPaymentMethod(event.target.value);
     setButtonDisabled(false);
   };

@@ -39,7 +39,7 @@ const Dryck = () => {
     fetchData();
   }, []);
 
-  const handleAddToCart = (dryckId: string) => {
+  const handleAddToCart = (dryckId) => {
     setShowDrinkOverlay(true);
     setOrderOverlay(dryckId);
 

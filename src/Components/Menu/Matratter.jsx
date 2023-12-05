@@ -42,7 +42,7 @@ const Matratter = () => {
     fetchData();
   }, []);
 
-  const handleAddToCart = (foodId: string) => {
+  const handleAddToCart = (foodId) => {
     setShowOverlay(true);
     setOrderOverlay(foodId)
 

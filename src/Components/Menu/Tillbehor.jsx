@@ -1,9 +1,8 @@
 import { useEffect, useState, useContext } from "react";
 import { motion } from "framer-motion";
-
 import "../assets/Tillbehor.css";
-import { FunkyContext } from "../../ContextRoot";
-import Kundkorg from "./../anställda/AnställdaOrdrar";
+import { FunkyContext } from "../../ContextRoot.jsx";
+
 
 
 const Tillbehor = () => {
@@ -39,7 +38,7 @@ const Tillbehor = () => {
     fetchData();
   }, []);
 
-  const handleAddToCart = (foodId: string) => {
+  const handleAddToCart = () => {
     setShowTillbehorOverlay(true);
     const existingOrder = order.find(
       (orderItem) => orderItem.itemId === foodId

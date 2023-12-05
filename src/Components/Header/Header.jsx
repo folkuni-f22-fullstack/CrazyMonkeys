@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion"
-import {FunkyContext} from "../../ContextRoot.tsx"
+import {FunkyContext} from "../../ContextRoot.jsx"
 
 const MotionNavLink = motion(NavLink);
 

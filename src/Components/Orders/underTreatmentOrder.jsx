@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import OrderKort from "../anställda/OrderKort";
 import { updateOrder } from "../../dataApi/updateStatus&Msg.js";
-import { FunkyContext } from "../../ContextRoot";
+import { FunkyContext } from "../../ContextRoot.jsx";
 
 const UnderTreatmentOrder = ({ chartData, orders, moveOrder }) => {
     const [selectOrder, setSelectOrder] = useState({});

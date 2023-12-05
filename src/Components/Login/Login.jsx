@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { FunkyContext } from "../../ContextRoot.tsx";
+import { FunkyContext } from "../../ContextRoot.jsx";
 import { AiOutlineClose } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { handleLoginEmp } from "./loginFetch.js";
