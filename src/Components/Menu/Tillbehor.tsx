@@ -61,7 +61,7 @@ const Tillbehor = () => {
         quantity: 1,
       };
       setOrder((prevOrder) => [...prevOrder, newOrder]);
-      console.log(orderToSend);
+     
     }
     setItemCounter(itemCounter + 1);
     setTimeout(() => {

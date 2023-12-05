@@ -8,8 +8,8 @@ const Dryck = () => {
   const [orderId, setOrderId] = useState("");
   const [itemCounter, setItemCounter] = useState(1);
   const { orderToSend, order, setOrder } = useContext(FunkyContext);
-
   const [showDrinkOverlay, setShowDrinkOverlay] = useState(false);
+  const [orderOverlay, setOrderOverlay] = useState(null);
 
   const addOrder = () => {
     const newOrder = {
@@ -41,6 +41,8 @@ const Dryck = () => {
 
   const handleAddToCart = (dryckId: string) => {
     setShowDrinkOverlay(true);
+    setOrderOverlay(dryckId);
+
     const existingOrder = order.find(
       (orderItem) => orderItem.itemId === dryckId
     );
