@@ -7,7 +7,7 @@
 
 The group, *Crazy Monkeys*, consists of the following students; Malin, Mustafa, Ali, Victor and Abbe.
 
-Our teacher assigned us a project to create a fullstack web app for a hypothetical restaurant. The app should cater to the needs of customers, employees and chefs. We decided to design our app for a fusion restaurant, because we wanted to showcase our creativity and diversity.
+Our teacher assigned us a project to create a fullstack web app for a hypothetical restaurant. The web app needs to be responsive from sizes of tiny mobile screens to bigger screens as computer monitors. The app should cater to the needs of customers, employees and chefs. We decided to design our app for a fusion restaurant, because we wanted to showcase our creativity and diversity.
 
 The costumer role can browse the menu, search for information about the fake restaurant, and also do food orders that are sent to the employees, and after that to the chef. The costumer can write comments to the employees. When the order has come to the employee, the customer can edit the order to their liking, if they change their mind. When the order has come to the chef, the order can't be undone.  The employee role can see food order requests that the costumer has made. The employee can make messages to the chef when sending the order further to the chef.
 
@@ -26,23 +26,37 @@ Our project involved creating low-fidelity sketches with *figma* to explore diff
 
 <h2 align="center">Tech stack</h2>
 
-Our frontend is based on *react*, a popular library for building user interfaces. We also used *react-router-dom* for navigation, *react-icons* for icons, and other dependencies such as *react-scroll* and *framer-motion*. We started our project using *JavaScript*, but we wanted to take advantage of *TypeScript*'s features such as static typing and interfaces. However, we encountered many errors and compatibility issues when we were trying to upload the repo to *render*. As a result, we decided to stick with JavaScript for the rest of the development process.
+Our frontend is based on *react*, a popular library for building user interfaces. We also used *react-router-dom* for navigation, and other dependencies such as *react-scroll* and *framer-motion*. We started our project using *TypeScript*, to take advantage of its features such as static typing and interfaces. However, we encountered many errors and compatibility issues when we were trying to upload the repo to *render*. As a result, we decided to stick with JavaScript for the rest of the development process.
 
-We built our backend using *express*, a web framework for Node.js, and *mongoDB atlas*, a cloud database service. To enhance the security and performance of our backend, we also used *helmet*, a middleware that sets various HTTP headers, *morgan*, a logger that records the requests and responses, *mongoose*, an object data modeling library that simplifies working with mongoDB, and *nodemon*, a tool that automatically restarts the server when changes are detected. The backend is a *RESTful API*.
+We built our backend using *express*, a web framework for **Node.js**, and *mongoDB atlas*, a cloud database service. To enhance the security and performance of our backend, we also used *helmet*, a middleware that sets various HTTP headers, *morgan*, a logger that records the requests and responses, *mongoose*, an object data modeling library that simplifies working with mongoDB, and *nodemon*, a tool that automatically restarts the server when changes are detected. The backend is a *RESTful API*.
 
 All of these packages are to be found at [npm](https://www.npmjs.com/) ❤️
 
-<h2 align="center">Where to begin</h2>
+<h2 align="center">How to start</h2>
+<h3 align="center">On render 🚀</h3>
 
-You can start messing around with this project live!
-To experience this project live, without the hassle of cloning and changing some stuff. Can you do everything live on *render*.
-
- - Visit this render link
+You can start messing around visually with this project live on *render*!
+ - Visit this [render link](https://funkyfusion.onrender.com/).
  - Give it some time to load, this web service is using a free subscription.
+ 
+<h3 align="center">Locally 💻</h3>
+
+To start the project locally you need to clone this repo to your host machine.
+
+ - [ ] Please start your favorite terminal (git preferred) and with node installed.
+ - [ ] Write this in the terminal:  `git clone https://github.com/folkuni-f22-fullstack/CrazyMonkeys.git`
+ - [ ] Open the newly created folder with the terminal; `cd CrazyMonkeys`
+ - [ ] After that you write `npm i` to install the required packages
+ - [ ] When in the folder, you write `npm run dev` to start the frontend.
+ - [ ] Last you need to do is navigating to the folder called *api* and open a terminal there and write `npm run start` to start express.
+ - [ ] When done with all the steps above, you can navigate to `http://localhost:5173/` in your preferred browser
 
 <h2 align="center">API documentation</h2>
+
+You don't need to use the frontend to do orders, send costumer messages to employee, employee message to chef, thanks to our own **API**. That means you can do everything at the backend with *insomnia* or *postman*. When we tested our api, we used insomnia.
+
 <h3 align="center">Data Modeling</h3>
 
-<h3 align="center">Endpoints </h3>
+<h3 align="center">Endpoints</h3>
 
 Amazing! Thank you for reading this README! ❤️
