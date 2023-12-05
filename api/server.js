@@ -7,6 +7,8 @@ import menuRoute from "./routes/menu.js";
 import messagesRoute from "./routes/message.js";
 import orderRoute from "./routes/orders.js";
 import authRoute from "./routes/users.js";
+import { join, dirname } from 'path'
+import { fileURLToPath } from 'url'
 
 dotenv.config();
 const app = express();
