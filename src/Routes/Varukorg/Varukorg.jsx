@@ -1,4 +1,3 @@
-import { BiPlus, BiMinus } from "react-icons/bi";
 import { useEffect, useState, useContext } from "react";
 import { FunkyContext } from "../../ContextRoot";
 import "./StyleVarukorg.css";

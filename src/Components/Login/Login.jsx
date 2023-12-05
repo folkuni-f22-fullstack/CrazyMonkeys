@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { FunkyContext } from "../../ContextRoot.jsx";
-import { AiOutlineClose } from "react-icons/ai";
+import CloseIcon from '@mui/icons-material/Close';
 import { useNavigate } from "react-router-dom";
 import { handleLoginEmp } from "./loginFetch.js";
 
@@ -84,7 +84,7 @@ const handleLogin = () => {
     <form onSubmit={handleSubmit}>
       <dialog className="login-overlay" ref={loginDialogRef}>
         <span className="close-overlay" onClick={() => stateLoginDialog(false)}>
-          <AiOutlineClose className="close-icon" />
+          <CloseIcon className="close-icon" />
         </span>
         <h1 className="login-title"> Inloggning för anställda</h1> {errorCred && 
                     <div>Hej</div>

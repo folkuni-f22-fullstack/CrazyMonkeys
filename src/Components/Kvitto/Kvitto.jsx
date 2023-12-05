@@ -1,8 +1,8 @@
  import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { TbTruckDelivery } from 'react-icons/tb';
-import { AiOutlineFieldTime } from 'react-icons/ai';
-import { MdOutlinePeopleAlt } from 'react-icons/md';
+import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
+import TimerIcon from '@mui/icons-material/Timer';
+import GroupIcon from '@mui/icons-material/Group';
 import image from './image/image 19.png';
 import { StepsHeader } from "../StepsHeader/StepsHeader.jsx";
 // import 
@@ -45,14 +45,14 @@ const Kvitto = ({ orderNumber }) => {
                 {!chosenDeliveryOption ? 
               <div>
                 <span className='kvitto-icons'>
-                  <AiOutlineFieldTime size={35}  />
+                  <TimerIcon size={35}  />
                   <span>Order Time: {isFoodReady} min</span>
                 </span>
               </div>
                :
               <div>
                 <span >
-                  <TbTruckDelivery size={35} />
+                  <DeliveryDiningIcon size={35} />
                   <span>Leverans: {deliveryTime} min</span>
                 </span>
               </div> 
@@ -60,7 +60,7 @@ const Kvitto = ({ orderNumber }) => {
     
               <div>
                 <span className='kvitto-icons'>
-                  <MdOutlinePeopleAlt size={35} className='person-icon'/>
+                  <GroupIcon size={35} className='person-icon'/>
                   <span>Order nr: {recipeId}</span>
                 </span>
               </div>

@@ -1,14 +1,15 @@
 import { useContext, useState, useRef} from "react";
 
 import "./footer.css";
-import { LuLogIn } from "react-icons/Lu";
-import { FaInstagram } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaFacebook } from "react-icons/fa";
-import { BsFillTelephoneFill } from "react-icons/bs";
-import { BiSolidCopyright } from "react-icons/bi";
-import { SiGooglemaps } from "react-icons/si";
-import { IoIosMail } from "react-icons/io";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faArrowRightToBracket} from "@fortawesome/free-solid-svg-icons"
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import PlaceIcon from '@mui/icons-material/Place';
+import CopyrightIcon from '@mui/icons-material/Copyright';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import MailIcon from '@mui/icons-material/Mail';
 import { Login } from "../Login/Login";
 import ff from "../../assets/footerpagepic/FF-red.png";
 import "../Login/login.css";
@@ -38,25 +39,26 @@ function Footer() {
       <section className="footer-container"  ref={footerRef}>
         <div className="created-by-container ">
           <p className="created-by-p">
-            <BiSolidCopyright className="copyright-icon" />
+            <CopyrightIcon className="copyright-icon" />
             Created by CrazyMonkeys
           </p>
         </div>
 
         <div className="media-container">
           <div className="media icons">
-            <FaInstagram className="instagram-icon" />
-            <FaXTwitter className="twitter-icon" />
-            <FaFacebook className="facebook-icon" />
+          <InstagramIcon/>
+          <FacebookIcon/>
+          <TwitterIcon/>
           </div>
 
           <div className="icon-container">
-            <BsFillTelephoneFill className="phone-icon" />
+            {/* <BsFillTelephoneFill className="phone-icon" /> */}
+            {/* <BsFillTelephoneFill className="phone-icon" /> */}
             054-240 240
           </div>
         </div>
         <div className="created-by-container">
-          <LuLogIn
+          <FontAwesomeIcon icon={faArrowRightToBracket} 
             className="login-icon"
             onClick={() => stateLoginDialog(true)}
           />
@@ -87,34 +89,35 @@ function Footer() {
             <h3 className="footer-logo">Funky Fusion</h3>
             <img className="ff-pic" src={ff} alt="FFlogga" />
             <p>
-              <BiSolidCopyright className="copyright-icon" /> Created by Crazy
+              <CopyrightIcon className="copyright-icon" /> Created by Crazy
               Monkeys
             </p>
           </div>
           <div className="footer-column">
             <h3 className="contact-us">Kontakta oss</h3>
             <p>
-              <SiGooglemaps className="dark-icons" /> Drottninggatan 174,
+              <PlaceIcon className="dark-icons" /> Drottninggatan 174,
               Karlstad
             </p>
             <p>
-              <BsFillTelephoneFill className="dark-icons" /> 054-240 240
+              <LocalPhoneIcon className="dark-icons" /> 054-240 240
             </p>
             <p>
-              <IoIosMail className="dark-icons" /> Funky_Fusion@CrazyMonkeys.com
+              <MailIcon className="dark-icons" /> Funky_Fusion@CrazyMonkeys.com
             </p>
             <div className="media-icons-desktop">
               <p className="follow-us">Följ oss</p>
-              <FaInstagram className="instagram-icon" />
-              <FaXTwitter className="twitter-icon" />
-              <FaFacebook className="facebook-icon" />
+              <InstagramIcon/>
+              <FacebookIcon/>
+              <TwitterIcon/>
+
             </div>
             {isLoggedIn ?  
-            <LuLogIn
+            <FontAwesomeIcon icon={faArrowRightToBracket} 
               className="login-icon"
               onClick={() => navigateToEmplyee()}
             /> :
-            <LuLogIn
+            <FontAwesomeIcon icon={faArrowRightToBracket} 
               className="login-icon"
               onClick={() => stateLoginDialog(true)}
             />

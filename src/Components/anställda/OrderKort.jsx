@@ -2,10 +2,12 @@ import React, { useState, useContext, useEffect } from "react";
 import "./orderKort.css";
 import { removeOrderItem } from "../../dataApi/removeOrderItem.js";
 import { postItemOrder } from "../../dataApi/postToOrder.js";
-import { IoAddCircleSharp } from "react-icons/io5";
-import { IoIosCloseCircle } from "react-icons/io";
+ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faCircleXmark, faCirclePlus} from "@fortawesome/free-solid-svg-icons"
+
 import { FunkyContext } from "../../ContextRoot";
 import MenuEmployee from "./MenuEmployee.jsx";
+
 
 export default function OrderKort(props) {
     const [isClicked, setIsClicked] = useState(false);
@@ -58,15 +60,15 @@ export default function OrderKort(props) {
                                     <button
                                         onClick={() => setIsClicked(false)}
                                         className="add-item-to-order-btn"
-                                    >
-                                        <IoIosCloseCircle color="#F08282" size={30} />
+                                        >
+                                        <FontAwesomeIcon size="2x" color="red" icon={faCircleXmark} />
                                     </button>
                                 ) : (
                                     <button
-                                        onClick={() => setIsClicked(true)}
-                                        className="add-item-to-order-btn"
+                                    onClick={() => setIsClicked(true)}
+                                    className="add-item-to-order-btn"
                                     >
-                                        <IoAddCircleSharp size={30} />
+                                    <FontAwesomeIcon size="2x"  icon={faCirclePlus} />
                                     </button>
                                 )}
                             </>
