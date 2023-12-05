@@ -70,7 +70,8 @@ router.post("/login", async (req, res) => {
         res.send({ id: user._id, token: token, status: status });
     } catch (error) {
         // Om ett fel inträffar, skicka en 500-status och felinformation som JSON
-        res.status(500).json(error);
+        res.status(500).json(error, "Detta är från senaste");
+        
     }
 });
 
