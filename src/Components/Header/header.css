@@ -1,0 +1,167 @@
+
+.header-container {
+  background-color: #183a37;
+  padding: 0.2em 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  border-bottom: 0.1px solid #c0b8b896;
+}
+.loggo {
+  width: 3em;
+  margin-bottom: -27px;
+  display: block;
+}
+.desktop-img {
+  display: none;
+}
+.header-container .navbar{
+  text-decoration: none;
+}
+.navbar {
+  display: none;
+  color: white; 
+  cursor: pointer;
+}
+.shopping-cart {
+  width: 2em;
+  height: 1.8em;
+  margin-left: 10px;
+  margin: 0.5em 1em;
+  display: block;
+}
+.cart-icon {
+  color: white; 
+  font-size: 29px;
+  cursor: pointer;
+}
+.overlay {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 76%);
+  background-color: white;
+  padding: 30em;
+  text-align: center;
+  z-index: 1000;
+  color: white;
+  background-color: #171010;
+
+}
+.head-navbar{
+  text-decoration: none;
+  color:white; 
+  margin: 40px 0px;
+  width: 9em;
+  font-size: 18px;
+  font-family: var(--mont-font);
+  text-transform: uppercase;
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5em;
+}
+.menu-icon span {
+  width: 30px;
+  height: 3px;
+  background-color: aliceblue;
+  margin: 3px 0;
+  transition: transform 0.3s;
+}
+.menu-icon.cross {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+}
+.menu-icon.cross span {
+  width: 30px;
+  height: 3px;
+  background-color: #fffafa;
+  margin: 3px 0;
+  transition: transform 0.3s;
+}
+.menu-icon.cross span:nth-child(1) {
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+.menu-icon.cross span:nth-child(2) {
+  transform: scaleX(0);
+}
+.menu-icon.cross span:nth-child(3) {
+  transform: rotate(45deg) translate(-6px, -6px);
+}
+.darkgrey {
+  background-color: #4c5452;
+  padding: 1.5em;
+}
+
+.company-name {
+  display: none;
+}
+
+
+/* Desktop */
+
+@media screen and (min-width: 1080px) {
+  .header-container {
+    background-color: #183a37;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    border-bottom: 0.1px solid #c0b8b896;
+  }
+  .desktop-img {
+    width: 3.8em;
+    margin-bottom: -32px;
+    display: block;
+    margin-top: 0.5em;
+  }
+  .loggo {
+    display: none;
+  }
+  .shopping-cart {
+    display: none;
+  }
+  .menu-icon {
+    display: none;
+  }
+  .navbar {
+    display: block;
+    color: white;
+    font-family: var(--mont-font);
+    padding:1em;
+  }
+  .desktop-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-top:0.5em;
+  }
+  .company-name {
+    display: block;
+    color:#fffafa;
+    font-family: var(--title-font);
+    letter-spacing: 0.1em;
+  }
+  .cart-icon{
+display: none;
+  }
+
+  .overlay{
+    display: none;
+  }
+  .menu-icon.cross{
+    display: none;
+  }
+ 
+}

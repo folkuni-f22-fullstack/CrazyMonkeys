@@ -1,0 +1,103 @@
+.rubrik {
+  /* margin: auto; */
+  /* width: 100%; */
+  margin: 2em 0em 2em;
+  font-size: 16px;
+  font-family: var(--meny-font);
+}
+.dryck-column {
+  margin: 10px;
+  margin-left:1.4em;
+
+}
+
+.dryck-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.dryck-details {
+  display: flex;
+  /* flex-grow: 1; */
+}
+.drink-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.meny-p,
+.meny-price-p,
+.price,
+.quantity-button {
+  font-family: var(--meny-font);
+}
+.meny-price-p{
+  margin-right: 1em;
+  
+}
+.price-and-btn {
+  display: flex;
+}
+
+.quantity-button {
+  background-color: #183a37;
+  /* background-color: #316863; */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: transform 0.3s;
+
+  &:hover {
+    background-color: var(--hover-btn);
+    transform: scale(1.2);
+  }
+}
+
+.drink-overlay {
+  position: absolute;
+  top: 50%;
+  left: 1em;
+  width: 90%;
+  height: 5%;
+  background: var(--overlay-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+  z-index: 700;
+  padding: 1em;
+}
+
+@media screen and (min-width: 1080px) {
+  .drink-overlay {
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+}
+ .dryck-container{
+  display: flex;
+ }
+ .drink-container {
+  margin: 0em 0.4em;
+  border-radius: 5px;
+}
+ .dryck-column {
+  width: 100%;
+  margin: 0em 2em 3em;
+
+}
+.meny-price-p{
+  display: flex;
+  align-items: center;
+}
+}
