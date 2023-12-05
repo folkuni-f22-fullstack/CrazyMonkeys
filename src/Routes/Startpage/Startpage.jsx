@@ -10,7 +10,7 @@ import { motion, useInView, useAnimation } from "framer-motion";
 
 import { Link } from "react-router-dom";
 
-import "./startpage.css";
+import "../../routes/Startpage/startpage.css";
  
 
 
