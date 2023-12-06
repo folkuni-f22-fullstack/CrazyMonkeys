@@ -29,7 +29,7 @@ export function Login() {
     if (username !== "" && password !== "") {
       try {
         // Skicka en förfrågan till backend-routen med Fetch
-        const login = await handleLoginEmp(username, password, afterLogin, wrongCred);
+        const login = await handleLoginEmp(username, password, afterLogin);
         setEmployeeStatus(login.data.status);
       } catch (error) {
         console.error("Något gick fel:", error);
@@ -40,7 +40,7 @@ export function Login() {
     async function afterLogin(login, status) {
         if (login) {
             sessionStorage.getItem("jwt");
-            setErrorCred(false);
+            setLoginFailedMsg(false);
             if (sessionStorage.getItem("jwt")) {
                 if (status === "employee") {
                     setIsLoggedIn(true);
@@ -58,9 +58,7 @@ export function Login() {
         }
     }
 
-    async function wrongCred() {
-        setErrorCred(true);
-    }
+
 };
 
 

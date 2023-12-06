@@ -207,6 +207,7 @@ export function Delivery() {
 
     const backButton = () => {
         navigate("/varukorg")
+        setSelectStep(1)
     }
 
     const goBackToMenu = () => {
@@ -343,31 +344,7 @@ export function Delivery() {
                         )}
                     </div>
 
-                    <div className="spacer label-above-input">
-                        <label htmlFor="own-comments-input">Egna kommentarer</label>
-                        <textarea
-                            className="input text-area no-span-input"
-                            id="own-comments-input"
-                            name="comments"
-                            onChange={ownCommentsChange}
-                            value={deliveryOwnComments}
-                            placeholder="Jag vill inte ha gurka i thai sushin"
-                        />
-                    </div>
-
                     <div className="spacer">
-                        <div className="radio-spacing">
-                            <input
-                                id="takeaway-delivery-radio"
-                                type="radio"
-                                name="deliveryOption"
-                                onClick={() => setChosenDeliveryOption(false)}
-                                required
-                            />
-                            <label htmlFor="takeaway-delivery-radio" className="radio-label">
-                                Takeaway
-                            </label>
-                        </div>
                         <div className="radio-spacing">
                             <input
                                 id="home-delivery-radio"
@@ -376,13 +353,13 @@ export function Delivery() {
                                 onClick={() => setChosenDeliveryOption(true)}
                                 required
                             />
+                        
                             <label htmlFor="home-delivery-radio" className="radio-label">
                                 Hemleverans
                             </label>
                         </div>
-                    </div>
 
-                    {chosenDeliveryOption && (
+                        {chosenDeliveryOption && (
                         <>
                             <div className="label-above-input">
                                 <label htmlFor="address-input">Adress</label>
@@ -464,6 +441,33 @@ export function Delivery() {
                             </div>
                         </>
                     )}
+
+                        <div className="radio-spacing">
+                            <input
+                                id="takeaway-delivery-radio"
+                                type="radio"
+                                name="deliveryOption"
+                                onClick={() => setChosenDeliveryOption(false)}
+                                required
+                            />
+                            <label htmlFor="takeaway-delivery-radio" className="radio-label">
+                                Takeaway
+                            </label>
+                        </div>
+                    </div>
+
+                    <div className="spacer label-above-input">
+                        <label htmlFor="own-comments-input">Egna kommentarer</label>
+                        <textarea
+                            className="input text-area no-span-input"
+                            id="own-comments-input"
+                            name="comments"
+                            onChange={ownCommentsChange}
+                            value={deliveryOwnComments}
+                            placeholder="Jag vill inte ha gurka i thai sushin"
+                        />
+                    </div>
+
                     <div className="delivery-btn-grad">
                         <button className="btn-grad delivery-btn" type="submit" >
                             Gå till Betalning
