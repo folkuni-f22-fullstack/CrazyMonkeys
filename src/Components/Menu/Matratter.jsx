@@ -90,7 +90,7 @@ const Matratter = () => {
               <p className="matratt-p">{matratt.desc}</p>
               <div className="price-and-button">
                 <p className="menu-price"> {matratt.price} kr</p>
-                
+
                 <button
                   className="order-button"
                   onClick={() => handleAddToCart(matratt._id)}
@@ -101,7 +101,7 @@ const Matratter = () => {
             </div>
             {showMobileOverlay && orderOverlay == matratt._id && (
               <div className="mobile-menu-overlay">
-                <p>Varan har lagts i varukorgen</p>
+                <p>Varan har lagts till i varukorgen</p>
               </div>
             )}
           </motion.div>
