@@ -48,7 +48,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 15em;
+  /* width: 15em; */
   margin: 1em 1em 1em;
 }
 .menu-price {
