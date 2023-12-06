@@ -109,12 +109,6 @@ const Tillbehor = ({setSelectedItems}) => {
                     <p>Varan har lagts till i varukorgen</p>
                 </div>
             )}
-            {/* <div className="order-btn-grad-div">
-                <button className="btn-grad" onClick={handleAddAllToCart}>
-                    {" "}
-                    Gå till varukorg
-                </button>
-            </div> */}
         </>
     );
 };
