@@ -9,201 +9,154 @@ import "./DeliveryStyle.css";
 
 export function Delivery() {
     const navigate = useNavigate();
-    const [status, setStatus] = useState("untreated")
-
     const {
         orderToSend,
-        order,
         setOrder,
         setCustomerInfo,
-        customerInfo,
         selectStep,
         setSelectStep,
-        deliveryFirstName, setDeliveryFirstName, deliveryLastName, setDeliveryLastName, deliveryEmail, setDeliveryEmail, deliveryPhoneNumber, setDeliveryPhoneNumber, deliveryOwnComments, setDeliveryOwnComments, deliveryAddress, setDeliveryAddress, deliveryCounty, setDeliveryCounty, deliveryApartmentNumber, setDeliveryApartmentNumber, deliveryPostNumber, setDeliveryPostNumber, deliveryFloor, setDeliveryFloor, deliveryPortCode, setDeliveryPortCode, chosenDeliveryOption, setChosenDeliveryOption
-    } = useContext(FunkyContext);
-
-    // States
-
+        // Other context variables
+      } = useContext(FunkyContext);
     
-
-    const [isEmptyFirstName, setIsEmptyFirstName] = useState(false);
-
-    const [isEmptyLastName, setIsEmptyLastName] = useState(false);
-
-    const [isEmptyPhoneNumber, setIsEmptyPhoneNumber] = useState(false);
-
-    const [isEmptyEmail, setIsEmptyEmail] = useState(false);
-
-    // Validation
-    const [wrongFirstName, setWrongFirstName] = useState(false);
-
-    const [wrongLastName, setWrongLastName] = useState(false);
-
-    const [wrongPhoneNumber, setWrongPhoneNumber] = useState(false);
-
-    const [wrongEmail, setWrongEmail] = useState(false);
-
-
-
-    const firstNameChange = (e) => {
-        setDeliveryFirstName(e.target.value);
-
-        if (e.target.value === "") {
-            setIsEmptyFirstName(true);
-        } else {
-            setIsEmptyFirstName(false);
+      const [status, setStatus] = useState("untreated");
+    
+      const [firstName, setFirstName] = useState("");
+      const [lastName, setLastName] = useState("");
+      const [customerEmail, setEmail] = useState("");
+      const [customerPhone, setPhone] = useState("");
+      const [ownComments, setOwnComments] = useState("");
+      const [customerAddress, setAddress] = useState("");
+      const [customerCounty, setCounty] = useState("");
+      const [apartmentNumber, setApartmentNumber] = useState("");
+      const [postNumber, setPostNumber] = useState("");
+      const [customerFloor, setFloor] = useState("");
+      const [portCode, setPortCode] = useState("");
+      const [chosenDeliveryOption, setChosenDeliveryOption] = useState(true);
+    
+      // Validation states
+      const [isEmptyFirstName, setIsEmptyFirstName] = useState(false);
+      const [isEmptyLastName, setIsEmptyLastName] = useState(false);
+      const [isEmptyPhoneNumber, setIsEmptyPhoneNumber] = useState(false);
+      const [isEmptyEmail, setIsEmptyEmail] = useState(false);
+    
+      const [wrongFirstName, setWrongFirstName] = useState(false);
+      const [wrongLastName, setWrongLastName] = useState(false);
+      const [wrongPhoneNumber, setWrongPhoneNumber] = useState(false);
+      const [wrongEmail, setWrongEmail] = useState(false);
+    
+      const isValidFirstName = isValidName(firstName);
+      const isValidLastName = isValidName(lastName);
+      const isValidNumber = isValidPhoneNumber(customerPhone);
+      const isValidEmail = isValidEmailAddress(customerEmail);
+    
+      const validationErrorBorder = (empty, wrong, isValid) => {
+        return {
+          border: empty
+            ? null
+            : wrong
+            ? isValid
+              ? "2px solid #48E761"
+              : "2px solid #FF0000"
+            : null,
+        };
+      };
+    
+      const handleSubmit = (event) => {
+        event.preventDefault();
+    
+        const isValid =
+          isValidFirstName &&
+          isValidLastName &&
+          isValidNumber &&
+          isValidEmail;
+    
+        if (isValid) {
+          const customerInfo = {
+            name: `${firstName} ${lastName}`,
+            mail: customerEmail,
+            mobile: customerPhone,
+            adress: chosenDeliveryOption ? customerAddress : "",
+            floor: chosenDeliveryOption ? customerFloor : "",
+            portCode: chosenDeliveryOption ? portCode : "",
+            comments: ownComments,
+            status: status,
+          };
+    
+          setCustomerInfo(customerInfo);
+          navigate("/betalning");
+          setSelectStep(3);
         }
-    };
-
-    const lastNameChange = (e) => {
-        setDeliveryLastName(e.target.value);
-
+      };
+    
+      const firstNameChange = (e) => {
+        setFirstName(e.target.value);
+    
         if (e.target.value === "") {
-            setIsEmptyLastName(true);
+          setIsEmptyFirstName(true);
         } else {
-            setIsEmptyLastName(false);
+          setIsEmptyFirstName(false);
         }
-    };
-
-    const emailChange = (e) => {
-        setDeliveryEmail(e.target.value);
-
+      };
+    
+      const lastNameChange = (e) => {
+        setLastName(e.target.value);
+    
         if (e.target.value === "") {
-            setIsEmptyEmail(true);
+          setIsEmptyLastName(true);
         } else {
-            setIsEmptyEmail(false);
+          setIsEmptyLastName(false);
         }
-    };
-
-    const phoneNumberChange = (e) => {
-        setDeliveryPhoneNumber(e.target.value);
-
+      };
+    
+      const emailChange = (e) => {
+        setEmail(e.target.value);
+    
         if (e.target.value === "") {
-            setIsEmptyPhoneNumber(true);
+          setIsEmptyEmail(true);
         } else {
-            setIsEmptyPhoneNumber(false);
+          setIsEmptyEmail(false);
         }
-    };
+      };
+    
+      const phoneNumberChange = (e) => {
+        setPhone(e.target.value);
+    
+        if (e.target.value === "") {
+          setIsEmptyPhoneNumber(true);
+        } else {
+          setIsEmptyPhoneNumber(false);
+        }
+      };
 
     const addressChange = (e) => {
-        setDeliveryAddress(e.target.value);
+        setAddress(e.target.value);
     };
 
     const ownCommentsChange = (e) => {
-        setDeliveryOwnComments(e.target.value);
+        setOwnComments(e.target.value);
     };
 
     const countyChange = (e) => {
-        setDeliveryCounty(e.target.value);
+        setCounty(e.target.value);
     };
 
     const apartmentNumberChange = (e) => {
-        setDeliveryApartmentNumber(e.target.value);
+        setApartmentNumber(e.target.value);
     };
 
     const postNumberChange = (e) => {
-        setDeliveryPostNumber(e.target.value);
+        setPostNumber(e.target.value);
     };
 
     const floorChange = (e) => {
-        setDeliveryFloor(e.target.value);
+        setFloor(e.target.value);
     };
 
     const portCodeChange = (e) => {
-        setDeliveryPortCode(e.target.value);
+        setPortCode(e.target.value);
     };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
 
-        if (chosenDeliveryOption) {
-            if (
-                deliveryFirstName !== "" &&
-                deliveryLastName !== "" &&
-                deliveryEmail !== "" &&
-                deliveryPhoneNumber !== "" &&
-                deliveryAddress !== "" &&
-                deliveryCounty !== "" &&
-                deliveryApartmentNumber !== "" &&
-                deliveryPostNumber !== "" &&
-                deliveryFloor !== "" &&
-                deliveryPortCode !== "" && isValidFirstName && isValidLastName && isValidEmail && isValidNumber
-            ) {
-                if (deliveryOwnComments !== "") {
-                    setCustomerInfo({
-                        name: `${deliveryFirstName} ${deliveryLastName}`,
-                        mail: deliveryEmail,
-                        mobile: deliveryPhoneNumber,
-                        adress: deliveryAddress,
-                        floor: deliveryFloor,
-                        portCode: deliveryPortCode,
-                        comments: deliveryOwnComments,
-                        status: status
-                    });
-                } else {
-                    setCustomerInfo({
-                        name: `${deliveryFirstName} ${deliveryLastName}`,
-                        mail: deliveryEmail,
-                        mobile: deliveryPhoneNumber,
-                        adress: deliveryAddress,
-                        floor: deliveryFloor,
-                        portCode: deliveryPortCode,
-                        comments: "",
-                        status: status
-                    });
-                }
-                navigate("/betalning");
-                setSelectStep(3);
-            }
-        } else {
-            if (deliveryFirstName !== "" && deliveryLastName !== "" && deliveryEmail !== "" && deliveryPhoneNumber !== "" && isValidFirstName && isValidLastName && isValidEmail && isValidNumber) {
-                if (deliveryOwnComments !== "") {
-                    setCustomerInfo({
-                        name: `${deliveryFirstName} ${deliveryLastName}`,
-                        mail: deliveryEmail,
-                        mobile: deliveryPhoneNumber,
-                        adress: "",
-                        floor: "",
-                        portCode: "",
-                        comments: deliveryOwnComments,
-                        status: status
-                    });
-                } else {
-                    setCustomerInfo({
-                        name: `${deliveryFirstName} ${deliveryLastName}`,
-                        mail: deliveryEmail,
-                        mobile: deliveryPhoneNumber,
-                        adress: "",
-                        floor: "",
-                        portCode: "",
-                        comments: deliveryOwnComments,
-                        status: status
-                    });
-                }
-                navigate("/betalning");
-                setSelectStep(3);
-            }
-        }
-    };
-
-    const [isValidFirstName, notValidFirstName] = isValidName(deliveryFirstName);
-
-    const [isValidLastName, notValidLastName] = isValidName(deliveryLastName);
-    const [isValidNumber, notValidNumber] = isValidPhoneNumber(deliveryPhoneNumber);
-    const [isValidEmail, notValidEmail] = isValidEmailAddress(deliveryEmail);
-
-    // style
-    const validationErrorBorder = (empty, wrong, isValid) => {
-        return {
-            border: empty
-                ? null
-                : wrong
-                ? isValid
-                    ? "2px solid #48E761"
-                    : "2px solid #FF0000"
-                : null,
-        };
-    };
 
     const backButton = () => {
         navigate("/varukorg")
@@ -242,21 +195,24 @@ export function Delivery() {
                                     wrongFirstName,
                                     isValidFirstName
                                 )}
-                                value={deliveryFirstName}
+                                value={firstName}
                                 type="text"
                                 placeholder="Johanna"
                                 required
                             />
                             {!isEmptyFirstName && (
                                 <div className="validation-error">
-                                    <p>
-                                        {isEmptyFirstName
+                                <p>
+                                    {isEmptyFirstName
+                                        ? ""
+                                        : wrongFirstName
+                                        ? isValidFirstName
                                             ? ""
-                                            : wrongFirstName
-                                            ? notValidFirstName
-                                            : ""}
-                                    </p>
-                                </div>
+                                            : "Ogiltigt förnamn"
+                                        : ""}
+                                </p>
+                            </div>
+                            
                             )}
                         </div>
 
@@ -274,21 +230,24 @@ export function Delivery() {
                                     wrongLastName,
                                     isValidLastName
                                 )}
-                                value={deliveryLastName}
+                                value={lastName}
                                 type="text"
                                 placeholder="Doe"
                                 required
                             />
                             {!isEmptyLastName && (
-                                <div className="validation-error">
-                                    <p>
-                                        {isEmptyLastName
-                                            ? ""
-                                            : wrongLastName
-                                            ? notValidLastName
-                                            : ""}
-                                    </p>
-                                </div>
+                               <div className="validation-error">
+                               <p>
+                                   {isEmptyFirstName
+                                       ? ""
+                                       : wrongFirstName
+                                       ? isValidFirstName
+                                           ? ""
+                                           : "Ogiltigt efternamn"
+                                       : ""}
+                               </p>
+                           </div>
+                           
                             )}
                         </div>
                     </div>
@@ -301,14 +260,14 @@ export function Delivery() {
                             onChange={emailChange}
                             onBlur={() => setWrongEmail(true)}
                             style={validationErrorBorder(isEmptyEmail, wrongEmail, isValidEmail)}
-                            value={deliveryEmail}
+                            value={customerEmail}
                             type="email"
                             placeholder="johannaDoe@example.com"
                             required
                         />
                         {!isEmptyEmail && (
                             <div className="validation-error">
-                                <p>{isEmptyEmail ? "" : wrongEmail ? notValidEmail : ""}</p>
+                                <p>{isEmptyEmail ? "" : wrongEmail ? "Ogiltig Email" : ""}</p>
                             </div>
                         )}
                     </div>
@@ -326,7 +285,7 @@ export function Delivery() {
                                 wrongPhoneNumber,
                                 isValidNumber
                             )}
-                            value={deliveryPhoneNumber}
+                            value={customerPhone}
                             type="number"
                             placeholder="070 123 4561"
                             required
@@ -337,7 +296,7 @@ export function Delivery() {
                                     {isEmptyPhoneNumber
                                         ? ""
                                         : wrongPhoneNumber
-                                        ? notValidNumber
+                                        ? "Ogiltigt Telefonnummer"
                                         : ""}
                                 </p>
                             </div>
@@ -350,7 +309,7 @@ export function Delivery() {
                                 id="home-delivery-radio"
                                 type="radio"
                                 name="deliveryOption"
-                                onClick={() => setChosenDeliveryOption(true)}
+                                onClick={() => setChosenDeliveryOption(false)}
                                 required
                             />
                         
@@ -359,7 +318,7 @@ export function Delivery() {
                             </label>
                         </div>
 
-                        {chosenDeliveryOption && (
+                        {!chosenDeliveryOption && (
                         <>
                             <div className="label-above-input">
                                 <label htmlFor="address-input">Adress</label>
@@ -368,7 +327,7 @@ export function Delivery() {
                                     id="address-input"
                                     name="adress"
                                     onChange={addressChange}
-                                    value={deliveryAddress}
+                                    value={customerAddress}
                                     type="text"
                                     placeholder="Drottninggatan 17"
                                     required
@@ -382,7 +341,7 @@ export function Delivery() {
                                         className="post-number-input input no-span-input"
                                         id="post-input"
                                         onChange={postNumberChange}
-                                        value={deliveryPostNumber}
+                                        value={postNumber}
                                         type="number"
                                         placeholder="12345"
                                         required
@@ -394,7 +353,7 @@ export function Delivery() {
                                         className="county-input input no-span-input"
                                         id="county-input"
                                         onChange={countyChange}
-                                        value={deliveryCounty}
+                                        value={customerCounty}
                                         type="text"
                                         placeholder="Karlstad"
                                         required
@@ -409,7 +368,7 @@ export function Delivery() {
                                         className="input tinier-inputs no-span-input"
                                         id="apartment-input"
                                         onChange={apartmentNumberChange}
-                                        value={deliveryApartmentNumber}
+                                        value={apartmentNumber}
                                         type="number"
                                         placeholder="430"
                                     />
@@ -421,7 +380,7 @@ export function Delivery() {
                                         id="port-code-input"
                                         name="portCode"
                                         onChange={portCodeChange}
-                                        value={deliveryPortCode}
+                                        value={portCode}
                                         type="text"
                                         placeholder="*1234#"
                                     />
@@ -433,7 +392,7 @@ export function Delivery() {
                                         id="floor-input"
                                         name="floor"
                                         onChange={floorChange}
-                                        value={deliveryFloor}
+                                        value={customerFloor}
                                         type="number"
                                         placeholder="1"
                                     />
@@ -447,7 +406,7 @@ export function Delivery() {
                                 id="takeaway-delivery-radio"
                                 type="radio"
                                 name="deliveryOption"
-                                onClick={() => setChosenDeliveryOption(false)}
+                                onClick={() => setChosenDeliveryOption(true)}
                                 required
                             />
                             <label htmlFor="takeaway-delivery-radio" className="radio-label">
@@ -463,7 +422,7 @@ export function Delivery() {
                             id="own-comments-input"
                             name="comments"
                             onChange={ownCommentsChange}
-                            value={deliveryOwnComments}
+                            value={ownComments}
                             placeholder="Jag vill inte ha gurka i thai sushin"
                         />
                     </div>
