@@ -43,7 +43,7 @@ const Matratter = () => {
     fetchData();
   }, []);
 
-  const handleAddToCart = (foodId, event) => {
+  const handleAddToCart = (foodId) => {
     setShowOverlay(true);
     setShowMobileOverlay(true);
     setOrderOverlay(foodId);
@@ -104,7 +104,7 @@ const Matratter = () => {
                 <p className="menu-price"> {matratt.price} kr</p>
                 <button
                   className="order-button"
-                  onClick={(event) => handleAddToCart(matratt._id, event)}
+                  onClick={() => handleAddToCart(matratt._id)}
                 >
                   Lägg till
                 </button>
