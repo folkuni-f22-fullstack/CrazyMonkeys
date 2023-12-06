@@ -56,12 +56,44 @@ To start the project locally you need to clone this repo to your host machine.
 You don't need to use the frontend to do orders, send costumer messages to employee, employee message to chef, thanks to our own **API**. That means you can do everything at the backend with *insomnia* or *postman*. When we tested our api, we used insomnia.
 
 <h3 align="center">Data Modeling</h3>
+<h4>Orders<h4>
 
-| Property | Data type | Short description                     |
-|----------|-----------|---------------------------------------|
-| _id      | Number    | Unique identifier number from mongoDB |
-|          |           |                                       |
-|          |           |                                       |
+| Property     | Data type | Short description                                |
+|--------------|-----------|------------------------------------------------------|
+| _id              | String    | Unique identifier from mongoDB                   |
+| orderId          | Number    | Unique identifier                                |
+| status           | String    | Tells if order is being worked on or is finished |
+| customerName     | String    | The customer's name of the order                 |
+| adress           | String    | The customer's home address                      |
+| floor            | String    | What floor the customer lives on                 |
+| portCode         | String    | The apartment building that the customer lives in|
+| mail             | String    | The customer's e-mail address                    |
+| mobile           | Number    | The customer's phone number                      |
+| items            | Array     | All the food articles in the order               |
+| commentsEmployee | Array     | Comments to chef from employee                   |
+
+<h4>Users</h4>
+
+| Property | Data type | Short description                                  |
+|----------|-----------|----------------------------------------------------|
+| _id      | String    | Unique identifier from mongoDB                     |
+| status   | String    | Tells what kind of user there is, chef or employee |
+| username | String    | The name for the specific user                     |
+| password | String    | The password for the specific user                 |
+
+<h4>Menus</h4>
+
+| Property | Data type | Short description                       |
+|----------|-----------|-----------------------------------------|
+| _id      | String    | Unique identifier from mongoDB          |
+| itemId   | Number    | Unique identifier                       |
+| itemType | String    | What kind of article it is, drink, dish |
+| name     | String    | The name of a specific article          |
+| price    | Number    | The price of a specific article         |
+| desc     | String    | A description of a specific article     |
+| img      | String    | Link to a image for the article         |
+
+<h4>Messages</h4>
 
 <h3 align="center">Endpoints</h3>
 
