@@ -68,7 +68,7 @@ You don't need to use the frontend to do orders, send costumer messages to emplo
 | floor            | String    | What floor the customer lives on                 |
 | portCode         | String    | The apartment building that the customer lives in|
 | mail             | String    | The customer's e-mail address                    |
-| mobile           | Number    | The customer's phone number                      |
+| mobile           | String    | The customer's phone number                      |
 | items            | Array     | All the food articles in the order               |
 | commentsEmployee | Array     | Comments to chef from employee                   |
 
