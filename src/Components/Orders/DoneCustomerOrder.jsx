@@ -46,7 +46,6 @@ const DoneCustomerOrder = ({ chartData, orders, deleteDoneOrder }) => {
                                     <hr />
                                     {/* Render OrderKort outside the loop */}
                                     <OrderKort key={order.id} order={order} orders={orders} />
-                                    <p>Kommentarer från anställd: {order.commentsEmployee}</p>
 
                                     <details>
                                         <summary className="summary-box">Info om kund</summary>
