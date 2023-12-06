@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import OrderKort from "../anställda/OrderKort";
 import { updateOrder } from "../../dataApi/updateStatus&Msg.js";
-import { FunkyContext } from "../../ContextRoot";
+import { FunkyContext } from "../../ContextRoot.jsx";
 
 const UnderTreatmentOrder = ({ chartData, orders, moveOrder }) => {
     const [selectOrder, setSelectOrder] = useState({});
@@ -11,11 +11,11 @@ const UnderTreatmentOrder = ({ chartData, orders, moveOrder }) => {
     const onSelectOrder = (order) => {
         setSelectOrder(order);
         setOrderStatus("done");
-        console.log(selectOrder, orderStatus);
+       
     };
 
     const onSubmitOrder = async (order) => {
-        console.log(order._id);
+       
         await moveOrder(order._id)
         const response = await updateOrder(orderStatus, order._id, ".");
     };
@@ -68,7 +68,7 @@ const UnderTreatmentOrder = ({ chartData, orders, moveOrder }) => {
                                     {emplyeeStatus === "chef" && (
                                         <div className="button-to-right-div">
                                         <button
-                                            className="button-confirm"
+                                            className="button-confirm btn-chef"
                                             type="submit"
                                             onClick={() => onSubmitOrder(order)}
                                         >

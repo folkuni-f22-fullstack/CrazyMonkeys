@@ -2,21 +2,17 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-import Matratter from "../Menu/Matratter.tsx";
-import Drycker from "../Menu/Dryck.tsx";
-import Tillbehor from "../Menu/Tillbehor.tsx";
+import Matratter from "./Matratter.jsx";
+import Drycker from "./Dryck.jsx";
+import Tillbehor from "./Tillbehor.jsx";
 import "../assets/menu.css";
 
-import { FunkyContext } from "../../ContextRoot.tsx";
-import { StepsHeader } from "../StepsHeader/StepsHeader";
+import { FunkyContext } from "../../ContextRoot.jsx";
+import { StepsHeader } from "../StepsHeader/StepsHeader.jsx";
 
-interface ButtonProps {
-    category: string;
-    onClick: (category: string) => void;
-    active: boolean;
-}
 
-const Button: React.FC<ButtonProps> = ({ category, onClick, active }) => {
+
+const Button = ({ category, onClick, active }) => {
     const handleClick = () => {
         onClick(category);
     };
@@ -33,7 +29,7 @@ function Menu() {
     const {setSelectStep} = useContext(FunkyContext)
 
     const navigate = useNavigate()
-    const handleCategoryChange = (category: string) => {
+    const handleCategoryChange = (category) => {
         setActiveCategory(category);
     };
 

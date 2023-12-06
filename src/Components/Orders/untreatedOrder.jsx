@@ -111,9 +111,6 @@ const UntreatedOrder = ({
   };
 
   const onSubmitOrder = async (order) => {
-    console.log(order._id);
-    console.log(customerName);
-    console.log(orderId);
     moveOrder(order._id);
     const response = await updateOrder(orderStatus, order._id, msgToCook);
   };

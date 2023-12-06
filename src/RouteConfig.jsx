@@ -1,16 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 
 // Routes
-import Root from "./Routes/Root";
-import Menu from "./Components/Menu/menu";
-import StartPage from "./Routes/Startpage/Startpage";
+import Root from "./Routes/Root.jsx";
+import Menu from "./Components/Menu/menu.jsx";
+import StartPage from "./Routes/Startpage/Startpage.jsx";
 import Varukorg from "./Routes/Varukorg/Varukorg.jsx";
 import { Delivery } from "./Routes/Delivery/Delivery.jsx";
-import Payment from "./Routes/Payment/Payment.tsx";
-import Kvitto from "./Components/Kvitto/Kvitto.tsx";
+import Payment from "./Routes/Payment/Payment.jsx";
+import Kvitto from "./Components/Kvitto/Kvitto.jsx";
 import { EmployeeView } from "./Routes/EmployeeView/EmployeeView.jsx";
 import Chefsview from "./routes/Chefsview/Chefsview.jsx";
-import AboutUs from "./Components/Om oss/Om-oss.tsx";
+import AboutUs from "./Components/Om oss/Om-oss.jsx";
 
 const router = createBrowserRouter([
   {

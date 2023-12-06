@@ -9,18 +9,13 @@ const DoneCustomerOrder = ({ chartData, orders, deleteDoneOrder }) => {
     const onSelectOrder = (order) => {
         setSelectOrder(order);
         setOrderStatus("done");
-        console.log(selectOrder, orderStatus);
     };
-
 
     const cancelOrder = (orderId) => {
         chartData.filter((order) => order._id !== orderId);
         removeOrder(orderId);
         deleteDoneOrder(orderId);
-        
     };
-
-
 
     return (
         <>
@@ -72,12 +67,12 @@ const DoneCustomerOrder = ({ chartData, orders, deleteDoneOrder }) => {
                                 Visa Order
                             </button>
                             <button
-                                                        className="button-decline" title="Ta bort hela ordern"
-                                                        onClick={() => cancelOrder(order._id)}
-                                                    >
-                                                        <span className="material-symbols-outlined">delete</span>
-                                                    </button>
-                            
+                                className="button-decline"
+                                title="Ta bort hela ordern"
+                                onClick={() => cancelOrder(order._id)}
+                            >
+                                <span className="material-symbols-outlined trash">delete</span>
+                            </button>
                         </div>
                     )}
                 </div>

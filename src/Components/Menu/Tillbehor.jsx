@@ -1,9 +1,8 @@
 import { useEffect, useState, useContext } from "react";
 import { motion } from "framer-motion";
-
 import "../assets/Tillbehor.css";
-import { FunkyContext } from "../../ContextRoot";
-import Kundkorg from "./../anställda/AnställdaOrdrar";
+import { FunkyContext } from "../../ContextRoot.jsx";
+
 
 
 const Tillbehor = () => {
@@ -39,7 +38,7 @@ const Tillbehor = () => {
     fetchData();
   }, []);
 
-  const handleAddToCart = (foodId: string) => {
+  const handleAddToCart = () => {
     setShowTillbehorOverlay(true);
     const existingOrder = order.find(
       (orderItem) => orderItem.itemId === foodId
@@ -61,7 +60,7 @@ const Tillbehor = () => {
         quantity: 1,
       };
       setOrder((prevOrder) => [...prevOrder, newOrder]);
-      console.log(orderToSend);
+     
     }
     setItemCounter(itemCounter + 1);
     setTimeout(() => {
@@ -74,7 +73,7 @@ const Tillbehor = () => {
       <h3 className="tillbehor-title">Tillbehör</h3>
       <div className="tillbehor-container">
         {tillbehorData.map((tillbehor) => (
-          <motion.div initial={{y: "-10%", opacity: 0 }} animate={{y: "0%", opacity: 1}} transition={{ duration: 1 }} className="tillbehor-item" key={tillbehor._Id}>
+          <motion.div initial={{y: "-10%", opacity: 0 }} animate={{y: "0%", opacity: 1}} transition={{ duration: 1 }} className="tillbehor-item" key={tillbehor._id}>
             <div className="tillbehor-img">
               <img src={tillbehor.img} alt="" />
             </div>

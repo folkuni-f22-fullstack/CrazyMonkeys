@@ -93,11 +93,11 @@ const moveOrder = (orderId) => {
       
             copy.splice(foundOrderIndex, 1);
 
-            console.log("Order Removed: ", copy);
+            
             return copy;
         }
 
-        console.log("Order Not Found: ", prevData);
+       
         return prevData;
     });
 };

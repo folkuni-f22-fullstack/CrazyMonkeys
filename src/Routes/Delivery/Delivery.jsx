@@ -146,8 +146,8 @@ export function Delivery() {
                         mail: deliveryEmail,
                         mobile: deliveryPhoneNumber,
                         adress: deliveryAddress,
-                        floor,
-                        portCode,
+                        floor: deliveryFloor,
+                        portCode: deliveryPortCode,
                         comments: "",
                         status: status
                     });
@@ -422,8 +422,8 @@ export function Delivery() {
                                         name="portCode"
                                         onChange={portCodeChange}
                                         value={deliveryPortCode}
-                                        type="number"
-                                        placeholder="1234"
+                                        type="text"
+                                        placeholder="*1234#"
                                     />
                                 </div>
                                 <div className="label-above-input">

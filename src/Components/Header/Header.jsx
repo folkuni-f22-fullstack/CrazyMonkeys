@@ -3,10 +3,10 @@ import Loggo from "../../assets/Loggo.png";
 import { useState, useContext } from "react";
 import desktop from "../../assets/Desktoplogga.png";
 import { NavLink } from "react-router-dom";
-import { IoCartOutline } from "react-icons/io5";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from "react-scroll";
 import { motion } from "framer-motion"
-import {FunkyContext} from "../../ContextRoot.tsx"
+import {FunkyContext} from "../../ContextRoot.jsx"
 
 const MotionNavLink = motion(NavLink);
 
@@ -106,7 +106,7 @@ function Header() {
         </Link>
 
         <NavLink onClick={goBackToCart} to="/varukorg" className="cart-icon">
-          <IoCartOutline />
+          <ShoppingCartIcon />
           </NavLink>
 
         {showOverlay && (

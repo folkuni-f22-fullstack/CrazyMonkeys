@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { FunkyContext } from "../../ContextRoot.tsx";
+import { FunkyContext } from "../../ContextRoot.jsx";
 
 const OrderComponent = () => {
     const { orderToSend, customerInfo, order } = useContext(FunkyContext);
@@ -13,7 +13,7 @@ const OrderComponent = () => {
             };
         });
 
-        console.log("order", order);
+   
 
         const orderTo = {
             orderId: orderToSend.orderId,
@@ -43,7 +43,7 @@ const OrderComponent = () => {
     };
 
     const handleOrderPost = async () => {
-        console.log(orderToSend);
+      
         // console.log("orderData", );
         try {
             await postCustomerOrder();

@@ -1,4 +1,3 @@
-import { BiPlus, BiMinus } from "react-icons/bi";
 import { useEffect, useState } from "react";
 import "./anställdaordrar.css";
 // import {postCustomerOrder} from "../../dataApi/postOrder.jsx"

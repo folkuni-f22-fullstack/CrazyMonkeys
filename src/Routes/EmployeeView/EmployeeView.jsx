@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import {FunkyContext} from "../../ContextRoot.tsx"
+import {FunkyContext} from "../../ContextRoot.jsx"
 import {handleLogout} from "../../Components/Login/loginFetch.js"
 import '../../App.css'
 
@@ -24,7 +24,7 @@ export const EmployeeView = () => {
     const [doneData, setDoneData] = useState([]);
     const [orders, setOrders] = useState([]);
     const [menuName, setMenuNames] = useState([]);
-
+    
     // Tabs
     const [selectTab, setSelectTab] = useState("untreated");
     const [viewTab, setView] = useState("untreated");
@@ -75,7 +75,7 @@ export const EmployeeView = () => {
                         // console.log("orderItem:", newOrderItem);
                         newOrder.items.push(newOrderItem);
                     });
-                    ;
+                    
                     ordersList.push(newOrder);
                 });
                 
@@ -91,7 +91,7 @@ export const EmployeeView = () => {
                         // console.log("orderItem:", newOrderItem);
                         newOrder.items.push(newOrderItem);
                     });
-                   ;
+
                     ordersList.push(newOrder);
                 });
 
@@ -107,7 +107,6 @@ export const EmployeeView = () => {
                         // console.log("orderItem:", newOrderItem);
                         newOrder.items.push(newOrderItem);
                     });
-                   ;
                     ordersList.push(newOrder);
                 });
               
@@ -196,11 +195,11 @@ export const EmployeeView = () => {
           
                 copy.splice(foundOrderIndex, 1);
     
-                console.log("Order Removed: ", copy);
+                
                 return copy;
             }
     
-            console.log("Order Not Found: ", prevData);
+          
             return prevData;
         });
     };
