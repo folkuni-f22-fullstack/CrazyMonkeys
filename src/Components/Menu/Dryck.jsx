@@ -44,7 +44,7 @@ const Dryck = ({setSelectedItems}) => {
             // If the item already exists in the order, increase the quantity
             setOrder((prevOrder) =>
                 prevOrder.map((orderItem) =>
-                    orderItem.itemId === foodId
+                    orderItem.itemId === dryckId
                         ? { ...orderItem, quantity: orderItem.quantity + 1 }
                         : orderItem
                 )
