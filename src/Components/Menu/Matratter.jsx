@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import "../assets/Matratter.css";
 import { FunkyContext } from "../../ContextRoot";
-import { inView, motion } from "framer-motion"
+import { inView, motion } from "framer-motion";
 // import { withRouter } from 'react-router-dom';
 
 const Matratter = () => {
@@ -22,7 +22,7 @@ const Matratter = () => {
 
   //   setOrder((prevOrder) => [...prevOrder, newOrder]);
   //   console.log('rad 21')
-    
+
   // };
 
   useEffect(() => {
@@ -35,7 +35,6 @@ const Matratter = () => {
         const data = await response.json();
         const sortedData = data.filter((item) => item.itemType === "food");
         setFood(sortedData);
-       
       } catch (error) {
         console.error(error);
       }
@@ -45,10 +44,9 @@ const Matratter = () => {
   }, []);
 
   const handleAddToCart = (foodId, event) => {
-    event.preventDefault()
     setShowOverlay(true);
     setShowMobileOverlay(true);
-    setOrderOverlay(foodId)
+    setOrderOverlay(foodId);
 
     const existingOrder = order.find(
       (orderItem) => orderItem.itemId === foodId
@@ -56,6 +54,7 @@ const Matratter = () => {
 
     if (existingOrder) {
       // Om drycken finns, öka antalet
+
       setOrder((prevOrder) =>
         prevOrder.map((orderItem) =>
           orderItem.itemId === foodId
@@ -63,87 +62,102 @@ const Matratter = () => {
             : orderItem
         )
       );
-     }
-   else {
+    } else {
       // Om drycken inte finns, lägg till en ny order
       const newOrder = {
         itemId: foodId,
         quantity: 1,
       };
-      
+
       // setOrder((prevOrder) => [...prevOrder, newOrder]);
 
-      const newList = [...order, newOrder]
-      setOrder(newList)
+      const newList = [...order, newOrder];
+      setOrder(newList);
     }
     setItemCounter(itemCounter + 1);
-      setTimeout(() => {
+    setTimeout(() => {
       setShowOverlay(false);
-      setShowMobileOverlay(false)
+      setShowMobileOverlay(false);
     }, 2000);
-    
-    };
-  return (<>
-    <motion.div className="matratt-container">
-      {food.map((matratt) => (
-        <motion.div initial={{y: "-10%", opacity: 0 }} animate={{y: "0%", opacity: 1}} transition={{ duration: 1 }} className="matratt" key={matratt._id}>
-          <h4 className="mattratter-title">{matratt.name}</h4>
+  };
+  return (
+    <>
+      <motion.div className="matratt-container">
+        {food.map((matratt) => (
+          <motion.div
+            initial={{ y: "-10%", opacity: 0 }}
+            animate={{ y: "0%", opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="matratt"
+            key={matratt._id}
+          >
+            <h4 className="mattratter-title">{matratt.name}</h4>
 
-          <div className="bottom-details">
-            <img className="matratt-image" src={matratt.img} alt={matratt.name} />
-            <p className="matratt-p">{matratt.desc}</p>
-            <div className="price-and-button">
-              <p className="menu-price"> {matratt.price} kr</p>
-              <button 
-                className="order-button"
-                onClick={(event) => handleAddToCart(matratt._id, event)}
-              >
-                Lägg till
-              </button>
+            <div className="bottom-details">
+              <img
+                className="matratt-image"
+                src={matratt.img}
+                alt={matratt.name}
+              />
+              <p className="matratt-p">{matratt.desc}</p>
+              <div className="price-and-button">
+                <p className="menu-price"> {matratt.price} kr</p>
+                <button
+                  className="order-button"
+                  onClick={(event) => handleAddToCart(matratt._id, event)}
+                >
+                  Lägg till
+                </button>
+              </div>
             </div>
-          </div>
-          {showMobileOverlay && orderOverlay == matratt._id && (
-            <div className="mobile-menu-overlay">
-              <p>Varan har lagts i varukorgen</p>
-            </div>
-          )}
-        </motion.div>
-      ))}
-   
-   {/* Desktop */}
-    </motion.div>
-    <div className="matratt-container2">
-      {food.map((matratt) => (
-        <motion.div initial={{y: "-10%", opacity: 0 }} animate={{y: "0%", opacity: 1}} transition={{ duration: 1 }}  className="matratt2" key={matratt._id}>
-          <img className="matratt-image2" src={matratt.img} alt={matratt.name} />
-          <div className="bottom-details2">
-            <h4 className="mattratter-title2">{matratt.name}</h4>
-            <p className="matratt-p2">{matratt.desc}</p>
-            <div className="price-and-button2">
-              <p className="menu-price2"> {matratt.price} :-</p>
-              <button 
-                className="order-button2"
-                onClick={(event) => handleAddToCart( matratt._id, event)}
-              >
-                Lägg till
-              </button>
-            </div>
-          </div>
+            {showMobileOverlay && orderOverlay == matratt._id && (
+              <div className="mobile-menu-overlay">
+                <p>Varan har lagts i varukorgen</p>
+              </div>
+            )}
+          </motion.div>
+        ))}
 
-          {showOverlay && orderOverlay == matratt._id  &&  (
-            <div className="menu-overlay">
-              <p>Varan har lagts i kundvagnen</p>
+        {/* Desktop */}
+      </motion.div>
+      <div className="matratt-container2">
+        {food.map((matratt) => (
+          <motion.div
+            initial={{ y: "-10%", opacity: 0 }}
+            animate={{ y: "0%", opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="matratt2"
+            key={matratt._id}
+          >
+            <img
+              className="matratt-image2"
+              src={matratt.img}
+              alt={matratt.name}
+            />
+            <div className="bottom-details2">
+              <h4 className="mattratter-title2">{matratt.name}</h4>
+              <p className="matratt-p2">{matratt.desc}</p>
+              <div className="price-and-button2">
+                <p className="menu-price2"> {matratt.price} :-</p>
+                <button
+                  className="order-button2"
+                  onClick={(event) => handleAddToCart(matratt._id, event)}
+                >
+                  Lägg till
+                </button>
+              </div>
             </div>
-          )}
-        </motion.div>
-      ))}
-      
-    </div>
-    
+
+            {showOverlay && orderOverlay == matratt._id && (
+              <div className="menu-overlay">
+                <p>Varan har lagts i kundvagnen</p>
+              </div>
+            )}
+          </motion.div>
+        ))}
+      </div>
     </>
-    
   );
- 
 };
- 
+
 export default Matratter;

@@ -38,7 +38,8 @@ const Tillbehor = () => {
     fetchData();
   }, []);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (foodId, e) => {
+    // e.preventDefault(); 
     setShowTillbehorOverlay(true);
     const existingOrder = order.find(
       (orderItem) => orderItem.itemId === foodId
@@ -87,7 +88,7 @@ const Tillbehor = () => {
                   className="add-to-cart-button"
                   onClick={(e) => {
                     e.preventDefault();
-                    handleAddToCart(tillbehor._id);
+                    handleAddToCart(tillbehor._id, e);
                   }}
                 >
                   Lägg till
