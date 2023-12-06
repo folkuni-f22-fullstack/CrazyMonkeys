@@ -1,12 +1,9 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
-
 import Matratter from "./Matratter.jsx";
 import Drycker from "./Dryck.jsx";
 import Tillbehor from "./Tillbehor.jsx";
 import "../assets/menu.css";
-
 import { FunkyContext } from "../../ContextRoot.jsx";
 import { StepsHeader } from "../StepsHeader/StepsHeader.jsx";
 
@@ -16,7 +13,7 @@ const Button = ({ category, onClick, active }) => {
     const handleClick = () => {
         onClick(category);
     };
-
+    
     return (
         <button className={`btn ${active ? "active" : ""}`} onClick={handleClick}>
             {category}
@@ -25,19 +22,28 @@ const Button = ({ category, onClick, active }) => {
 };
 
 function Menu() {
+    const [selectedItems, setSelectedItems] = useState([]);
+
+
+
     const [activeCategory, setActiveCategory] = useState("Maträtter");
-    const {setSelectStep} = useContext(FunkyContext)
+    const { orderToSend, order, setOrder, setSelectStep } = useContext(FunkyContext);
 
     const navigate = useNavigate()
     const handleCategoryChange = (category) => {
         setActiveCategory(category);
     };
 
-    const goToCart = () => {
-        navigate("/varukorg")
-        setSelectStep(1)
-    }
+  
 
+    const handleAddAllToCart = () => {
+        const updatedOrder = [...order, ...selectedItems];
+        setOrder(updatedOrder);
+        setSelectedItems([]);
+        navigate("/varukorg");
+    };
+    
+    
     return (
         <div className="outer-container">
             <div className="inner-container">
@@ -65,12 +71,14 @@ function Menu() {
                     <hr className="funky-hr"></hr>
                 </div>
 
-                {activeCategory === "Maträtter" && <Matratter />}
-                {activeCategory === "Drycker" && <Drycker />}
-                {activeCategory === "Tillbehör" && <Tillbehor />}
-                <div className="order-btn-grad-div">
-                    <button className="btn-grad" onClick={() => goToCart()}>
-                        Varukorg
+                {activeCategory === "Maträtter" && <Matratter setSelectedItems={setSelectedItems}/> }
+                {activeCategory === "Drycker" && <Drycker setSelectedItems={setSelectedItems} />}
+                {activeCategory === "Tillbehör" && <Tillbehor setSelectedItems={setSelectedItems} />}
+
+            <div className="order-btn-grad-div">
+                    <button className="btn-grad" onClick={handleAddAllToCart}>
+                        {" "}
+                        Gå till varukorg
                     </button>
                 </div>
             </div>
