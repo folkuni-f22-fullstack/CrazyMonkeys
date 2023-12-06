@@ -12,18 +12,6 @@ const Matratter = () => {
   const [showMobileOverlay, setShowMobileOverlay] = useState(false);
 
   const [orderOverlay, setOrderOverlay] = useState(null);
-  // console.log('matträtter', order.length)
-  // console.log('Food är: ', food.length, food)
-  // const addOrder = () => {
-  //   const newOrder = {
-  //     itemId: orderId,
-  //     quantity: itemCounter,
-  //   };
-
-  //   setOrder((prevOrder) => [...prevOrder, newOrder]);
-  //   console.log('rad 21')
-
-  // };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -102,6 +90,7 @@ const Matratter = () => {
               <p className="matratt-p">{matratt.desc}</p>
               <div className="price-and-button">
                 <p className="menu-price"> {matratt.price} kr</p>
+                
                 <button
                   className="order-button"
                   onClick={() => handleAddToCart(matratt._id)}

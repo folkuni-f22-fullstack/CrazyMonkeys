@@ -3,22 +3,11 @@ import { motion } from "framer-motion";
 import "../assets/Tillbehor.css";
 import { FunkyContext } from "../../ContextRoot.jsx";
 
-
-
 const Tillbehor = () => {
   const [tillbehorData, setTillbehorData] = useState([]);
   const { orderToSend, order, setOrder } = useContext(FunkyContext);
   const [itemCounter, setItemCounter] = useState(1);
   const [showTillbehorOverlay, setShowTillbehorOverlay] = useState(false);
-
-  const addOrder = () => {
-    const newOrder = {
-      itemId: orderId,
-      quantity: itemCounter,
-    };
-
-    setOrder((prevOrder) => [...prevOrder, newOrder]);
-  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,8 +27,17 @@ const Tillbehor = () => {
     fetchData();
   }, []);
 
-  const handleAddToCart = (foodId, event) => {
-    event.preventDefault(); 
+  // const addOrder = () => {
+  //   const newOrder = {
+  //     itemId: orderId,
+  //     quantity: itemCounter,
+  //   };
+
+  //   setOrder((prevOrder) => [...prevOrder, newOrder]);
+  // };
+
+  const handleAddToCart = (foodId) => {
+
     setShowTillbehorOverlay(true);
     const existingOrder = order.find(
       (orderItem) => orderItem.itemId === foodId
@@ -60,8 +58,9 @@ const Tillbehor = () => {
         itemId: foodId,
         quantity: 1,
       };
-      setOrder((prevOrder) => [...prevOrder, newOrder]);
-     
+      // setOrder((prevOrder) => [...prevOrder, newOrder]);
+      const newList = [...order, newOrder];
+      setOrder(newList);
     }
     setItemCounter(itemCounter + 1);
     setTimeout(() => {
@@ -74,27 +73,30 @@ const Tillbehor = () => {
       <h3 className="tillbehor-title">Tillbehör</h3>
       <div className="tillbehor-container">
         {tillbehorData.map((tillbehor) => (
-          <motion.div initial={{y: "-10%", opacity: 0 }} animate={{y: "0%", opacity: 1}} transition={{ duration: 1 }} className="tillbehor-item" key={tillbehor._id}>
+          <motion.div
+            initial={{ y: "-10%", opacity: 0 }}
+            animate={{ y: "0%", opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="tillbehor-item"
+            key={tillbehor._id}
+          >
             <div className="tillbehor-img">
               <img src={tillbehor.img} alt="" />
             </div>
             <div className="border-container">
               <h3 className="card-title">{tillbehor.name}</h3>
-              <p className="desc">{tillbehor.desc}</p>  
-              </div>
-              <div className="tillbehor-price-n-btn">
-                <h4 className="tillbehor-price">{tillbehor.price}:-</h4>
-                <button
-                  className="add-to-cart-button"
-                  onClick={(event) => {
-                    // event.preventDefault();
-                    handleAddToCart(tillbehor._id, event);
-                  }}
-                >
-                  Lägg till
-                </button>
-              </div>
-          
+              <p className="desc">{tillbehor.desc}</p>
+            </div>
+            <div className="tillbehor-price-n-btn">
+              <h4 className="tillbehor-price">{tillbehor.price}:-</h4>
+
+              <button
+                className="add-to-cart-button"
+                onClick={() => handleAddToCart(tillbehor._id)}
+              >
+                Lägg till
+              </button>
+            </div>
           </motion.div>
         ))}
       </div>
@@ -106,5 +108,4 @@ const Tillbehor = () => {
     </>
   );
 };
-
 export default Tillbehor;

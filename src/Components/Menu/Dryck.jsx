@@ -11,14 +11,14 @@ const Dryck = () => {
   const [showDrinkOverlay, setShowDrinkOverlay] = useState(false);
   const [orderOverlay, setOrderOverlay] = useState(null);
 
-  const addOrder = () => {
-    const newOrder = {
-      itemId: orderId,
-      quantity: itemCounter,
-    };
+  // const addOrder = () => {
+  //   const newOrder = {
+  //     itemId: orderId,
+  //     quantity: itemCounter,
+  //   };
 
-    setOrder((prevOrder) => [...prevOrder, newOrder]);
-  };
+  //   setOrder((prevOrder) => [...prevOrder, newOrder]);
+  // };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -62,7 +62,10 @@ const Dryck = () => {
         itemId: dryckId,
         quantity: 1,
       };
-      setOrder((prevOrder) => [...prevOrder, newOrder]);
+      // setOrder((prevOrder) => [...prevOrder, newOrder]);
+
+      const newList = [...order, newOrder];
+      setOrder(newList);
     }
     setItemCounter(itemCounter + 1);
     setTimeout(() => {
@@ -119,7 +122,7 @@ const Dryck = () => {
               ))}
               {showDrinkOverlay && (
         <div className="drink-overlay">
-          <p>Varan har lagts i kundvagnen</p>
+          <p>Varan har lagts i varukorgen</p>
         </div>
       )}
         </div>

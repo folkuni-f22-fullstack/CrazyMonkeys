@@ -12,9 +12,6 @@
 .matratt-container::-webkit-scrollbar {
   width: 12px;
 }
-.matratt {
-  margin-left: 1em;
-}
 
 .mattratter-title {
   font-family: var(--meny-font);
@@ -99,14 +96,6 @@
     transform: translate(-50%, -50%);
     width: 40%;
   }
-}
-
-@media screen and (min-width: 400px) {
-  
-  .matratt {
-    margin-left: 1em;
-    width: 20em;
-}
 }
 
 
