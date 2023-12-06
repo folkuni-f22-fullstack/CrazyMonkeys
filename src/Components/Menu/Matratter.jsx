@@ -9,6 +9,8 @@ const Matratter = () => {
   const { orderToSend, order, setOrder } = useContext(FunkyContext);
   const [itemCounter, setItemCounter] = useState(1);
   const [showOverlay, setShowOverlay] = useState(false);
+  const [showMobileOverlay, setShowMobileOverlay] = useState(false);
+
   const [orderOverlay, setOrderOverlay] = useState(null);
   // console.log('matträtter', order.length)
   // console.log('Food är: ', food.length, food)
@@ -42,8 +44,10 @@ const Matratter = () => {
     fetchData();
   }, []);
 
-  const handleAddToCart = (foodId) => {
+  const handleAddToCart = (foodId, event) => {
+    event.preventDefault()
     setShowOverlay(true);
+    setShowMobileOverlay(true);
     setOrderOverlay(foodId)
 
     const existingOrder = order.find(
@@ -75,6 +79,7 @@ const Matratter = () => {
     setItemCounter(itemCounter + 1);
       setTimeout(() => {
       setShowOverlay(false);
+      setShowMobileOverlay(false)
     }, 2000);
     
     };
@@ -91,24 +96,21 @@ const Matratter = () => {
               <p className="menu-price"> {matratt.price} kr</p>
               <button 
                 className="order-button"
-                onClick={() => handleAddToCart(matratt._id)}
+                onClick={(event) => handleAddToCart(matratt._id, event)}
               >
                 Lägg till
               </button>
             </div>
           </div>
-          {showOverlay && orderOverlay == matratt._id && (
-            <div className="menu-overlay">
+          {showMobileOverlay && orderOverlay == matratt._id && (
+            <div className="mobile-menu-overlay">
               <p>Varan har lagts i varukorgen</p>
             </div>
           )}
         </motion.div>
       ))}
-      {showOverlay && (
-        <div className="menu-overlay">
-          <p>Varan har lagts i varukorgen</p>
-        </div>
-      )}
+   
+   {/* Desktop */}
     </motion.div>
     <div className="matratt-container2">
       {food.map((matratt) => (
@@ -121,7 +123,7 @@ const Matratter = () => {
               <p className="menu-price2"> {matratt.price} :-</p>
               <button 
                 className="order-button2"
-                onClick={() => handleAddToCart( matratt._id)}
+                onClick={(event) => handleAddToCart( matratt._id, event)}
               >
                 Lägg till
               </button>
