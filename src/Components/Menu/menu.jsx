@@ -41,6 +41,7 @@ function Menu() {
         setOrder(updatedOrder);
         setSelectedItems([]);
         navigate("/varukorg");
+        setSelectStep(1)
     };
     
     

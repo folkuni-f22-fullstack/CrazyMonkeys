@@ -38,28 +38,32 @@ const Tillbehor = ({setSelectedItems}) => {
 
         fetchData();
     }, []);
-
+    
     const handleAddToCart = async (foodId) => {
         setShowTillbehorOverlay(true);
-
-        const existingOrder = order.find((orderItem) => orderItem.itemId === foodId);
-
-        if (existingOrder) {
+    
+    
+        const existingOrderIndex = order.findIndex((orderItem) => orderItem.itemId === foodId);
+    
+        if (existingOrderIndex !== -1) {
             // If the item already exists in the order, increase the quantity
-            setOrder((prevOrder) =>
-                prevOrder.map((orderItem) =>
-                    orderItem.itemId === foodId
-                        ? { ...orderItem, quantity: orderItem.quantity + 1 }
-                        : orderItem
-                )
-            );
+            setOrder((prevOrder) => {
+                const updatedOrder = [...prevOrder];
+                updatedOrder[existingOrderIndex] = {
+                    ...updatedOrder[existingOrderIndex],
+                    quantity: updatedOrder[existingOrderIndex].quantity + 1,
+                };
+                return updatedOrder;
+            });
         } else {
             // If the item doesn't exist, add it to the selectedItems array
             setSelectedItems((prevSelected) => [...prevSelected, { itemId: foodId, quantity: 1 }]);
         }
+    
         setItemCounter(itemCounter + 1);
+    
         setTimeout(() => {
-            setShowTillbehorOverlay(false);
+            setShowTillbehorOverlay(true);
         }, 2000);
     };
 

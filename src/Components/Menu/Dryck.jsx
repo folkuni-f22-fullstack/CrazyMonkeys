@@ -37,23 +37,26 @@ const Dryck = ({setSelectedItems}) => {
     const handleAddToCart = async (dryckId) => {
         setShowDrinkOverlay(true);
         setOrderOverlay(dryckId);
-
-        const existingOrder = order.find((orderItem) => orderItem.itemId === dryckId);
-
-        if (existingOrder) {
+    
+        const existingOrderIndex = order.findIndex((orderItem) => orderItem.itemId === dryckId);
+    
+        if (existingOrderIndex !== -1) {
             // If the item already exists in the order, increase the quantity
-            setOrder((prevOrder) =>
-                prevOrder.map((orderItem) =>
-                    orderItem.itemId === dryckId
-                        ? { ...orderItem, quantity: orderItem.quantity + 1 }
-                        : orderItem
-                )
-            );
+            setOrder((prevOrder) => {
+                const updatedOrder = [...prevOrder];
+                updatedOrder[existingOrderIndex] = {
+                    ...updatedOrder[existingOrderIndex],
+                    quantity: updatedOrder[existingOrderIndex].quantity + 1,
+                };
+                return updatedOrder;
+            });
         } else {
             // If the item doesn't exist, add it to the selectedItems array
             setSelectedItems((prevSelected) => [...prevSelected, { itemId: dryckId, quantity: 1 }]);
         }
+    
         setItemCounter(itemCounter + 1);
+    
         setTimeout(() => {
             setShowDrinkOverlay(false);
         }, 2000);
