@@ -12,9 +12,6 @@
 .matratt-container::-webkit-scrollbar {
   width: 12px;
 }
-.matratt {
-  margin-left: 1em;
-}
 
 .mattratter-title {
   font-family: var(--meny-font);
@@ -51,7 +48,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 15em;
+  /* width: 15em; */
   margin: 1em 1em 1em;
 }
 .menu-price {
@@ -73,8 +70,8 @@
 .order-button:hover {
   background-color: var(--hover-btn);
 }
-
-.menu-overlay {
+.menu-overlay,
+.mobile-menu-overlay {
   position: absolute;
   top: 50%;
   left: 1em;
@@ -101,13 +98,7 @@
   }
 }
 
-@media screen and (min-width: 400px) {
-  
-  .matratt {
-    margin-left: 1em;
-    width: 20em;
-}
-}
+
 @media screen and (min-width: 743px) {
   .matratt-container {
     display: none;
@@ -119,9 +110,6 @@
     flex-direction: column;
     height: auto;
     overflow-y: visible;
-    /* display: grid;
-    grid-template-columns: repeat(3, minmax(200px, 1fr)); 
-    gap: 1em;  */
   }
   .inner-container {
     width: 70%;

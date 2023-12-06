@@ -50,11 +50,12 @@
   font-size: 30px;
   cursor: pointer;
 }
+
 .facebook-icon,
 .twitter-icon,
 .instagram-icon {
   font-size: 30px;
-  color: #b1a8a8;
+  color: #000000;
   margin: 0 0.3em;
 }
 .phone-icon {
@@ -163,7 +164,7 @@
   
   .instagram-icon,.twitter-icon,.facebook-icon{
     font-size:21px; 
-    color: white; 
+    color: rgb(0, 0, 0); 
   }
    .footer-column p {
     line-height: 1.7em;

@@ -58,7 +58,12 @@ const Varukorg = () => {
 
     };
 
-    const totalSum = chartData.reduce((acc, order) => acc + order.price * (orderToSend.items.find(item => item.menuItem === order._id)?.quantity || 0), 0);
+    const totalSum = chartData.reduce((acc, order) => {
+        const orderQuantity = orderToSend.items.find(item => item.menuItem === order._id)?.quantity || 0;
+        const orderTotal = order.price * orderQuantity;
+        return acc + orderTotal;
+      }, 0).toFixed(2); // Här anger du antalet decimaler, till exempel 2
+      
 
     const backButton = () => {
         navigate("/menu")
@@ -83,11 +88,7 @@ const Varukorg = () => {
                                 </p>
             ) : (
                 <div className="cart-container">
-                    <header className="cart-items-header">
-                        <p className="header-name">Namn</p>
-                        <p className="header-price">Pris</p>
-                        <p className="header-amount">Antal</p>
-                    </header>
+                  
                     <div className="cart-items" >
                        
                         {

@@ -52,8 +52,6 @@ function Footer() {
           </div>
 
           <div className="icon-container">
-            {/* <BsFillTelephoneFill className="phone-icon" /> */}
-            {/* <BsFillTelephoneFill className="phone-icon" /> */}
             054-240 240
           </div>
         </div>
@@ -107,9 +105,9 @@ function Footer() {
             </p>
             <div className="media-icons-desktop">
               <p className="follow-us">Följ oss</p>
-              <InstagramIcon/>
-              <FacebookIcon/>
-              <TwitterIcon/>
+              <InstagramIcon className="instagram-icon"/>
+              <FacebookIcon className=" facebook-icon"/>
+              <TwitterIcon className="twitter-icon"/>
 
             </div>
             {isLoggedIn ?  
