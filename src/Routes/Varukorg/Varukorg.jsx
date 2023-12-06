@@ -88,11 +88,7 @@ const Varukorg = () => {
                                 </p>
             ) : (
                 <div className="cart-container">
-                    <header className="cart-items-header">
-                        <p className="header-name">Namn</p>
-                        <p className="header-price">Pris</p>
-                        <p className="header-amount">Antal</p>
-                    </header>
+                  
                     <div className="cart-items" >
                        
                         {

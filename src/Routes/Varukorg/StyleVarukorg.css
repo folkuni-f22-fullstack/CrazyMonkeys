@@ -45,28 +45,7 @@
 }
 
 /* Header */
-.cart-items-header {
-    display: grid;
-    font-size: 20px;
-    font-weight: 500;
-    grid-template-areas: "... name ... ... price amount ...";
-    padding-bottom: 0.5em;
-}
 
-.header-name {
-    grid-area: name;
-    width: 300px;
-}
-
-.header-price {
-    grid-area: price;
-    width: 100px;
-}
-
-.header-amount {
-    grid-area: amount;
-    width: 80px;
-}
 
 /* Cart container */
 .cart-container {
@@ -178,9 +157,9 @@
     .cart-wrapper {
         min-height: 80vh;
     }
-    .cart-items-header {
+    /* .cart-items-header {
         display: none;
-    }
+    } */
 
     .cart-item {
         font-size: 12px;
