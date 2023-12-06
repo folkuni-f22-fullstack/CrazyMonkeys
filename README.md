@@ -26,7 +26,7 @@ Our project involved creating low-fidelity sketches with *figma* to explore diff
 
 <h2 align="center">Tech stack</h2>
 
-Our frontend is based on *react*, a popular library for building user interfaces. We also used *react-router-dom* for navigation, and other dependencies such as *react-scroll* and *framer-motion*. We started our project using *TypeScript*, to take advantage of its features such as static typing and interfaces. However, we encountered many errors and compatibility issues when we were trying to upload the repo to *render*. As a result, we decided to stick with JavaScript for the rest of the development process.
+Our frontend is based on *react*, a popular library for building user interfaces. We also used *react-router-dom* for navigation, and other dependencies such as *react-scroll*, *vite* and *framer-motion*. We started our project using *TypeScript*, to take advantage of its features such as static typing and interfaces. However, we encountered many errors and compatibility issues when we were trying to upload the repo to *render*. As a result, we decided to stick with JavaScript for the rest of the development process.
 
 We built our backend using *express*, a web framework for **Node.js**, and *mongoDB atlas*, a cloud database service. To enhance the security and performance of our backend, we also used *helmet*, a middleware that sets various HTTP headers, *morgan*, a logger that records the requests and responses, *mongoose*, an object data modeling library that simplifies working with mongoDB, and *nodemon*, a tool that automatically restarts the server when changes are detected. The backend is a *RESTful API*.
 
@@ -93,8 +93,38 @@ You don't need to use the frontend to do orders, send costumer messages to emplo
 | desc     | String    | A description of a specific article     |
 | img      | String    | Link to a image for the article         |
 
-<h4>Messages</h4>
-
 <h3 align="center">Endpoints</h3>
+<h4>api/auth</h4>
+
+| Method | URL       | Params | Headers | Body                       | Response                                        |
+|--------|-----------|--------|---------|----------------------------|-------------------------------------------------|
+| GET    | /         | .      | .       | .                          | Get all the users                               |
+| POST   | /login    | .      | .       | username, password         | Get identifier, token and what role the user is |
+| POST   | /register | .      | .       | status, username, password | Get the created new user                        |
+
+<h4>api/menu</h4>
+
+| Method | URL | Params | Headers | Body                                     | Response                                       |
+|--------|-----|--------|---------|------------------------------------------|------------------------------------------------|
+| GET    | /   | .      | .       | .                                        | Get all the food articles                      |
+| POST   | /   | .      | .       | itemId, name, price, desc, itemType, img | Get the newly created article                  |
+| PUT    | /   | id   | .       | itemId, name, price, desc, itemType, img | Changes the selected article with new contents |
+| DEL    | /   | id   | .       | .                                        | Deletes the selected article                   |
+
+<h4>api/orders</h4>
+
+Note that `id`  is _id from mongoDB!
+
+| Method | URL              | Params | Query  | Headers | Body                                                                                  | Response                    |
+|--------|------------------|--------|--------|---------|---------------------------------------------------------------------------------------|-----------------------------|
+| GET    | /                | .      | .      | .       | .                                                                                     | Get all the orders          |
+| POST   | /                | .      | .      | .       | orderId, customerName, adress, floor, portCode, mail, mobile, items, comments, status | Get the newly created order |
+| POST   | /:id/addMenuItem | id     | .      | .       | menuItem, quantity                                                                    | Get the whole order back    |
+| PUT    | /:id             | id     | .      | .       | orderId, customerName, adress, floor, portCode, mail, mobile, items, comments, status | Get status message OK       |
+| DEL    | /:id             | id     | option | .       | menuItemId                                                                            | Get status message OK       |
+| DEL    | /:id             | id     | option | .       | .                                                                                     | Get status message OK       |
+
+
+
 
 Amazing! Thank you for reading this README! ❤️
