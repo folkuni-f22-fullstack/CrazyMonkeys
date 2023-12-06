@@ -132,12 +132,6 @@ const Matratter = ({setSelectedItems}) => {
                         )}
                     </motion.div>
                 ))}
-                {/* <div className="order-btn-grad-div">
-                    <button className="btn-grad" onClick={handleAddAllToCart}>
-                        {" "}
-                        Gå till varukorg
-                    </button>
-                </div> */}
             </div>
         </>
     );

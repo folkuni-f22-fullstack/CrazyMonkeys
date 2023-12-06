@@ -14,14 +14,7 @@ const Dryck = ({setSelectedItems}) => {
     const [cartOrder, setCartOrder] = useState([]);
     const navigate = useNavigate();
 
-    const addOrder = () => {
-        const newOrder = {
-            itemId: orderId,
-            quantity: itemCounter,
-        };
-
-        setOrder((prevOrder) => [...prevOrder, newOrder]);
-    };
+   
 
     useEffect(() => {
         const fetchData = async () => {

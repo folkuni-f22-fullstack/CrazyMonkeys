@@ -118,5 +118,4 @@ const Tillbehor = ({setSelectedItems}) => {
         </>
     );
 };
-
 export default Tillbehor;

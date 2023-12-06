@@ -26,7 +26,6 @@
   background-color: white;
   /* box-shadow: 3px 4px 5px rgb(160, 159, 159); */
   border-radius: 5px 5px 8px 8px;
-  max-width: 19em;
 }
 
 .tillbehor-img img {
@@ -34,6 +33,7 @@
   width: 100%;
   max-height: 10em;
   border-radius: 7px;
+  object-fit: cover;
 }
 
 .tillbehor-price-n-btn {
