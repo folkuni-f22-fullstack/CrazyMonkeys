@@ -38,8 +38,8 @@ const Tillbehor = () => {
     fetchData();
   }, []);
 
-  const handleAddToCart = (foodId, e) => {
-    // e.preventDefault(); 
+  const handleAddToCart = (foodId, event) => {
+    event.preventDefault(); 
     setShowTillbehorOverlay(true);
     const existingOrder = order.find(
       (orderItem) => orderItem.itemId === foodId
@@ -86,9 +86,9 @@ const Tillbehor = () => {
                 <h4 className="tillbehor-price">{tillbehor.price}:-</h4>
                 <button
                   className="add-to-cart-button"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleAddToCart(tillbehor._id, e);
+                  onClick={(event) => {
+                    // event.preventDefault();
+                    handleAddToCart(tillbehor._id, event);
                   }}
                 >
                   Lägg till
