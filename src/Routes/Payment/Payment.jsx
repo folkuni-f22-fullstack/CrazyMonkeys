@@ -48,6 +48,7 @@ const Payment = () => {
         });
 
         const data = await response.json();
+        console.log(orderTo);
        
         setRecipeId(data.orderId)
     } catch (error) {
