@@ -241,5 +241,10 @@ html, body {
     border-radius: 15px;
 }
 
+/* costumer */
 
+.costumer-comment{
+    border: 2px solid black;
+    margin-left: auto;
+}
 
