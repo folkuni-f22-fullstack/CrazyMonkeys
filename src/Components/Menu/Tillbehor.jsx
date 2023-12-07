@@ -63,7 +63,7 @@ const Tillbehor = ({setSelectedItems}) => {
         setItemCounter(itemCounter + 1);
     
         setTimeout(() => {
-            setShowTillbehorOverlay(true);
+            setShowTillbehorOverlay(false);
         }, 2000);
     };
 
