@@ -75,9 +75,9 @@ export function Delivery() {
             name: `${firstName} ${lastName}`,
             mail: customerEmail,
             mobile: customerPhone,
-            adress: chosenDeliveryOption ? customerAddress : "",
-            floor: chosenDeliveryOption ? customerFloor : "",
-            portCode: chosenDeliveryOption ? portCode : "",
+            adress: !chosenDeliveryOption ? customerAddress : "",
+            floor: !chosenDeliveryOption ? customerFloor : "",
+            portCode: !chosenDeliveryOption ? portCode : "",
             comments: ownComments,
             status: status,
           };
