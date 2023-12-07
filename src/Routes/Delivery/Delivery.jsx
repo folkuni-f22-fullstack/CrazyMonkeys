@@ -202,7 +202,7 @@ export function Delivery() {
                             />
                             {!isEmptyFirstName && (
                                 <div className="validation-error">
-                                <p>
+                                {/* <p>
                                     {isEmptyFirstName
                                         ? ""
                                         : wrongFirstName
@@ -210,7 +210,7 @@ export function Delivery() {
                                             ? ""
                                             : "Ogiltigt förnamn"
                                         : ""}
-                                </p>
+                                </p> */}
                             </div>
                             
                             )}
@@ -237,7 +237,7 @@ export function Delivery() {
                             />
                             {!isEmptyLastName && (
                                <div className="validation-error">
-                               <p>
+                               {/* <p>
                                    {isEmptyFirstName
                                        ? ""
                                        : wrongFirstName
@@ -245,7 +245,7 @@ export function Delivery() {
                                            ? ""
                                            : "Ogiltigt efternamn"
                                        : ""}
-                               </p>
+                               </p> */}
                            </div>
                            
                             )}
@@ -265,11 +265,11 @@ export function Delivery() {
                             placeholder="johannaDoe@example.com"
                             required
                         />
-                        {!isEmptyEmail && (
+                        {/* {!isEmptyEmail && (
                             <div className="validation-error">
                                 <p>{isEmptyEmail ? "" : wrongEmail ? "Ogiltig Email" : ""}</p>
                             </div>
-                        )}
+                        )} */}
                     </div>
 
                     <div className="label-above-input">
@@ -290,7 +290,7 @@ export function Delivery() {
                             placeholder="070 123 4561"
                             required
                         />
-                        {!isEmptyPhoneNumber && (
+                        {/* {!isEmptyPhoneNumber && (
                             <div className="validation-error">
                                 <p>
                                     {isEmptyPhoneNumber
@@ -300,7 +300,7 @@ export function Delivery() {
                                         : ""}
                                 </p>
                             </div>
-                        )}
+                        )} */}
                     </div>
 
                     <div className="spacer">
