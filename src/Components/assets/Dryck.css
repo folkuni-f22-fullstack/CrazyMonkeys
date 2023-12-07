@@ -60,7 +60,7 @@
 }
 
 .drink-overlay {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 1em;
   width: 90%;

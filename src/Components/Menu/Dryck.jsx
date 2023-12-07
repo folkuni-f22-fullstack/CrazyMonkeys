@@ -59,13 +59,6 @@ const Dryck = ({setSelectedItems}) => {
         }, 2000);
     };
 
-    // const handleAddAllToCart = () => {
-    //     const updatedOrder = [...order, ...selectedItems];
-    //     setOrder(updatedOrder);
-    //     setCartOrder(updatedOrder);
-    //     navigate("/varukorg");
-    // };
-
     return (
         <>
             <h2 className="rubrik">Drycker</h2>
@@ -97,6 +90,7 @@ const Dryck = ({setSelectedItems}) => {
                                 </motion.div>
                             )
                     )}
+                
                 </div>
 
                 <div className="dryck-column">
@@ -132,12 +126,6 @@ const Dryck = ({setSelectedItems}) => {
                         </div>
                     )}
                 </div>
-                {/* <div className="order-btn-grad-div">
-                    <button className="btn-grad" onClick={handleAddAllToCart}>
-                        {" "}
-                        Gå till varukorg
-                    </button>
-                </div> */}
             </div>
         </>
     );
