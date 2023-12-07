@@ -63,7 +63,17 @@ export function Delivery() {
     
       const handleSubmit = (event) => {
         event.preventDefault();
-    
+        
+        console.log("Inte tack!");
+
+        if (firstName !== "" && lastName !== "" && customerEmail !== "" && customerPhone !== "") {
+            console.log("Tack så mkt");
+        } else {
+            if(firstName === "") {
+                setIsEmptyFirstName(true)
+            }
+        }
+
         const isValid =
           isValidFirstName &&
           isValidLastName &&
@@ -83,19 +93,13 @@ export function Delivery() {
           };
     
           setCustomerInfo(customerInfo);
-          navigate("/betalning");
-          setSelectStep(3);
+          // navigate("/betalning");
+          // setSelectStep(3);
         }
       };
     
       const firstNameChange = (e) => {
         setFirstName(e.target.value);
-    
-        if (e.target.value === "") {
-          setIsEmptyFirstName(true);
-        } else {
-          setIsEmptyFirstName(false);
-        }
       };
     
       const lastNameChange = (e) => {
@@ -198,22 +202,21 @@ export function Delivery() {
                                 value={firstName}
                                 type="text"
                                 placeholder="Johanna"
-                                required
                             />
-                            {!isEmptyFirstName && (
-                                <div className="validation-error">
-                                {/* <p>
-                                    {isEmptyFirstName
-                                        ? ""
-                                        : wrongFirstName
-                                        ? isValidFirstName
-                                            ? ""
-                                            : "Ogiltigt förnamn"
-                                        : ""}
-                                </p> */}
-                            </div>
-                            
-                            )}
+                            {
+                                isEmptyFirstName && (
+                                    <div className="validation-error">
+                               <p>Fyll i detta fält!</p>
+                               </div>
+                                )
+                            }
+                            {
+                                !isValidFirstName && (
+                                    <div className="validation-error">
+                                    <p>Test!</p>
+                                    </div>
+                                )
+                            }
                         </div>
 
                         <div className="label-above-input">
@@ -233,11 +236,10 @@ export function Delivery() {
                                 value={lastName}
                                 type="text"
                                 placeholder="Doe"
-                                required
                             />
                             {!isEmptyLastName && (
                                <div className="validation-error">
-                               {/* <p>
+                               <p>
                                    {isEmptyFirstName
                                        ? ""
                                        : wrongFirstName
@@ -245,7 +247,7 @@ export function Delivery() {
                                            ? ""
                                            : "Ogiltigt efternamn"
                                        : ""}
-                               </p> */}
+                               </p>
                            </div>
                            
                             )}
@@ -263,13 +265,12 @@ export function Delivery() {
                             value={customerEmail}
                             type="email"
                             placeholder="johannaDoe@example.com"
-                            required
                         />
-                        {/* {!isEmptyEmail && (
+                        {!isEmptyEmail && (
                             <div className="validation-error">
                                 <p>{isEmptyEmail ? "" : wrongEmail ? "Ogiltig Email" : ""}</p>
                             </div>
-                        )} */}
+                        )}
                     </div>
 
                     <div className="label-above-input">
@@ -288,9 +289,8 @@ export function Delivery() {
                             value={customerPhone}
                             type="number"
                             placeholder="070 123 4561"
-                            required
                         />
-                        {/* {!isEmptyPhoneNumber && (
+                        {!isEmptyPhoneNumber && (
                             <div className="validation-error">
                                 <p>
                                     {isEmptyPhoneNumber
@@ -300,7 +300,7 @@ export function Delivery() {
                                         : ""}
                                 </p>
                             </div>
-                        )} */}
+                        )}
                     </div>
 
                     <div className="spacer">
@@ -310,7 +310,6 @@ export function Delivery() {
                                 type="radio"
                                 name="deliveryOption"
                                 onClick={() => setChosenDeliveryOption(false)}
-                                required
                             />
                         
                             <label htmlFor="home-delivery-radio" className="radio-label">
@@ -344,7 +343,6 @@ export function Delivery() {
                                         value={postNumber}
                                         type="number"
                                         placeholder="12345"
-                                        required
                                     />
                                 </div>
                                 <div className="label-above-input">
@@ -356,7 +354,6 @@ export function Delivery() {
                                         value={customerCounty}
                                         type="text"
                                         placeholder="Karlstad"
-                                        required
                                     />
                                 </div>
                             </div>
@@ -407,7 +404,6 @@ export function Delivery() {
                                 type="radio"
                                 name="deliveryOption"
                                 onClick={() => setChosenDeliveryOption(true)}
-                                required
                             />
                             <label htmlFor="takeaway-delivery-radio" className="radio-label">
                                 Takeaway
