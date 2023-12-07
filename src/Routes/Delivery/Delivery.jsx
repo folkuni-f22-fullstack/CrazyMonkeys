@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { StepsHeader } from "../../Components/StepsHeader/StepsHeader";
 import { FunkyContext } from "../../ContextRoot";
 
-import { isValidName, isValidEmailAddress, isValidPhoneNumber } from "../../Components/validation";
-
 import "./DeliveryStyle.css";
 
 export function Delivery() {
@@ -43,60 +41,133 @@ export function Delivery() {
       const [wrongLastName, setWrongLastName] = useState(false);
       const [wrongPhoneNumber, setWrongPhoneNumber] = useState(false);
       const [wrongEmail, setWrongEmail] = useState(false);
-    
-      const isValidFirstName = isValidName(firstName);
-      const isValidLastName = isValidName(lastName);
-      const isValidNumber = isValidPhoneNumber(customerPhone);
-      const isValidEmail = isValidEmailAddress(customerEmail);
-    
-      const validationErrorBorder = (empty, wrong, isValid) => {
-        return {
-          border: empty
-            ? null
-            : wrong
-            ? isValid
-              ? "2px solid #48E761"
-              : "2px solid #FF0000"
-            : null,
-        };
-      };
-    
+
+      const [shortFirstName, setShortFirstName] = useState(false);
+
+      const [shortLastName, setShortLastName] = useState(false);
+
+      const [shortPhoneNumber, setShortPhoneNumber] = useState(false);
+
+      const [phoneNoSpace ,setPhoneNoSpace] = useState(false)
+
+      // Validation
+      const validCharLetter = "abcdefghijklmnopqrstuvwxyzåäö- "
+
+      const validEmailCharacter = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;
+
+      const validPhoneFormat = "1234567890";
+
+      const whiteSpace = /\s/;
+
+
       const handleSubmit = (event) => {
         event.preventDefault();
-        
-        console.log("Inte tack!");
 
+
+        // If they are not empty
         if (firstName !== "" && lastName !== "" && customerEmail !== "" && customerPhone !== "") {
-            console.log("Tack så mkt");
+
+            if (!wrongFirstName && !wrongLastName && !wrongEmail && !wrongPhoneNumber) {
+                const customerInfo = {
+                    name: `${firstName} ${lastName}`,
+                    mail: customerEmail,
+                    mobile: customerPhone,
+                    adress: !chosenDeliveryOption ? customerAddress : "",
+                    floor: !chosenDeliveryOption ? customerFloor : "",
+                    portCode: !chosenDeliveryOption ? portCode : "",
+                    comments: ownComments,
+                    status: status,
+                  };
+
+                setCustomerInfo(customerInfo);
+                navigate("/betalning");
+                setSelectStep(3);
+            }
+
         } else {
-            if(firstName === "") {
+
+            // If name is empty
+            if (firstName === "") {
                 setIsEmptyFirstName(true)
+            } else {
+                // If name is not empty
+                setIsEmptyFirstName(false)
+
+
+                // Name is shorter than 2
+                if (firstName.length < 2) {
+                    setShortFirstName(true)
+                } else {
+                    setShortFirstName(false)
+
+                    // If name only includes letters
+                    if (firstName.toLowerCase().split('').every(char => validCharLetter.includes(char))) {
+                        setWrongFirstName(false)
+                    } else {
+                        setWrongFirstName(true)
+                    }
+                }
+            }
+
+            if (lastName === "") {
+                setIsEmptyLastName(true)
+            } else {
+                setIsEmptyLastName(false)
+
+                if (lastName.length < 2) {
+                    setShortLastName(true)
+                } else {
+                    setShortLastName(false)
+                    
+                    if (lastName.toLowerCase().split('').every(char => validCharLetter.includes(char))) {
+                        setWrongLastName(false)
+                    } else {
+                        setWrongLastName(true)
+                    }
+                }
+
+            }
+            
+            if (customerEmail === "") {
+                setIsEmptyEmail(true)
+            } else {
+                setIsEmptyEmail(false)
+
+                if (validEmailCharacter.test(customerEmail)) {
+                    setWrongEmail(false)
+                } else {
+                    setWrongEmail(true)
+                }
+            }
+
+            if (customerPhone === "") {
+                setIsEmptyPhoneNumber(true)
+            } else {
+                setIsEmptyPhoneNumber(false)
+
+                if(customerPhone < 10) {
+                    setShortPhoneNumber(true)
+                } else {
+                    setShortPhoneNumber(false)
+                }
+
+                if (whiteSpace.test(customerPhone)) {
+                    setPhoneNoSpace(true)
+                } else {
+                    setPhoneNoSpace(false)
+                }
+
+                if (customerPhone.split('').every(char => validPhoneFormat.includes(char))) {
+                    setWrongPhoneNumber(false)
+                } else {
+                    setWrongPhoneNumber(true)
+                }
+                
             }
         }
-
-        const isValid =
-          isValidFirstName &&
-          isValidLastName &&
-          isValidNumber &&
-          isValidEmail;
-    
-        if (isValid) {
-          const customerInfo = {
-            name: `${firstName} ${lastName}`,
-            mail: customerEmail,
-            mobile: customerPhone,
-            adress: !chosenDeliveryOption ? customerAddress : "",
-            floor: !chosenDeliveryOption ? customerFloor : "",
-            portCode: !chosenDeliveryOption ? portCode : "",
-            comments: ownComments,
-            status: status,
-          };
-    
-          setCustomerInfo(customerInfo);
-          // navigate("/betalning");
-          // setSelectStep(3);
-        }
       };
+
+      // On change
     
       const firstNameChange = (e) => {
         setFirstName(e.target.value);
@@ -104,32 +175,14 @@ export function Delivery() {
     
       const lastNameChange = (e) => {
         setLastName(e.target.value);
-    
-        if (e.target.value === "") {
-          setIsEmptyLastName(true);
-        } else {
-          setIsEmptyLastName(false);
-        }
       };
     
       const emailChange = (e) => {
         setEmail(e.target.value);
-    
-        if (e.target.value === "") {
-          setIsEmptyEmail(true);
-        } else {
-          setIsEmptyEmail(false);
-        }
       };
     
       const phoneNumberChange = (e) => {
         setPhone(e.target.value);
-    
-        if (e.target.value === "") {
-          setIsEmptyPhoneNumber(true);
-        } else {
-          setIsEmptyPhoneNumber(false);
-        }
       };
 
     const addressChange = (e) => {
@@ -160,8 +213,7 @@ export function Delivery() {
         setPortCode(e.target.value);
     };
 
-
-
+    // Links
     const backButton = () => {
         navigate("/varukorg")
         setSelectStep(1)
@@ -193,12 +245,6 @@ export function Delivery() {
                                 id="firstname-input"
                                 name="name"
                                 onChange={firstNameChange}
-                                onBlur={() => setWrongFirstName(true)}
-                                style={validationErrorBorder(
-                                    isEmptyFirstName,
-                                    wrongFirstName,
-                                    isValidFirstName
-                                )}
                                 value={firstName}
                                 type="text"
                                 placeholder="Johanna"
@@ -211,9 +257,16 @@ export function Delivery() {
                                 )
                             }
                             {
-                                !isValidFirstName && (
+                                shortFirstName && (
                                     <div className="validation-error">
-                                    <p>Test!</p>
+                                    <p>Minst 2 bokstäver!</p>
+                                    </div>
+                                )
+                            }
+                            {
+                                wrongFirstName && (
+                                    <div className="validation-error">
+                                    <p>Endast bokstäver!</p>
                                     </div>
                                 )
                             }
@@ -227,30 +280,31 @@ export function Delivery() {
                                 className="input name-input"
                                 id="lastname-input"
                                 onChange={lastNameChange}
-                                onBlur={() => setWrongLastName(true)}
-                                style={validationErrorBorder(
-                                    isEmptyLastName,
-                                    wrongLastName,
-                                    isValidLastName
-                                )}
                                 value={lastName}
                                 type="text"
                                 placeholder="Doe"
                             />
-                            {!isEmptyLastName && (
-                               <div className="validation-error">
-                               <p>
-                                   {isEmptyFirstName
-                                       ? ""
-                                       : wrongFirstName
-                                       ? isValidFirstName
-                                           ? ""
-                                           : "Ogiltigt efternamn"
-                                       : ""}
-                               </p>
-                           </div>
-                           
-                            )}
+                                                     {
+                                isEmptyLastName && (
+                                    <div className="validation-error">
+                               <p>Fyll i detta fält!</p>
+                               </div>
+                                )
+                            }
+                            {
+                                shortLastName && (
+                                    <div className="validation-error">
+                                    <p>Minst 2 bokstäver!</p>
+                                    </div>
+                                )
+                            }
+                            {
+                                wrongLastName && (
+                                    <div className="validation-error">
+                                    <p>Endast bokstäver!</p>
+                                    </div>
+                                )
+                            }
                         </div>
                     </div>
                     <div className="label-above-input">
@@ -260,17 +314,24 @@ export function Delivery() {
                             id="email-input"
                             name="mail"
                             onChange={emailChange}
-                            onBlur={() => setWrongEmail(true)}
-                            style={validationErrorBorder(isEmptyEmail, wrongEmail, isValidEmail)}
                             value={customerEmail}
                             type="email"
                             placeholder="johannaDoe@example.com"
                         />
-                        {!isEmptyEmail && (
-                            <div className="validation-error">
-                                <p>{isEmptyEmail ? "" : wrongEmail ? "Ogiltig Email" : ""}</p>
-                            </div>
-                        )}
+                            {
+                                isEmptyEmail && (
+                                    <div className="validation-error">
+                               <p>Fyll i detta fält!</p>
+                               </div>
+                                )
+                            }
+                            {
+                                wrongEmail && (
+                                    <div className="validation-error">
+                                    <p>Ej godkänt format!</p>
+                                    </div>
+                                )
+                            }
                     </div>
 
                     <div className="label-above-input">
@@ -280,27 +341,38 @@ export function Delivery() {
                             id="phone-input"
                             name="mobile"
                             onChange={phoneNumberChange}
-                            onBlur={() => setWrongPhoneNumber(true)}
-                            style={validationErrorBorder(
-                                isEmptyPhoneNumber,
-                                wrongPhoneNumber,
-                                isValidNumber
-                            )}
                             value={customerPhone}
                             type="number"
-                            placeholder="070 123 4561"
+                            placeholder="073 123 4561"
                         />
-                        {!isEmptyPhoneNumber && (
-                            <div className="validation-error">
-                                <p>
-                                    {isEmptyPhoneNumber
-                                        ? ""
-                                        : wrongPhoneNumber
-                                        ? "Ogiltigt Telefonnummer"
-                                        : ""}
-                                </p>
-                            </div>
-                        )}
+                        {
+                                isEmptyPhoneNumber && (
+                                    <div className="validation-error">
+                               <p>Fyll i detta fält!</p>
+                               </div>
+                                )
+                            }
+                            {
+                                shortPhoneNumber && (
+                                    <div className="validation-error">
+                                    <p>Bara 10 siffror!</p>
+                                    </div>
+                                )
+                            }
+                            {
+                                phoneNoSpace && (
+                                    <div className="validation-error">
+                                    <p>Inga mellanrum!</p>
+                                    </div>
+                                )
+                            }
+                            {
+                                wrongPhoneNumber && (
+                                    <div className="validation-error">
+                                    <p>Endast siffror!</p>
+                                    </div>
+                                )
+                            }
                     </div>
 
                     <div className="spacer">
@@ -309,7 +381,7 @@ export function Delivery() {
                                 id="home-delivery-radio"
                                 type="radio"
                                 name="deliveryOption"
-                                onClick={() => setChosenDeliveryOption(false)}
+                                onClick={() => setChosenDeliveryOption(false)} required
                             />
                         
                             <label htmlFor="home-delivery-radio" className="radio-label">
@@ -329,7 +401,7 @@ export function Delivery() {
                                     value={customerAddress}
                                     type="text"
                                     placeholder="Drottninggatan 17"
-                                    required
+                                    
                                 />
                             </div>
 
@@ -403,7 +475,7 @@ export function Delivery() {
                                 id="takeaway-delivery-radio"
                                 type="radio"
                                 name="deliveryOption"
-                                onClick={() => setChosenDeliveryOption(true)}
+                                onClick={() => setChosenDeliveryOption(true)} required
                             />
                             <label htmlFor="takeaway-delivery-radio" className="radio-label">
                                 Takeaway
