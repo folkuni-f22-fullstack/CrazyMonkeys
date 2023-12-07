@@ -22,7 +22,7 @@ const data = {
     }
     const response = await fetch(url, options)
     const statusObject = await response.json()
-    console.log("PostToOrder",statusObject);
+    // console.log("PostToOrder",statusObject);
     if(statusObject){
         whenDone()
         return true

@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import { FunkyContext } from "../../ContextRoot";
+import "./menuEmployee.css"
 
 
 const MenuEmployee = () => {
@@ -9,7 +10,8 @@ const MenuEmployee = () => {
 
     const selectItem = (id) => {
         setSelectedItemId(id)
-        console.log("menuEmployee selected item Id", id);
+        // console.log("menuEmployee selected item Id", id);
+
     }
 
   

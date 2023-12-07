@@ -83,7 +83,7 @@ const UntreatedOrder = ({
 
   const onDeselectOrder = () => {
     onSelectOrder({});
-    console.log(isSelected);
+    // console.log(isSelected);
     setIsSelected(false);
   };
 

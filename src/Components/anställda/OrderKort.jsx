@@ -87,7 +87,7 @@ export default function OrderKort(props) {
                                     />
                                 </div>
                             </div>
-                            <button onClick={() => sendOrder(props.order._id)}>
+                            <button className="button-confirm" onClick={() => sendOrder(props.order._id)}>
                                 Lägg till order
                             </button>
                         </div>

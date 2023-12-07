@@ -13,7 +13,7 @@ const updateCustomerInfo = async (orderId, customerName, customerAddress, custom
         }
     
 
-        console.log("detta skickas", data, "orderId:",orderId);
+        // console.log("detta skickas", data, "orderId:",orderId);
     
         const options = {
           method: 'PUT',

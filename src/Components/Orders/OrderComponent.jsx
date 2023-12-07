@@ -36,7 +36,7 @@ const OrderComponent = () => {
             });
 
             const data = await response.json();
-            console.log("server response" + data);
+            // console.log("server response" + data);
         } catch (error) {
             console.error("Error:", error);
         }
