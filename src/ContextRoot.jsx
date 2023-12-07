@@ -23,7 +23,7 @@ const ContextRoot = ({ children }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [updateState, setUpdateState] = useState(1);
     const [order, setOrder] = useState([]);
-    const [selectedItemId, setSelectedItemId] = useState("")
+    const [selectedItemId, setSelectedItemId] = useState("654b48303bea7996bad3c42b")
     const [selectedItemQuantity, setSelectedItemQuantity] = useState("")
     const [emplyeeStatus, setEmployeeStatus] = useState("")
     const [orderPrice, setTotalPrice] = useState("0");

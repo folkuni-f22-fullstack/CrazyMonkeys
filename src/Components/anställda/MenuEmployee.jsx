@@ -9,7 +9,7 @@ const MenuEmployee = () => {
 
     const selectItem = (id) => {
         setSelectedItemId(id)
-        // console.log("menuEmployee selected item Id", id);
+        console.log("menuEmployee selected item Id", id);
     }
 
   
@@ -38,7 +38,7 @@ const MenuEmployee = () => {
     return (
         <div>
             <label htmlFor="menu">Välj från meny:</label>
-            <select onChange={(e) => selectItem(e.target.value)}  name="menu" id="menu">
+            <select onClick={(e) => selectItem(e.target.value)}  name="menu" id="menu">
                 {menu.map((item) => (
                     <option key={item._id}  value={item._id}> {item.name}</option>
                 ))}
