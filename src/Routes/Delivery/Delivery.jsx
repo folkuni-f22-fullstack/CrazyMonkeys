@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { StepsHeader } from "../../Components/StepsHeader/StepsHeader";
 import { FunkyContext } from "../../ContextRoot";
@@ -66,6 +66,120 @@ export function Delivery() {
 
       const whiteSpace = /\s/;
 
+      useEffect(() => {
+        if (firstName === "") {
+            setIsEmptyFirstName(true);
+            setValidFirstName(false);
+        } else {
+            setIsEmptyFirstName(false);
+
+            if (firstName.length < 2) {
+                setShortFirstName(true);
+                setValidFirstName(false);
+            } else {
+                setShortFirstName(false);
+
+                if (firstName.toLowerCase().split('').every(char => validCharLetter.includes(char))) {
+                    setWrongFirstName(false);
+                    setValidFirstName(true);
+                } else {
+                    setWrongFirstName(true);
+                    setValidFirstName(false);
+                }
+            }
+        }
+    }, [firstName]);
+
+    useEffect(() => {
+        if (lastName === "") {
+            setIsEmptyLastName(true)
+
+            setValidLastName(false)
+        } else {
+            setIsEmptyLastName(false)
+
+            if (lastName.length < 2) {
+                setShortLastName(true)
+
+                setValidLastName(false)
+            } else {
+                setShortLastName(false)
+                
+                if (lastName.toLowerCase().split('').every(char => validCharLetter.includes(char))) {
+                    setWrongLastName(false)
+
+                    setValidLastName(true)
+                } else {
+                    setWrongLastName(true)
+
+                    setValidLastName(false)
+                }
+            }
+        }
+    }, [lastName])
+
+    useEffect(() => {
+        if (customerEmail === "") {
+            setIsEmptyEmail(true)
+
+            setValidEmail(false)
+        } else {
+            setIsEmptyEmail(false)
+
+            if (validEmailCharacter.test(customerEmail)) {
+                setWrongEmail(false)
+
+                setValidEmail(true)
+            } else {
+                setWrongEmail(true)
+
+                setValidEmail(false)
+            }
+        }
+
+    }, [customerEmail])
+
+    useEffect(() => {
+        if (customerPhone === "") {
+            setIsEmptyPhoneNumber(true)
+
+            setValidPhone(false)
+        } else {
+            setIsEmptyPhoneNumber(false)
+
+
+            if(whiteSpace.test(customerPhone)) {
+                setPhoneSpace(true)
+
+                setValidPhone(false)
+            } else {
+                setPhoneSpace(false)
+
+                if(customerPhone.length < 10) {
+                    setShortPhoneNumber(true)
+
+                    setValidPhone(false)
+                } else {
+                    setShortPhoneNumber(false)
+
+                    if (customerPhone.split('').every(char => validPhoneFormat.includes(char))) {
+                        setWrongPhoneNumber(false)
+    
+                        setValidPhone(true)
+                    } else {
+                        setWrongPhoneNumber(true)
+    
+                        setValidPhone(false)
+                    }
+
+                }
+                
+            }     
+    }
+    }, [customerPhone])
+
+
+
       const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -85,122 +199,6 @@ export function Delivery() {
                 navigate("/betalning");
                 setSelectStep(3);
             }
-
-            // If name is empty
-            if (firstName === "") {
-                setIsEmptyFirstName(true)
-
-                setValidFirstName(false)
-            } else {
-                // If name is not empty
-                setIsEmptyFirstName(false)
-                
-
-
-                // Name is shorter than 2
-                if (firstName.length < 2) {
-                    setShortFirstName(true)
-
-                    setValidFirstName(false)
-                } else {
-                    setShortFirstName(false)
-
-                    // If name only includes letters
-                    if (firstName.toLowerCase().split('').every(char => validCharLetter.includes(char))) {
-                        setWrongFirstName(false)
-
-                        setValidFirstName(true)
-                    } else {
-                        setWrongFirstName(true)
-
-                        setValidFirstName(false)
-                    }
-                }
-            }
-
-            if (lastName === "") {
-                setIsEmptyLastName(true)
-
-                setValidLastName(false)
-            } else {
-                setIsEmptyLastName(false)
-
-                if (lastName.length < 2) {
-                    setShortLastName(true)
-
-                    setValidLastName(false)
-                } else {
-                    setShortLastName(false)
-                    
-                    if (lastName.toLowerCase().split('').every(char => validCharLetter.includes(char))) {
-                        setWrongLastName(false)
-
-                        setValidLastName(true)
-                    } else {
-                        setWrongLastName(true)
-
-                        setValidLastName(false)
-                    }
-                }
-
-            }
-            
-            if (customerEmail === "") {
-                setIsEmptyEmail(true)
-
-                setValidEmail(false)
-            } else {
-                setIsEmptyEmail(false)
-
-                if (validEmailCharacter.test(customerEmail)) {
-                    setWrongEmail(false)
-
-                    setValidEmail(true)
-                } else {
-                    setWrongEmail(true)
-
-                    setValidEmail(false)
-                }
-            }
-
-
-
-            if (customerPhone === "") {
-                setIsEmptyPhoneNumber(true)
-
-                setValidPhone(false)
-            } else {
-                setIsEmptyPhoneNumber(false)
-
-
-                if(whiteSpace.test(customerPhone)) {
-                    setPhoneSpace(true)
-
-                    setValidPhone(false)
-                } else {
-                    setPhoneSpace(false)
-
-                    if(customerPhone.length < 10) {
-                        setShortPhoneNumber(true)
-    
-                        setValidPhone(false)
-                    } else {
-                        setShortPhoneNumber(false)
-    
-                        if (customerPhone.split('').every(char => validPhoneFormat.includes(char))) {
-                            setWrongPhoneNumber(false)
-        
-                            setValidPhone(true)
-                        } else {
-                            setWrongPhoneNumber(true)
-        
-                            setValidPhone(false)
-                        }
-    
-                    }
-                    
-                }     
-        }
       };
 
       // On change
