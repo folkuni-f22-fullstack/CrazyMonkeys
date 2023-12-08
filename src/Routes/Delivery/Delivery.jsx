@@ -48,7 +48,14 @@ export function Delivery() {
 
       const [shortPhoneNumber, setShortPhoneNumber] = useState(false);
 
-      const [phoneNoSpace ,setPhoneNoSpace] = useState(false)
+      const [phoneNoSpace ,setPhoneSpace] = useState(false)
+
+      // Validation valid
+      const [validFirstName, setValidFirstName] = useState(false)
+      const [validLastName, setValidLastName] = useState(false)
+      const [validEmail, setValidEmail] = useState(false)
+      const [validPhone, setValidPhone] = useState(false)
+
 
       // Validation
       const validCharLetter = "abcdefghijklmnopqrstuvwxyzåäö- "
@@ -59,15 +66,20 @@ export function Delivery() {
 
       const whiteSpace = /\s/;
 
+      // Style
+      const validationErrorBorder = (empty, wrong, valid) => {
+        return {
+            border: empty || wrong || !valid
+                ? "2px solid #FF0000"
+                : "2px solid #48E761",
+        };
+    };
+
 
       const handleSubmit = (event) => {
         event.preventDefault();
 
-
-        // If they are not empty
-        if (firstName !== "" && lastName !== "" && customerEmail !== "" && customerPhone !== "") {
-
-            if (!wrongFirstName && !wrongLastName && !wrongEmail && !wrongPhoneNumber) {
+            if (validFirstName && validLastName && validEmail && validPhone) {
                 const customerInfo = {
                     name: `${firstName} ${lastName}`,
                     mail: customerEmail,
@@ -84,45 +96,60 @@ export function Delivery() {
                 setSelectStep(3);
             }
 
-        } else {
-
             // If name is empty
             if (firstName === "") {
                 setIsEmptyFirstName(true)
+
+                setValidFirstName(false)
             } else {
                 // If name is not empty
                 setIsEmptyFirstName(false)
+                
 
 
                 // Name is shorter than 2
                 if (firstName.length < 2) {
                     setShortFirstName(true)
+
+                    setValidFirstName(false)
                 } else {
                     setShortFirstName(false)
 
                     // If name only includes letters
                     if (firstName.toLowerCase().split('').every(char => validCharLetter.includes(char))) {
                         setWrongFirstName(false)
+
+                        setValidFirstName(true)
                     } else {
                         setWrongFirstName(true)
+
+                        setValidFirstName(false)
                     }
                 }
             }
 
             if (lastName === "") {
                 setIsEmptyLastName(true)
+
+                setValidLastName(false)
             } else {
                 setIsEmptyLastName(false)
 
                 if (lastName.length < 2) {
                     setShortLastName(true)
+
+                    setValidLastName(false)
                 } else {
                     setShortLastName(false)
                     
                     if (lastName.toLowerCase().split('').every(char => validCharLetter.includes(char))) {
                         setWrongLastName(false)
+
+                        setValidLastName(true)
                     } else {
                         setWrongLastName(true)
+
+                        setValidLastName(false)
                     }
                 }
 
@@ -130,40 +157,59 @@ export function Delivery() {
             
             if (customerEmail === "") {
                 setIsEmptyEmail(true)
+
+                setValidEmail(false)
             } else {
                 setIsEmptyEmail(false)
 
                 if (validEmailCharacter.test(customerEmail)) {
                     setWrongEmail(false)
+
+                    setValidEmail(true)
                 } else {
                     setWrongEmail(true)
+
+                    setValidEmail(false)
                 }
             }
+
+
 
             if (customerPhone === "") {
                 setIsEmptyPhoneNumber(true)
+
+                setValidPhone(false)
             } else {
                 setIsEmptyPhoneNumber(false)
 
-                if(customerPhone < 10) {
-                    setShortPhoneNumber(true)
-                } else {
-                    setShortPhoneNumber(false)
-                }
 
-                if (whiteSpace.test(customerPhone)) {
-                    setPhoneNoSpace(true)
-                } else {
-                    setPhoneNoSpace(false)
-                }
+                if(whiteSpace.test(customerPhone)) {
+                    setPhoneSpace(true)
 
-                if (customerPhone.split('').every(char => validPhoneFormat.includes(char))) {
-                    setWrongPhoneNumber(false)
+                    setValidPhone(false)
                 } else {
-                    setWrongPhoneNumber(true)
-                }
-                
-            }
+                    setPhoneSpace(false)
+
+                    if(customerPhone.length < 10) {
+                        setShortPhoneNumber(true)
+    
+                        setValidPhone(false)
+                    } else {
+                        setShortPhoneNumber(false)
+    
+                        if (customerPhone.split('').every(char => validPhoneFormat.includes(char))) {
+                            setWrongPhoneNumber(false)
+        
+                            setValidPhone(true)
+                        } else {
+                            setWrongPhoneNumber(true)
+        
+                            setValidPhone(false)
+                        }
+    
+                    }
+                    
+                }     
         }
       };
 
@@ -248,6 +294,7 @@ export function Delivery() {
                                 value={firstName}
                                 type="text"
                                 placeholder="Johanna"
+                                style={validationErrorBorder(isEmptyFirstName, wrongFirstName, validFirstName)}
                             />
                             {
                                 isEmptyFirstName && (
@@ -283,6 +330,7 @@ export function Delivery() {
                                 value={lastName}
                                 type="text"
                                 placeholder="Doe"
+                                style={validationErrorBorder(isEmptyLastName, wrongLastName, validLastName)}
                             />
                                                      {
                                 isEmptyLastName && (
@@ -316,7 +364,8 @@ export function Delivery() {
                             onChange={emailChange}
                             value={customerEmail}
                             type="email"
-                            placeholder="johannaDoe@example.com"
+                            placeholder="johannadoe@example.com"
+                            style={validationErrorBorder(isEmptyEmail, wrongEmail, validEmail)}
                         />
                             {
                                 isEmptyEmail && (
@@ -344,6 +393,7 @@ export function Delivery() {
                             value={customerPhone}
                             type="number"
                             placeholder="073 123 4561"
+                            style={validationErrorBorder(isEmptyPhoneNumber, wrongPhoneNumber, validPhone)}
                         />
                         {
                                 isEmptyPhoneNumber && (
