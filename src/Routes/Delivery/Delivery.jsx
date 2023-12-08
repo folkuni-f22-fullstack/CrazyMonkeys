@@ -66,16 +66,6 @@ export function Delivery() {
 
       const whiteSpace = /\s/;
 
-      // Style
-      const validationErrorBorder = (empty, wrong, valid) => {
-        return {
-            border: empty || wrong || !valid
-                ? "2px solid #FF0000"
-                : "2px solid #48E761",
-        };
-    };
-
-
       const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -294,7 +284,6 @@ export function Delivery() {
                                 value={firstName}
                                 type="text"
                                 placeholder="Johanna"
-                                style={validationErrorBorder(isEmptyFirstName, wrongFirstName, validFirstName)}
                             />
                             {
                                 isEmptyFirstName && (
@@ -330,7 +319,6 @@ export function Delivery() {
                                 value={lastName}
                                 type="text"
                                 placeholder="Doe"
-                                style={validationErrorBorder(isEmptyLastName, wrongLastName, validLastName)}
                             />
                                                      {
                                 isEmptyLastName && (
@@ -365,7 +353,6 @@ export function Delivery() {
                             value={customerEmail}
                             type="email"
                             placeholder="johannadoe@example.com"
-                            style={validationErrorBorder(isEmptyEmail, wrongEmail, validEmail)}
                         />
                             {
                                 isEmptyEmail && (
@@ -393,7 +380,6 @@ export function Delivery() {
                             value={customerPhone}
                             type="number"
                             placeholder="073 123 4561"
-                            style={validationErrorBorder(isEmptyPhoneNumber, wrongPhoneNumber, validPhone)}
                         />
                         {
                                 isEmptyPhoneNumber && (
